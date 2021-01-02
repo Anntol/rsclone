@@ -6,7 +6,8 @@ import { IUserToken } from '../models/users.models';
 import { BASE_URL, USER_API, API_KEY } from '../../shared/constants/constsnts';
 
 const GLOBAL_GIVIN = {
-  TOKEN: `${BASE_URL}/userservice/tokens`
+  TOKEN: `${BASE_URL}/userservice/tokens`,
+  ACTIVE_FOR_COUNTRY: (country: string) => `${BASE_URL}/public/projectservice/countries/${country}/projects/active`
 };
 
 @Injectable({
@@ -25,4 +26,7 @@ export class GlobalGivingApiService {
     return this.http.post<IUserToken>(GLOBAL_GIVIN.TOKEN, this.body);
   }
 
+  public getActiveProjectsForCountry(iso3166CountryCode: string): Observable<any> {
+    return this.http.get<any>(`${GLOBAL_GIVIN.ACTIVE_FOR_COUNTRY(iso3166CountryCode)}`);
+  }
 }
