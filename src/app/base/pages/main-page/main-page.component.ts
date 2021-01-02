@@ -15,10 +15,10 @@ export class MainPageComponent implements OnInit {
   constructor(private globalGivingApiService: GlobalGivingApiService) {}
 
   ngOnInit(): void {
-    // this.globalGivingApiService.getAccessToken().subscribe((data) => {
-    //   console.log(this.token);
-    //   this.token = data;
-    // });
+    this.globalGivingApiService.getAccessToken().subscribe((data) => {
+      console.log(this.token);
+      this.token = data;
+    });
     this.globalGivingApiService.getActiveProjectsForCountry(this.country).subscribe((data) => {
       console.log(data);
     });
