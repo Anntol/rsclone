@@ -33,7 +33,14 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [],
+            "allowedCommonJsDependencies": [
+              "@babel/runtime",
+              "core-js",
+              "polylabel",
+              "raf",
+              "xlsx"
+            ]
           },
           "configurations": {
             "production": {
