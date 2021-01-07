@@ -1,0 +1,27 @@
+<Header>
+  <nav class="header-container">
+    <div class="header-nav">
+
+      <a routerLink="/home" class="nav" >
+        {{ "HEADER.NAV.HOME" | translate }}
+      </a>
+
+      <span class="bull">&bull;</span>
+
+      <a routerLink="/poets" class="nav" >
+        {{ "HEADER.NAV.PROJECTS" | translate }}
+      </a>
+
+      <span class="bull">&bull;</span>
+
+      <a routerLink="/about-team" class="nav" >
+        {{ "HEADER.NAV.ABOUT" | translate }}
+      </a>
+
+    </div>
+    <select class="select-language" #myLanguage (change)="selectLanguage(myLanguage.value)">
+      <option class="option" *ngFor='let language of languageArr' [value]="language">{{language}}</option>
+    </select>
+  </nav>
+</Header>
+
