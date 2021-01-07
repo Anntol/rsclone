@@ -4,3 +4,7 @@ export const USER_API = {
   email: 'mitaka@tut.by',
   password: 'YCV#ae7ztcA2Psc'
 };
+
+export abstract class CommonConstants {
+  public static readonly LANGUAGE_ARR: Array<string> = ['EN', 'BY', 'UA'];
+}
