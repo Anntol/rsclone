@@ -15,10 +15,10 @@ const GLOBAL_GIVIN = {
 })
 export class GlobalGivingApiService {
   httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+    headers: new HttpHeaders({ Accept: 'application/json', 'Content-Type': 'application/json' })
   };
 
-  body = { auth_request: USER_API, api_key: API_KEY };
+  body = JSON.stringify({ auth_request: USER_API, api_key: API_KEY });
 
   constructor(private http: HttpClient) {}
 
