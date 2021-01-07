@@ -95,7 +95,11 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "src/theme/colors.scss",
+              "src/theme/fonts.scss",
+              "src/theme/stacks.scss",
+              "src/theme/typography.scss"
             ],
             "scripts": []
           }
