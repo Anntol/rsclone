@@ -1,14 +1,17 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpErrorResponse, HttpParams } from '@angular/common/http';
+import {
+ HttpClient, HttpHeaders, HttpErrorResponse, HttpParams
+} from '@angular/common/http';
 
 import { Observable, throwError } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
 import { IUserToken } from '../models/users.models';
-import { IProjects } from '../models/projects.model';
+import { IProjects, IQueryOptions, ISearchResults } from '../models/projects.model';
 import { BASE_URL } from '../../shared/constants/constsnts';
 
 const GLOBAL_GIVIN = {
   TOKEN: `${BASE_URL}/userservice/tokens`,
+  ACTIVE_BY_KEYWORD: `${BASE_URL}/public/services/search/projects`,
   ACTIVE_FOR_COUNTRY: (country: string) => `${BASE_URL}/public/projectservice/countries/${country}/projects/active`
 };
 
@@ -46,6 +49,30 @@ export class GlobalGivingApiService {
     const id: number = nextProjectID || 1;
     const options = { params: new HttpParams({ fromString: `&nextProjectId=${id}` }) };
     return this.http.get<IProjects>(`${GLOBAL_GIVIN.ACTIVE_FOR_COUNTRY(iso3166CountryCode)}`, options).pipe(
+      retry(3),
+      catchError((e) => this.handleError(e))
+    );
+  }
+
+  public getActiveProjectsByKeyWords(queryParams: IQueryOptions): Observable<ISearchResults> {
+    const query: string = queryParams.keyWords.split(' ').map((item) => item).join('+');
+    const id: number = queryParams.startNumber || 0;
+    let params: HttpParams = new HttpParams()
+      .set('q', query)
+      .set('start', String(id));
+    let filterQuery = '';
+    const country: string = queryParams.iso3166CountryCode || '';
+    if (country.length !== 0) {
+      filterQuery += `country:${country},`;
+    }
+    const themeId: string = queryParams.theme || '';
+    if (themeId.length !== 0) {
+      filterQuery += `theme:${themeId}`;
+    }
+    if (filterQuery.length !== 0) {
+      params = params.set('filter', filterQuery)
+    }
+    return this.http.get<ISearchResults>(GLOBAL_GIVIN.ACTIVE_BY_KEYWORD, { params }).pipe(
       retry(3),
       catchError((e) => this.handleError(e))
     );

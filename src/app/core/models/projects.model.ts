@@ -2,6 +2,21 @@ export interface IProjects {
   projects: IAllProjects;
 }
 
+export interface ISearchResults {
+  search: {
+    request: {
+      q: string;
+      start: number;
+      summary: boolean;
+    }
+    response: {
+      numberFound: number;
+      start: number;
+      projects:IAllProjects;
+    }
+  }
+}
+
 export interface IAllProjects {
   hasNext: boolean;
   nextProjectId: number;
@@ -85,4 +100,11 @@ export interface IOrganisation {
 export interface ITheme {
   id: string;
   name: string;
+}
+
+export interface IQueryOptions {
+  keyWords: string;
+  startNumber?: number;
+  iso3166CountryCode?: string;
+  theme?: string;
 }
