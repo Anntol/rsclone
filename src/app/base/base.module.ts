@@ -5,11 +5,12 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { GlobalGivingApiService } from '../core/service/global-giving-api.service';
 import { MainPageComponent } from './pages/main-page/main-page.component';
 import { ParamsInterceptor } from '../core/interceptors/params.interceptor';
+import { ProjectListComponent } from './components/project-list/project-list.component';
 
 @NgModule({
-  declarations: [MainPageComponent],
+  declarations: [MainPageComponent, ProjectListComponent],
   imports: [CommonModule, HttpClientModule],
-  exports: [MainPageComponent],
+  exports: [MainPageComponent, ProjectListComponent],
   providers: [
     GlobalGivingApiService,
     {
