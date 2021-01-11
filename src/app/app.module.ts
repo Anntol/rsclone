@@ -11,7 +11,7 @@ import { BaseModule } from './base/base.module';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, AppRoutingModule, CoreModule, BrowserAnimationsModule],
+  imports: [BrowserModule, AppRoutingModule, CoreModule, BrowserAnimationsModule, BaseModule],
   providers: [],
   bootstrap: [AppComponent]
 })

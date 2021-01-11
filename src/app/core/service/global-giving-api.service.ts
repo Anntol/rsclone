@@ -1,13 +1,11 @@
 import { Injectable } from '@angular/core';
-import {
- HttpClient, HttpHeaders, HttpErrorResponse, HttpParams
-} from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpErrorResponse, HttpParams } from '@angular/common/http';
 
 import { Observable, throwError } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
 import { IUserToken } from '../models/users.models';
 import { IProjects, IQueryOptions, ISearchResults } from '../models/projects.model';
-import { BASE_URL } from '../../shared/constants/constsnts';
+import { BASE_URL, NUMBER_RETRIES_OF_REQUESTS } from '../../shared/constants/constants';
 
 const GLOBAL_GIVIN = {
   TOKEN: `${BASE_URL}/userservice/tokens`,
@@ -36,7 +34,7 @@ export class GlobalGivingApiService {
       // Server-side errors
       errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
     }
-    // later replace with component
+    // TODO replace with component
     window.alert(errorMessage);
     return throwError(errorMessage);
   }
@@ -49,17 +47,18 @@ export class GlobalGivingApiService {
     const id: number = nextProjectID || 1;
     const options = { params: new HttpParams({ fromString: `&nextProjectId=${id}` }) };
     return this.http.get<IProjects>(`${GLOBAL_GIVIN.ACTIVE_FOR_COUNTRY(iso3166CountryCode)}`, options).pipe(
-      retry(3),
+      retry(NUMBER_RETRIES_OF_REQUESTS),
       catchError((e) => this.handleError(e))
     );
   }
 
   public getActiveProjectsByKeyWords(queryParams: IQueryOptions): Observable<ISearchResults> {
-    const query: string = queryParams.keyWords.split(' ').map((item) => item).join('+');
+    const query: string = queryParams.keyWords
+      .split(' ')
+      .map((item) => item)
+      .join('+');
     const id: number = queryParams.startNumber || 0;
-    let params: HttpParams = new HttpParams()
-      .set('q', query)
-      .set('start', String(id));
+    let params: HttpParams = new HttpParams().set('q', query).set('start', String(id));
     let filterQuery = '';
     const country: string = queryParams.iso3166CountryCode || '';
     if (country.length !== 0) {
@@ -70,11 +69,13 @@ export class GlobalGivingApiService {
       filterQuery += `theme:${themeId}`;
     }
     if (filterQuery.length !== 0) {
-      params = params.set('filter', filterQuery)
+      params = params.set('filter', filterQuery);
     }
-    return this.http.get<ISearchResults>(GLOBAL_GIVIN.ACTIVE_BY_KEYWORD, { params }).pipe(
-      retry(3),
-      catchError((e) => this.handleError(e))
-    );
+    return this.http
+      .get<ISearchResults>(GLOBAL_GIVIN.ACTIVE_BY_KEYWORD, { params })
+      .pipe(
+        retry(NUMBER_RETRIES_OF_REQUESTS),
+        catchError((e) => this.handleError(e))
+      );
   }
 }
