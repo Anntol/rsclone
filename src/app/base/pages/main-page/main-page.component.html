@@ -1,5 +1,10 @@
 <div>
-  <p>MAIN-page works!</p>
+  <span class="search">MAIN-page works! Find a project by keyword </span>
+    <mat-form-field appearance="outline">
+      <input type="text" matInput
+        [formControl]="searchQuery">
+    </mat-form-field>
+    <span class="warning-message">{{ errorMessage }}</span>
   <hr>
   <app-project-list></app-project-list>
 </div>

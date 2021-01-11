@@ -1,5 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { IProject } from 'src/app/core/models/projects.model';
+import { Component, OnInit, Input, OnDestroy } from '@angular/core';
+import { takeUntil } from 'rxjs/operators';
+import { Subject } from 'rxjs';
+
+import { IProject, IProjects } from 'src/app/core/models/projects.model';
 import { GlobalGivingApiService } from '../../../core/service/global-giving-api.service';
 
 @Component({
@@ -7,7 +10,9 @@ import { GlobalGivingApiService } from '../../../core/service/global-giving-api.
   templateUrl: './project-list.component.html',
   styleUrls: ['./project-list.component.scss']
 })
-export class ProjectListComponent implements OnInit {
+export class ProjectListComponent implements OnInit, OnDestroy {
+  destroy$: Subject<boolean> = new Subject<boolean>();
+
   country = 'UA';
 
   @Input() dataProjects!: IProject[];
@@ -18,28 +23,39 @@ export class ProjectListComponent implements OnInit {
 
   nextProjectMessage = '';
 
-  constructor(private globalGivingApiService: GlobalGivingApiService) { }
+  constructor(private globalGivingApiService: GlobalGivingApiService) {}
 
   ngOnInit(): void {
-    this.globalGivingApiService.getActiveProjectsForCountry(this.country).subscribe((data) => {
-      if (data.projects.hasNext !== undefined) {
-        this.nextProjectId = data.projects.nextProjectId;
-      }
-      this.hasNext = data.projects.hasNext || false;
-      this.dataProjects = data.projects.project;
-    });
-  }
-
-  public nextPage(): void {
-    if (this.hasNext) {
-      this.globalGivingApiService.getActiveProjectsForCountry(this.country, this.nextProjectId).subscribe((data) => {
+    this.globalGivingApiService
+      .getActiveProjectsForCountry(this.country)
+      .pipe(takeUntil(this.destroy$))
+      .subscribe((data: IProjects) => {
         if (data.projects.hasNext !== undefined) {
           this.nextProjectId = data.projects.nextProjectId;
         }
         this.hasNext = data.projects.hasNext || false;
-        this.nextProjectMessage = !this.hasNext ? 'There are no more active projects!!' : '';
-        this.dataProjects = this.dataProjects.concat(data.projects.project);
+        this.dataProjects = data.projects.project;
       });
+  }
+
+  public nextPage(): void {
+    if (this.hasNext) {
+      this.globalGivingApiService
+        .getActiveProjectsForCountry(this.country, this.nextProjectId)
+        .pipe(takeUntil(this.destroy$))
+        .subscribe((data: IProjects) => {
+          if (data.projects.hasNext !== undefined) {
+            this.nextProjectId = data.projects.nextProjectId;
+          }
+          this.hasNext = data.projects.hasNext || false;
+          this.nextProjectMessage = !this.hasNext ? 'There are no more active projects!!' : '';
+          this.dataProjects = this.dataProjects.concat(data.projects.project);
+        });
     }
+  }
+
+  ngOnDestroy(): void {
+    this.destroy$.next(true);
+    this.destroy$.unsubscribe();
   }
 }
