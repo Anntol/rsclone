@@ -1,5 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { filter, switchMap, debounceTime, catchError, takeUntil } from 'rxjs/operators';
+import {
+ filter, switchMap, debounceTime, catchError, takeUntil
+} from 'rxjs/operators';
 import { EMPTY, Observable, Subject } from 'rxjs';
 
 import { FormControl } from '@angular/forms';
