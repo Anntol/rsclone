@@ -1,0 +1,9 @@
+<div>
+  <ul class="projects">
+    <li *ngFor="let project of dataProjects">
+      <span class="badge">{{ project.id }}</span> {{ project.title }}
+    </li>
+  </ul>
+  <button (click)="nextPage()">more projects >>></button>
+  <span class="warning-message">{{ nextProjectMessage }}</span>
+</div>
