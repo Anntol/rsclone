@@ -1,9 +1,10 @@
 <div>
-  <ul class="projects">
+  <app-project-card [dataProjects]=dataProjects></app-project-card>
+  <!-- <ul class="projects">
     <li  *ngFor="let project of dataProjects">
       <span class="badge">{{ project.id }}</span> {{ project.title }}
     </li>
-  </ul>
+  </ul> -->
   <button (click)="nextPage()" > more projects >>> </button>
   <span class="warning-message">{{ nextProjectMessage }}</span>
 </div>

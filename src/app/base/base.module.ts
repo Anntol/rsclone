@@ -7,11 +7,12 @@ import { GlobalGivingApiService } from '../core/service/global-giving-api.servic
 import { MainPageComponent } from './pages/main-page/main-page.component';
 import { ParamsInterceptor } from '../core/interceptors/params.interceptor';
 import { ProjectListComponent } from './components/project-list/project-list.component';
+import { ProjectCardComponent } from './components/project-card/project-card.component';
 
 @NgModule({
-  declarations: [MainPageComponent, ProjectListComponent],
+  declarations: [MainPageComponent, ProjectListComponent, ProjectCardComponent],
   imports: [CommonModule, SharedModule, HttpClientModule],
-  exports: [MainPageComponent, ProjectListComponent],
+  exports: [MainPageComponent, ProjectListComponent, ProjectCardComponent],
   providers: [
     GlobalGivingApiService,
     {

@@ -1,4 +1,6 @@
-import { Component, OnInit, Input, OnDestroy } from '@angular/core';
+import {
+ Component, OnInit, Input, OnDestroy
+} from '@angular/core';
 import { takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 
@@ -35,6 +37,7 @@ export class ProjectListComponent implements OnInit, OnDestroy {
         }
         this.hasNext = data.projects.hasNext || false;
         this.dataProjects = data.projects.project;
+        console.log(this.dataProjects);
       });
   }
 

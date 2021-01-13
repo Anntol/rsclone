@@ -1,0 +1,202 @@
+.block-card * {
+  box-sizing: border-box;
+}
+.block-card {
+  margin: 20px auto;
+  padding: 0;
+  position: relative;
+  max-width: 400px;
+  width: 100%;
+  overflow: hidden;
+  /* shadows_10 */
+
+  background: linear-gradient(135.37deg, rgba(0, 0, 0, 0.2) 4.29%, rgba(255, 255, 255, 0.4) 97.6%), #eaebee;
+  background-blend-mode: soft-light, normal;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-sizing: border-box;
+  box-shadow: -5px -5px 10px #FAFBFF, 3px 3px 5px #A6ABBD;
+  border-radius: 40px;
+
+}
+
+.block-card .image-wrap {
+  border-radius: 100%;
+  border-radius: 50% 0% 0% 50%;
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  top: 30px;
+  // background: #FFF;
+  z-index: 1;
+  right: 0;
+  /* inner_10 */
+
+  background: linear-gradient(317.7deg, rgba(0, 0, 0, 0.4) 0%, rgba(255, 255, 255, 0.4) 105.18%), #EBECF0;
+  background-blend-mode: soft-light, normal;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-sizing: border-box;
+  box-shadow: inset -5px -5px 10px #FAFBFF, inset 3px 3px 5px #b6bfdf;
+  // border-radius: 40px;
+
+}
+.block-card .image-lay {
+  width: 100px;
+  height: 200px;
+  position: absolute;
+  // top: -5px;
+  // background: #FFF;
+  z-index: 2;
+  right: -5px;
+}
+.block-card .image {
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  border-radius: 50%;
+  position: absolute;
+  z-index: 3;
+  height: 176px;
+  width: 176px;
+  top: 12px;
+  right: 5px;
+}
+.block-card .front,
+.block-card .back {
+  background-size: cover;
+  background-position: center;
+  transition: transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+  backface-visibility: hidden;
+  text-align: center;
+  border-radius: 50%;
+  color: #fff;
+  height: 176px;
+  width: 176px;
+  border: 5px solid #BFE2FF;
+  position: absolute;
+}
+.block-card .inner {
+  transform: translateY(-50%) translateZ(60px);
+  top: 50%;
+  position: absolute;
+  margin: auto;
+  z-index: 4;
+  width: 100%;
+}
+.block-card .image .back{
+  transform: rotateY(180deg);
+  transform-style: preserve-3d;
+}
+.block-card:hover .back{
+  transform: rotateY(0deg);
+  transform-style: preserve-3d;
+}
+.block-card:hover .front{
+  transform: rotateY(-180deg);
+  transform-style: preserve-3d;
+}
+.block-card .inner a {
+  font-weight: bold;
+  font-family: Verdana, sans-serif;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #337AB7;
+  text-align: center;
+  margin: auto;
+  display:block;
+  font-size: 14px;
+  line-height: 130px;
+  height: 142px;
+  width: 142px;
+  border:6px solid #BFE2FF;
+  border-radius: 50%;
+  transition:all .6s ease-in-out;
+  overflow:hidden;
+}
+.block-card .inner a::before{
+  content:'';
+  position:absolute;
+  top:-12px;
+  margin:auto;
+  display:block;
+  border-radius:50%;
+  width:166px;
+  height:166px;
+  left:-1px;
+  transition:box-shadow .6s ease-in-out;
+  z-index:-1;
+}
+.block-card .inner a:hover{
+  color:#fff;
+}
+.block-card .inner a:hover::before{
+  box-shadow: inset 0 0 0 166px #337AB7;
+}
+
+.block-card .figure-txt {
+  position: relative;
+  z-index: 1;
+  padding: 10px 20px;
+  margin-right: 100px;
+  min-height: 260px;
+}
+.block-card .figure-txt h3 {
+  text-transform: uppercase;
+  color: #337AB7;
+  font-weight: bold;
+  font-family: Verdana, sans-serif;
+  font-size: 20px;
+  margin: 6px 100px 12px 0;
+}
+.block-card .figure-txt p {
+  font-family: Verdana, sans-serif;
+  font-size: 16px;
+  margin: 10px 100px 10px 0;
+}
+@media (max-width: 560px) {
+  .block-card .figure-txt,
+  .block-card .figure-txt h3,
+  .block-card .figure-txt p {
+      margin-right: 0;
+  }
+  .block-card .figure-txt {
+      min-height: auto;
+      border-bottom: none;
+  }
+  .block-card .image-lay {
+      display: none;
+  }
+  .block-card .image-wrap {
+      // border: 5px solid #BFE2FF;
+      border-top: none;
+      border-radius: 0 0 40px 40px;
+      width: 100%;
+      height: 155px;
+      position: static;
+  }
+  .block-card .image {
+      border-radius: 0;
+      position: static;
+      height: 160px;
+      width: 100%;
+  }
+  .block-card .front,
+  .block-card .back {
+      height: 154px;
+      width: 100%;
+      position: static;
+      border-radius: 0 0 40px 40px ;
+      border: none;
+  }
+  .block-card .inner {
+      transform: translateY(-100%) translateZ(60px);
+      // top: -5px;
+  }
+  .block-card .inner a::before{
+      display: none;
+  }
+  .block-card .inner a:hover{
+      color:#000;
+  }
+}
+
+// background: linear-gradient(135.37deg, rgba(0, 0, 0, 0.4) 4.29%, rgba(255, 255, 255, 0.4) 95.6%);
+// background: 235,236,240,1;
