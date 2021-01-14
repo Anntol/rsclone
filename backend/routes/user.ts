@@ -1,6 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unsafe-member-access */
-/* eslint-disable @typescript-eslint/no-unsafe-call */
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import express from 'express';
 import bcrypt from 'bcrypt';
 
@@ -14,11 +11,12 @@ interface ICreateUser {
 }
 
 router.post('/signup', (req, res) => {
-  console.log('back route', req.body);
+  // console.log('back route', req.body);
+  const reqBody = req.body as IUser;
   const hashLength = 10;
-  const hash = bcrypt.hashSync(req.body.password, hashLength);
+  const hash = bcrypt.hashSync(reqBody.password, hashLength);
   const user: ICreateUser = {
-    email: req.body.email,
+    email: reqBody.email,
     password: hash
   };
   UserModel.create(user)
@@ -28,7 +26,7 @@ router.post('/signup', (req, res) => {
         result
       });
     })
-    .catch((err) => {
+    .catch((err: Error) => {
       res.status(500).json({
         error: err
       });
