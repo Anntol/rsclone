@@ -1,0 +1,9 @@
+{
+  "HEADER": {
+    "NAV": {
+      "HOME": "home",
+      "PROJECTS": "projects",
+      "ABOUT": "authors"
+    }
+  }
+}
