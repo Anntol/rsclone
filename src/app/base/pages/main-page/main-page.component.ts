@@ -1,21 +1,25 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import {
+ Component, OnInit, AfterViewChecked, OnDestroy, ViewChild, ChangeDetectorRef
+} from '@angular/core';
 import {
  filter, switchMap, debounceTime, catchError, takeUntil
 } from 'rxjs/operators';
 import { EMPTY, Observable, Subject } from 'rxjs';
 
 import { FormControl } from '@angular/forms';
+import { TranslateService } from '@ngx-translate/core';
 import { GlobalGivingApiService } from '../../../core/service/global-giving-api.service';
 import { IUserToken } from '../../../core/models/users.models';
 import { IProject, IQueryOptions, ISearchResults } from '../../../core/models/projects.model';
 import { MIN_LENGTH_QUERY, WAIT_FOR_INPUT } from '../../../shared/constants/constants';
+import { SelectLangComponent } from '../../../shared/components/select-lang/select-lang.component';
 
 @Component({
   selector: 'app-main-page',
   templateUrl: './main-page.component.html',
   styleUrls: ['./main-page.component.scss']
 })
-export class MainPageComponent implements OnInit, OnDestroy {
+export class MainPageComponent implements OnInit, AfterViewChecked, OnDestroy {
   token!: IUserToken;
 
   destroy$: Subject<boolean> = new Subject<boolean>();
@@ -37,7 +41,18 @@ export class MainPageComponent implements OnInit, OnDestroy {
 
   dataProjects: IProject[] = [];
 
-  constructor(private globalGivingApiService: GlobalGivingApiService) {}
+  @ViewChild(SelectLangComponent) selectLang!: SelectLangComponent;
+
+ constructor(
+   private globalGivingApiService: GlobalGivingApiService,
+   public translate: TranslateService,
+   private cdr: ChangeDetectorRef
+   ) {}
+
+  ngAfterViewChecked(): void {
+    this.translate.use(this.selectLang.myLanguage);
+    this.cdr.detectChanges();
+  }
 
   ngOnInit(): void {
     this.searchQuery.valueChanges
@@ -63,7 +78,7 @@ export class MainPageComponent implements OnInit, OnDestroy {
           this.dataProjects = results.search.response.projects.project;
           this.error = false;
           this.errorMessage = '';
-          console.log(this.dataProjects);
+          // console.log(this.dataProjects);
         } else {
           this.errorMessage = 'No projects found! Please try again.';
         }

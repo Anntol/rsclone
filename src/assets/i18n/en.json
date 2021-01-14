@@ -5,5 +5,9 @@
       "PROJECTS": "projects",
       "ABOUT": "authors"
     }
+  },
+  "SEARCH": {
+    "LABEL": "Find a project:",
+    "ERR_MESSAGE": "No projects found! Please try again."
   }
 }

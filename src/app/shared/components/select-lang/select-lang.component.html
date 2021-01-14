@@ -1,12 +1,8 @@
 <div>
-  <div  class="form_lang_btn" *ngFor='let language of languageArr' >
+  <div class="form_lang_btn" *ngFor="let language of languageArr">
     <div class="select-language">
-      <input [id]="language" type="radio" [value]="language" [ngModel]="myLanguage">
-      <label [for]="language"
-        [ngStyle]="{ 'background-image': 'url(assets/flags/' + language + '.svg)' }"
-      ></label>
+      <input [id]="language" type="radio" [value]="language" [(ngModel)]="myLanguage" />
+      <label [for]="language" [ngStyle]="{ 'background-image': 'url(assets/flags/' + language + '.svg)' }"></label>
     </div>
   </div>
-  
 </div>
-
