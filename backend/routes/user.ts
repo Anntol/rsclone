@@ -15,7 +15,7 @@ interface IAuthUser {
   password: IUser['password'];
 }
 
-router.post('/signup', (req, res) => {
+router.post('/signup', (req: express.Request, res: express.Response) => {
   // console.log('back route', req.body);
   const reqBody = req.body as IUser;
   const hashLength = 10;
@@ -25,7 +25,7 @@ router.post('/signup', (req, res) => {
     password: hash
   };
   UserModel.create(user)
-    .then((result) => {
+    .then((result: IUser) => {
       res.status(201).json({
         message: 'User created!',
         result

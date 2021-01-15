@@ -9,6 +9,13 @@ export class AuthService {
 
   serverUrl = 'http://localhost:3000';
 
+  private token: string | undefined;
+
+  getToken(): string | undefined {
+    console.log('gettoken ', this.token);
+    return this.token;
+  }
+
   createUser(email: string, password: string): void {
     const authData: AuthData = { email, password };
     this.http.post(`${this.serverUrl}/api/user/signup`, authData).subscribe((response) => {
@@ -18,8 +25,10 @@ export class AuthService {
 
   loginUser(email: string, password: string): void {
     const authData: AuthData = { email, password };
-    this.http.post(`${this.serverUrl}/api/user/login`, authData).subscribe((response) => {
+    this.http.post<{token: string}>(`${this.serverUrl}/api/user/login`, authData).subscribe((response) => {
       console.log('authservice ', response);
+      this.token = response.token;
+      console.log('logintoken ', this.token);
     });
   }
 }

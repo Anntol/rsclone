@@ -14,11 +14,9 @@ if (!MONGO_CONNECTION_STRING) {
   const connect = () => {
     mongoose
       .connect(MONGO_CONNECTION_STRING || '', { useNewUrlParser: true, useUnifiedTopology: true })
-      .then(() => {
-        return console.info(`Successfully connected to MongoDb`);
-      })
-      .catch((error) => {
-        console.error('Error connecting to database: ', error);
+      .then(() => console.info(`Successfully connected to MongoDb`))
+      .catch((error: Error) => {
+        console.error('Error connecting to database: ', error.message);
         return process.exit(1);
       });
   };
@@ -31,9 +29,9 @@ app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cors());
 
-app.use((req: express.Request, res: express.Response, next) => {
-  console.log('express ', req.body);
-  // res.send('Express works!');
+app.use((req: express.Request, res: express.Response, next: express.NextFunction) => {
+  console.log('express body', req.body);
+  console.log('express header', req.headers);
   next();
 });
 
