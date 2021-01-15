@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { AuthData } from '../auth-data.model';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-login',
@@ -7,8 +9,13 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
+  constructor(public authService: AuthService) {}
+
   onLogin(form: NgForm): void {
-    // eslint-disable-next-line no-console
-    console.log(form.value);
+    if (form.invalid) {
+      return;
+    }
+    const { email, password } = form.value as AuthData;
+    this.authService.loginUser(email, password);
   }
 }

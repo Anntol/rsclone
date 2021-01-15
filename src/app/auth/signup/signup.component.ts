@@ -12,8 +12,6 @@ export class SignupComponent {
   constructor(public authService: AuthService) {}
 
   onSignup(form: NgForm): void {
-    // eslint-disable-next-line no-console
-    console.log('form ', form.value);
     if (form.invalid) {
       return;
     }
