@@ -1,0 +1,9 @@
+<p class="theme-title">{{ 'THEME.TITLE' | translate }}</p>
+<div>
+  <ul class="themes-list">
+    <li *ngFor="let theme of themesList">
+     <img class="theme-img" src="{{ theme.img }}" alt="{{ theme.id }}">
+     <p class="theme-name">{{ theme.name | translate}} </p>
+    </li>
+  </ul>
+</div>

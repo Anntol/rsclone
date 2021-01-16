@@ -1,0 +1,50 @@
+ul {
+  list-style: none;
+}
+
+.themes-list {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  place-items: center;
+  grid-gap: 20px;
+  text-align: center;
+  align-items: start;
+  justify-content: center;
+  margin: 20px;
+}
+
+.theme-img {
+  width: 120px;
+  cursor: pointer;
+}
+
+.theme-title {
+  font-size: 1.5rem;
+  color: #6868AB;
+  text-align: center;
+  padding: 1rem;
+}
+
+.theme-name {
+  font-size: 1rem;
+  color:#7878AB;
+}
+
+
+@media screen and (max-width: 800px) {
+  .themes-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 15px;
+    margin: 15px;
+  } 
+}
+
+@media screen and (max-width: 500px) {
+  .themes-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+    margin: 10px;
+  } 
+}
