@@ -2,8 +2,10 @@
 <div>
   <ul class="themes-list">
     <li *ngFor="let theme of themesList">
-     <img class="theme-img" src="{{ theme.img }}" alt="{{ theme.id }}">
-     <p class="theme-name">{{ theme.name | translate}} </p>
+      <div (click)="selectTheme(theme.id)">
+        <img class="theme-img" src="{{ theme.img }}" alt="{{ theme.id }}">
+        <p class="theme-name">{{ theme.name | translate}} </p>
+      </div>
     </li>
   </ul>
 </div>

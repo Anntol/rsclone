@@ -1,4 +1,8 @@
-import { Component } from '@angular/core';
+import {
+  Component,
+  Output,
+  EventEmitter
+} from '@angular/core';
 import { THEMES } from '../../../shared/constants/constants';
 
 @Component({
@@ -8,4 +12,11 @@ import { THEMES } from '../../../shared/constants/constants';
 })
 export class ThemesListComponent {
   themesList = THEMES;
+
+  @Output()
+  theme = new EventEmitter<string>();
+
+  selectTheme(id: string): void {
+    this.theme.emit(id);
+  }
 }
