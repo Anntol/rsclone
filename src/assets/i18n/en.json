@@ -5,5 +5,22 @@
       "PROJECTS": "projects",
       "ABOUT": "authors"
     }
+  },
+  "THEME": {
+    "TITLE": "These projects need your urgent attention:",
+    "ANIMALS": "Animal Welfare",
+    "CHILDREN": "Child Protection",
+    "CLIMATE": "Climate Action",
+    "DISASTER": "Disaster Response",
+    "EDU": "Education",
+    "HEALTH": "Physical Health",
+    "HUMAN": "Ending Human Trafficking",
+    "SPORT": "Sport",
+    "HUNGER": "Food Security",
+    "COVID-19": "COVID-19",
+    "WATER": "Clean Water",
+    "DISABILITY": "Disability Rights",
+    "AGRICULTURE": "Sustainable Agriculture",
+    "WILDLIFE": "Wildlife Conservation"
   }
 }
