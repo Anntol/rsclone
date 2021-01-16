@@ -2,10 +2,12 @@
   <mat-icon>menu</mat-icon>
 </button>
 <mat-menu #menu="matMenu">
-  <button mat-menu-item
-    *ngFor="let item of menuListItems"
-    (click)="clickMenuItem(item)">
-    <mat-icon>{{ item.menuIcon }}</mat-icon>
-    <span> {{ item.menuLinkText }}</span>
-  </button>
+  <div *ngFor="let item of menuListItems">
+    <button mat-menu-item
+      *ngIf="item.isVisible"
+      (click)="clickMenuItem(item)">
+      <mat-icon>{{ item.menuIcon }}</mat-icon>
+      <span> {{ item.menuLinkText }}</span>
+    </button>
+  </div>
 </mat-menu>
