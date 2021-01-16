@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
@@ -12,6 +13,7 @@ import { MatMenuModule } from '@angular/material/menu';
   declarations: [],
   imports: [
     CommonModule,
+    RouterModule,
     TranslateModule,
     FormsModule,
     ReactiveFormsModule,
@@ -23,6 +25,7 @@ import { MatMenuModule } from '@angular/material/menu';
   ],
   exports: [
     CommonModule,
+    RouterModule,
     TranslateModule,
     FormsModule,
     ReactiveFormsModule,

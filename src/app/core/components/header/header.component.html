@@ -2,12 +2,20 @@
   <mat-icon>menu</mat-icon>
 </button>
 <mat-menu #menu="matMenu">
-  <div *ngFor="let item of menuListItems">
-    <button mat-menu-item
-      *ngIf="item.isVisible"
-      (click)="clickMenuItem(item)">
-      <mat-icon>{{ item.menuIcon }}</mat-icon>
-      <span> {{ item.menuLinkText }}</span>
-    </button>
-  </div>
+  <button mat-menu-item [routerLink]="'/home'">
+    <mat-icon>home</mat-icon>
+    <span>Home</span>
+  </button>
+  <button mat-menu-item [routerLink]="'/login'" *ngIf="!this.isUserAuthenticated">
+    <mat-icon>login</mat-icon>
+    <span>Login</span>
+  </button>
+  <button mat-menu-item  *ngIf="this.isUserAuthenticated" (click)="onLogout()">
+    <mat-icon>logout</mat-icon>
+    <span>Logout</span>
+  </button>
+  <button mat-menu-item routerLink="/signup" *ngIf="!this.isUserAuthenticated">
+    <mat-icon>person_add</mat-icon>
+    <span>Sign up</span>
+  </button>
 </mat-menu>
