@@ -1,3 +1,27 @@
 <section class="main">
-  <app-select-lang></app-select-lang>
+  <div class="nav-vertiсal">
+    <div class="fontsize">
+      <span class="logo-title">{{ 'MAIN.LOGO_TITLE' | translate }} </span>
+    </div>
+    <div class="go-projects">{{ 'MAIN.GO_PROJECTS' | translate }}</div>
+    <div class="globo-rotate">
+      <div class="globe">
+          <div class="globe-sphere"></div>
+          <div class="globe-outer-shadow"></div>
+          <div class="globe-worldmap">
+              <div class="globe-worldmap-back"></div>
+              <div class="globe-worldmap-front"></div>
+          </div>
+          <div class="globe-inner-shadow"></div>
+      </div>
+    </div>
+  </div>
+  <div class="content">
+    <div class="promo">
+      <h3>{{ 'MAIN.PROMO_TITLE' | translate }}</h3>
+      <p>{{ 'MAIN.PROMO_TEXT' | translate }}</p>
+    </div>
+    <button class="start-button">{{ 'MAIN.BTN_START'  | uppercase | translate }}</button>
+    <app-select-lang class="lang"></app-select-lang>
+  </div>
 </section>
