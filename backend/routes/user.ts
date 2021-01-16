@@ -58,9 +58,11 @@ router.post('/login', (req, res) => {
           });
         }
         // TODO secret storing
-        const token = jwt.sign({ email: dbUser.email, userId: dbUser._id }, 'some_secret', { expiresIn: '1h' });
+        const expiresIn = 3600; // seconds
+        const token = jwt.sign({ email: dbUser.email, userId: dbUser._id }, 'some_secret', { expiresIn });
         return res.status(200).json({
-          token
+          token,
+          expiresIn
         });
       },
       () => {}

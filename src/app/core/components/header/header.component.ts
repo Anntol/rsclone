@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 
 import { AuthService } from '../../../auth/auth.service'
-import { IMatMenuListItem } from '../../models/menu.model'
 
 @Component({
   selector: 'app-header',
