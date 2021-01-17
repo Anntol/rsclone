@@ -75,5 +75,5 @@ export const THEMES = [
   },
 ]
 export abstract class CommonConstants {
-  public static readonly LANGUAGE_ARR: Array<string> = ['EN', 'BY', 'UA'];
+  public static readonly LANGUAGE_ARR: Array<string> = ['by', 'ua', 'en'];
 }

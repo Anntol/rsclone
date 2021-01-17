@@ -4,16 +4,19 @@ import { TranslateModule } from '@ngx-translate/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { SelectLangComponent } from './components/select-lang/select-lang.component';
 
 @NgModule({
-  declarations: [],
+  declarations: [SelectLangComponent],
   imports: [
     CommonModule,
     TranslateModule,
     FormsModule,
     ReactiveFormsModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatTooltipModule
   ],
   exports: [
     CommonModule,
@@ -21,7 +24,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     FormsModule,
     ReactiveFormsModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    SelectLangComponent
   ],
 })
 export class SharedModule {}
