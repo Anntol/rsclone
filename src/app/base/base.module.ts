@@ -8,11 +8,25 @@ import { MainPageComponent } from './pages/main-page/main-page.component';
 import { ParamsInterceptor } from '../core/interceptors/params.interceptor';
 import { ProjectListComponent } from './components/project-list/project-list.component';
 import { ProjectCardComponent } from './components/project-card/project-card.component';
+import { VerticalMenuComponent } from './components/vertical-menu/vertical-menu.component';
+import { ProjectsPageComponent } from './pages/projects-page/projects-page.component';
 
 @NgModule({
-  declarations: [MainPageComponent, ProjectListComponent, ProjectCardComponent],
+  declarations: [
+    MainPageComponent,
+    ProjectListComponent,
+    ProjectCardComponent,
+    VerticalMenuComponent,
+    ProjectsPageComponent
+  ],
   imports: [CommonModule, SharedModule, HttpClientModule],
-  exports: [MainPageComponent, ProjectListComponent, ProjectCardComponent],
+  exports: [
+    MainPageComponent,
+    ProjectListComponent,
+    ProjectCardComponent,
+    VerticalMenuComponent,
+    ProjectsPageComponent
+  ],
   providers: [
     GlobalGivingApiService,
     {
