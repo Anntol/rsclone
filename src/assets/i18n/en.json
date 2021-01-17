@@ -7,11 +7,11 @@
     }
   },
   "SEARCH": {
-    "LABEL": "Find a project:",
+    "LABEL": "Find a projects:",
     "ERR_MESSAGE": "No projects found! Please try again."
   },
   "MAIN": {
-    "LOGO_TITLE": "charity",
+    "LOGO_TITLE": "easy to help",
     "GO_PROJECTS": "go to the projects →",
     "BTN_START": "get started",
     "PROMO_TITLE": "Share your goodness!",
