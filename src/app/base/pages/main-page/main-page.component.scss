@@ -49,12 +49,28 @@
     height: auto;
     width: 420px;
     text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.4);
+    color: #F6F3EC75;
     // text-shadow: -1px -1px 2px #fafbff00, 2px 2px 3px #763a76b9;
   }
   .go-projects:hover {
     cursor: pointer;
     text-shadow: -1px -1px 2px #fafbff00, 2px 2px 3px #763a76b9;
+  }
+  .footer {
+    position: absolute;
+    left: 3em;
+    bottom: 2.5em;
+  }
+  .rsschool-img {
+    height: 37px;
+    margin-left: 15px;
+  }
+  .rsschool-img:hovet {
+    cursor: pointer;
+    
+  }
+  .github-img {
+    height: 40px;
   }
 }
 .content{
@@ -121,7 +137,7 @@
     position: relative;
     display: inline-block;
     margin: 200px;
-    transform: scale(2.5);
+    transform: scale(2.0);
 }
 .globe {
     position: relative;

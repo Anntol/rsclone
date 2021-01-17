@@ -1,5 +1,5 @@
 import {
- Component, OnInit, AfterViewChecked, ViewChild, ChangeDetectorRef
+ Component, AfterViewChecked, ViewChild, ChangeDetectorRef
 } from '@angular/core';
 
 import { TranslateService } from '@ngx-translate/core';
@@ -12,7 +12,7 @@ import { SelectLangComponent } from '../../../shared/components/select-lang/sele
   templateUrl: './main-page.component.html',
   styleUrls: ['./main-page.component.scss']
 })
-export class MainPageComponent implements OnInit, AfterViewChecked {
+export class MainPageComponent implements AfterViewChecked {
   dataProjects: IProject[] = [];
 
   @ViewChild(SelectLangComponent) selectLang!: SelectLangComponent;
@@ -20,15 +20,11 @@ export class MainPageComponent implements OnInit, AfterViewChecked {
  constructor(
    private globalGivingApiService: GlobalGivingApiService,
    public translate: TranslateService,
-   private cdr: ChangeDetectorRef
+   private cdr: ChangeDetectorRef,
    ) {}
 
   ngAfterViewChecked(): void {
     this.translate.use(this.selectLang.myLanguage);
     this.cdr.detectChanges();
-  }
-
-  ngOnInit(): void {
-    console.log('main-page');
   }
 }
