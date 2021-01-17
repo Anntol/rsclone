@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpErrorResponse, HttpParams } from '@angular/common/http';
+import {
+ HttpClient, HttpHeaders, HttpErrorResponse, HttpParams
+} from '@angular/common/http';
 
 import { Observable, throwError } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
@@ -43,7 +45,7 @@ export class GlobalGivingApiService {
     return this.http.post<IUserToken>(GLOBAL_GIVIN.TOKEN, this.body);
   }
 
-  public getActiveProjectsForCountry(iso3166CountryCode: string, nextProjectID?: number): Observable<IProjects> {
+public getActiveProjectsForCountry(iso3166CountryCode: string, nextProjectID?: number): Observable<IProjects> {
     const id: number = nextProjectID || 1;
     const options = { params: new HttpParams({ fromString: `&nextProjectId=${id}` }) };
     return this.http.get<IProjects>(`${GLOBAL_GIVIN.ACTIVE_FOR_COUNTRY(iso3166CountryCode)}`, options).pipe(
