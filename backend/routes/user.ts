@@ -7,6 +7,7 @@ import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 
 import UserModel, { IUser } from '../models/user.js';
+import { SECRET_TOKEN } from '../config.js';
 
 const router = express.Router();
 
@@ -57,9 +58,13 @@ router.post('/login', (req, res) => {
             message: 'Auth failed: password is incorrect'
           });
         }
-        // TODO secret storing
+
+        if (!SECRET_TOKEN) {
+          console.error('SECRET_TOKEN is not defined!');
+        }
+        const secret = SECRET_TOKEN || 'some_secret';
         const expiresIn = 3600; // seconds
-        const token = jwt.sign({ email: dbUser.email, userId: dbUser._id }, 'some_secret', { expiresIn });
+        const token = jwt.sign({ email: dbUser.email, userId: dbUser._id }, secret, { expiresIn });
         return res.status(200).json({
           token,
           expiresIn

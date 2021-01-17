@@ -5,4 +5,4 @@ if (envConfig.error) {
   console.error(envConfig.error);
 }
 
-export const { MONGO_CONNECTION_STRING } = process.env;
+export const { MONGO_CONNECTION_STRING, SECRET_TOKEN } = process.env;
