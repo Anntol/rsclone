@@ -1,3 +1,5 @@
+@import '../../../../theme/colors.scss';
+
 .main  {
   margin: 0 auto;
   width: 100%;
@@ -8,55 +10,51 @@
 	flex-wrap: wrap;
   border: 1px solid red;
  }
-.nav-vertiсal {
+.nav-vert-primary {
   position: relative;
   width: 30%;
   min-width: 420px;
-  height: 100vh;
+  height: 99vh;
 
   display: -webkit-flex;
 	display: flex;
 	flex: 0 0 420px;
 	flex-direction: column;
 
-  background-color: #15a2c9;
-  .logo-title{
+  background-color:$primary-color;
+  .logo {
     position: absolute;
-    right: 0.7em;
-    top: 0.7em;
+    left: 0.3em;
+    top: 1em;
     // font-family: Krona One;
     letter-spacing: .15em;
     font-weight: 600;
-    font-size: 3em;
+    font-size: 5em;
     line-height: 32px;
     text-align: right;
-    color: #F6F3EC;
+    color: $primary-color-text;
     text-transform: uppercase;
-    // text-shadow: -1px -1px 2px #FAFBFF, 2px 2px 3px #763a76b9;
     text-shadow: -1px -1px 2px #fafbff00, 2px 2px 3px #763a76b9;
+  }
+  .logo-title {
+    position: absolute;
+    top: 8em;
+    left: 2.8em;
+    font-size: 1em;
   }
   .go-projects {
     position: absolute;
-    left: -6.3em;
-    top: 10.5em;
-    // font-family: Krona One;
-    font-weight: 600;
+    left: -5em;
+    // top: calc(100vh - 11em)/2;
+    top: 12em;
+    height: auto;
+    width: 13em;
     font-size: 2em;
     line-height: 42px;
-    -moz-transform: rotate(90deg);
-    -webkit-transform: rotate(90deg);
-    transform: rotate(90deg);
-    height: auto;
-    width: 420px;
-    text-transform: uppercase;
-    color: #F6F3EC75;
-    // text-shadow: -1px -1px 2px #fafbff00, 2px 2px 3px #763a76b9;
+
   }
-  .go-projects:hover {
-    cursor: pointer;
-    text-shadow: -1px -1px 2px #fafbff00, 2px 2px 3px #763a76b9;
-  }
-  .footer {
+
+  .footer-primary {
     position: absolute;
     left: 3em;
     bottom: 2.5em;
@@ -67,7 +65,7 @@
   }
   .rsschool-img:hovet {
     cursor: pointer;
-    
+
   }
   .github-img {
     height: 40px;
@@ -82,7 +80,6 @@
   align-items: left;
   flex-direction: column;
   padding-left: 30vw;
-  // border: 1px solid rgb(0, 255, 136);
   .lang {
     position: absolute;
     bottom: 2em;
@@ -96,9 +93,7 @@
     font-size: 56px;
     line-height: 70px;
     letter-spacing: -1px;
-    // color: #143C81;
-    color: #763a76da;
-
+    color:$primary-text-color;
     text-shadow: -1px -1px 2px hsla(228, 100%, 99%, 0.925), 1px 1px 1px #0f070fb9;
   }
   p {
@@ -109,117 +104,12 @@
     color: #151515;
     opacity: 0.7;
   }
-  .start-button {
+  .start-btn {
     height: 40px;
     width: 160px;
-    border-radius: 4px;
-    color: #F6F3EC;
-    font-weight: 600;
-    text-transform: uppercase;
-    background: #15a2c9;
-    border: 1px solid rgba(255, 255, 255, 0.4);
-    box-sizing: border-box;
-    box-shadow: 0 8px 16px 0 #4622464b;
-    transition: .5s;
   }
-  .start-button:hover {
-    cursor: pointer;
-    box-shadow: 0 0 0 0 rgba(0, 40, 120, 0.048);
-    text-shadow: -1px -1px 2px #fafbff00, 2px 2px 3px #763a76b9;
-  }
-}
-.globe-rotate,
-.globe {
-    width: 200px;
-    height: 200px;
-}
-.globe-rotate {
-    position: relative;
-    display: inline-block;
-    margin: 200px;
-    transform: scale(2.0);
-}
-.globe {
-    position: relative;
-    display: block;
-    margin: 0;
-    padding: 0;
-    top: 20px;
-    left: 50px;
-    border-radius: 50%;
-    background-color: #F6F3EC;
-}
-.globe-worldmap,
-.globe-worldmap-front,
-.globe-worldmap-back,
-.globe-sphere,
-.globe-outer-shadow,
-.globe-inner-shadow {
-    position: absolute;
-    display: block;
-    margin: 0;
-}
-.globe-sphere,
-.globe-outer-shadow,
-.globe-inner-shadow {
-    left: 0;
-    top: 0;
-    width: 200px;
-    height: 200px;
-    background-position: 0 0;
-    background-repeat: no-repeat;
-}
-.globe-worldmap {
-    left: 0;
-    top: 0;
-    width: 200px;
-    height: 200px;
-    overflow: hidden;
-    border-radius: 50%;
-}
-.globe-worldmap-front,
-.globe-worldmap-back {
-    left: 0;
-    top: 0;
-    width: 1000px;
-    height: 200px;
-    overflow: visible;
-    background-image: url(../../../../assets/globe/worldmap.svg);
-    background-repeat: no-repeat;
-}
-.globe-inner-shadow {
-    background-image: url(../../../../assets/globe/inner_shadow.svg);
-}
-.globe-sphere {
-  background-image:url(../../../../assets/globe/sphere.svg)
-}
-.globe-worldmap-front {
-    background-position: 0px 0px;
-    animation: textureSpinreverse 8s linear infinite;
-}
-.globe-worldmap-back {
-    background-position: 0px -220px;
-    animation: textureSpin 8s linear infinite;
-}
 
-@keyframes textureSpin {
-    from {
-        transform: translateX(0);
-    }
-    to {
-        transform: translateX(-47.5%);
-    }
 }
-@keyframes textureSpinreverse {
-    from {
-        transform: translateX(-47.5%);
-    }
-    to {
-        transform: translateX(0);
-    }
-}
-
-// -------------
 
 @media screen and (max-width: 800px) {
 	.box-base {

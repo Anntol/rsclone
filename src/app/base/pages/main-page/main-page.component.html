@@ -1,9 +1,10 @@
 <section class="main">
-  <div class="nav-vertiсal">
+  <div class="nav-vert-primary">
     <div class="fontsize">
-      <span class="logo-title">charity</span>
+      <span class="logo">ANT</span>
+      <span class="logo-title">{{ 'MAIN.LOGO_TITLE' | translate }}</span>
     </div>
-    <div class="go-projects">{{ 'MAIN.GO_PROJECTS' | translate }}</div>
+    <div class="go-projects base-vertical">{{ 'MAIN.GO_PROJECTS' | translate }}</div>
     <div class="globe-rotate">
       <div class="globe">
           <div class="globe-sphere"></div>
@@ -15,7 +16,7 @@
           <div class="globe-inner-shadow"></div>
       </div>
     </div>
-    <div class="footer">
+    <div class="footer-primary">
       <img
         class="github-img"
         src="../../../../assets/github-svgrepo.svg"
@@ -33,7 +34,7 @@
       <h3>{{ 'MAIN.PROMO_TITLE' | translate }}</h3>
       <p>{{ 'MAIN.PROMO_TEXT' | translate }}</p>
     </div>
-    <button class="start-button">{{ 'MAIN.BTN_START'  | uppercase | translate }}</button>
+    <button class="start-btn base-button-blue">{{ 'MAIN.BTN_START'  | uppercase | translate }}</button>
     <app-select-lang class="lang"></app-select-lang>
   </div>
 </section>
