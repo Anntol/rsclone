@@ -1,7 +1,4 @@
 /* eslint no-underscore-dangle: ["error", { "allow": ["_id"] }] */
-/* eslint-disable @typescript-eslint/no-unsafe-call */
-/* eslint-disable @typescript-eslint/no-unsafe-member-access */
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import express from 'express';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
@@ -17,7 +14,6 @@ interface IAuthUser {
 }
 
 router.post('/signup', (req: express.Request, res: express.Response) => {
-  // console.log('back route', req.body);
   const reqBody = req.body as IUser;
   const hashLength = 10;
   const hash = bcrypt.hashSync(reqBody.password, hashLength);
@@ -64,7 +60,7 @@ router.post('/login', (req, res) => {
         }
         const secret = SECRET_TOKEN || 'some_secret';
         const expiresIn = 3600; // seconds
-        const token = jwt.sign({ email: dbUser.email, userId: dbUser._id }, secret, { expiresIn });
+        const token = jwt.sign({ email: dbUser.email, userId: dbUser._id.toHexString() }, secret, { expiresIn });
         return res.status(200).json({
           token,
           expiresIn

@@ -9,6 +9,7 @@ const userSchema = new Schema({
 userSchema.plugin(uniqueValidator, { type: 'mongoose-unique-validator' });
 
 export interface IUser extends mongoose.Document {
+  _id: mongoose.Types.ObjectId;
   email: string;
   password: string;
 }
