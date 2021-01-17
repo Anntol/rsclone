@@ -16,5 +16,22 @@
     "BTN_START": "get started",
     "PROMO_TITLE": "Share your goodness!",
     "PROMO_TEXT": "Many projects around the world are waiting for your to be involved"
+  },
+  "THEME": {
+    "TITLE": "These projects need your urgent attention:",
+    "ANIMALS": "Animal Welfare",
+    "CHILDREN": "Child Protection",
+    "CLIMATE": "Climate Action",
+    "DISASTER": "Disaster Response",
+    "EDU": "Education",
+    "HEALTH": "Physical Health",
+    "HUMAN": "Ending Human Trafficking",
+    "SPORT": "Sport",
+    "HUNGER": "Food Security",
+    "COVID-19": "COVID-19",
+    "WATER": "Clean Water",
+    "DISABILITY": "Disability Rights",
+    "AGRICULTURE": "Sustainable Agriculture",
+    "WILDLIFE": "Wildlife Conservation"
   }
 }
