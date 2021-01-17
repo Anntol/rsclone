@@ -71,6 +71,9 @@
       "files": [
         "*.html"
       ],
+      "plugins": [
+        "html"
+      ],
       "extends": [
         "plugin:@angular-eslint/template/recommended",
         "prettier/@typescript-eslint",

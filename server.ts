@@ -23,8 +23,7 @@ function normalizePort(val: string): string | number | boolean {
 
 // Get port from environment and store in Express.
 const port = normalizePort(process.env.PORT || '3000');
-// eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
-app.set('port', port); // TODO fix eslint
+app.set('port', port);
 
 // Create HTTP server.
 const server = http.createServer(app);
