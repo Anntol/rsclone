@@ -8,9 +8,10 @@ import { MainPageComponent } from './pages/main-page/main-page.component';
 import { ParamsInterceptor } from '../core/interceptors/params.interceptor';
 import { ProjectListComponent } from './components/project-list/project-list.component';
 import { ThemesListComponent } from './components/themes-list/themes-list.component';
+import { NavMenuComponent } from '../nav-menu/nav-menu.component';
 
 @NgModule({
-  declarations: [MainPageComponent, ProjectListComponent, ThemesListComponent],
+  declarations: [MainPageComponent, ProjectListComponent, ThemesListComponent, NavMenuComponent],
   imports: [CommonModule, SharedModule, HttpClientModule],
   exports: [MainPageComponent, ProjectListComponent],
   providers: [

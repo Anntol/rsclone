@@ -2,6 +2,16 @@ export const BASE_URL = 'https://api.globalgiving.org/api';
 export const MIN_LENGTH_QUERY = 3;
 export const WAIT_FOR_INPUT = 1500;
 export const NUMBER_RETRIES_OF_REQUESTS = 3;
+export const NAV_MENU = {
+  menuItems:
+    [
+      { icon: 'home', option: 'NAV_MENU.HOME' },
+      { icon: 'attach_money', option: 'NAV_MENU.PROJECTS' },
+      { icon: 'public', option: 'NAV_MENU.MAP' },
+      { icon: 'settings', option: 'NAV_MENU.SETTINGS' },
+      { icon: 'login', option: 'NAV_MENU.SIGN_IN' }
+    ]
+}
 export const THEMES = [
   {
     id: 'animals',
