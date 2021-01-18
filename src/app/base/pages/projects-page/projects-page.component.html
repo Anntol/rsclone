@@ -1,1 +1,14 @@
-<app-vertical-menu></app-vertical-menu>
+<div class="projects">
+  <div class="nav-vertcal">
+    <app-vertical-menu></app-vertical-menu>
+  </div>
+  <div class="content">
+    <form action="" class="bg-base-block stacks-base-block">
+      <input type="text" matInput [formControl]="searchQuery" />
+      <span class="material-icons">
+        search
+      </span>
+    </form>
+    <app-select-lang class="lang"></app-select-lang>
+  </div>
+</div>

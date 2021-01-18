@@ -1,0 +1,88 @@
+@import '../../../../theme/colors.scss';
+
+.projects {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1366px;
+  height: 100vh;
+  display: -webkit-flex;
+	display: flex;
+  flex-wrap: wrap;
+}
+.nav-vertcal{
+  display: -webkit-flex;
+	display: flex;
+	flex: 0 0 9em;
+	flex-direction: column;
+}
+.content{
+  position: relative;
+  flex: auto;
+	display: -webkit-flex;
+	display: flex;
+	justify-content: top;
+  flex-direction: column;
+  background-color: $color-white-alt;;
+  .lang {
+    position: absolute;
+    bottom: 2em;
+    right: 3em;
+    bottom: 2em;
+  }
+}
+
+form{
+  position: relative;
+  top: 2em;
+  left: 80%;
+  transition: all 1s;
+  width: 42px;
+  height: 42px;
+  border-radius: 20px;
+}
+
+input{
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 42px;
+  line-height: 30px;
+  outline: 0;
+  border: 0;
+  display: none;
+  font-size: 1em;
+  color: $secondary-text-color;
+  border-radius: 20px;
+  padding-left: 20px;
+}
+
+.material-icons{
+  box-sizing: border-box;
+  padding: 0.5em;
+  width: 42px;
+  height: 42px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-radius: 50%;
+  color: $primary-color-dark;
+  text-align: center;
+  font-size: 1.5em;
+  font-weight: 600;
+  transition: all 1s;
+}
+
+form:hover{
+  width: 200px;
+  cursor: pointer;
+}
+
+form:hover input{
+  display: block;
+}
+
+form:hover .material-icons{
+  background: $accent-violet-color;
+  color: $primary-text-color;
+}
