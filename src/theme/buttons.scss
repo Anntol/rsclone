@@ -2,20 +2,20 @@
 
 .base-button-blue {
   border-radius: 4px;
-  color: $primary-color-text;
+  color: $primary-text-color;
   font-weight: 600;
   text-transform: uppercase;
   box-sizing: border-box;
-  background: #15a2c9;
-  border: 1px solid #ffffff66;
-  box-shadow: 0 8px 16px 0 #4622464b;
+  background: $primary-color;
+  border: 1px solid $color-white-op04;
+  box-shadow: 0 8px 16px 0 shadow-dark;
   transition: .5s;
 }
 
 .base-button-blue:hover {
   cursor: pointer;
-  box-shadow: 0 0 0 0 rgba(0, 40, 120, 0.048);
-  text-shadow: -1px -1px 2px #fafbff00, 2px 2px 3px #763a76b9;
+  box-shadow: 0 0 0 0 $shadow-dark;
+  text-shadow: -1px -1px 2px $shadow-ligth, 2px 2px 3px $shadow-accent;
 }
 
 .base-vertical {
@@ -24,12 +24,12 @@
   -webkit-transform: rotate(90deg);
   transform: rotate(90deg);
   text-transform: uppercase;
-  color: $primary-color-text;
+  color: $primary-text-color;
   opacity: 0.6;
 }
 
 .base-vertical:hover {
 cursor: pointer;
 opacity: 1;
-text-shadow: -1px -1px 2px #fafbff00, 2px 2px 3px #763a76b9;
+text-shadow: -1px -1px 2px $shadow-ligth, 2px 2px 3px $shadow-accent;
 }
