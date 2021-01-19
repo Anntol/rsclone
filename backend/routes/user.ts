@@ -1,78 +1,30 @@
-/* eslint no-underscore-dangle: ["error", { "allow": ["_id"] }] */
 import express from 'express';
-import bcrypt from 'bcrypt';
-import jwt from 'jsonwebtoken';
 
-import UserModel, { IUser } from '../models/user.js';
-import { SECRET_TOKEN } from '../config.js';
+import { UsersService } from '../services/users.service.js';
 
+const usersService = new UsersService();
 const router = express.Router();
 
-interface IAuthUser {
-  email: IUser['email'];
-  password: IUser['password'];
-}
-
-router.post('/signup', (req: express.Request, res: express.Response) => {
-  const reqBody = req.body as IUser;
-  const hashLength = 10;
-  const hash = bcrypt.hashSync(reqBody.password, hashLength);
-  const user: IAuthUser = {
-    email: reqBody.email,
-    password: hash
-  };
-  UserModel.create(user)
-    .then((result: IUser) => {
-      res.status(201).json({
-        message: 'User created!',
-        result
-      });
-    })
-    .catch((err: Error) => {
-      res.status(500).json({
-        error: err
-      });
+router.route('/signup').post(async (req: express.Request, res: express.Response) => {
+  await usersService.SignUp(req.body)
+  .then((newUser) => {
+    res.status(201).json({
+      message: 'User created!',
+      ...newUser
     });
+  },
+  (error) => console.error(error));
 });
 
-router.post('/login', (req, res) => {
-  const reqBody = req.body as IUser;
-
-  UserModel.findOne({ email: reqBody.email })
-    .exec()
-    .then(
-      (dbUser) => {
-        if (!dbUser) {
-          return res.status(401).json({
-            message: 'Auth failed: user not found'
-          });
-        }
-
-        const isPwdCorrect = bcrypt.compareSync(reqBody.password, dbUser.password);
-        if (!isPwdCorrect) {
-          return res.status(401).json({
-            message: 'Auth failed: password is incorrect'
-          });
-        }
-
-        if (!SECRET_TOKEN) {
-          console.error('SECRET_TOKEN is not defined!');
-        }
-        const secret = SECRET_TOKEN || 'some_secret';
-        const expiresIn = 3600; // seconds
-        const token = jwt.sign({ email: dbUser.email, userId: dbUser._id.toHexString() }, secret, { expiresIn });
-        return res.status(200).json({
-          token,
-          expiresIn
-        });
-      },
-      () => {}
-    )
-    .catch((err: Error) => {
-      res.status(401).json({
-        message: `Auth failed: ${err.message}`
-      });
+router.route('/login').post(async (req: express.Request, res: express.Response) => {
+  await usersService.LogIn(req.body)
+  .then((authToken) => {
+    res.status(201).json({
+      message: 'User logged in!',
+      ...authToken
     });
+  },
+  (error) => console.error(error));
 });
 
 export default router;

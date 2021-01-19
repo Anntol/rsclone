@@ -5,6 +5,7 @@ import mongoose from 'mongoose';
 
 import userRoutes from './routes/user.js';
 import { MONGO_CONNECTION_STRING } from './config.js';
+import AppError from './appError.js';
 
 const app = express();
 
@@ -29,9 +30,17 @@ app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cors());
 
-app.use((req: express.Request, res: express.Response, next: express.NextFunction) => {
-  console.log('express body', req.body);
-  console.log('express header', req.headers);
+app.use((err: Error, req: express.Request, res: express.Response, next: express.NextFunction) => {
+  if (err instanceof AppError) {
+    return res.status(err.statusCode).json({
+      message: err.message,
+    });
+  }
+
+  return res.status(500).json({
+    message: 'Internal server error',
+    error: err,
+  });
   next();
 });
 

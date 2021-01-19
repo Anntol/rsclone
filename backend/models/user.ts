@@ -14,4 +14,9 @@ export interface IUser extends mongoose.Document {
   password: string;
 }
 
+export interface IToken {
+  token: string;
+  expiresIn: number;
+}
+
 export default model<IUser>('User', userSchema);
