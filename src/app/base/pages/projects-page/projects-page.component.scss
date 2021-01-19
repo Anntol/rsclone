@@ -14,7 +14,7 @@
   z-index: 4;
   display: -webkit-flex;
   display: flex;
-	flex: 0 1 9em ;
+  flex: 0 1 9em ;
   flex-direction: column;
   @media screen and (max-width: 485px) {
     margin-bottom: 2px;
@@ -37,13 +37,14 @@
   bottom: 0;
   margin-bottom: -80px;
   width: 100%;
-  height: 80px;
+  height: 0px;
   background: $accent-violet-color;
   transition: margin 0.5s linear;
   @media screen and (max-width: 485px) {
     // background-image: url(../../../../assets/img/footer-people.png);
     // filter: grayscale(20%);
     opacity: 0.8;
+    height: 80px;
     margin-bottom: 0;
   }
 }
