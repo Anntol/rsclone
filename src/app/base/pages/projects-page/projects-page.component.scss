@@ -124,6 +124,10 @@ form{
   width: 42px;
   height: 42px;
   border-radius: 20px;
+  @media screen and (max-width: 485px) {
+    margin-top: -1.5em;
+    margin-left: 5.5em;
+  }
 }
 
 input{
@@ -159,7 +163,7 @@ input{
 }
 
 form:hover{
-  width: 200px;
+  width: 12em;
   cursor: pointer;
 }
 
