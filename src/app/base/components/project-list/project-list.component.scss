@@ -1,9 +1,13 @@
-.card {
+@import '../../../../theme/colors.scss';
+
+.cards-block {
 	width: 100%;
-	max-width: 1300px;
 	min-width: 280px;
+  // height: inherit;
+  background: rgb(224, 136, 136);
 	margin: 0 auto;
-	padding: 0 10px;
+  padding: 0 10px;
+  // overflow: auto;
 	display: -webkit-flex;
 	display: flex;
 	flex-wrap: wrap;
@@ -11,10 +15,10 @@
 }
 .card-itm {
 	min-height: 200px;
-	font-size: 1rem;
-	color: #eee;
-	margin: 0 10px 20px;
-	flex: 1 1 calc(33.33% - 20px);
+  font-size: 1rem;
+  color: $accent-violet-color;
+	margin: 0 10px 10px;
+	flex: 0 1 calc(33.33% - 20px);
 
 	display: -webkit-flex;
 	display: flex;
@@ -22,15 +26,9 @@
 	align-items: center;
 }
 
-
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 485px) {
 	.card-itm {
-		flex-basis: calc(50% - 20px);
-	}
-}
-@media screen and (max-width: 600px) {
-	.card-itm {
-		margin: 0 0 20px;
+		margin: 0 0 10px;
 		flex-basis: 100%;
 	}
 }

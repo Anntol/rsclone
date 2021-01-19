@@ -14,7 +14,7 @@
   z-index: 4;
   display: -webkit-flex;
   display: flex;
-	flex: 9em 0 0;
+	flex: 0 1 9em ;
   flex-direction: column;
   @media screen and (max-width: 485px) {
     margin-bottom: 2px;
@@ -28,7 +28,9 @@
 	display: -webkit-flex;
   display: flex;
   flex: auto;
-	justify-content: top;
+  justify-content: top;
+  overflow: auto;
+  height: 100vh;
   background-color: $color-white-alt;
   @media screen and (max-width: 485px) {
     margin-left: 0;
@@ -58,7 +60,6 @@
     top: 6.2em;
   }
 }
-
 form{
   position: relative;
   top: 2em;

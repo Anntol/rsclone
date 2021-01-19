@@ -1,7 +1,9 @@
 
-  <ul class="card">
-    <li class="card-itm" *ngFor="let project of dataProjects">
-      <span class="badge">{{ project.id }}</span> {{ project.title }}
+  <ul class="cards-block">
+    <li
+      class="card-itm bg-base-block-in stacks-base-block"
+      *ngFor="let project of dataProjects">
+      {{ project.title }}
     </li>
   </ul>
 
