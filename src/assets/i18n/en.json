@@ -39,6 +39,9 @@
     "PROJECTS": "Projects",
     "MAP": "Map",
     "SIGN_IN": "Sign In",
-    "SETTINGS": "Settings"
+    "SIGN_UP": "Sign Up",
+    "SETTINGS": "Settings",
+    "SHOW": "Show menu",
+    "HIDE": "Hide menu"
   }
 }
