@@ -36,6 +36,8 @@ export class ProjectsPageComponent implements AfterViewChecked, OnInit, OnDestro
 
   error = false;
 
+  hasNext = false;
+
   errorMessage = '';
 
   dataProjects: IProject[] = [];
@@ -75,6 +77,22 @@ export class ProjectsPageComponent implements AfterViewChecked, OnInit, OnDestro
             this.errorMessage = 'No projects found! Please try again.';
           }
         });
+    }
+
+    public nextPage(): void {
+      if (this.hasNext) {
+        // this.globalGivingApiService
+        //   .getActiveProjectsForCountry(this.country, this.nextProjectId)
+        //   .pipe(takeUntil(this.destroy$))
+        //   .subscribe((data: IProjects) => {
+        //     if (data.projects.hasNext !== undefined) {
+        //       this.nextProjectId = data.projects.nextProjectId;
+        //     }
+        //     this.hasNext = data.projects.hasNext || false;
+        //     // this.nextProjectMessage = !this.hasNext ? 'There are no more active projects!!' : '';
+        //     this.dataProjects = this.dataProjects.concat(data.projects.project);
+        //   });
+      }
     }
 
    ngAfterViewChecked(): void {

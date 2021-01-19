@@ -4,37 +4,65 @@
   margin: 0 auto;
   width: 100%;
   max-width: 1366px;
-  height: 100vh;
+  min-height: 100vh;
   display: -webkit-flex;
 	display: flex;
   flex-wrap: wrap;
 }
 .nav-vertcal{
+  position: relative;
+  z-index: 4;
   display: -webkit-flex;
-	display: flex;
-	flex: 0 0 9em;
-	flex-direction: column;
+  display: flex;
+	flex: 9em 0 0;
+  flex-direction: column;
+  @media screen and (max-width: 485px) {
+    margin-bottom: 2px;
+		flex: 0 1 100%;
+		height: 80px
+  }
 }
 .content{
   position: relative;
-  flex: auto;
+  margin-left: 2px;
 	display: -webkit-flex;
-	display: flex;
+  display: flex;
+  flex: auto;
 	justify-content: top;
-  flex-direction: column;
-  background-color: $color-white-alt;;
-  .lang {
+  background-color: $color-white-alt;
+  @media screen and (max-width: 485px) {
+    margin-left: 0;
+		flex: 1 1 100%;
+		flex-direction: row;
+		height: calc(100vh - 82px)
+  }
+  .btn-more {
     position: absolute;
-    bottom: 2em;
-    right: 3em;
-    bottom: 2em;
+    left: 1em;
+    bottom: 2.5em;
+    width: 12em;
+    height: 40px;
+    color: $accent-violet-color;
+    text-transform: uppercase;
+    font-weight: 600;
+    @media screen and (max-width: 485px) {
+      bottom: 5.5em;
+    }
+  }
+}
+.lang {
+  position: fixed;
+  bottom: 2em;
+  right: 2em;
+  @media screen and (max-width: 485px) {
+    top: 6.2em;
   }
 }
 
 form{
   position: relative;
   top: 2em;
-  left: 80%;
+  left: 4em;
   transition: all 1s;
   width: 42px;
   height: 42px;
@@ -66,7 +94,7 @@ input{
   top: 0;
   right: 0;
   border-radius: 50%;
-  color: $primary-color-dark;
+  color: $accent-violet-color;
   text-align: center;
   font-size: 1.5em;
   font-weight: 600;

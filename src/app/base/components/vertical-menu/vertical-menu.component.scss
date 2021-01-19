@@ -5,6 +5,9 @@
   width: 100%;
   height: 100vh;
   background-color: $primary-color;
+  @media screen and (max-width: 485px) {
+    height: 80px;
+  }
   .logo {
     position: absolute;
     top: 1em;
@@ -15,18 +18,26 @@
     text-align: center;
     color: $primary-text-color;
     text-transform: uppercase;
+    z-index: 5;
     text-shadow: -1px -1px 2px #fafbff00, 2px 2px 3px #763a76b9;
   }
   .logo-title {
-    top: 7em;
     position: absolute;
-    left: 1.5em;
+    top: 7em;
+    left: 1.3em;
     font-size: 1em;
+    width: 75px;
+    text-align: center;
+    line-height: 0.8em;
+    z-index: 5;
   }
   .footer-secondary {
     position: absolute;
     width: 100%;
     bottom: 0.7em;
+    @media screen and (max-width: 485px) {
+      display: none;
+    }
   }
   .rsschool-img {
     height: 37px;
