@@ -4,21 +4,21 @@
 	width: 100%;
 	min-width: 280px;
   // height: inherit;
-  background: rgb(224, 136, 136);
+  // background: rgb(224, 136, 136);
 	margin: 0 auto;
   padding: 0 10px;
   // overflow: auto;
 	display: -webkit-flex;
-	display: flex;
+	// display: flex;
 	flex-wrap: wrap;
 	box-sizing: border-box;
 }
 .card-itm {
-	min-height: 200px;
+	min-height: 167px;
   font-size: 1rem;
   color: $accent-violet-color;
 	margin: 0 10px 10px;
-	flex: 0 1 calc(33.33% - 20px);
+	flex: 0 1 calc(50% - 20px);
 
 	display: -webkit-flex;
 	display: flex;
@@ -28,8 +28,133 @@
 
 @media screen and (max-width: 485px) {
 	.card-itm {
-		margin: 0 0 10px;
+		margin: 0 0 25px;
 		flex-basis: 100%;
 	}
 }
 
+// Reference from: http://maximilianhoffmann.com/posts/better-font-rendering-on-osx
+@mixin font-smoothing($value: on) {
+    @if $value == on {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+    @else {
+        -webkit-font-smoothing: subpixel-antialiased;
+        -moz-osx-font-smoothing: auto;
+    }
+}
+
+$label-size: 60px;
+$label-margin: 0px;
+$label-before-size: 40px;
+
+$color-light: white;
+$color-brand: #15a4cb;
+$color-font: rgba(black, .54);
+
+$font-size-md: 14px;
+$font-size-lg: 24px;
+$font-size-xl: 54px;
+$font-light: 300;
+$font-normal: 400;
+$font-bold: 500;
+
+
+.title {
+  font-size: $font-size-xl;
+  font-weight: $font-light;
+  margin-bottom: 54px;
+
+  small {
+    font-size: 16px;
+  }
+}
+
+.link {
+  display: block;
+  color: $color-font;
+  margin-top: 54px;
+}
+
+.checkbox-input {
+  display: none;
+}
+
+.checkbox-label, .checkbox-text, .checkbox-text--description {
+  transition: all .4s ease;
+}
+
+.checkbox-label {
+  display: inline-block;
+  vertical-align: top;
+  position: relative;
+  width: 100%;
+  padding: $label-size/2 $label-size;
+  cursor: pointer;
+  font-size: $font-size-lg;
+  font-weight: $font-normal;
+  // margin: $label-margin 0;
+  border: 1px solid darken($color-light, 15%);
+  border-radius: 2px;
+  box-shadow: inset 0 0 0 0 $color-brand;
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 75%;
+    right: 16px;
+    width: $label-before-size;
+    height: $label-before-size;
+    opacity: 0;
+    background-color: $color-brand;
+    background-image: url(http://lorenzodianni.io/codepen/icon/done--white.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 24px;
+    border-radius: 50%;
+    transform: translate(0%, -50%);
+    transition: all .4s ease;
+  }
+}
+
+.checkbox-text {
+  &--title {
+    font-weight: $font-bold;
+  }
+  &--description {
+    font-size: $font-size-md;
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid $color-brand;
+    .un {
+      display: none;
+    }
+  }
+}
+
+.checkbox-input:checked + .checkbox-label {
+  border-color: $color-brand;
+  box-shadow: inset 0 -12px 0 0 $color-brand;
+  &:before {
+    top: 0;
+    opacity: 1;
+  }
+
+  & .checkbox-text {
+    transform: translate(0, -8px);
+    &--description {
+      border-color: darken($color-light, 15%);
+      .un {
+        display: inline-block;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 540px) {
+  .checkbox-label {
+    width: 450px;
+    // margin: $label-margin;
+  }
+}

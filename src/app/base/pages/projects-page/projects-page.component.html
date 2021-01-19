@@ -3,11 +3,20 @@
     <app-vertical-menu></app-vertical-menu>
   </div>
   <div class="content">
-    <app-project-list [dataProjects]=dataProjects></app-project-list>
+    
+    <!-- <app-project-list [dataProjects]=dataProjects></app-project-list> -->
     <!-- <button class="btn-more bg-base-block stacks-base-block">{{ 'PROJECTS.BTN_MORE' | translate }}</button> -->
     <!-- <button (click)="nextPage()">{{ 'PROJECTS.BTN_MORE' | translate }}</button> -->
     <!-- <span class="warning-message">{{ PROJECTS.ERR_MESSAGE }}</span> -->
 
   </div>
+  <div class="footer-secondary">
+    <a href="https://rs.school/js/">
+      <img class="rsschool-img" src="../../../../assets/RSSchool_logo.svg" alt="RSSchool" />
+    </a>
+    <img class="github-img" src="../../../../assets/github-repo.svg" alt="github-profile" />
+    <p class="creation">@ 2021</p>
+  </div>
+  <div class="footer-show"></div>
   <app-select-lang class="lang"></app-select-lang>
 </div>
