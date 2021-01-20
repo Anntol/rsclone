@@ -4,17 +4,20 @@
   "type": "module",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "tsc && node ./dist/out-tsc/server.js",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "monserver": "tsc && nodemon ./dist/out-tsc/server.js"
+    "monserver": "tsc && nodemon ./dist/out-tsc/server.js",
+    "postinstall": "ng build"
   },
   "private": true,
   "dependencies": {
     "@angular/animations": "~11.0.5",
     "@angular/cdk": "^11.0.3",
+    "@angular/cli": "^11.0.7",
+    "@angular/compiler-cli": "~11.0.5",
     "@angular/common": "~11.0.5",
     "@angular/compiler": "~11.0.5",
     "@angular/core": "~11.0.5",
@@ -46,8 +49,6 @@
     "@angular-eslint/eslint-plugin-template": "1.0.0-beta.2",
     "@angular-eslint/schematics": "1.0.0-beta.2",
     "@angular-eslint/template-parser": "1.0.0-beta.2",
-    "@angular/cli": "^11.0.7",
-    "@angular/compiler-cli": "~11.0.5",
     "@types/bcryptjs": "^2.4.2",
     "@types/cors": "^2.8.9",
     "@types/debug": "^4.1.5",
