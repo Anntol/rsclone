@@ -4,11 +4,12 @@
   "type": "module",
   "scripts": {
     "ng": "ng",
-    "start": "tsc && node ./dist/out-tsc/server.js",
+    "start": "npm run tsc && node ./dist/out-tsc/server.js",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
+    "tsc": "tsc",
     "monserver": "tsc && nodemon ./dist/out-tsc/server.js",
     "postinstall": "ng build"
   },
