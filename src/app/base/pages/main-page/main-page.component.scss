@@ -107,7 +107,6 @@
     height: 40px;
     width: 160px;
   }
-
 }
 
 @media screen and (max-width: 800px) {
@@ -125,7 +124,11 @@
 	}
 	.box-itm:first-child {
 		margin-left: 0;
-	}
+  }
+  .nav-vert-primary {
+    flex: 0 0 250px;
+    min-width: 250px;
+  }
 }
 @media screen and (max-width: 600px) {
 	.box-side {
@@ -136,5 +139,10 @@
 	}
 	.box-itm:last-child {
 		margin-bottom: 0;
-	}
+  }
+  .nav-vert-primary {
+    flex: 0 0 200px;
+    min-width: 200px;
+  }
+
 }
