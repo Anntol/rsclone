@@ -37,5 +37,15 @@
   "PROJECTS": {
     "BTN_MORE": "more projects",
     "ERR_MESSAGE": "There are no more active projects!"
+}
+  "NAV_MENU": {
+    "HOME": "Home",
+    "PROJECTS": "Projects",
+    "MAP": "Map",
+    "SIGN_IN": "Sign In",
+    "SIGN_UP": "Sign Up",
+    "SETTINGS": "Settings",
+    "SHOW": "Show menu",
+    "HIDE": "Hide menu"
   }
 }

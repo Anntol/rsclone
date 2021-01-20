@@ -1,0 +1,41 @@
+<div>
+  <ul id="menu">
+    <a
+      class="menu-button"
+      href="#menu"
+      matTooltip="{{ 'NAV_MENU.SHOW' | translate }}"
+      (clickOutside)="onClickedOutside()"
+    >
+      <mat-icon>menu</mat-icon>
+    </a>
+    <a #menuClose class="menu-button" href="#0" matTooltip="{{ 'NAV_MENU.HIDE' | translate }}">
+      <mat-icon>close</mat-icon>
+    </a>
+
+    <li class="menu-item" matTooltip="{{ 'NAV_MENU.SIGN_IN' | translate }}">
+      <a href="#menu">
+        <mat-icon>login</mat-icon>
+      </a>
+    </li>
+    <li class="menu-item" matTooltip="{{ 'NAV_MENU.SETTINGS' | translate }}">
+      <a href="#menu">
+        <mat-icon>settings</mat-icon>
+      </a>
+    </li>
+    <li class="menu-item" matTooltip="{{ 'NAV_MENU.MAP' | translate }}">
+      <a href="#menu">
+        <mat-icon>public</mat-icon>
+      </a>
+    </li>
+    <li class="menu-item" matTooltip="{{ 'NAV_MENU.PROJECTS' | translate }}">
+      <a href="#menu">
+        <mat-icon>attach_money</mat-icon>
+      </a>
+    </li>
+    <li class="menu-item" matTooltip="{{ 'NAV_MENU.HOME' | translate }}">
+      <a href="#menu">
+        <mat-icon>home</mat-icon>
+      </a>
+    </li>
+  </ul>
+</div>
