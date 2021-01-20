@@ -33,5 +33,15 @@
     "DISABILITY": "Disability Rights",
     "AGRICULTURE": "Sustainable Agriculture",
     "WILDLIFE": "Wildlife Conservation"
+  },
+  "NAV_MENU": {
+    "HOME": "Home",
+    "PROJECTS": "Projects",
+    "MAP": "Map",
+    "SIGN_IN": "Sign In",
+    "SIGN_UP": "Sign Up",
+    "SETTINGS": "Settings",
+    "SHOW": "Show menu",
+    "HIDE": "Hide menu"
   }
 }
