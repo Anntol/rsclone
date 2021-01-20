@@ -10,6 +10,7 @@ import { ProjectListComponent } from './components/project-list/project-list.com
 import { ProjectCardComponent } from './components/project-card/project-card.component';
 import { VerticalMenuComponent } from './components/vertical-menu/vertical-menu.component';
 import { ProjectsPageComponent } from './pages/projects-page/projects-page.component';
+import { ThemesListComponent } from './components/themes-list/themes-list.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { ProjectsPageComponent } from './pages/projects-page/projects-page.compo
     ProjectListComponent,
     ProjectCardComponent,
     VerticalMenuComponent,
-    ProjectsPageComponent
+    ProjectsPageComponent,
+    ThemesListComponent
   ],
   imports: [CommonModule, SharedModule, HttpClientModule],
   exports: [
