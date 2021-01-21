@@ -32,7 +32,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cors());
 
 console.log('dir: ', path.resolve());
-app.use(express.static("dist/rsclone"));
+const distAngular = "dist/rsclone";
+app.use('/', express.static(distAngular));
 
 app.use((err: Error, req: express.Request, res: express.Response, next: express.NextFunction) => {
   if (err instanceof AppError) {
@@ -49,5 +50,8 @@ app.use((err: Error, req: express.Request, res: express.Response, next: express.
 });
 
 app.use('/api/user', userRoutes);
+app.use((req, res) => {
+  res.sendFile(path.join(path.resolve(), distAngular, "index.html"));
+});
 
 export default app;
