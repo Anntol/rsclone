@@ -1,8 +1,8 @@
 import * as http from 'http';
-import debugmod from 'debug';
 import app from './backend/app.js';
 
-const debug = debugmod('rsclone-node');
+// import debugmod from 'debug';
+// const debug = debugmod('rsclone-node');
 
 // Normalize a port.
 function normalizePort(val: string): string | number | boolean {

@@ -3,13 +3,14 @@ import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Observable, Subject } from 'rxjs';
 
+import { environment } from '../../environments/environment';
 import { AuthData } from './auth-data.model';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
   constructor(private http: HttpClient, private router: Router) {}
 
-  serverUrl = 'http://localhost:3000';
+  serverUrl = environment.serverUrl;
 
   private token: string | undefined;
 
