@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  serverUrl: 'https://rsclone-ant.herokuapp.com/'
+  serverUrl: 'https://rsclone-ant.herokuapp.com'
 };
