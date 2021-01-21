@@ -5,7 +5,7 @@
   "scripts": {
     "ng": "ng",
     "start": "npm run tsc && node ./dist/out-tsc/server.js",
-    "build": "ng build",
+    "devbuild": "ng build",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
