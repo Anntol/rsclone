@@ -1,60 +1,83 @@
 @import '../../../../theme/colors.scss';
 
-.projects {
-  margin: 0 auto;
-  width: 100%;
-  max-width: 1366px;
-  min-height: 100vh;
-  display: -webkit-flex;
-	display: flex;
-  flex-wrap: wrap;
-}
-.nav-vertcal{
-  position: relative;
-  z-index: 4;
-  display: -webkit-flex;
-  display: flex;
-  flex: 0 1 9em ;
-  flex-direction: column;
+#projects {
+  display: grid;
+  grid-template-areas:
+    "logo top"
+    "logo content"
+    "logo content"
+    "footer content"
+    "footer bottom";
+  grid-template-rows: 5em 5em 1fr 9em 5em;
+  grid-template-columns: 9em 1fr;
+  grid-gap: 0;
+  height: 100vh;
+  margin: 0;
   @media screen and (max-width: 485px) {
-    margin-bottom: 2px;
-		flex: 0 1 100%;
-		height: 80px
+    grid-template-areas:
+    "logo"
+    "top"
+    "content"
+    "bottom"
+    "footer";
+  grid-template-rows: 5em 5em 1fr .1em 5em;
+  grid-template-columns: 1fr;
   }
 }
+
+.logo, .top, .content, .bottom {
+  padding: 10px;
+  background-color: $color-white-alt;
+}
+#navLogo {
+  grid-area: logo;
+}
+#pageTop {
+  grid-area: top;
+}
+#pageContent {
+  grid-area: content;
+}
+#pageBottom {
+  grid-area: bottom;
+}
+#pagefooter {
+  grid-area: footer;
+}
+
 .footer-secondary {
-  position: absolute;
   width: 9em;
   bottom: 0.3em;
   z-index: 5;
   @media screen and (max-width: 485px) {
-    width: 21.5em;
+    background-color: $accent-violet-color;
+    width: 100%;
     bottom: 0;
   }
 }
-.footer-show {
-  position: absolute;
-  bottom: 0;
-  margin-bottom: -80px;
-  width: 100%;
-  height: 0px;
-  background: $accent-violet-color;
-  transition: margin 0.5s linear;
-  @media screen and (max-width: 485px) {
-    // background-image: url(../../../../assets/img/footer-people.png);
-    // filter: grayscale(20%);
-    opacity: 0.8;
-    height: 80px;
-    margin-bottom: 0;
-  }
-}
+// .footer-show {
+//   position: absolute;
+//   bottom: 0;
+//   margin-bottom: -80px;
+//   width: 100%;
+//   height: 0px;
+//   background: $accent-violet-color;
+//   transition: margin 0.5s linear;
+//   @media screen and (max-width: 485px) {
+//     // background-image: url(../../../../assets/img/footer-people.png);
+//     // filter: grayscale(20%);
+//     opacity: 0.8;
+//     height: 80px;
+//     margin-bottom: 0;
+//   }
+// }
 .rsschool-img {
   height: 37px;
   transform: rotate(-90deg);
   margin: 1em 1em 1em .5em;
   @media screen and (max-width: 485px) {
     transform: rotate(0deg);
-    margin: 0 1em 0 2em;
+    margin: 1em 1em 0 2em;
   }
 }
 .rsschool-img:hovet {
@@ -79,54 +102,46 @@
 }
 .content{
   position: relative;
-  margin-left: 2px;
-	display: -webkit-flex;
-  display: flex;
-  flex: auto;
   justify-content: top;
   overflow: auto;
-  height: 100vh;
-  // background-color: orange;
+  height: calc(100vh - 10em);
   background-color: $color-white-alt;
   @media screen and (max-width: 485px) {
     margin-left: 0;
-		flex: 1 1 100%;
-		flex-direction: row;
-		height: calc(100vh - 80px)
+		height: calc(100vh - 15.4em)
   }
   .btn-more {
     position: absolute;
     left: 1em;
-    bottom: 2.5em;
+    bottom: 1.5em;
     width: 12em;
     height: 40px;
     color: $accent-violet-color;
     text-transform: uppercase;
     font-weight: 600;
     @media screen and (max-width: 485px) {
-      bottom: 5.5em;
+      bottom: 1.5em;
     }
   }
 }
 .lang {
-  position: fixed;
-  bottom: 2em;
-  right: 2em;
+  position: absolute;
+  bottom: 1.5em;
+  right: 1em;
   @media screen and (max-width: 485px) {
+    z-index: 6;
     right: 1em;
-    bottom: 3.6em;
+    bottom: 1.6em;
   }
 }
 form{
   position: relative;
-  top: 2em;
-  left: 4em;
+  left: 1.5em;
   transition: all 1s;
   width: 42px;
   height: 42px;
   border-radius: 20px;
   @media screen and (max-width: 485px) {
-    margin-top: -1.5em;
     margin-left: 5.5em;
   }
 }
