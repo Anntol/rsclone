@@ -21,7 +21,6 @@ export class AuthService {
   private authStatus = new Subject<boolean>();
 
   getToken(): string | undefined {
-    console.log('gettoken ', this.token);
     return this.token;
   }
 
@@ -37,8 +36,7 @@ export class AuthService {
   createUser(email: string, password: string): void {
     const authData: AuthData = { email, password };
     this.http.post(`${this.serverUrl}/api/user/signup`, authData)
-    .subscribe((response) => {
-      console.log('authservice ', response);
+    .subscribe(() => {
       this.loginUser(email, password);
     });
   }
@@ -47,7 +45,6 @@ export class AuthService {
     const authData: AuthData = { email, password };
     this.http.post<{token: string, expiresIn: number}>(`${this.serverUrl}/api/user/login`, authData)
     .subscribe((response) => {
-      console.log('authservice ', response);
       this.token = response.token;
 
       if(this.token) {
@@ -85,7 +82,6 @@ export class AuthService {
   }
 
   private setAuthTimer(duration: number) {
-    console.log("Setting timer: ", duration);
     this.tokenTimer = window.setTimeout(() => {
       this.logout();
     }, duration * 1000);
