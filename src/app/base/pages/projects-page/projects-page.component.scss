@@ -1,0 +1,177 @@
+@import '../../../../theme/colors.scss';
+
+#projects {
+  display: grid;
+  grid-template-areas:
+    "logo top"
+    "logo content"
+    "logo content"
+    "footer content"
+    "footer bottom";
+  grid-template-rows: 5em 5em 1fr 9em 5em;
+  grid-template-columns: 9em 1fr;
+  grid-gap: 0;
+  height: 100vh;
+  margin: 0;
+  @media screen and (max-width: 485px) {
+    grid-template-areas:
+    "logo"
+    "top"
+    "content"
+    "bottom"
+    "footer";
+  grid-template-rows: 5em 5em 1fr .1em 5em;
+  grid-template-columns: 1fr;
+  }
+}
+
+.logo, .top, .content, .bottom {
+  padding: 10px;
+  background-color: $color-white-alt;
+}
+#navLogo {
+  grid-area: logo;
+}
+#pageTop {
+  grid-area: top;
+}
+#pageContent {
+  grid-area: content;
+}
+#pageBottom {
+  grid-area: bottom;
+}
+#pagefooter {
+  grid-area: footer;
+}
+
+.footer-secondary {
+  width: 9em;
+  bottom: 0.3em;
+  z-index: 5;
+  @media screen and (max-width: 485px) {
+    background-color: $accent-violet-color;
+    width: 100%;
+    bottom: 0;
+  }
+}
+.rsschool-img {
+  height: 37px;
+  transform: rotate(-90deg);
+  margin: 1em 1em 1em .5em;
+  @media screen and (max-width: 485px) {
+    transform: rotate(0deg);
+    margin: 1em 1em 0 2em;
+  }
+}
+.rsschool-img:hovet {
+  cursor: pointer;
+}
+.github-img {
+  height: 40px;
+  margin: 2em 1em .5em 3em;
+  @media screen and (max-width: 485px) {
+    margin: 0 .5em;
+  }
+}
+.creation {
+  color: $primary-text-color;
+  text-align: center;
+  opacity: 0.7;
+  @media screen and (max-width: 485px) {
+    text-align: left;
+    display: inline-block;
+    margin: 1em;
+  }
+}
+.content{
+  position: relative;
+  justify-content: top;
+  overflow: auto;
+  height: calc(100vh - 10em);
+  background-color: $color-white-alt;
+  @media screen and (max-width: 485px) {
+    margin-left: 0;
+		height: calc(100vh - 15.4em)
+  }
+  .btn-more {
+    position: absolute;
+    left: 1em;
+    bottom: 1.5em;
+    width: 12em;
+    height: 40px;
+    color: $accent-violet-color;
+    text-transform: uppercase;
+    font-weight: 600;
+    @media screen and (max-width: 485px) {
+      bottom: 1.5em;
+    }
+  }
+}
+.lang {
+  position: absolute;
+  bottom: 1.5em;
+  right: 1em;
+  @media screen and (max-width: 485px) {
+    z-index: 6;
+    right: 1em;
+    bottom: 1.6em;
+  }
+}
+form{
+  position: relative;
+  left: 1.5em;
+  transition: all 1s;
+  width: 42px;
+  height: 42px;
+  border-radius: 20px;
+  @media screen and (max-width: 485px) {
+    margin-left: 5.5em;
+  }
+}
+
+input{
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 42px;
+  line-height: 30px;
+  outline: 0;
+  border: 0;
+  display: none;
+  font-size: 1em;
+  color: $secondary-text-color;
+  border-radius: 20px;
+  padding-left: 20px;
+}
+
+.material-icons{
+  box-sizing: border-box;
+  padding: 0.5em;
+  width: 42px;
+  height: 42px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-radius: 50%;
+  color: $accent-violet-color;
+  text-align: center;
+  font-size: 1.5em;
+  font-weight: 600;
+  transition: all 1s;
+}
+
+form:hover{
+  width: 12em;
+  cursor: pointer;
+}
+
+form:hover input{
+  display: block;
+}
+
+form:hover .material-icons{
+  background: $accent-violet-color;
+  color: $primary-text-color;
+}

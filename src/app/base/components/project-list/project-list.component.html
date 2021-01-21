@@ -1,9 +1,16 @@
-<div>
-  <ul class="projects">
-    <li *ngFor="let project of dataProjects">
-      <span class="badge">{{ project.id }}</span> {{ project.title }}
-    </li>
-  </ul>
-  <button (click)="nextPage()">more projects >>></button>
-  <span class="warning-message">{{ nextProjectMessage }}</span>
-</div>
+  <div>
+    <ul class="cards-block">
+      <li
+        class="card-itm"
+        *ngFor="let project of dataProjects">
+        <input type="checkbox" name="pasta" [id]="project.id" class="checkbox-input"/>
+        <label [for]="project.id" class="checkbox-label">
+          <div class="checkbox-text">
+            <p class="checkbox-text--title"> {{ project.title }}</p>
+            <p class="checkbox-text--description">Click to <span class="un">un</span>check it!</p>
+          </div>
+        </label>
+      </li>
+    </ul>
+  </div>
+

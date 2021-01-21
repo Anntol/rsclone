@@ -8,9 +8,12 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { ClickOutsideModule } from 'ng-click-outside';
+import { SelectLangComponent } from './components/select-lang/select-lang.component';
 
 @NgModule({
-  declarations: [],
+  declarations: [SelectLangComponent],
   imports: [
     CommonModule,
     RouterModule,
@@ -20,8 +23,10 @@ import { MatMenuModule } from '@angular/material/menu';
     MatCardModule,
     MatFormFieldModule,
     MatInputModule,
+    MatTooltipModule,
+    MatMenuModule,
     MatIconModule,
-    MatMenuModule
+    ClickOutsideModule
   ],
   exports: [
     CommonModule,
@@ -32,8 +37,11 @@ import { MatMenuModule } from '@angular/material/menu';
     MatCardModule,
     MatFormFieldModule,
     MatInputModule,
+    MatTooltipModule,
+    SelectLangComponent,
+    MatMenuModule,
     MatIconModule,
-    MatMenuModule
+    ClickOutsideModule
   ],
 })
 export class SharedModule {}

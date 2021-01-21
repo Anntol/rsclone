@@ -1,54 +1,206 @@
-.projects {
-  margin: 0 0 2em 0;
-  list-style-type: none;
-  padding: 0;
-  width: 45em;
+@import '../../../../theme/colors.scss';
+
+
+$label-size: 60px;
+$label-margin: 0px;
+$label-before-size: 40px;
+
+$font-size-md: 14px;
+$font-size-lg: 24px;
+$font-size-xl: 36px;
+$font-light: 300;
+$font-normal: 400;
+$font-bold: 500;
+.top,
+.bottom {
+  width: 100%;
+	max-width: 960px;
+	min-height: 80px;
+	margin: 0 auto 30px;
 }
-.projects li {
-  cursor: pointer;
-  position: relative;
-  left: 0;
-  background-color: #EEE;
-  margin: .5em;
-  padding: .3em 0;
-  height: 1.6em;
-  border-radius: 4px;
+.cards-block {
+	width: 100%;
+	max-width: 960px;
+	// min-width: 300px;
+	margin: 0 auto;
+	padding: 0 10px;
+	display: -webkit-flex;
+	display: flex;
+	flex-wrap: wrap;
+  box-sizing: border-box;
+  justify-content: center;
+  align-items: center;
 }
-.projects li:hover {
-  color: #607D8B;
-  background-color: #DDD;
-  left: .1em;
+.card-itm {
+	// min-height: 200px;
+	font-size: 1rem;
+  color: $secondary-text-color;
+	margin: 0 10px 40px;
+	flex-basis: calc(50% - 20px);
+
+	display: -webkit-flex;
+	display: flex;
+	justify-content: center;
+  align-items: center;
+  @media screen and (max-width: 485px) {
+    margin: 0 0 20px;
+		flex-basis: 100%;
+  }
 }
-.projects li.selected {
-  background-color: #CFD8DC;
-  color: white;
+
+// Reference from: http://maximilianhoffmann.com/posts/better-font-rendering-on-osx
+@mixin font-smoothing($value: on) {
+    @if $value == on {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+    @else {
+        -webkit-font-smoothing: subpixel-antialiased;
+        -moz-osx-font-smoothing: auto;
+    }
 }
-.projects li.selected:hover {
-  background-color: #BBD8DC;
-  color: white;
+
+.title {
+  font-size: $font-size-xl;
+  font-weight: $font-light;
+  margin-bottom: 54px;
+
+  small {
+    font-size: 16px;
+  }
 }
-.projects .badge {
+
+.checkbox-input {
+  display: none;
+}
+
+.checkbox-label, .checkbox-text, .checkbox-text--description {
+  transition: all .4s ease;
+}
+
+.checkbox-label {
   display: inline-block;
-  font-size: small;
-  color: white;
-  padding: 0.8em 0.7em 0 0.7em;
-  background-color:#405061;
-  line-height: 1em;
+  vertical-align: top;
   position: relative;
-  left: -1px;
-  top: -4px;
-  width: 3em;
-  height: 1.8em;
-  margin-right: .8em;
-  border-radius: 4px 0 0 4px;
+  width: 100%;
+  padding: $label-size/2 $label-size;
+  cursor: pointer;
+  font-size: $font-size-lg;
+  font-weight: $font-normal;
+  border: 1px solid darken($color-white, 15%);
+  border-radius: 2px;
+  box-shadow: inset 0 0 0 0 $primary-color;
+  @media screen and (min-width: 485px) {
+    // width: 300px;
+  }
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 75%;
+    right: 16px;
+    width: $label-before-size;
+    height: $label-before-size;
+    opacity: 0;
+    background-color: $primary-color;
+    background-size: 24px;
+    border-radius: 50%;
+    transform: translate(0%, -50%);
+    transition: all .4s ease;
+  }
 }
 
-.disable-click {
-  pointer-events: none;
-  cursor: default;
+.checkbox-text {
+  &--title {
+    font-weight: $font-bold;
+  }
+  &--description {
+    font-size: $font-size-md;
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid $primary-color;
+    .un {
+      display: none;
+    }
+  }
 }
 
-.warning-message {
-  color: rgb(206, 83, 12);
-  margin-left: 1em;
+.checkbox-input:checked + .checkbox-label {
+  border-color: $primary-color;
+  box-shadow: inset 0 -12px 0 0 $primary-color;
+  &:before {
+    top: 0;
+    opacity: 1;
+  }
+
+  & .checkbox-text {
+    transform: translate(0, -8px);
+    &--description {
+      border-color: darken($color-white, 15%);
+      .un {
+        display: inline-block;
+      }
+    }
+  }
+}
+
+// ---Search
+form{
+  position: relative;
+  top: 2em;
+  left: 4em;
+  transition: all 1s;
+  width: 42px;
+  height: 42px;
+  border-radius: 20px;
+  @media screen and (max-width: 485px) {
+    margin-top: -1.5em;
+    margin-left: 5.5em;
+  }
+}
+
+input{
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 42px;
+  line-height: 30px;
+  outline: 0;
+  border: 0;
+  display: none;
+  font-size: 1em;
+  color: $secondary-text-color;
+  border-radius: 20px;
+  padding-left: 20px;
+}
+
+.material-icons{
+  box-sizing: border-box;
+  padding: 0.5em;
+  width: 42px;
+  height: 42px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-radius: 50%;
+  color: $accent-violet-color;
+  text-align: center;
+  font-size: 1.5em;
+  font-weight: 600;
+  transition: all 1s;
+}
+
+form:hover{
+  width: 12em;
+  cursor: pointer;
+}
+
+form:hover input{
+  display: block;
+}
+
+form:hover .material-icons{
+  background: $accent-violet-color;
+  color: $primary-text-color;
 }

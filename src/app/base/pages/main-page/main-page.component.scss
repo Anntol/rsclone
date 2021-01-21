@@ -1,18 +1,148 @@
-.search{
- margin: 0.5em 0.5em 0.5em 0.5em;
+@import '../../../../theme/colors.scss';
+
+.main  {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1366px;
+  height: 100vh;
+  display: -webkit-flex;
+	display: flex;
+	flex-wrap: wrap;
+  border: 1px solid red;
+ }
+.nav-vert-primary {
+  position: relative;
+  width: 30%;
+  min-width: 420px;
+  height: 99vh;
+
+  display: -webkit-flex;
+	display: flex;
+	flex: 0 0 420px;
+	flex-direction: column;
+
+  background-color:$primary-color;
+  .logo {
+    position: absolute;
+    left: 0.3em;
+    top: 1em;
+    // font-family: Krona One;
+    letter-spacing: .15em;
+    font-weight: 600;
+    font-size: 5em;
+    line-height: 32px;
+    text-align: right;
+    color: $primary-text-color;
+    text-transform: uppercase;
+    text-shadow: -1px -1px 2px #fafbff00, 2px 2px 3px #763a76b9;
+  }
+  .logo-title {
+    position: absolute;
+    top: 8em;
+    left: 2.8em;
+    font-size: 1em;
+  }
+  .go-projects {
+    position: absolute;
+    left: -5em;
+    // top: calc(100vh - 11em)/2;
+    top: 12em;
+    height: auto;
+    width: 13em;
+    font-size: 2em;
+    line-height: 42px;
+  }
+
+  .footer-primary {
+    position: absolute;
+    left: 3em;
+    bottom: 2.5em;
+  }
+  .rsschool-img {
+    height: 37px;
+    margin-left: 15px;
+  }
+  .rsschool-img:hovet {
+    cursor: pointer;
+
+  }
+  .github-img {
+    height: 40px;
+  }
+}
+.content{
+  position: relative;
+  flex: auto;
+	display: -webkit-flex;
+	display: flex;
+	justify-content: center;
+  align-items: left;
+  flex-direction: column;
+  padding-left: 30vw;
+  .lang {
+    position: absolute;
+    bottom: 2em;
+    right: 3em;
+    bottom: 2.5em;
+  }
+  h3 {
+    // font-family: Fira Sans;
+    width: 320px;
+    font-weight: 600;
+    font-size: 56px;
+    line-height: 70px;
+    letter-spacing: -1px;
+    color:$primary-text-color;
+    text-shadow: -1px -1px 2px hsla(228, 100%, 99%, 0.925), 1px 1px 1px #0f070fb9;
+  }
+  p {
+    // font-family: Fira Sans;
+    width: 360px;
+    font-size: 18px;
+    line-height: 28px;
+    color: #151515;
+    opacity: 0.7;
+  }
+  .start-btn {
+    height: 40px;
+    width: 160px;
+  }
 }
 
-.warning-message {
-  color: rgb(206, 83, 12);
-  margin-left: 1em;
+@media screen and (max-width: 800px) {
+	.box-base {
+		margin-bottom: 30px;
+		flex: 0 1 100%;
+	}
+	.box-side {
+		margin-left: 0;
+		flex: 1 1 100%;
+		flex-direction: row;
+	}
+	.box-itm {
+		margin: 0 0 0 30px;
+	}
+	.box-itm:first-child {
+		margin-left: 0;
+  }
+  .nav-vert-primary {
+    flex: 0 0 250px;
+    min-width: 250px;
+  }
 }
+@media screen and (max-width: 600px) {
+	.box-side {
+		flex-direction: column;
+	}
+	.box-itm {
+		margin: 0 0 30px;
+	}
+	.box-itm:last-child {
+		margin-bottom: 0;
+  }
+  .nav-vert-primary {
+    flex: 0 0 200px;
+    min-width: 200px;
+  }
 
-::ng-deep .mat-form-field-appearance-outline .mat-form-field-infix {
-  padding: 0.35rem 0 .7rem 0;
-  width: 300px;
 }
-
-::ng-deep .mat-form-field {
-  margin-top: 1rem;
-}
-

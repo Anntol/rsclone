@@ -1,0 +1,28 @@
+@import './colors.scss';
+
+.stacks-base-buttons {
+  background: $primary-color;
+  border: 1px solid $color-white-op04;
+  box-shadow: 0 8px 16px 0 $shadow-dark;
+}
+
+.stacks-base-block {
+  // border: 1px solid $color-white-op04;
+  box-sizing: border-box;
+  box-shadow: -5px -5px 10px $shadow-ligth, 3px 3px 6px $shadow-button;
+}
+
+.stacks-base-block:hover {
+  cursor: pointer;
+  box-shadow: -5px -5px 10px $shadow-ligth, 3px 3px 6px $shadow-accent;
+}
+
+.stacks-base-btn:active {
+  cursor: pointer;
+  box-shadow: 0px 0px 1px $shadow-ligth, 0px 0px 1px $shadow-accent;
+}
+
+.bg-base-block-in {
+  background: linear-gradient(135.37deg, $color-black-op04 4.29%, $color-white-op04 95.6%), $color-white-alt;
+  background-blend-mode: soft-light, normal;
+}

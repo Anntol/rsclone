@@ -6,18 +6,19 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { SharedModule } from '../shared/shared.module';
 
+import { HeaderComponent } from './components/header/header.component';
+import { NavMenuComponent } from './components/nav-menu/nav-menu.component';
 import { LoginComponent } from '../auth/login/login.component';
 import { SignupComponent } from '../auth/signup/signup.component';
-import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
-  declarations: [LoginComponent, SignupComponent, HeaderComponent],
+  declarations: [LoginComponent, SignupComponent, HeaderComponent, NavMenuComponent],
   imports: [
     CommonModule,
     SharedModule,
     HttpClientModule,
     FormsModule
   ],
-  exports: [LoginComponent, SignupComponent, HeaderComponent]
+  exports: [LoginComponent, SignupComponent, HeaderComponent, NavMenuComponent]
 })
 export class CoreModule {}

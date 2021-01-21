@@ -39,6 +39,7 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "~5.10.11",
     "mongoose-unique-validator": "^2.0.3",
+    "ng-click-outside": "^7.0.1",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "typescript": "~4.0.2",
