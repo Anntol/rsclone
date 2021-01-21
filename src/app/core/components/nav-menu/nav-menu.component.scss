@@ -1,18 +1,13 @@
 @import '../../../../theme/colors.scss';
 
 #menu {
-	width: 68px;
-	height: 68px;
+	width: 48px;
+	height: 48px;
 	position: absolute;
-	right: 10px;
+	right: 1px;
 	top: 10px;
 	list-style: none;
 	text-align: center;
-}
-
-.menu-button,
-.menu-item {
-  box-shadow: 0 5px 5px grey;
 }
 
 .menu-item:hover {
@@ -25,8 +20,8 @@
 }
 
 .menu-button {
-	width: 68px;
-	height: 68px;
+	width: 46px;
+	height: 46px;
 	position: absolute;
 	left: 10%;
 	top: -20%;
@@ -37,7 +32,7 @@
   color: white;
   text-align: center;
   vertical-align: middle;
-  line-height: 80px;
+  line-height: 60px;
   background-color: $accent-color;
 }
 
@@ -48,8 +43,8 @@
 }
 
 .menu-item {
-	width: 64px;
-	height: 64px;
+	width: 42px;
+	height: 42px;
 	position: absolute;
 	left: 12%;
 	top: -18%;
@@ -65,33 +60,33 @@
 .menu-item a {
 	color: #fff;
 	position: relative;
-	top: 30%;
+	top: 20%;
 	left: 0;
 	text-decoration: none;
 }
 
 #menu:target>.menu-item:nth-child(7) {
-  transform: translateX(-375px);
+  transform: translateX(-275px);
 	transition-delay: 0.1s;
 }
 
 #menu:target>.menu-item:nth-child(6) {
-  transform: translateX(-300px);
+  transform: translateX(-220px);
 	transition-delay: 0.2s;
 }
 
 #menu:target>.menu-item:nth-child(5) {
-  transform: translateX(-225px);
+  transform: translateX(-165px);
 	transition-delay: 0.3s;
 }
 
 #menu:target>.menu-item:nth-child(3) {
-  transform: translateX(-150px);
+  transform: translateX(-110px);
 	transition-delay: 0.4s;
 }
 
 #menu:target>.menu-item:nth-child(4) {
-  transform: translateX(-75px);
+  transform: translateX(-55px);
 	transition-delay: 0.5s;
 }
 
@@ -106,27 +101,27 @@
 
 @media screen and (max-width: 800px) {
   #menu:target>.menu-item:nth-child(7) {
-    transform: translateY(80px);
+    transform: translateY(55px);
     transition-delay: 0.1s;
   }
   
   #menu:target>.menu-item:nth-child(6) {
-    transform: translateY(150px);
+    transform: translateY(110px);
     transition-delay: 0.2s;
   }
   
   #menu:target>.menu-item:nth-child(5) {
-    transform: translateY(220px);
+    transform: translateY(165px);
     transition-delay: 0.3s;
   }
   
   #menu:target>.menu-item:nth-child(3) {
-    transform: translateY(290px);
+    transform: translateY(220px);
     transition-delay: 0.4s;
   }
   
   #menu:target>.menu-item:nth-child(4) {
-    transform: translateY(360px);
+    transform: translateY(275px);
     transition-delay: 0.5s;
   }
 }
