@@ -5,7 +5,7 @@ import {
 @Component({
   selector: 'app-nav-menu',
   templateUrl: './nav-menu.component.html',
-  styleUrls: ['./nav-menu.component.scss']
+  styleUrls: ['./nav-menu.component.scss', '../../../../theme/stacks.scss']
 })
 export class NavMenuComponent {
   @ViewChild('menuClose') menuClose!: ElementRef;

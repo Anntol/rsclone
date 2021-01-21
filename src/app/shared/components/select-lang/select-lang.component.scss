@@ -1,6 +1,12 @@
+@import '../../../../theme/colors.scss';
+
 .form_lang_btn {
   display: inline-block;
-	margin-right: 10px;
+  margin-right: .8em;
+  @media screen and (max-width: 485px) {
+    display: block;
+    margin-bottom: .5em;
+  }
 }
 .select-language input[type=radio] {
 	display: none;

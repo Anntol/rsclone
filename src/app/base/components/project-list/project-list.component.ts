@@ -10,7 +10,7 @@ import { GlobalGivingApiService } from '../../../core/service/global-giving-api.
 @Component({
   selector: 'app-project-list',
   templateUrl: './project-list.component.html',
-  styleUrls: ['./project-list.component.scss']
+  styleUrls: ['./project-list.component.scss', '../../../../theme/stacks.scss']
 })
 export class ProjectListComponent implements OnInit, OnDestroy {
   destroy$: Subject<boolean> = new Subject<boolean>();
@@ -37,6 +37,7 @@ export class ProjectListComponent implements OnInit, OnDestroy {
         }
         this.hasNext = data.projects.hasNext || false;
         this.dataProjects = data.projects.project;
+        console.log(this.dataProjects);
       });
   }
 

@@ -1,0 +1,60 @@
+@import '../../../../theme/colors.scss';
+
+.nav-vert-primary {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-color: $primary-color;
+  @media screen and (max-width: 485px) {
+    height: 80px;
+  }
+  .logo {
+    position: absolute;
+    top: 1em;
+    left: 0.1em;
+    font-weight: 600;
+    font-size: 4em;
+    line-height: 32px;
+    text-align: center;
+    color: $primary-text-color;
+    text-transform: uppercase;
+    z-index: 5;
+    text-shadow: -1px -1px 2px #fafbff00, 2px 2px 3px #763a76b9;
+  }
+  .logo-title {
+    position: absolute;
+    top: 7em;
+    left: 1.3em;
+    font-size: 1em;
+    width: 75px;
+    color: $accent-color-dark;
+    text-align: center;
+    line-height: 0.8em;
+    z-index: 5;
+  }
+  .footer-secondary {
+    position: absolute;
+    width: 100%;
+    bottom: 0.7em;
+    @media screen and (max-width: 485px) {
+      display: none;
+    }
+  }
+  .rsschool-img {
+    height: 37px;
+    transform: rotate(-90deg);
+    margin: 1em 1em 1em .5em;
+  }
+  .rsschool-img:hovet {
+    cursor: pointer;
+  }
+  .github-img {
+    height: 40px;
+    margin: 2em 1em .5em 3em;
+  }
+  .creation {
+    color: $primary-text-color;
+    text-align: center;
+    opacity: 0.7;
+  }
+}
