@@ -2,6 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
+import path from 'path';
 
 import userRoutes from './routes/user.js';
 import { MONGO_CONNECTION_STRING } from './config.js';
@@ -29,6 +30,9 @@ if (!MONGO_CONNECTION_STRING) {
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cors());
+
+console.log('dir: ', path.resolve());
+app.use(express.static("dist/rsclone"));
 
 app.use((err: Error, req: express.Request, res: express.Response, next: express.NextFunction) => {
   if (err instanceof AppError) {
