@@ -1,37 +1,77 @@
 @import '../../../../theme/colors.scss';
 
+.top,
+.bottom {
+  background-color: orange;
+	width: 100%;
+	max-width: 960px;
+	min-height: 80px;
+	margin: 0 auto 30px;
+}
+// .grid {
 .cards-block {
 	width: 100%;
-	min-width: 280px;
-  // height: inherit;
-  // background: rgb(224, 136, 136);
+	max-width: 960px;
+	// min-width: 300px;
 	margin: 0 auto;
-  padding: 0 10px;
-  // overflow: auto;
+	padding: 0 10px;
 	display: -webkit-flex;
-	// display: flex;
+	display: flex;
 	flex-wrap: wrap;
-	box-sizing: border-box;
+  box-sizing: border-box;
+  justify-content: center;
+  align-items: center;
 }
 .card-itm {
-	min-height: 167px;
-  font-size: 1rem;
+	// min-height: 200px;
+	font-size: 1rem;
   color: $accent-violet-color;
-	margin: 0 10px 10px;
-	flex: 0 1 calc(50% - 20px);
+	margin: 0 10px 40px;
+	flex-basis: calc(50% - 20px);
 
 	display: -webkit-flex;
 	display: flex;
 	justify-content: center;
-	align-items: center;
+  align-items: center;
+  @media screen and (max-width: 485px) {
+    margin: 0 0 20px;
+		flex-basis: 100%;
+  }
 }
 
-@media screen and (max-width: 485px) {
-	.card-itm {
-		margin: 0 0 25px;
-		flex-basis: 100%;
-	}
-}
+
+// .cards-block {
+// 	width: 100%;
+// 	min-width: 280px;
+//   // height: inherit;
+//   // background: rgb(224, 136, 136);
+// 	margin: 0 auto;
+//   padding: 0 10px;
+//   // overflow: auto;
+// 	display: -webkit-flex;
+// 	// display: flex;
+// 	flex-wrap: wrap;
+// 	box-sizing: border-box;
+// }
+// .card-itm {
+// 	min-height: 167px;
+//   font-size: 1rem;
+//   color: $accent-violet-color;
+// 	margin: 0 10px 10px;
+// 	flex: 0 1 calc(50% - 20px);
+
+// 	display: -webkit-flex;
+// 	display: flex;
+// 	justify-content: center;
+// 	align-items: center;
+// }
+
+// @media screen and (max-width: 485px) {
+// 	.card-itm {
+// 		margin: 0 0 25px;
+// 		flex-basis: 100%;
+// 	}
+// }
 
 // Reference from: http://maximilianhoffmann.com/posts/better-font-rendering-on-osx
 @mixin font-smoothing($value: on) {
@@ -55,7 +95,7 @@ $color-font: rgba(black, .54);
 
 $font-size-md: 14px;
 $font-size-lg: 24px;
-$font-size-xl: 54px;
+$font-size-xl: 36px;
 $font-light: 300;
 $font-normal: 400;
 $font-bold: 500;
@@ -71,11 +111,11 @@ $font-bold: 500;
   }
 }
 
-.link {
-  display: block;
-  color: $color-font;
-  margin-top: 54px;
-}
+// .link {
+//   display: block;
+//   color: $color-font;
+//   margin-top: 54px;
+// }
 
 .checkbox-input {
   display: none;
@@ -98,6 +138,9 @@ $font-bold: 500;
   border: 1px solid darken($color-light, 15%);
   border-radius: 2px;
   box-shadow: inset 0 0 0 0 $color-brand;
+  @media screen and (min-width: 485px) {
+    // width: 300px;
+  }
 
   &:before {
     content: "";
@@ -108,9 +151,9 @@ $font-bold: 500;
     height: $label-before-size;
     opacity: 0;
     background-color: $color-brand;
-    background-image: url(http://lorenzodianni.io/codepen/icon/done--white.svg);
-    background-position: center;
-    background-repeat: no-repeat;
+    // background-image: url(http://lorenzodianni.io/codepen/icon/done--white.svg);
+    // background-position: center;
+    // background-repeat: no-repeat;
     background-size: 24px;
     border-radius: 50%;
     transform: translate(0%, -50%);
@@ -152,9 +195,63 @@ $font-bold: 500;
   }
 }
 
-@media screen and (min-width: 540px) {
-  .checkbox-label {
-    width: 450px;
-    // margin: $label-margin;
+// ---Search
+form{
+  position: relative;
+  top: 2em;
+  left: 4em;
+  transition: all 1s;
+  width: 42px;
+  height: 42px;
+  border-radius: 20px;
+  @media screen and (max-width: 485px) {
+    margin-top: -1.5em;
+    margin-left: 5.5em;
   }
+}
+
+input{
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 42px;
+  line-height: 30px;
+  outline: 0;
+  border: 0;
+  display: none;
+  font-size: 1em;
+  color: $secondary-text-color;
+  border-radius: 20px;
+  padding-left: 20px;
+}
+
+.material-icons{
+  box-sizing: border-box;
+  padding: 0.5em;
+  width: 42px;
+  height: 42px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-radius: 50%;
+  color: $accent-violet-color;
+  text-align: center;
+  font-size: 1.5em;
+  font-weight: 600;
+  transition: all 1s;
+}
+
+form:hover{
+  width: 12em;
+  cursor: pointer;
+}
+
+form:hover input{
+  display: block;
+}
+
+form:hover .material-icons{
+  background: $accent-violet-color;
+  color: $primary-text-color;
 }

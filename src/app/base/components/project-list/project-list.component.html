@@ -1,17 +1,16 @@
-
-  <ul class="cards-block">
-    <li
-      class="card-itm bg-base-block-in stacks-base-block"
-      *ngFor="let project of dataProjects">
-
-      <input type="checkbox" name="pasta" [id]="project.id" class="checkbox-input"/>
-      <label [for]="project.id" class="checkbox-label">
-      <div class="checkbox-text">
-        <p class="checkbox-text--title"> {{ project.title }}</p>
-        <p class="checkbox-text--description">Click to <span class="un">un</span>check it!</p>
-      </div>
-</label>
-
-    </li>
-  </ul>
+  <div>
+    <ul class="cards-block">
+      <li
+        class="card-itm"
+        *ngFor="let project of dataProjects">
+        <input type="checkbox" name="pasta" [id]="project.id" class="checkbox-input"/>
+        <label [for]="project.id" class="checkbox-label">
+          <div class="checkbox-text">
+            <p class="checkbox-text--title"> {{ project.title }}</p>
+            <p class="checkbox-text--description">Click to <span class="un">un</span>check it!</p>
+          </div>
+        </label>
+      </li>
+    </ul>
+  </div>
 
