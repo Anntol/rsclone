@@ -1,0 +1,22 @@
+@import '../../../../theme/colors.scss';
+
+.auth {
+  display: -webkit-flex;
+	display: flex;
+}
+
+.navLogo {
+  width: 9em;
+}
+
+.content {
+	display: -webkit-flex;
+  display: flex;
+  width: calc(100% - 9em);
+  margin: 0 auto;
+  padding: 0 10px;
+  justify-content: center;
+  align-items: center;
+
+  background-color: $color-white-alt;
+}

@@ -10,7 +10,7 @@ import { CoreModule } from './core/core.module';
 import { AppComponent } from './app.component';
 
 import { BaseModule } from './base/base.module';
-import { AuthInterceptor } from './auth/auth-interceptor';
+import { AuthInterceptor } from './core/interceptors/auth.interceptor';
 
 // this function for load any static json file from ./assets/i18n
 export function HttpLoaderFactory(http: HttpClient): TranslateLoader {

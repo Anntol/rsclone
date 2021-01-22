@@ -8,17 +8,15 @@ import { SharedModule } from '../shared/shared.module';
 
 import { HeaderComponent } from './components/header/header.component';
 import { NavMenuComponent } from './components/nav-menu/nav-menu.component';
-import { LoginComponent } from '../auth/login/login.component';
-import { SignupComponent } from '../auth/signup/signup.component';
 
 @NgModule({
-  declarations: [LoginComponent, SignupComponent, HeaderComponent, NavMenuComponent],
+  declarations: [HeaderComponent, NavMenuComponent],
   imports: [
     CommonModule,
     SharedModule,
     HttpClientModule,
     FormsModule
   ],
-  exports: [LoginComponent, SignupComponent, HeaderComponent, NavMenuComponent]
+  exports: [HeaderComponent, NavMenuComponent]
 })
 export class CoreModule {}

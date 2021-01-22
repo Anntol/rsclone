@@ -3,8 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Observable, Subject } from 'rxjs';
 
-import { environment } from '../../environments/environment';
-import { AuthData } from './auth-data.model';
+import { environment } from '../../../environments/environment';
+import { AuthData } from '../models/authdata.model';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {

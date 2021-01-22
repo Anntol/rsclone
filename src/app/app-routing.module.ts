@@ -1,13 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { LoginComponent } from './auth/login/login.component';
-import { SignupComponent } from './auth/signup/signup.component';
+import { AuthPageComponent } from './base/pages/auth-page/auth-page.component';
 import { MainPageComponent } from './base/pages/main-page/main-page.component';
 import { ProjectsPageComponent } from './base/pages/projects-page/projects-page.component';
 
 const routes: Routes = [
-  { path: 'login', component: LoginComponent },
-  { path: 'signup', component: SignupComponent },
+  { path: 'login', component: AuthPageComponent },
+  { path: 'signup', component: AuthPageComponent },
   { path: 'home', component: MainPageComponent },
   { path: 'projects', component: ProjectsPageComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
