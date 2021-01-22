@@ -21,7 +21,11 @@
           />
           <mat-error *ngIf="passwordInput.invalid">Please enter a valid password.</mat-error>
         </mat-form-field>
-        <button mat-raised-button color="primary" type="submit">{{ title }}</button>
+        <button class="btn-auth base-button-blue" type="submit">{{ title }}</button>
+        <p class="auth-links">
+          <a [routerLink]="['/login']" *ngIf="authType == 'signup'">Log In</a>
+          <a [routerLink]="['/signup']" *ngIf="authType == 'login'">Sign Up</a>
+        </p>
       </form>
     </mat-card>
   </div>

@@ -20,3 +20,22 @@
 
   background-color: $color-white-alt;
 }
+
+form {
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: column;
+}
+
+mat-form-field {
+  margin-bottom: 1em;
+}
+
+.btn-auth {
+  height: 40px;
+  margin-bottom: 1em;
+}
+
+.auth-links {
+  text-align: center;
+}

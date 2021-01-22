@@ -8,7 +8,7 @@ import { AuthService } from '../../../core/service/auth.service';
 @Component({
   selector: 'app-auth-page',
   templateUrl: './auth-page.component.html',
-  styleUrls: ['./auth-page.component.scss']
+  styleUrls: ['./auth-page.component.scss', '../../../../theme/buttons.scss']
 })
 export class AuthPageComponent implements OnInit {
   title = '';
