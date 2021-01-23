@@ -8,11 +8,12 @@ import { MainPageComponent } from './pages/main-page/main-page.component';
 import { ParamsInterceptor } from '../core/interceptors/params.interceptor';
 import { ProjectListComponent } from './components/project-list/project-list.component';
 import { ThemesListComponent } from './components/themes-list/themes-list.component';
+import { UserProfileComponent } from './components/user-profile/user-profile.component';
 
 @NgModule({
-  declarations: [MainPageComponent, ProjectListComponent, ThemesListComponent],
+  declarations: [MainPageComponent, ProjectListComponent, ThemesListComponent, UserProfileComponent],
   imports: [CommonModule, SharedModule, HttpClientModule],
-  exports: [MainPageComponent, ProjectListComponent],
+  exports: [MainPageComponent, ProjectListComponent, UserProfileComponent],
   providers: [
     GlobalGivingApiService,
     {

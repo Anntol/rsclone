@@ -1,0 +1,141 @@
+@import '../../../../theme/colors.scss';
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  gap: 10px 10px;
+  grid-template-areas: ". . . ." ". profile profile ." ". settings settings ." ". . . .";
+}
+
+.profile {
+  grid-area: profile;
+}
+
+.settings {
+  grid-area: settings;
+}
+
+.profile {
+  width: 25em;
+  height: 15em;
+  background: white;
+  margin: auto;
+  border-radius: 1em;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5);
+}
+
+.content {
+  width: 25em;
+  height: 5em;
+}
+
+.avatar {
+  width: 12em;
+  height: 12em;
+  margin-top: -6em;
+  margin-left: 6.5em;
+  background-size: cover;
+  border-radius: 50%;
+  box-shadow: 0px 0px 0px 4pt white;
+}
+
+.profile h3 {
+  color: #424242;
+  text-align: center;
+  font-size: 1.6em;
+  margin-bottom: 0;
+}
+
+.location {
+  font-size: 14px;
+  text-align: center;
+  color: #9C9C9C;
+  padding-top: 3px;
+  margin-bottom: 5px;
+}
+
+.statistics {
+  display: flex;
+  width: 25em;
+  height: 5em;
+  border-bottom-left-radius: 0.51em;
+  border-bottom-right-radius: 0.51em;
+  overflow: hidden;
+}
+
+.statistics-box {
+  width: 8.3em;
+  height: 4.5em;
+  float: right;
+  overflow: hidden;
+  position: relative;
+}
+
+.vertical-line {
+  border-left: 1px solid #949494;
+  height: 50px;
+}
+
+.counter-block {
+  position: relative;
+  width: 5em;
+  height: 5em;
+  margin: auto;
+  z-index: 999;
+}
+
+.counter-value {
+  font-size: 24px;
+  line-height: 29px;
+  color: #424242;
+  text-align: center;
+}
+
+.counter-title {
+  color: #949494;
+}
+
+.settings {
+  display: flex;
+  flex-direction: column;
+  width: 25em;
+  height: 15em;
+  background: #FFF;
+  position: inherit;
+  margin: auto;
+  border-radius: 1em;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5);
+}
+
+.mode-box,
+.language-box,
+.country-box {
+  display: flex;
+  padding: 0 20px 0 20px;
+}
+
+.mode-box {
+  padding-top: 30px;
+  padding-bottom: 15px;
+}
+
+.language-box {
+  padding-bottom: 15px;
+}
+
+.light,
+.dark,
+.language,
+.country {
+  margin-left: 20px;
+}
+
+.mat-icon {
+  color: #424242;
+  transition: all 1s ease-in-out;
+  cursor: pointer;
+}
+
+.mat-icon:hover {
+  transform: scale(1.3);
+}
