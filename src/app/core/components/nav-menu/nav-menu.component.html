@@ -18,9 +18,14 @@
         <mat-icon>public</mat-icon>
       </a>
     </li>
-    <li class="menu-item link_four" matTooltip="{{ 'NAV_MENU.SIGN_IN' | translate }}">
+    <li class="menu-item link_four" matTooltip="{{ 'NAV_MENU.SIGN_IN' | translate }}" *ngIf="!this.isUserAuthenticated">
       <a [routerLink]="['/login']">
         <mat-icon>account_circle</mat-icon>
+      </a>
+    </li>
+    <li class="menu-item link_four" matTooltip="{{ 'NAV_MENU.LOG_OUT' | translate }}" *ngIf="this.isUserAuthenticated" (click)="onLogout()">
+      <a [routerLink]="">
+        <mat-icon>logout</mat-icon>
       </a>
     </li>
     <li class="menu-item link_five" matTooltip="{{ 'NAV_MENU.SETTINGS' | translate }}">

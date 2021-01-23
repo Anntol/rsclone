@@ -46,7 +46,8 @@
     "SIGN_UP": "Sign Up",
     "SETTINGS": "Settings",
     "SHOW": "Show menu",
-    "HIDE": "Hide menu"
+    "HIDE": "Hide menu",
+    "LOG_OUT": "Log Out"
   },
   "AUTH": {
     "EMAIL": "E-Mail",
