@@ -7,19 +7,33 @@
 }
 .globe-rotate {
     position: relative;
+    z-index: 5;
     display: inline-block;
-    margin: 200px;
+    margin: 170px 100px ;
     transform: scale(2.0);
+    transition: transform 0.3s ease-out;
+    @media screen and (max-width: 1024px) {
+      transform: scale(1.9);
+    }
+    @media screen and (max-width: 650px) {
+      transform: scale(1.7);
+    }
+    @media screen and (max-width: 550px) {
+      transform: scale(1.5);
+    }
 }
 .globe {
     position: relative;
+    top: 0px;
+    left: 0px;
     display: block;
     margin: 0;
     padding: 0;
-    top: 20px;
-    left: 50px;
     border-radius: 50%;
     background-color: $primary-text-color;
+    @media screen and (max-width: 485px) {
+      display: none;
+    }
 }
 .globe-worldmap,
 .globe-worldmap-front,

@@ -1,107 +1,167 @@
 @import '../../../../theme/colors.scss';
 
-.main  {
-  margin: 0 auto;
+#main {
+  display: grid;
+  grid-template-areas:
+    "logo globo top"
+    "logo globo content"
+    "footer footer bottom";
+  grid-template-rows: 5em 1fr 7em;
+  grid-template-columns: 9em 15em 1fr;
+  grid-gap: 0;
   width: 100%;
   max-width: 1366px;
   height: 100vh;
-  display: -webkit-flex;
-	display: flex;
-	flex-wrap: wrap;
-  border: 1px solid red;
- }
-.nav-vert-primary {
-  position: relative;
-  width: 30%;
-  min-width: 420px;
-  height: 99vh;
-
-  display: -webkit-flex;
-	display: flex;
-	flex: 0 0 420px;
-	flex-direction: column;
-
-  background-color:$primary-color;
-  .logo {
-    position: absolute;
-    left: 0.3em;
-    top: 1em;
-    // font-family: Krona One;
-    letter-spacing: .15em;
-    font-weight: 600;
-    font-size: 5em;
-    line-height: 32px;
-    text-align: right;
-    color: $primary-text-color;
-    text-transform: uppercase;
-    text-shadow: -1px -1px 2px #fafbff00, 2px 2px 3px #763a76b9;
-  }
-  .logo-title {
-    position: absolute;
-    top: 8em;
-    left: 2.8em;
-    font-size: 1em;
-  }
-  .go-projects {
-    position: absolute;
-    left: -5em;
-    // top: calc(100vh - 11em)/2;
-    top: 12em;
-    height: auto;
-    width: 13em;
-    font-size: 2em;
-    line-height: 42px;
-  }
-
-  .footer-primary {
-    position: absolute;
-    left: 3em;
-    bottom: 2.5em;
-  }
-  .rsschool-img {
-    height: 37px;
-    margin-left: 15px;
-  }
-  .rsschool-img:hovet {
-    cursor: pointer;
-
-  }
-  .github-img {
-    height: 40px;
+  margin: 0 auto;
+  @media screen and (max-width: 485px) {
+    grid-template-areas:
+      "logo"
+      "top"
+      "content"
+      "bottom"
+      "footer";
+  grid-template-rows: 5em 5em 1fr 1em 7em;
+  grid-template-columns: 1fr;
   }
 }
-.content{
+
+#navLogo {
+  grid-area: logo;
+}
+#pageTop {
+  grid-area: top;
+}
+#pageContent {
+  grid-area: content;
+}
+#pageGlobo {
+  grid-area: globo;
+}
+#pageBottom {
+  grid-area: bottom;
+}
+#pagefooter {
+  grid-area: footer;
+}
+
+.logo, .top, .content, .bottom {
   position: relative;
-  flex: auto;
-	display: -webkit-flex;
-	display: flex;
-	justify-content: center;
-  align-items: left;
-  flex-direction: column;
-  padding-left: 30vw;
-  .lang {
-    position: absolute;
-    bottom: 2em;
-    right: 3em;
-    bottom: 2.5em;
+  padding: 10px;
+  background-color: $color-white-alt;
+}
+
+.globo {
+  background-color: $primary-color;
+  @media screen and (max-width: 485px) {
+    display: none;
   }
+}
+
+.footer-secondary {
+  width: 24em;
+  z-index: 4;
+  padding-top: 1.3em;
+  background-color: $primary-color;
+  @media screen and (max-width: 485px) {
+    background-color: $accent-violet-color;
+    width: 100%;
+  }
+}
+
+.rsschool-img {
+  height: 37px;
+  margin: 1em 1em 0 2em;
+}
+
+.github-img {
+  height: 40px;
+  margin: 0 .5em;
+}
+
+.rsschool-img:hover,
+.github-img:hover {
+  cursor: pointer;
+}
+
+.creation {
+  color: $primary-text-color;
+  text-align: left;
+  display: inline-block;
+  margin: 1em;
+  opacity: 0.7;
+}
+
+.content {
+  position: relative;
+  padding-left: 22em;
+  overflow: auto;
+  background-color: $color-white-alt;
+  @media screen and (max-width: 1024px) {
+    padding-top: 27em;
+    padding-left: 10em;
+  }
+  @media screen and (max-width: 850px) {
+    padding-top: 20em;
+    padding-left: 3em;
+  }
+  @media screen and (max-width: 485px) {
+    padding-top: 0;
+    padding-left: 10em;
+  }
+
+  .before {
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+    @media screen and (max-width: 485px) {
+      vertical-align: top;
+    }
+  }
+
+  .promo {
+    display: inline-block;
+    vertical-align: middle;
+    @media screen and (max-width: 485px) {
+      vertical-align: top;
+    }
+  }
+
   h3 {
-    // font-family: Fira Sans;
+    display: table-cell;
     width: 320px;
+    height: 200px;
+    vertical-align: bottom;
     font-weight: 600;
     font-size: 56px;
-    line-height: 70px;
+    line-height: 64px;
     letter-spacing: -1px;
-    color:$primary-text-color;
-    text-shadow: -1px -1px 2px hsla(228, 100%, 99%, 0.925), 1px 1px 1px #0f070fb9;
+    color: $accent-violet-color;
+    @media screen and (max-width: 1024px) {
+      font-size: 48px;
+      line-height: 48px;
+    }
+    @media screen and (max-width: 850px) {
+      font-size: 36px;
+      line-height: 36px;
+    }
+    @media screen and (max-width: 485px) {
+      width: 220px;
+    }
   }
   p {
-    // font-family: Fira Sans;
     width: 360px;
+    padding-top: 1em;
+    padding-bottom: 1em;
     font-size: 18px;
     line-height: 28px;
-    color: #151515;
+    color: $secondary-text-color;
     opacity: 0.7;
+    @media screen and (max-width: 850px) {
+      line-height: 18px;
+    }
+    @media screen and (max-width: 485px) {
+      width: 220px;
+    }
   }
   .start-btn {
     height: 40px;
@@ -109,40 +169,12 @@
   }
 }
 
-@media screen and (max-width: 800px) {
-	.box-base {
-		margin-bottom: 30px;
-		flex: 0 1 100%;
-	}
-	.box-side {
-		margin-left: 0;
-		flex: 1 1 100%;
-		flex-direction: row;
-	}
-	.box-itm {
-		margin: 0 0 0 30px;
-	}
-	.box-itm:first-child {
-		margin-left: 0;
+.lang {
+  position: absolute;
+  bottom: 1.5em;
+  right: 1em;
+  @media screen and (max-width: 485px) {
+    z-index: 6;
+    bottom: -1em;
   }
-  .nav-vert-primary {
-    flex: 0 0 250px;
-    min-width: 250px;
-  }
-}
-@media screen and (max-width: 600px) {
-	.box-side {
-		flex-direction: column;
-	}
-	.box-itm {
-		margin: 0 0 30px;
-	}
-	.box-itm:last-child {
-		margin-bottom: 0;
-  }
-  .nav-vert-primary {
-    flex: 0 0 200px;
-    min-width: 200px;
-  }
-
 }

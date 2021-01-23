@@ -3,9 +3,6 @@
 .form_lang_btn {
   display: inline-block;
   margin-right: .8em;
-  @media screen and (max-width: 485px) {
-    margin-bottom: 3.7em;
-  }
 }
 .select-language input[type=radio] {
 	display: none;
