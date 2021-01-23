@@ -1,36 +1,36 @@
 <div>
   <ul id="menu">
-    <a class="menu-button stacks-base-block" href="#menu" matTooltip="{{ 'NAV_MENU.SHOW' | translate }}" (clickOutside)="onClickedOutside()"
-    >
-      <mat-icon>menu</mat-icon>
-    </a>
-    <a #menuClose class="menu-button stacks-base-block" href="#0" matTooltip="{{ 'NAV_MENU.HIDE' | translate }}">
-      <mat-icon>close</mat-icon>
-    </a>
-
-    <li class="menu-item stacks-base-block" matTooltip="{{ 'NAV_MENU.SIGN_IN' | translate }}">
-      <a href="#menu">
-        <mat-icon>login</mat-icon>
+    <input type="checkbox" id="menu_opener_id" class="menu_opener">
+    <label for="menu_opener_id" class="menu-button"></label>
+    <div class="burger_center"></div>
+    <li class="menu-item link_one" matTooltip="{{ 'NAV_MENU.HOME' | translate }}">
+      <a [routerLink]="['/home']">
+        <mat-icon>home</mat-icon>
       </a>
     </li>
-    <li class="menu-item stacks-base-block" matTooltip="{{ 'NAV_MENU.SETTINGS' | translate }}">
-      <a href="#menu">
-        <mat-icon>settings</mat-icon>
-      </a>
-    </li>
-    <li class="menu-item stacks-base-block" matTooltip="{{ 'NAV_MENU.MAP' | translate }}">
-      <a href="#menu">
-        <mat-icon>public</mat-icon>
-      </a>
-    </li>
-    <li class="menu-item stacks-base-block" matTooltip="{{ 'NAV_MENU.PROJECTS' | translate }}">
-      <a href="#menu">
+    <li class="menu-item link_two" matTooltip="{{ 'NAV_MENU.PROJECTS' | translate }}">
+      <a [routerLink]="['/projects']">
         <mat-icon>attach_money</mat-icon>
       </a>
     </li>
-    <li class="menu-item stacks-base-block" matTooltip="{{ 'NAV_MENU.HOME' | translate }}">
-      <a href="#menu">
-        <mat-icon>home</mat-icon>
+    <li class="menu-item link_three" matTooltip="{{ 'NAV_MENU.MAP' | translate }}">
+      <a [routerLink]="['/map']">
+        <mat-icon>public</mat-icon>
+      </a>
+    </li>
+    <li class="menu-item link_four" matTooltip="{{ 'NAV_MENU.SIGN_IN' | translate }}" *ngIf="!this.isUserAuthenticated">
+      <a [routerLink]="['/login']">
+        <mat-icon>account_circle</mat-icon>
+      </a>
+    </li>
+    <li class="menu-item link_four" matTooltip="{{ 'NAV_MENU.LOG_OUT' | translate }}" *ngIf="this.isUserAuthenticated" (click)="onLogout()">
+      <a [routerLink]="">
+        <mat-icon>logout</mat-icon>
+      </a>
+    </li>
+    <li class="menu-item link_five" matTooltip="{{ 'NAV_MENU.SETTINGS' | translate }}">
+      <a [routerLink]="['/settings']">
+        <mat-icon>settings</mat-icon>
       </a>
     </li>
   </ul>

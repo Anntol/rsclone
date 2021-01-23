@@ -1,0 +1,34 @@
+<div class="auth">
+  <div class="navLogo">
+    <app-vertical-menu></app-vertical-menu>
+  </div>
+  <div class="content">
+    <mat-card>
+      <form (submit)="onSubmit(authForm)" #authForm="ngForm">
+        <mat-form-field>
+          <input matInput name="email" ngModel type="email" placeholder="{{ 'AUTH.EMAIL' | translate }}" #emailInput="ngModel" required email />
+          <mat-error *ngIf="emailInput.invalid">{{ 'AUTH.EMAIL_INVALID' | translate }}</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input
+            type="password"
+            name="password"
+            ngModel
+            matInput
+            placeholder="{{ 'AUTH.PASSWORD' | translate }}"
+            #passwordInput="ngModel"
+            required
+          />
+          <mat-error *ngIf="passwordInput.invalid">{{ 'AUTH.PASSWORD_INVALID' | translate }}</mat-error>
+        </mat-form-field>
+        <button class="btn-auth base-button-blue" type="submit" *ngIf="authType == 'signup'">{{ 'AUTH.SIGN_UP' | translate }}</button>
+        <button class="btn-auth base-button-blue" type="submit" *ngIf="authType == 'login'">{{ 'AUTH.LOG_IN' | translate }}</button>
+        <p class="auth-links">
+          <a [routerLink]="['/login']" *ngIf="authType == 'signup'">{{ 'AUTH.LOG_IN' | translate }}</a>
+          <a [routerLink]="['/signup']" *ngIf="authType == 'login'">{{ 'AUTH.SIGN_UP' | translate }}</a>
+        </p>
+      </form>
+    </mat-card>
+    <app-select-lang class="lang"></app-select-lang>
+  </div>
+</div>

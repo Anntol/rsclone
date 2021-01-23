@@ -46,6 +46,15 @@
     "SIGN_UP": "Sign Up",
     "SETTINGS": "Settings",
     "SHOW": "Show menu",
-    "HIDE": "Hide menu"
+    "HIDE": "Hide menu",
+    "LOG_OUT": "Log Out"
+  },
+  "AUTH": {
+    "EMAIL": "E-Mail",
+    "EMAIL_INVALID": "Please enter a valid email.",
+    "PASSWORD": "Password",
+    "PASSWORD_INVALID": "Please enter a password.",
+    "LOG_IN": "Log In",
+    "SIGN_UP": "Sign Up"
   }
 }

@@ -1,0 +1,48 @@
+@import '../../../../theme/colors.scss';
+
+.auth {
+  display: -webkit-flex;
+	display: flex;
+}
+
+.navLogo {
+  width: 9em;
+}
+
+.content {
+	display: -webkit-flex;
+  display: flex;
+  width: calc(100% - 9em);
+  margin: 0 auto;
+  padding: 0 10px;
+  justify-content: center;
+  align-items: center;
+
+  background-color: $color-white-alt;
+
+  .lang {
+    position: absolute;
+    bottom: 2em;
+    right: 3em;
+    bottom: 2.5em;
+  }
+}
+
+form {
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: column;
+}
+
+mat-form-field {
+  margin-bottom: 1em;
+}
+
+.btn-auth {
+  height: 40px;
+  margin-bottom: 1em;
+}
+
+.auth-links {
+  text-align: center;
+}
