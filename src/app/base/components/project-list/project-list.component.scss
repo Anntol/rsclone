@@ -6,6 +6,7 @@ $label-margin: 0px;
 $label-before-size: 40px;
 
 $font-size-md: 14px;
+$font-size-ms: 18px;
 $font-size-lg: 24px;
 $font-size-xl: 36px;
 $font-light: 300;
@@ -142,6 +143,25 @@ $font-bold: 500;
       }
     }
   }
+}
+// ---More projects...
+button:active, button:focus {
+  outline: none;
+}
+button::-moz-focus-inner {
+  border: 0;
+}
+.more-btn {
+  position: relative;
+  left: 50%;
+  transform: translate(-50%, 0);
+  height: 40px;
+  width: 200px;
+  text-transform: uppercase;
+  box-sizing: border-box;
+  color: $accent-violet-color;
+  font-size: $font-size-ms;
+  font-weight: $font-bold;
 }
 
 // ---Search

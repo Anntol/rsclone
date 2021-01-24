@@ -1,7 +1,7 @@
 import {
  Component, OnInit, OnDestroy
 } from '@angular/core';
-import { catchError, takeUntil } from 'rxjs/operators';
+import { catchError } from 'rxjs/operators';
 import { ActivatedRoute } from '@angular/router';
 import { EMPTY, Subject, Subscription } from 'rxjs';
 
@@ -29,19 +29,17 @@ export class ProjectListComponent implements OnInit, OnDestroy {
     theme: ''
   };
 
-  countProjects = 0;
+  countShowProjects = 0;
+
+  countAllProjects = 0;
 
   // searchQuery: FormControl = new FormControl();
 
   error = false;
 
-  hasNext = false;
-
   errorMessage = '';
 
   dataProjects!: IProject[];
-
-  // country = 'UA';
 
   constructor(
     private globalGivingApiService: GlobalGivingApiService,
@@ -54,45 +52,49 @@ export class ProjectListComponent implements OnInit, OnDestroy {
       console.log(this.queryOptions);
     });
 
-    this.globalGivingApiService.getActiveProjectsByKeyWords(this.queryOptions).pipe(
-      takeUntil(this.destroy$),
+    this.subscription = this.globalGivingApiService
+    .getActiveProjectsByKeyWords(this.queryOptions)
+    .pipe(
       catchError((error) => {
         this.dataProjects = [];
         this.error = true;
         return EMPTY;
       })
-    ).subscribe((results: ISearchResults) => {
+    ).subscribe((results: ISearchResults): void => {
       if (results.search.response.numberFound > 0) {
-        this.countProjects = results.search.response.numberFound;
+        this.countShowProjects = 0;
+        this.countAllProjects = results.search.response.numberFound;
         this.dataProjects = results.search.response.projects.project;
         this.error = false;
         this.errorMessage = '';
-        console.log(this.countProjects, this.dataProjects);
+        console.log(this.countAllProjects, results.search);
       } else {
         this.errorMessage = 'No projects found! Please try again.';
+        console.log(this.errorMessage);
       }
     });
   }
 
   public nextPage(): void {
-    // if (this.hasNext) {
-    //   this.globalGivingApiService
-    //     .getActiveProjectsForCountry(this.country, this.nextProjectId)
-    //     .pipe(takeUntil(this.destroy$))
-    //     .subscribe((data: IProjects) => {
-    //       if (data.projects.hasNext !== undefined) {
-    //         this.nextProjectId = data.projects.nextProjectId;
-    //       }
-    //       this.hasNext = data.projects.hasNext || false;
-    //       this.nextProjectMessage = !this.hasNext ? 'There are no more active projects!!' : '';
-    //       this.dataProjects = this.dataProjects.concat(data.projects.project);
-    //     });
-    // }
+    if (this.countAllProjects > this.countShowProjects) {
+      this.queryOptions.startNumber = this.countShowProjects;
+      // console.log(this.queryOptions);
+      this.subscription = this.globalGivingApiService
+        .getActiveProjectsByKeyWords(this.queryOptions)
+        .subscribe((results: ISearchResults): void => {
+          this.countShowProjects = (this.countAllProjects - this.countShowProjects > 10)
+            ? this.countShowProjects + 10
+            : this.countAllProjects;
+          this.countAllProjects = results.search.response.numberFound;
+          this.dataProjects = this.dataProjects.concat(results.search.response.projects.project);
+          console.log(this.countShowProjects, results.search);
+        });
+    } else {
+      console.log('There are no more active projects!');
+    }
   }
 
   ngOnDestroy(): void {
-    this.destroy$.next(true);
-    this.destroy$.unsubscribe();
     this.subscriptions.forEach((sb) => sb.unsubscribe())
   }
 }
