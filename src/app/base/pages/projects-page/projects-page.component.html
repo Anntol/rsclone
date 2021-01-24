@@ -3,15 +3,15 @@
     <app-vertical-menu></app-vertical-menu>
   </div>
   <div id="pageTop" class="top">
-    <form>
+    <!-- <form>
       <input type="text" />
       <input type="text" matInput [formControl]="searchQuery" />
       <span class="material-icons stacks-base-block">search</span>
-    </form>
+    </form> -->
   </div>
   <div id="pageContent" class="content">
-    <app-project-list [dataProjects]=dataProjects></app-project-list>
-
+    <router-outlet #outlet="outlet"></router-outlet>
+    <!-- <app-project-list [dataProjects]=dataProjects></app-project-list> -->
     <!-- <button (click)="nextPage()">{{ 'PROJECTS.BTN_MORE' | translate }}</button> -->
     <!-- <span class="warning-message">{{ PROJECTS.ERR_MESSAGE }}</span> -->
 
@@ -29,5 +29,5 @@
     <img class="github-img" src="../../../../assets/github-repo.svg" alt="github-profile" />
     <p class="creation">@ 2021</p>
   </div>
- 
+
 </div>

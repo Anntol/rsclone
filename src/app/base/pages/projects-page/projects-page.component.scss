@@ -22,7 +22,7 @@
     "content"
     "bottom"
     "footer";
-  grid-template-rows: 5em 5em 1fr .1em 5em;
+  grid-template-rows: 5em 5em 1fr 1em 7em;
   grid-template-columns: 1fr;
   }
 }
@@ -48,13 +48,12 @@
 }
 
 .footer-secondary {
-  width: 9em;
-  bottom: 0.3em;
-  z-index: 5;
+  width: 24em;
+  z-index: 4;
+  padding-top: 1.3em;
   @media screen and (max-width: 485px) {
     background-color: $accent-violet-color;
     width: 100%;
-    bottom: 0;
   }
 }
 .rsschool-img {
@@ -90,11 +89,9 @@
   position: relative;
   justify-content: top;
   overflow: auto;
-  height: calc(100vh - 10em);
   background-color: $color-white-alt;
   @media screen and (max-width: 485px) {
     margin-left: 0;
-		height: calc(100vh - 15.4em)
   }
   .btn-more {
     position: absolute;
@@ -116,11 +113,11 @@
   right: 1em;
   @media screen and (max-width: 485px) {
     z-index: 6;
-    right: 1em;
-    bottom: 1.6em;
+    bottom: 3.6;
   }
 }
-form{
+
+form {
   position: relative;
   left: 1.5em;
   transition: all 1s;
@@ -132,7 +129,7 @@ form{
   }
 }
 
-input{
+input {
   position: absolute;
   top: 0;
   right: 0;
@@ -148,7 +145,7 @@ input{
   padding-left: 20px;
 }
 
-.material-icons{
+.material-icons {
   box-sizing: border-box;
   padding: 0.5em;
   width: 42px;
@@ -164,16 +161,16 @@ input{
   transition: all 1s;
 }
 
-form:hover{
+form:hover {
   width: 12em;
   cursor: pointer;
 }
 
-form:hover input{
+form:hover input {
   display: block;
 }
 
-form:hover .material-icons{
+form:hover .material-icons {
   background: $accent-violet-color;
   color: $primary-text-color;
 }
