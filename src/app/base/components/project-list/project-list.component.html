@@ -13,9 +13,14 @@
       </li>
     </ul>
     <button
+      matBadge="8"
+      matBadgePosition="before"
       class="more-btn bg-base-block stacks-base-block"
       (click)="nextPage()">
       {{ 'PROJECTS.BTN_MORE' | translate }}
+      <span class="badge">
+        {{ countAllProjects - countShowProjects }}
+      </span>
     </button>
     <!-- <span class="warning-message">{{ PROJECTS.ERR_MESSAGE }}</span> -->
   </div>

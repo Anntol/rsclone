@@ -1,6 +1,5 @@
 @import '../../../../theme/colors.scss';
 
-
 $label-size: 60px;
 $label-margin: 0px;
 $label-before-size: 40px;
@@ -154,73 +153,17 @@ button::-moz-focus-inner {
 .more-btn {
   position: relative;
   left: 50%;
-  transform: translate(-50%, 0);
   height: 40px;
-  width: 200px;
-  text-transform: uppercase;
+  width: auto;
+  padding: 0 1em 0 2em;
   box-sizing: border-box;
   color: $accent-violet-color;
   font-size: $font-size-ms;
   font-weight: $font-bold;
-}
-
-// ---Search
-form{
-  position: relative;
-  top: 2em;
-  left: 4em;
-  transition: all 1s;
-  width: 42px;
-  height: 42px;
-  border-radius: 20px;
-  @media screen and (max-width: 485px) {
-    margin-top: -1.5em;
-    margin-left: 5.5em;
+  text-transform: uppercase;
+  transform: translate(-50%, 0);
+  .badge {
+    margin: 0 1em;
+    font-weight: $font-bold;
   }
-}
-
-input{
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 100%;
-  height: 42px;
-  line-height: 30px;
-  outline: 0;
-  border: 0;
-  display: none;
-  font-size: 1em;
-  color: $secondary-text-color;
-  border-radius: 20px;
-  padding-left: 20px;
-}
-
-.material-icons{
-  box-sizing: border-box;
-  padding: 0.5em;
-  width: 42px;
-  height: 42px;
-  position: absolute;
-  top: 0;
-  right: 0;
-  border-radius: 50%;
-  color: $accent-violet-color;
-  text-align: center;
-  font-size: 1.5em;
-  font-weight: 600;
-  transition: all 1s;
-}
-
-form:hover{
-  width: 12em;
-  cursor: pointer;
-}
-
-form:hover input{
-  display: block;
-}
-
-form:hover .material-icons{
-  background: $accent-violet-color;
-  color: $primary-text-color;
 }

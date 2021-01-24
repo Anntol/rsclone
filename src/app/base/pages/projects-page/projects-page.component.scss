@@ -119,13 +119,14 @@
 
 form {
   position: relative;
+  top: .4em;
   left: 1.5em;
   transition: all 1s;
   width: 42px;
   height: 42px;
   border-radius: 20px;
   @media screen and (max-width: 485px) {
-    margin-left: 5.5em;
+    margin-left: 7em;
   }
 }
 

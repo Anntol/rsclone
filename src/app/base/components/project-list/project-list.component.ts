@@ -1,13 +1,18 @@
 import {
- Component, OnInit, OnDestroy
+ Component, Input, OnInit, OnDestroy, ChangeDetectorRef
 } from '@angular/core';
-import { catchError } from 'rxjs/operators';
+import {
+  filter, switchMap, debounceTime, catchError
+ } from 'rxjs/operators';
 import { ActivatedRoute } from '@angular/router';
-import { EMPTY, Subject, Subscription } from 'rxjs';
-
+import {
+ EMPTY, Observable, Subscription
+} from 'rxjs';
+import { FormControl } from '@angular/forms';
 import {
  IProject, IQueryOptions, ISearchResults
 } from 'src/app/core/models/projects.model';
+import { MIN_LENGTH_QUERY, WAIT_FOR_INPUT } from '../../../shared/constants/constants';
 import { GlobalGivingApiService } from '../../../core/service/global-giving-api.service';
 
 @Component({
@@ -16,11 +21,11 @@ import { GlobalGivingApiService } from '../../../core/service/global-giving-api.
   styleUrls: ['./project-list.component.scss', '../../../../theme/stacks.scss']
 })
 export class ProjectListComponent implements OnInit, OnDestroy {
-  destroy$: Subject<boolean> = new Subject<boolean>();
-
   private subscriptions: Subscription[] = [];
 
   set subscription(sb: Subscription) { this.subscriptions.push(sb) };
+
+  @Input() searchQuery!: FormControl;
 
   queryOptions: IQueryOptions = {
     keyWords: '*',
@@ -29,11 +34,9 @@ export class ProjectListComponent implements OnInit, OnDestroy {
     theme: ''
   };
 
-  countShowProjects = 0;
+  countShowProjects = 10;
 
   countAllProjects = 0;
-
-  // searchQuery: FormControl = new FormControl();
 
   error = false;
 
@@ -43,17 +46,26 @@ export class ProjectListComponent implements OnInit, OnDestroy {
 
   constructor(
     private globalGivingApiService: GlobalGivingApiService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private cdr: ChangeDetectorRef
   ) {}
 
   ngOnInit(): void {
     this.subscription = this.route.params.subscribe((params): void => {
       this.queryOptions.theme = params.id as string;
-      console.log(this.queryOptions);
     });
 
+    this.getProjectsByFilters(this.queryOptions);
+  }
+
+  ngOnChange(): void {
+    this.getProjectsBySearchQuery(this.searchQuery);
+    this.cdr.detectChanges();
+  }
+
+  public getProjectsByFilters(options: IQueryOptions): void {
     this.subscription = this.globalGivingApiService
-    .getActiveProjectsByKeyWords(this.queryOptions)
+    .getActiveProjectsByKeyWords(options)
     .pipe(
       catchError((error) => {
         this.dataProjects = [];
@@ -61,8 +73,8 @@ export class ProjectListComponent implements OnInit, OnDestroy {
         return EMPTY;
       })
     ).subscribe((results: ISearchResults): void => {
-      if (results.search.response.numberFound > 0) {
-        this.countShowProjects = 0;
+      if (results.search.response.numberFound > 10) {
+        this.countShowProjects = 10;
         this.countAllProjects = results.search.response.numberFound;
         this.dataProjects = results.search.response.projects.project;
         this.error = false;
@@ -75,10 +87,41 @@ export class ProjectListComponent implements OnInit, OnDestroy {
     });
   }
 
+  public getProjectsBySearchQuery(searchQuery: FormControl): void {
+    if (searchQuery) {
+      this.subscription = searchQuery.valueChanges
+      .pipe(
+        filter((value: string) => value.length > MIN_LENGTH_QUERY),
+        debounceTime(WAIT_FOR_INPUT),
+        switchMap(
+          (value: string): Observable<ISearchResults> => {
+            this.queryOptions.keyWords = value;
+            return this.globalGivingApiService.getActiveProjectsByKeyWords(this.queryOptions).pipe(
+              catchError((error) => {
+                this.dataProjects = [];
+                this.error = true;
+                return EMPTY;
+              })
+            );
+          }
+        )
+      )
+      .subscribe((results: ISearchResults) => {
+        if (results.search.response.numberFound > 0) {
+          this.dataProjects = results.search.response.projects.project;
+          this.error = false;
+          this.errorMessage = '';
+          console.log(this.dataProjects);
+        } else {
+          this.errorMessage = 'No projects found! Please try again.';
+        }
+      });
+    }
+  }
+
   public nextPage(): void {
     if (this.countAllProjects > this.countShowProjects) {
       this.queryOptions.startNumber = this.countShowProjects;
-      // console.log(this.queryOptions);
       this.subscription = this.globalGivingApiService
         .getActiveProjectsByKeyWords(this.queryOptions)
         .subscribe((results: ISearchResults): void => {
