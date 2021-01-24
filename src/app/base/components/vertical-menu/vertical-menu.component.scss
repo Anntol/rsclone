@@ -32,29 +32,4 @@
     line-height: 0.8em;
     z-index: 5;
   }
-  .footer-secondary {
-    position: absolute;
-    width: 100%;
-    bottom: 0.7em;
-    @media screen and (max-width: 485px) {
-      display: none;
-    }
-  }
-  .rsschool-img {
-    height: 37px;
-    transform: rotate(-90deg);
-    margin: 1em 1em 1em .5em;
-  }
-  .rsschool-img:hovet {
-    cursor: pointer;
-  }
-  .github-img {
-    height: 40px;
-    margin: 2em 1em .5em 3em;
-  }
-  .creation {
-    color: $primary-text-color;
-    text-align: center;
-    opacity: 0.7;
-  }
 }

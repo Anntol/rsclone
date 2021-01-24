@@ -50,6 +50,32 @@
   background-color: $color-white-alt;
 }
 
+.nav-vertical {
+  position: relative;
+}
+.projects-btn {
+  position: fixed;
+  top: 13em;
+  left: -4.5em;
+  width: 13em;
+  height: auto;
+  font-size: 2em;
+  line-height: 42px;
+  color: $primary-text-color;
+  @media screen and (max-width: 485px) {
+    top: 12em;
+    z-index: 6;
+    font-size: 1.6em;
+    color: $primary-color;
+  }
+  a {
+    text-decoration: none;
+  }
+  .projects-btn:active {
+    color: $primary-text-color;
+  }
+}
+
 .globo {
   background-color: $primary-color;
   @media screen and (max-width: 485px) {
@@ -106,7 +132,7 @@
   }
   @media screen and (max-width: 485px) {
     padding-top: 0;
-    padding-left: 10em;
+    padding-left: 7.5em;
   }
 
   .before {
@@ -114,16 +140,13 @@
     height: 100%;
     vertical-align: middle;
     @media screen and (max-width: 485px) {
-      vertical-align: top;
+      display: none;
     }
   }
 
   .promo {
     display: inline-block;
     vertical-align: middle;
-    @media screen and (max-width: 485px) {
-      vertical-align: top;
-    }
   }
 
   h3 {
@@ -145,7 +168,8 @@
       line-height: 36px;
     }
     @media screen and (max-width: 485px) {
-      width: 220px;
+      width: 180px;
+      height: auto;
     }
   }
   p {
@@ -160,7 +184,8 @@
       line-height: 18px;
     }
     @media screen and (max-width: 485px) {
-      width: 220px;
+      width: 200px;
+      line-height: 25px;
     }
   }
   .start-btn {

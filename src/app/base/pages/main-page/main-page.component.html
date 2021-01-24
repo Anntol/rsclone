@@ -1,6 +1,11 @@
 <section id="main" class="main">
   <div id="navLogo" class="nav-vertcal">
     <app-vertical-menu></app-vertical-menu>
+    <div class="projects-btn base-vertical">
+      <a [routerLink]="['/projects']">
+        {{ 'MAIN.GO_PROJECTS' | translate }}
+      </a>
+    </div>
   </div>
   <div id="pageGlobo" class="globo">
     <span class="before"></span>
@@ -25,7 +30,6 @@
       <p>{{ 'MAIN.PROMO_TEXT' | translate }}</p>
       <button class="start-btn base-button-blue">{{ 'MAIN.BTN_START' | uppercase | translate }}</button>
     </span>
-
   </div>
 
   <div id="pageBottom" class="bottom">
