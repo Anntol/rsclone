@@ -1,26 +1,42 @@
   <div>
-    <ul class="cards-block">
+    <ul id="cards-block">
       <li
-        class="card-itm"
+        class="card-itm stacks-base-block"
         *ngFor="let project of dataProjects">
         <input type="checkbox" name="pasta" [id]="project.id" class="checkbox-input"/>
         <label [for]="project.id" class="checkbox-label">
           <div class="checkbox-text">
-            <p class="checkbox-text--title"> {{ project.title }}</p>
-            <p class="checkbox-text--description">Click to <span class="un">un</span>check it!</p>
+            <p class="checkbox-text--header">
+              <span class="small">#{{ project.id }}</span>
+              &#8195;{{ project.country }}
+            </p>
+            <div class="box-img">
+              <img [src]="project.imageLink" [alt]="project.themeName">
+            </div>
+            <span class="checkbox-text--donate">
+              <div class="sumtitle">{{ 'PROJECTS.GOAL' | translate }}</div>
+              <div class="sumtitle">{{ 'PROJECTS.FUNDING' | translate }}</div>
+              <div class="sumtitle"></div>
+            </span>
+            <span class="checkbox-text--donate">
+              <div class="summ">{{ project.goal | currency }}</div>
+              <div class="funding">{{ project.funding | currency }}</div>
+              <div class="check">{{ 'PROJECTS.DONATE' | translate }}</div>
+            </span>
+            <div class="checkbox-text--title">{{ project.title }}</div>
+            <span class="checkbox-text--donate">
+              <div class="sumtitle">{{ 'PROJECTS.FAVORITES' | translate }}</div>
+              <div class="sumtitle"></div>
+              <div class="check">{{ 'PROJECTS.SHARE' | translate }}</div>
+            </span>
           </div>
         </label>
       </li>
     </ul>
     <button
-      matBadge="8"
-      matBadgePosition="before"
       class="more-btn bg-base-block stacks-base-block"
       (click)="nextPage()">
       {{ 'PROJECTS.BTN_MORE' | translate }}
-      <span class="badge">
-        {{ countAllProjects - countShowProjects }}
-      </span>
     </button>
     <!-- <span class="warning-message">{{ PROJECTS.ERR_MESSAGE }}</span> -->
   </div>

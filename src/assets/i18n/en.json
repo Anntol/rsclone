@@ -6,10 +6,6 @@
       "ABOUT": "authors"
     }
   },
-  "SEARCH": {
-    "LABEL": "Find a projects:",
-    "ERR_MESSAGE": "No projects found! Please try again."
-  },
   "MAIN": {
     "LOGO_TITLE": "easy to help",
     "GO_PROJECTS": "go to the projects →",
@@ -35,8 +31,17 @@
     "WILDLIFE": "Wildlife Conservation"
   },
   "PROJECTS": {
-    "BTN_MORE": "next 10 from",
-    "ERR_MESSAGE": "There are no more active projects!"
+    "GOAL": "Goal",
+    "FUNDING": "Funding",
+    "DONATE": "Dotate",
+    "SHARE": "Share",
+    "FAVORITES": "Intrested",
+    "BTN_MORE": "Load more",
+    "ERR_MESSAGE": "There are no more active projects!",
+    "SEARCH": {
+      "LABEL": "Find a projects:",
+      "ERR_MESSAGE": "No projects found! Please try again."
+    }
   },
   "NAV_MENU": {
     "HOME": "Home",

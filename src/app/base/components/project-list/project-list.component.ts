@@ -53,6 +53,7 @@ export class ProjectListComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.subscription = this.route.params.subscribe((params): void => {
       this.queryOptions.theme = params.id as string;
+      console.log(this.queryOptions)
     });
 
     this.getProjectsByFilters(this.queryOptions);
