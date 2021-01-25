@@ -3,9 +3,9 @@
 #main {
   display: grid;
   grid-template-areas:
-    "logo globo top"
-    "logo globo content"
-    "footer footer bottom";
+    'logo globo top'
+    'logo globo content'
+    'footer footer bottom';
   grid-template-rows: 5em 1fr 7em;
   grid-template-columns: 9em 15em 1fr;
   grid-gap: 0;
@@ -13,15 +13,15 @@
   max-width: 1366px;
   height: 100vh;
   margin: 0 auto;
-  @media screen and (max-width: 485px) {
+  @media screen and (max-width: 540px) {
     grid-template-areas:
-      "logo"
-      "top"
-      "content"
-      "bottom"
-      "footer";
-  grid-template-rows: 5em 5em 1fr 1em 7em;
-  grid-template-columns: 1fr;
+      'logo'
+      'top'
+      'content'
+      'bottom'
+      'footer';
+    grid-template-rows: 5em 5em 1fr 1em 7em;
+    grid-template-columns: 1fr;
   }
 }
 
@@ -44,7 +44,10 @@
   grid-area: footer;
 }
 
-.logo, .top, .content, .bottom {
+.logo,
+.top,
+.content,
+.bottom {
   position: relative;
   padding: 10px;
   background-color: $color-white-alt;
@@ -62,7 +65,7 @@
   font-size: 2em;
   line-height: 42px;
   color: $primary-text-color;
-  @media screen and (max-width: 485px) {
+  @media screen and (max-width: 540px) {
     top: 12em;
     z-index: 6;
     font-size: 1.6em;
@@ -78,7 +81,7 @@
 
 .globo {
   background-color: $primary-color;
-  @media screen and (max-width: 485px) {
+  @media screen and (max-width: 540px) {
     display: none;
   }
 }
@@ -88,7 +91,7 @@
   z-index: 4;
   padding-top: 1.3em;
   background-color: $primary-color;
-  @media screen and (max-width: 485px) {
+  @media screen and (max-width: 540px) {
     background-color: $accent-violet-color;
     width: 100%;
   }
@@ -101,7 +104,7 @@
 
 .github-img {
   height: 40px;
-  margin: 0 .5em;
+  margin: 0 0.5em;
 }
 
 .rsschool-img:hover,
@@ -130,7 +133,7 @@
     padding-top: 20em;
     padding-left: 3em;
   }
-  @media screen and (max-width: 485px) {
+  @media screen and (max-width: 540px) {
     padding-top: 0;
     padding-left: 7.5em;
   }
@@ -139,7 +142,7 @@
     display: inline-block;
     height: 100%;
     vertical-align: middle;
-    @media screen and (max-width: 485px) {
+    @media screen and (max-width: 540px) {
       display: none;
     }
   }
@@ -167,7 +170,7 @@
       font-size: 36px;
       line-height: 36px;
     }
-    @media screen and (max-width: 485px) {
+    @media screen and (max-width: 540px) {
       width: 180px;
       height: auto;
     }
@@ -183,7 +186,7 @@
     @media screen and (max-width: 850px) {
       line-height: 18px;
     }
-    @media screen and (max-width: 485px) {
+    @media screen and (max-width: 540px) {
       width: 200px;
       line-height: 25px;
     }
@@ -198,7 +201,7 @@
   position: absolute;
   bottom: 1.5em;
   right: 1em;
-  @media screen and (max-width: 485px) {
+  @media screen and (max-width: 540px) {
     z-index: 6;
     bottom: -1em;
   }

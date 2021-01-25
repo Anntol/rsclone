@@ -3,11 +3,11 @@
 #projects {
   display: grid;
   grid-template-areas:
-    "logo top"
-    "logo content"
-    "logo content"
-    "footer content"
-    "footer bottom";
+    'logo top'
+    'logo content'
+    'logo content'
+    'footer content'
+    'footer bottom';
   grid-template-rows: 5em 5em 1fr 9em 5em;
   grid-template-columns: 9em 1fr;
   grid-gap: 0;
@@ -15,19 +15,22 @@
   max-width: 1366px;
   height: 100vh;
   margin: 0 auto;
-  @media screen and (max-width: 485px) {
+  @media screen and (max-width: 540px) {
     grid-template-areas:
-    "logo"
-    "top"
-    "content"
-    "bottom"
-    "footer";
-  grid-template-rows: 5em 5em 1fr 1em 7em;
-  grid-template-columns: 1fr;
+      'logo'
+      'top'
+      'content'
+      'bottom'
+      'footer';
+    grid-template-rows: 5em 5em 1fr 1em 7em;
+    grid-template-columns: 1fr;
   }
 }
 
-.logo, .top, .content, .bottom {
+.logo,
+.top,
+.content,
+.bottom {
   padding: 10px;
   background-color: $color-white-alt;
 }
@@ -51,7 +54,7 @@
   width: 24em;
   z-index: 4;
   padding-top: 1.3em;
-  @media screen and (max-width: 485px) {
+  @media screen and (max-width: 540px) {
     background-color: $accent-violet-color;
     width: 100%;
   }
@@ -59,8 +62,8 @@
 .rsschool-img {
   height: 37px;
   transform: rotate(-90deg);
-  margin: 1em 1em 1em .5em;
-  @media screen and (max-width: 485px) {
+  margin: 1em 1em 1em 0.5em;
+  @media screen and (max-width: 540px) {
     transform: rotate(0deg);
     margin: 1em 1em 0 2em;
   }
@@ -70,27 +73,27 @@
 }
 .github-img {
   height: 40px;
-  margin: 2em 1em .5em 3em;
-  @media screen and (max-width: 485px) {
-    margin: 0 .5em;
+  margin: 2em 1em 0.5em 3em;
+  @media screen and (max-width: 540px) {
+    margin: 0 0.5em;
   }
 }
 .creation {
   color: $primary-text-color;
   text-align: center;
   opacity: 0.7;
-  @media screen and (max-width: 485px) {
+  @media screen and (max-width: 540px) {
     text-align: left;
     display: inline-block;
     margin: 1em;
   }
 }
-.content{
+.content {
   position: relative;
   justify-content: top;
   overflow: auto;
   background-color: $color-white-alt;
-  @media screen and (max-width: 485px) {
+  @media screen and (max-width: 540px) {
     margin-left: 0;
   }
   .btn-more {
@@ -102,7 +105,7 @@
     color: $accent-violet-color;
     text-transform: uppercase;
     font-weight: 600;
-    @media screen and (max-width: 485px) {
+    @media screen and (max-width: 540px) {
       bottom: 1.5em;
     }
   }
@@ -111,7 +114,7 @@
   position: absolute;
   bottom: 1.5em;
   right: 1em;
-  @media screen and (max-width: 485px) {
+  @media screen and (max-width: 540px) {
     z-index: 6;
     bottom: 3.6;
   }
@@ -119,13 +122,13 @@
 
 form {
   position: relative;
-  top: .4em;
+  top: 0.4em;
   left: 1.5em;
   transition: all 1s;
   width: 42px;
   height: 42px;
   border-radius: 20px;
-  @media screen and (max-width: 485px) {
+  @media screen and (max-width: 540px) {
     margin-left: 7em;
   }
 }
