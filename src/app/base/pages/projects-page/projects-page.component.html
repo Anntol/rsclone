@@ -3,11 +3,27 @@
     <app-vertical-menu></app-vertical-menu>
   </div>
   <div id="pageTop" class="top">
-    <form>
+    <!-- <form>
       <input type="text" />
       <input type="text" matInput [formControl]="searchQuery" />
       <span class="material-icons stacks-base-block">search</span>
-    </form>
+    </form> -->
+    <section>
+      <div class="filter-label">Sorting by:</div>
+      <div class="filter-button-row" matSort (matSortChange)="sortData($event)">
+        <span class="mat-button-base" mat-sort-header="date" >
+          <span class="underline">date</span>
+        </span>
+        <span class="mat-button-base"  mat-sort-header="count" >
+          <span class="underline">count</span>
+        </span>
+        <span class="mat-button-base"  mat-sort-header="goal" >
+          <span class="underline">goal</span>
+        </span>
+        <!-- <span class="mat-button-base">by word or sentance</span>
+        <input #readWord (input)="inputWords(readWord.value)"> -->
+      </div>
+    </section>
   </div>
   <div id="pageContent" class="content">
     <router-outlet #outlet="outlet"></router-outlet>

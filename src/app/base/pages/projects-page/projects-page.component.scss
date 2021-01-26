@@ -184,3 +184,44 @@ form:hover .material-icons {
   background: $accent-violet-color;
   color: $primary-text-color;
 }
+
+//--filter
+section {
+  display: table;
+  // margin-top: 1rem;
+  font-size: 18px;
+  font-weight: 600;
+
+  .filter-label {
+    display: table-cell;
+    padding-right: 1rem;
+    min-width: 100px;
+    color: #fff;
+  }
+
+  .filter-button-row {
+    display: flex;
+  }
+
+  .filter-button-row .mat-button-base {
+    margin: 0 .7rem 0 0;
+  }
+
+  .underline {
+    background-image: linear-gradient(currentColor, currentColor);
+    background-position: 0% 100%;
+    background-repeat: no-repeat;
+    background-size: 100% 2px;
+    transition: background-size .3s;
+  }
+
+}
+
+.filter-container {
+  display:flex;
+  justify-content: center;
+}
+
+::ng-deep .mat-sort-header-arrow {
+  color: #000;
+}

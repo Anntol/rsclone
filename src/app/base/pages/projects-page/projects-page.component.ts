@@ -4,6 +4,7 @@ import {
 // import { Subject } from 'rxjs';
 import { Router } from '@angular/router';
 
+import { Sort } from '@angular/material/sort';
 import { FormControl } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 // import { IProject, IQueryOptions } from '../../../core/models/projects.model';
@@ -27,6 +28,10 @@ export class ProjectsPageComponent implements AfterViewChecked, OnInit {
 
     ngOnInit(): void {
       console.log(this.searchQuery.value);
+    }
+
+    public sortData(sort: Sort): void {
+      console.log(sort);
     }
 
    ngAfterViewChecked(): void {
