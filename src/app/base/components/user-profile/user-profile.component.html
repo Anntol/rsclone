@@ -2,26 +2,26 @@
   <div class="profile">
     <div class="content">
       <img class="avatar" src="../../../../assets/user_unknown.jpg">
-      <h3 class="user-name">Name Surname</h3>
+      <h3 class="user-name">username</h3>
       <p class="location">City, Country</p>
       <div class="statistics">
         <div class="statistics-box">
           <div class="counter-block">
-            <p class="counter-value">$1428</p>
+            <p class="counter-value">$ 0</p>
             <p class="counter-title">DONATIONS</p>
           </div>
         </div>
         <div class="vertical-line"></div>
         <div class="statistics-box">
           <div class="counter-block">
-            <p class="counter-value">13</p>
+            <p class="counter-value">0</p>
             <p class="counter-title">PROJECTS</p>
           </div>
         </div>
         <div class="vertical-line"></div>
         <div class="statistics-box">
           <div class="counter-block">
-            <p class="counter-value">309</p>
+            <p class="counter-value">0</p>
             <p class="counter-title">FAVOURITE</p>
           </div>
         </div>
@@ -30,25 +30,90 @@
   </div>
   <div class="settings">
     <div class="mode-box">
-      <h3 class="mode-title">Mode: </h3>
+      <h3 class="settings-title">Mode: </h3>
       <div class="light">
-        <mat-icon>light_mode</mat-icon>
+        <mat-icon class="mode" active>light_mode</mat-icon>
       </div>
       <div class="dark">
-        <mat-icon>dark_mode</mat-icon>
+        <mat-icon class="mode">dark_mode</mat-icon>
       </div>
     </div>
     <div class="language-box">
-      <h3 class="language-lilte">Language: </h3>
+      <h3 class="settings-title">Language: </h3>
       <div class="language">
-        <mat-icon>language</mat-icon>
+        <app-select-lang class="lang"></app-select-lang>
       </div>
     </div>
     <div class="country-box">
-      <h3 class="country-title">Country: </h3>
+      <h3 class="settings-title country-title">Country: </h3>
       <div class="country">
-        <mat-icon>public</mat-icon>
+        <mat-form-field appearance="legacy">
+          <mat-select placeholder="Select country">
+            <mat-option *ngFor="let country of COUNTRIES" [code]="country.code">
+              {{ COUNTRIES | translate }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
       </div>
     </div>
+  </div>
+
+  <div class="info-extended">
+    <mat-tab-group animationDuration="1500ms">
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <mat-icon class="example-tab-icon">perm_identity</mat-icon>
+          Personal Info
+        </ng-template> 
+        <!-- <p class="notice">Please register to see additional info</p> -->
+
+        <table class="form" cellspacing="0"><tr>
+          <td><mat-form-field class="full-width" appearance="outline">
+            <mat-label>First name</mat-label>
+            <input matInput>
+          </mat-form-field></td>
+          <td><mat-form-field class="full-width" appearance="outline">
+            <mat-label>Last name</mat-label>
+            <input matInput>
+          </mat-form-field></td>
+        </tr></table>
+
+        <mat-form-field class="form" appearance="outline">
+          <mat-label>E-mail</mat-label>
+          <input matInput>
+        </mat-form-field>
+
+        <mat-form-field class="form" appearance="outline">
+          <mat-label>Phone</mat-label>
+          <input matInput>
+        </mat-form-field>
+
+        <table class="form" cellspacing="0"><tr>
+          <td><mat-form-field class="full-width" appearance="outline">
+            <mat-label>City</mat-label>
+            <input matInput>
+          </mat-form-field></td>
+          <td><mat-form-field class="full-width" appearance="outline">
+            <mat-label>Country</mat-label>
+            <input matInput>
+          </mat-form-field></td>
+        </tr></table>
+
+      </mat-tab>
+      <mat-tab> 
+        <ng-template mat-tab-label>
+          <mat-icon class="example-tab-icon">star_border</mat-icon>
+          My Favourites
+        </ng-template> 
+        <p class="notice">Please register to see additional info</p>
+      </mat-tab>
+      <mat-tab> 
+        <ng-template mat-tab-label>
+          <mat-icon class="example-tab-icon">local_atm</mat-icon>
+          My Transactions
+        </ng-template> 
+        <p class="notice">Please register to see additional info</p>
+      </mat-tab>
+    </mat-tab-group>
   </div>
 </div>
