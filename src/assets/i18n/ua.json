@@ -61,5 +61,25 @@
     "PASSWORD_INVALID": "Введіть пароль.",
     "LOG_IN": "Увійти",
     "SIGN_UP": "Зареєструватись"
+  },
+  "SETTINGS": {
+    "USERNAME": "ім'я користувача",
+    "LOCATION": "Місто, Країна",
+    "DONATIONS": "Пожертви",
+    "PROJECTS": "Проекти",
+    "FAVOURITE": "Улюблене",
+    "MODE": "Режим",
+    "LANGUAGE": "Мова",
+    "COUNTRY": "Країна",
+    "SELECT_COUNTRY": "Вибрати країну",
+    "MY_INFO": "Інформація",
+    "MY_FAVOURITES": "Вибране",
+    "MY_TRANSACTIONS": "Трансакції",
+    "FIRST_NAME": "Ім'я",
+    "LAST_NAME": "Прізвище",
+    "EMAIL": "E-mail",
+    "PHONE": "Телефон",
+    "CITY": "Місто",
+    "REG_NOTICE": "Будь ласка, зареєструйтесь, щоб побачити додаткову інформацію!"
   }
 }
