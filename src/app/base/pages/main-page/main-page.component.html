@@ -1,12 +1,16 @@
-<section class="main">
-  <div class="nav-vert-primary">
-    <div class="fontsize">
-      <span class="logo">ANT</span>
-      <span class="logo-title">{{ 'MAIN.LOGO_TITLE' | translate }}</span>
+<section id="main" class="main">
+  <div id="navLogo" class="nav-vertcal">
+    <app-vertical-menu></app-vertical-menu>
+    <div class="projects-btn base-vertical">
+      <a [routerLink]="['/projects']">
+        {{ 'MAIN.GO_PROJECTS' | translate }}
+      </a>
     </div>
-    <div class="go-projects base-vertical">{{ 'MAIN.GO_PROJECTS' | translate }}</div>
+  </div>
+  <div id="pageGlobo" class="globo">
+    <span class="before"></span>
     <div class="globe-rotate">
-      <div class="globe">
+      <div class="globe stacks-globe">
         <div class="globe-sphere"></div>
         <div class="globe-outer-shadow"></div>
         <div class="globe-worldmap">
@@ -16,19 +20,27 @@
         <div class="globe-inner-shadow"></div>
       </div>
     </div>
-    <div class="footer-primary">
-      <img class="github-img" src="../../../../assets/github-repo.svg" alt="github-profile" />
-      <a href="https://rs.school/js/">
-        <img class="rsschool-img" src="../../../../assets/RSSchool_logo.svg" alt="RSSchool" />
-      </a>
-    </div>
   </div>
-  <div class="content">
-    <div class="promo">
-      <h3>{{ 'MAIN.PROMO_TITLE' | translate }}</h3>
+  <div id="pageTop" class="top">
+  </div>
+  <div id="pageContent" class="content">
+    <span class="before"></span>
+    <span class="promo">
+      <h3 class="text-accent">{{ 'MAIN.PROMO_TITLE' | translate }}</h3>
       <p>{{ 'MAIN.PROMO_TEXT' | translate }}</p>
-    </div>
-    <button class="start-btn base-button-blue">{{ 'MAIN.BTN_START' | uppercase | translate }}</button>
-    <app-select-lang class="lang"></app-select-lang>
+      <button class="start-btn base-button-blue">{{ 'MAIN.BTN_START' | uppercase | translate }}</button>
+    </span>
+  </div>
+
+  <div id="pageBottom" class="bottom">
+    <app-select-lang class="lang "></app-select-lang>
+  </div>
+
+  <div id="pageFooter" class="footer-secondary">
+    <a href="https://rs.school/js/">
+      <img class="rsschool-img" src="../../../../assets/RSSchool_logo.svg" alt="RSSchool" />
+    </a>
+    <img class="github-img" src="../../../../assets/github-repo.svg" alt="github-profile" />
+    <p class="creation">@ 2021</p>
   </div>
 </section>

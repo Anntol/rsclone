@@ -1,10 +1,18 @@
 import {
- Component, OnInit, Input, OnDestroy
+ Component, Input, OnInit, OnDestroy, ChangeDetectorRef
 } from '@angular/core';
-import { takeUntil } from 'rxjs/operators';
-import { Subject } from 'rxjs';
-
-import { IProject, IProjects } from 'src/app/core/models/projects.model';
+import {
+  filter, switchMap, debounceTime, catchError
+ } from 'rxjs/operators';
+import { ActivatedRoute } from '@angular/router';
+import {
+ EMPTY, Observable, Subscription
+} from 'rxjs';
+import { FormControl } from '@angular/forms';
+import {
+ IProject, IQueryOptions, ISearchResults
+} from 'src/app/core/models/projects.model';
+import { MIN_LENGTH_QUERY, WAIT_FOR_INPUT } from '../../../shared/constants/constants';
 import { GlobalGivingApiService } from '../../../core/service/global-giving-api.service';
 
 @Component({
@@ -13,52 +21,124 @@ import { GlobalGivingApiService } from '../../../core/service/global-giving-api.
   styleUrls: ['./project-list.component.scss', '../../../../theme/stacks.scss']
 })
 export class ProjectListComponent implements OnInit, OnDestroy {
-  destroy$: Subject<boolean> = new Subject<boolean>();
+  private subscriptions: Subscription[] = [];
 
-  country = 'UA';
+  set subscription(sb: Subscription) { this.subscriptions.push(sb) };
 
-  @Input() dataProjects!: IProject[];
+  @Input() searchQuery!: FormControl;
 
-  hasNext = false;
+  queryOptions: IQueryOptions = {
+    keyWords: '*',
+    startNumber: 0,
+    iso3166CountryCode: '',
+    theme: ''
+  };
 
-  nextProjectId = 1;
+  countShowProjects = 10;
 
-  nextProjectMessage = '';
+  countAllProjects = 0;
 
-  constructor(private globalGivingApiService: GlobalGivingApiService) {}
+  error = false;
+
+  errorMessage = '';
+
+  dataProjects!: IProject[];
+
+  constructor(
+    private globalGivingApiService: GlobalGivingApiService,
+    private route: ActivatedRoute,
+    private cdr: ChangeDetectorRef
+  ) {}
 
   ngOnInit(): void {
-    this.globalGivingApiService
-      .getActiveProjectsForCountry(this.country)
-      .pipe(takeUntil(this.destroy$))
-      .subscribe((data: IProjects) => {
-        if (data.projects.hasNext !== undefined) {
-          this.nextProjectId = data.projects.nextProjectId;
+    this.subscription = this.route.params.subscribe((params): void => {
+      this.queryOptions.theme = params.id as string;
+      console.log(this.queryOptions)
+    });
+
+    this.getProjectsByFilters(this.queryOptions);
+  }
+
+  ngOnChange(): void {
+    this.getProjectsBySearchQuery(this.searchQuery);
+    this.cdr.detectChanges();
+  }
+
+  public getProjectsByFilters(options: IQueryOptions): void {
+    this.subscription = this.globalGivingApiService
+    .getActiveProjectsByKeyWords(options)
+    .pipe(
+      catchError((error) => {
+        this.dataProjects = [];
+        this.error = true;
+        return EMPTY;
+      })
+    ).subscribe((results: ISearchResults): void => {
+      if (results.search.response.numberFound > 10) {
+        this.countShowProjects = 10;
+        this.countAllProjects = results.search.response.numberFound;
+        this.dataProjects = results.search.response.projects.project;
+        this.error = false;
+        this.errorMessage = '';
+        console.log(this.countAllProjects, results.search);
+      } else {
+        this.errorMessage = 'No projects found! Please try again.';
+        console.log(this.errorMessage);
+      }
+    });
+  }
+
+  public getProjectsBySearchQuery(searchQuery: FormControl): void {
+    if (searchQuery) {
+      this.subscription = searchQuery.valueChanges
+      .pipe(
+        filter((value: string) => value.length > MIN_LENGTH_QUERY),
+        debounceTime(WAIT_FOR_INPUT),
+        switchMap(
+          (value: string): Observable<ISearchResults> => {
+            this.queryOptions.keyWords = value;
+            return this.globalGivingApiService.getActiveProjectsByKeyWords(this.queryOptions).pipe(
+              catchError((error) => {
+                this.dataProjects = [];
+                this.error = true;
+                return EMPTY;
+              })
+            );
+          }
+        )
+      )
+      .subscribe((results: ISearchResults) => {
+        if (results.search.response.numberFound > 0) {
+          this.dataProjects = results.search.response.projects.project;
+          this.error = false;
+          this.errorMessage = '';
+          console.log(this.dataProjects);
+        } else {
+          this.errorMessage = 'No projects found! Please try again.';
         }
-        this.hasNext = data.projects.hasNext || false;
-        this.dataProjects = data.projects.project;
-        console.log(this.dataProjects);
       });
+    }
   }
 
   public nextPage(): void {
-    if (this.hasNext) {
-      this.globalGivingApiService
-        .getActiveProjectsForCountry(this.country, this.nextProjectId)
-        .pipe(takeUntil(this.destroy$))
-        .subscribe((data: IProjects) => {
-          if (data.projects.hasNext !== undefined) {
-            this.nextProjectId = data.projects.nextProjectId;
-          }
-          this.hasNext = data.projects.hasNext || false;
-          this.nextProjectMessage = !this.hasNext ? 'There are no more active projects!!' : '';
-          this.dataProjects = this.dataProjects.concat(data.projects.project);
+    if (this.countAllProjects > this.countShowProjects) {
+      this.queryOptions.startNumber = this.countShowProjects;
+      this.subscription = this.globalGivingApiService
+        .getActiveProjectsByKeyWords(this.queryOptions)
+        .subscribe((results: ISearchResults): void => {
+          this.countShowProjects = (this.countAllProjects - this.countShowProjects > 10)
+            ? this.countShowProjects + 10
+            : this.countAllProjects;
+          this.countAllProjects = results.search.response.numberFound;
+          this.dataProjects = this.dataProjects.concat(results.search.response.projects.project);
+          console.log(this.countShowProjects, results.search);
         });
+    } else {
+      console.log('There are no more active projects!');
     }
   }
 
   ngOnDestroy(): void {
-    this.destroy$.next(true);
-    this.destroy$.unsubscribe();
+    this.subscriptions.forEach((sb) => sb.unsubscribe())
   }
 }

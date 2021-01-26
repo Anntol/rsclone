@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { SharedModule } from '../shared/shared.module';
+import { BaseRoutingModule } from './base-routing.module';
 import { GlobalGivingApiService } from '../core/service/global-giving-api.service';
 import { MainPageComponent } from './pages/main-page/main-page.component';
 import { ParamsInterceptor } from '../core/interceptors/params.interceptor';
@@ -23,7 +24,12 @@ import { AuthPageComponent } from './pages/auth-page/auth-page.component';
     ThemesListComponent,
     AuthPageComponent
   ],
-  imports: [CommonModule, SharedModule, HttpClientModule],
+  imports: [
+    CommonModule,
+    BaseRoutingModule,
+    SharedModule,
+    HttpClientModule
+  ],
   exports: [
     MainPageComponent,
     ProjectListComponent,

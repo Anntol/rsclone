@@ -3,32 +3,30 @@
 #projects {
   display: grid;
   grid-template-areas:
-    "logo top"
-    "logo content"
-    "logo content"
-    "footer content"
-    "footer bottom";
-  grid-template-rows: 5em 5em 1fr 9em 5em;
+    'logo top'
+    'logo content'
+    'logo content'
+    'footer content'
+    'footer bottom';
+  grid-template-rows: 6.5em 5em 1fr 9em 5em;
   grid-template-columns: 9em 1fr;
   grid-gap: 0;
+  width: 100%;
+  max-width: 1366px;
   height: 100vh;
-  margin: 0;
-  @media screen and (max-width: 485px) {
+  margin: 0 auto;
+  @media screen and (max-width: 540px) {
     grid-template-areas:
-    "logo"
-    "top"
-    "content"
-    "bottom"
-    "footer";
-  grid-template-rows: 5em 5em 1fr .1em 5em;
-  grid-template-columns: 1fr;
+      'logo'
+      'top'
+      'content'
+      'bottom'
+      'footer';
+    grid-template-rows: 6.5em 5em 1fr 1em 6em;
+    grid-template-columns: 1fr;
   }
 }
 
-.logo, .top, .content, .bottom {
-  padding: 10px;
-  background-color: $color-white-alt;
-}
 #navLogo {
   grid-area: logo;
 }
@@ -45,21 +43,33 @@
   grid-area: footer;
 }
 
+.logo,
+.top,
+.content,
+.bottom {
+  position: relative;
+  padding: 10px;
+  background-color: $color-white-alt;
+}
+
+.nav-vertical {
+  background-color: $primary-color;
+}
+
 .footer-secondary {
   width: 9em;
-  bottom: 0.3em;
-  z-index: 5;
-  @media screen and (max-width: 485px) {
+  z-index: 4;
+  padding-top: .5em;
+  @media screen and (max-width: 540px) {
     background-color: $accent-violet-color;
     width: 100%;
-    bottom: 0;
   }
 }
 .rsschool-img {
   height: 37px;
   transform: rotate(-90deg);
-  margin: 1em 1em 1em .5em;
-  @media screen and (max-width: 485px) {
+  margin: 1em 1em 1em 0.5em;
+  @media screen and (max-width: 540px) {
     transform: rotate(0deg);
     margin: 1em 1em 0 2em;
   }
@@ -69,30 +79,28 @@
 }
 .github-img {
   height: 40px;
-  margin: 2em 1em .5em 3em;
-  @media screen and (max-width: 485px) {
-    margin: 0 .5em;
+  margin: 2em 1em 0.5em 3em;
+  @media screen and (max-width: 540px) {
+    margin: 0 0.5em;
   }
 }
 .creation {
   color: $primary-text-color;
   text-align: center;
   opacity: 0.7;
-  @media screen and (max-width: 485px) {
+  @media screen and (max-width: 540px) {
     text-align: left;
     display: inline-block;
     margin: 1em;
   }
 }
-.content{
+.content {
   position: relative;
   justify-content: top;
   overflow: auto;
-  height: calc(100vh - 10em);
   background-color: $color-white-alt;
-  @media screen and (max-width: 485px) {
+  @media screen and (max-width: 540px) {
     margin-left: 0;
-		height: calc(100vh - 15.4em)
   }
   .btn-more {
     position: absolute;
@@ -103,7 +111,7 @@
     color: $accent-violet-color;
     text-transform: uppercase;
     font-weight: 600;
-    @media screen and (max-width: 485px) {
+    @media screen and (max-width: 540px) {
       bottom: 1.5em;
     }
   }
@@ -112,25 +120,26 @@
   position: absolute;
   bottom: 1.5em;
   right: 1em;
-  @media screen and (max-width: 485px) {
+  @media screen and (max-width: 540px) {
     z-index: 6;
-    right: 1em;
-    bottom: 1.6em;
+    bottom: -1em;
   }
 }
-form{
+
+form {
   position: relative;
+  top: 0.4em;
   left: 1.5em;
   transition: all 1s;
   width: 42px;
   height: 42px;
   border-radius: 20px;
-  @media screen and (max-width: 485px) {
-    margin-left: 5.5em;
+  @media screen and (max-width: 540px) {
+    margin-left: 7em;
   }
 }
 
-input{
+input {
   position: absolute;
   top: 0;
   right: 0;
@@ -146,7 +155,7 @@ input{
   padding-left: 20px;
 }
 
-.material-icons{
+.material-icons {
   box-sizing: border-box;
   padding: 0.5em;
   width: 42px;
@@ -162,16 +171,16 @@ input{
   transition: all 1s;
 }
 
-form:hover{
+form:hover {
   width: 12em;
   cursor: pointer;
 }
 
-form:hover input{
+form:hover input {
   display: block;
 }
 
-form:hover .material-icons{
+form:hover .material-icons {
   background: $accent-violet-color;
   color: $primary-text-color;
 }

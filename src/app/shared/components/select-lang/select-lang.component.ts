@@ -4,7 +4,7 @@ import { CommonConstants } from '../../constants/constants';
 @Component({
   selector: 'app-select-lang',
   templateUrl: './select-lang.component.html',
-  styleUrls: ['./select-lang.component.scss']
+  styleUrls: ['./select-lang.component.scss', '../../../../theme/stacks.scss']
 })
 export class SelectLangComponent {
   public languageArr: Array<string> = CommonConstants.LANGUAGE_ARR;
