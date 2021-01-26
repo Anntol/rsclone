@@ -2,27 +2,27 @@
   <div class="profile">
     <div class="content">
       <img class="avatar" src="../../../../assets/user_unknown.jpg">
-      <h3 class="user-name">username</h3>
-      <p class="location">City, Country</p>
+      <h3 class="user-name"> {{ 'SETTINGS.USERNAME' | translate }} </h3>
+      <p class="location">{{ 'SETTINGS.LOCATION' | translate }}</p>
       <div class="statistics">
         <div class="statistics-box">
           <div class="counter-block">
             <p class="counter-value">$ 0</p>
-            <p class="counter-title">DONATIONS</p>
+            <p class="counter-title">{{ 'SETTINGS.DONATIONS' | translate }}</p>
           </div>
         </div>
         <div class="vertical-line"></div>
         <div class="statistics-box">
           <div class="counter-block">
             <p class="counter-value">0</p>
-            <p class="counter-title">PROJECTS</p>
+            <p class="counter-title">{{ 'SETTINGS.PROJECTS' | translate }}</p>
           </div>
         </div>
         <div class="vertical-line"></div>
         <div class="statistics-box">
           <div class="counter-block">
             <p class="counter-value">0</p>
-            <p class="counter-title">FAVOURITE</p>
+            <p class="counter-title">{{ 'SETTINGS.FAVOURITE' | translate }}</p>
           </div>
         </div>
       </div>
@@ -30,28 +30,28 @@
   </div>
   <div class="settings">
     <div class="mode-box">
-      <h3 class="settings-title">Mode: </h3>
+      <h3 class="settings-title">{{ 'SETTINGS.MODE' | translate }}:</h3>
       <div class="light">
-        <mat-icon class="mode" active>light_mode</mat-icon>
+        <mat-icon class="mode">light_mode</mat-icon>
       </div>
       <div class="dark">
         <mat-icon class="mode">dark_mode</mat-icon>
       </div>
     </div>
     <div class="language-box">
-      <h3 class="settings-title">Language: </h3>
+      <h3 class="settings-title">{{ 'SETTINGS.LANGUAGE' | translate }}: </h3>
       <div class="language">
         <app-select-lang class="lang"></app-select-lang>
       </div>
     </div>
     <div class="country-box">
-      <h3 class="settings-title country-title">Country: </h3>
+      <h3 class="settings-title country-title">{{ 'SETTINGS.COUNTRY' | translate }}: </h3>
       <div class="country">
         <mat-form-field appearance="legacy">
           <mat-select placeholder="Select country">
-            <mat-option *ngFor="let country of COUNTRIES" [code]="country.code">
-              {{ COUNTRIES | translate }}
-            </mat-option>
+            <!-- <mat-option *ngFor="let country of countries" [code]="country.code">
+              {{ countries.name }}
+            </mat-option> -->
           </mat-select>
         </mat-form-field>
       </div>
@@ -63,38 +63,35 @@
       <mat-tab>
         <ng-template mat-tab-label>
           <mat-icon class="example-tab-icon">perm_identity</mat-icon>
-          Personal Info
+          {{ 'SETTINGS.MY_INFO' | translate }}
         </ng-template> 
-        <!-- <p class="notice">Please register to see additional info</p> -->
-
         <table class="form" cellspacing="0"><tr>
           <td><mat-form-field class="full-width" appearance="outline">
-            <mat-label>First name</mat-label>
+            <mat-label>{{ 'SETTINGS.FIRST_NAME' | translate }}</mat-label>
             <input matInput>
           </mat-form-field></td>
           <td><mat-form-field class="full-width" appearance="outline">
-            <mat-label>Last name</mat-label>
+            <mat-label> {{ 'SETTINGS.LAST_NAME' | translate }} </mat-label>
             <input matInput>
           </mat-form-field></td>
         </tr></table>
-
         <mat-form-field class="form" appearance="outline">
-          <mat-label>E-mail</mat-label>
+          <mat-label>{{ 'SETTINGS.EMAIL' | translate }}</mat-label>
           <input matInput>
         </mat-form-field>
 
         <mat-form-field class="form" appearance="outline">
-          <mat-label>Phone</mat-label>
+          <mat-label>{{ 'SETTINGS.PHONE' | translate }}</mat-label>
           <input matInput>
         </mat-form-field>
 
         <table class="form" cellspacing="0"><tr>
           <td><mat-form-field class="full-width" appearance="outline">
-            <mat-label>City</mat-label>
+            <mat-label>{{ 'SETTINGS.CITY' | translate }}</mat-label>
             <input matInput>
           </mat-form-field></td>
           <td><mat-form-field class="full-width" appearance="outline">
-            <mat-label>Country</mat-label>
+            <mat-label>{{ 'SETTINGS.COUNTRY' | translate }}</mat-label>
             <input matInput>
           </mat-form-field></td>
         </tr></table>
@@ -103,16 +100,16 @@
       <mat-tab> 
         <ng-template mat-tab-label>
           <mat-icon class="example-tab-icon">star_border</mat-icon>
-          My Favourites
+          {{ 'SETTINGS.MY_FAVOURITES' | translate }}
         </ng-template> 
-        <p class="notice">Please register to see additional info</p>
+        <p class="notice">{{ 'SETTINGS.REG_NOTICE' | translate }} </p>
       </mat-tab>
       <mat-tab> 
         <ng-template mat-tab-label>
           <mat-icon class="example-tab-icon">local_atm</mat-icon>
-          My Transactions
+          {{ 'SETTINGS.MY_TRANSACTIONS' | translate }}
         </ng-template> 
-        <p class="notice">Please register to see additional info</p>
+        <p class="notice">{{ 'SETTINGS.REG_NOTICE' | translate }}</p>
       </mat-tab>
     </mat-tab-group>
   </div>

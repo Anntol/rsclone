@@ -29,19 +29,20 @@
   box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5)
 }
 
-.profile {
+.profile,
+.settings {
   width: 25em;
+  margin-left: 1em;
+}
+.profile {
   height: 16em;
-  margin-left: 3em;
   margin-top: 9em;
 }
 
 .settings {
   display: flex;
   flex-direction: column;
-  width: 25em;
   height: 24.5em;
-  margin-left: 3em;
 }
 
 .info-extended {

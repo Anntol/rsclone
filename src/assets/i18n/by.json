@@ -56,5 +56,25 @@
     "PASSWORD_INVALID": "Увядзіце пароль.",
     "LOG_IN": "Увайсці",
     "SIGN_UP": "Зарэгістравацца"
+  },
+  "SETTINGS": {
+    "USERNAME": "імя карыстальніка",
+    "LOCATION": "Горад, Краіна",
+    "DONATIONS": "Ахвяраванні",
+    "PROJECTS": "Праекты",
+    "FAVOURITE": "Улюбёнае",
+    "MODE": "Рэжым",
+    "LANGUAGE": "Мова",
+    "COUNTRY": "Краіна",
+    "SELECT_COUNTRY": "Выбраць краіну",
+    "MY_INFO": "Інфармацыя",
+    "MY_FAVOURITES": "Выбранае",
+    "MY_TRANSACTIONS": "Здзелкі",
+    "FIRST_NAME": "Імя",
+    "LAST_NAME": "Прозвішча",
+    "EMAIL": "E-mail",
+    "PHONE": "Тэлефон",
+    "CITY": "Горад",
+    "REG_NOTICE": "Калі ласка, зарэгіструйцеся, каб убачыць дадатковую інфармацыю!"
   }
 }
