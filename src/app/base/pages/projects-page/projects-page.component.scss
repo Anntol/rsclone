@@ -8,7 +8,7 @@
     'logo content'
     'footer content'
     'footer bottom';
-  grid-template-rows: 5em 5em 1fr 9em 5em;
+  grid-template-rows: 6.5em 5em 1fr 9em 5em;
   grid-template-columns: 9em 1fr;
   grid-gap: 0;
   width: 100%;
@@ -22,18 +22,11 @@
       'content'
       'bottom'
       'footer';
-    grid-template-rows: 5em 5em 1fr 1em 7em;
+    grid-template-rows: 6.5em 5em 1fr 1em 6em;
     grid-template-columns: 1fr;
   }
 }
 
-.logo,
-.top,
-.content,
-.bottom {
-  padding: 10px;
-  background-color: $color-white-alt;
-}
 #navLogo {
   grid-area: logo;
 }
@@ -50,10 +43,23 @@
   grid-area: footer;
 }
 
+.logo,
+.top,
+.content,
+.bottom {
+  position: relative;
+  padding: 10px;
+  background-color: $color-white-alt;
+}
+
+.nav-vertical {
+  background-color: $primary-color;
+}
+
 .footer-secondary {
-  width: 24em;
+  width: 9em;
   z-index: 4;
-  padding-top: 1.3em;
+  padding-top: .5em;
   @media screen and (max-width: 540px) {
     background-color: $accent-violet-color;
     width: 100%;
@@ -116,7 +122,7 @@
   right: 1em;
   @media screen and (max-width: 540px) {
     z-index: 6;
-    bottom: 3.6;
+    bottom: -1em;
   }
 }
 
