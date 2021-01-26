@@ -12,7 +12,12 @@ import logger from './logger.js'
 
 const app = express();
 
-app.use(morgan(":method :url :status :res[content-length] - :response-time ms"));
+const morganMessage = ":date[iso] :method :url :status :response-time ms";
+app.use(morgan(morganMessage, {
+  stream: {
+    write: (message: string) => logger.http(message)
+  },
+}));
 
 if (!MONGO_CONNECTION_STRING) {
   logger.error('MONGO_CONNECTION_STRING is not defined!');
