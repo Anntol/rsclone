@@ -10,6 +10,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { ClickOutsideModule } from 'ng-click-outside';
+import { MatSelectModule } from '@angular/material/select';
+import { MatTabsModule } from '@angular/material/tabs';
 import { SelectLangComponent } from './components/select-lang/select-lang.component';
 
 @NgModule({
@@ -26,7 +28,9 @@ import { SelectLangComponent } from './components/select-lang/select-lang.compon
     MatTooltipModule,
     MatMenuModule,
     MatIconModule,
-    ClickOutsideModule
+    ClickOutsideModule,
+    MatSelectModule,
+    MatTabsModule
   ],
   exports: [
     CommonModule,
@@ -41,7 +45,9 @@ import { SelectLangComponent } from './components/select-lang/select-lang.compon
     SelectLangComponent,
     MatMenuModule,
     MatIconModule,
-    ClickOutsideModule
+    ClickOutsideModule,
+    MatSelectModule,
+    MatTabsModule
   ],
 })
 export class SharedModule {}
