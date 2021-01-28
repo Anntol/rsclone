@@ -1,7 +1,7 @@
 <div class="grid-container">
   <div class="profile">
     <div class="content">
-      <img class="avatar" src="../../../../assets/user_unknown.jpg">
+      <img class="avatar" src="../../../../assets/user_unknown.png">
       <h3 class="user-name"> {{ 'SETTINGS.USERNAME' | translate }} </h3>
       <p class="location">{{ 'SETTINGS.LOCATION' | translate }}</p>
       <div class="statistics">
@@ -47,68 +47,67 @@
     <div class="country-box">
       <h3 class="settings-title country-title">{{ 'SETTINGS.COUNTRY' | translate }}: </h3>
       <div class="country">
-        <mat-form-field appearance="legacy">
-          <mat-select placeholder="Select country">
-            <!-- <mat-option *ngFor="let country of countries" [code]="country.code">
-              {{ countries.name }}
-            </mat-option> -->
-          </mat-select>
-        </mat-form-field>
+        <app-select-country></app-select-country>
       </div>
     </div>
   </div>
-
   <div class="info-extended">
     <mat-tab-group animationDuration="1500ms">
       <mat-tab>
         <ng-template mat-tab-label>
           <mat-icon class="example-tab-icon">perm_identity</mat-icon>
           {{ 'SETTINGS.MY_INFO' | translate }}
-        </ng-template> 
-        <table class="form" cellspacing="0"><tr>
-          <td><mat-form-field class="full-width" appearance="outline">
-            <mat-label>{{ 'SETTINGS.FIRST_NAME' | translate }}</mat-label>
-            <input matInput>
-          </mat-form-field></td>
-          <td><mat-form-field class="full-width" appearance="outline">
-            <mat-label> {{ 'SETTINGS.LAST_NAME' | translate }} </mat-label>
-            <input matInput>
-          </mat-form-field></td>
-        </tr></table>
+        </ng-template>
+        <table class="form" cellspacing="0">
+          <tr>
+            <td>
+              <mat-form-field class="full-width" appearance="outline">
+                <mat-label>{{ 'SETTINGS.FIRST_NAME' | translate }}</mat-label>
+                <input matInput>
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field class="full-width" appearance="outline">
+                <mat-label> {{ 'SETTINGS.LAST_NAME' | translate }} </mat-label>
+                <input matInput>
+              </mat-form-field>
+            </td>
+          </tr>
+        </table>
         <mat-form-field class="form" appearance="outline">
           <mat-label>{{ 'SETTINGS.EMAIL' | translate }}</mat-label>
-          <input matInput>
+          <input matInput placeholder="name@example.com" [formControl]="email" required>
         </mat-form-field>
-
-        <mat-form-field class="form" appearance="outline">
-          <mat-label>{{ 'SETTINGS.PHONE' | translate }}</mat-label>
-          <input matInput>
-        </mat-form-field>
-
-        <table class="form" cellspacing="0"><tr>
-          <td><mat-form-field class="full-width" appearance="outline">
-            <mat-label>{{ 'SETTINGS.CITY' | translate }}</mat-label>
-            <input matInput>
-          </mat-form-field></td>
-          <td><mat-form-field class="full-width" appearance="outline">
-            <mat-label>{{ 'SETTINGS.COUNTRY' | translate }}</mat-label>
-            <input matInput>
-          </mat-form-field></td>
-        </tr></table>
-
+        <table class="form" cellspacing="0">
+          <tr>
+            <td>
+              <mat-form-field class="full-width" appearance="outline">
+                <mat-label>{{ 'SETTINGS.CITY' | translate }}</mat-label>
+                <input matInput>
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field class="full-width" appearance="outline">
+                <mat-label>{{ 'SETTINGS.COUNTRY' | translate }}</mat-label>
+                <input matInput>
+              </mat-form-field>
+            </td>
+          </tr>
+        </table>
+        <app-phone-validation class="form"></app-phone-validation>
       </mat-tab>
-      <mat-tab> 
+      <mat-tab>
         <ng-template mat-tab-label>
           <mat-icon class="example-tab-icon">star_border</mat-icon>
           {{ 'SETTINGS.MY_FAVOURITES' | translate }}
-        </ng-template> 
+        </ng-template>
         <p class="notice">{{ 'SETTINGS.REG_NOTICE' | translate }} </p>
       </mat-tab>
-      <mat-tab> 
+      <mat-tab>
         <ng-template mat-tab-label>
           <mat-icon class="example-tab-icon">local_atm</mat-icon>
           {{ 'SETTINGS.MY_TRANSACTIONS' | translate }}
-        </ng-template> 
+        </ng-template>
         <p class="notice">{{ 'SETTINGS.REG_NOTICE' | translate }}</p>
       </mat-tab>
     </mat-tab-group>
