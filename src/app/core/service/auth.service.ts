@@ -38,6 +38,8 @@ export class AuthService {
     this.http.post(`${this.serverUrl}/api/user/signup`, authData)
     .subscribe(() => {
       this.loginUser(email, password);
+    }, () => {
+      this.authStatus.next(false);
     });
   }
 
@@ -53,6 +55,8 @@ export class AuthService {
         this.saveAuthData(this.token, expirationDate);
         this.changeAuthStatus(true);
       }
+    }, () => {
+      this.authStatus.next(false);
     });
   }
 

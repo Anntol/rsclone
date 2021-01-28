@@ -19,8 +19,11 @@ export class ErrorInterceptor implements HttpInterceptor {
   public intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     return next.handle(request).pipe(
       catchError((error: HttpErrorResponse) => {
-        const errorMessage = "An unknown error occurred!";
         console.log(error);
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+        const msg = error.error.message as string;
+        const errorMessage = msg || "An unknown error occurred!";
+
         this.dialog.open(ErrorComponent, { data: { message: errorMessage } });
         return throwError(error);
       })

@@ -34,7 +34,6 @@ function onError(error: NodeJS.ErrnoException) {
 
   const bind = typeof port === 'string' ? `Pipe ${port}` : `Port ${port.toString()}`;
 
-  // TODO error logging!
   switch (error.code) {
     case 'EACCES':
       logger.error(`${bind} requires elevated privileges`);

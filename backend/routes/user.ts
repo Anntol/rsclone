@@ -1,5 +1,6 @@
 import express from 'express';
 import logger from '../logger.js';
+import AppError from '../appError.js';
 import { UsersService } from '../services/users.service.js';
 
 const usersService = new UsersService();
@@ -13,7 +14,12 @@ router.route('/signup').post(async (req: express.Request, res: express.Response)
       ...newUser
     });
   },
-  (error) => logger.error(error));
+  (error: AppError) => {
+    logger.error(error.message);
+    res.status(error.statusCode).json({
+      message: error.message
+    })
+  });
 });
 
 router.route('/login').post(async (req: express.Request, res: express.Response) => {
@@ -24,7 +30,12 @@ router.route('/login').post(async (req: express.Request, res: express.Response) 
       ...authToken
     });
   },
-  (error) => logger.error(error));
+  (error: AppError) => {
+    logger.error(error.message);
+    res.status(error.statusCode).json({
+      message: error.message
+    })
+  });
 });
 
 export default router;
