@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
+import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
@@ -11,9 +12,10 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { ClickOutsideModule } from 'ng-click-outside';
 import { SelectLangComponent } from './components/select-lang/select-lang.component';
+import { ErrorComponent } from './components/error/error.component';
 
 @NgModule({
-  declarations: [SelectLangComponent],
+  declarations: [SelectLangComponent, ErrorComponent],
   imports: [
     CommonModule,
     RouterModule,
@@ -21,6 +23,7 @@ import { SelectLangComponent } from './components/select-lang/select-lang.compon
     FormsModule,
     ReactiveFormsModule,
     MatCardModule,
+    MatDialogModule,
     MatFormFieldModule,
     MatInputModule,
     MatTooltipModule,
@@ -35,6 +38,7 @@ import { SelectLangComponent } from './components/select-lang/select-lang.compon
     FormsModule,
     ReactiveFormsModule,
     MatCardModule,
+    MatDialogModule,
     MatFormFieldModule,
     MatInputModule,
     MatTooltipModule,
