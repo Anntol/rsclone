@@ -14,6 +14,7 @@ import { ProjectsPageComponent } from './pages/projects-page/projects-page.compo
 import { ThemesListComponent } from './components/themes-list/themes-list.component';
 import { AuthPageComponent } from './pages/auth-page/auth-page.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
+import { PhoneValidationComponent } from './components/phone-validation/phone-validation.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { UserProfileComponent } from './components/user-profile/user-profile.com
     ProjectsPageComponent,
     ThemesListComponent,
     AuthPageComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    PhoneValidationComponent
   ],
   imports: [
     CommonModule,
@@ -38,7 +40,8 @@ import { UserProfileComponent } from './components/user-profile/user-profile.com
     ProjectCardComponent,
     VerticalMenuComponent,
     ProjectsPageComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    PhoneValidationComponent
   ],
   providers: [
     GlobalGivingApiService,
