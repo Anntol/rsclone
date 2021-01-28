@@ -6,38 +6,44 @@
         <input type="checkbox" name="pasta" [id]="project.id" class="checkbox-input"/>
         <label [for]="project.id" class="checkbox-label">
           <div class="checkbox-text">
-            <p class="checkbox-text--header">
-              <span class="small">#{{ project.id }}</span>
-              &#8195;{{ project.country }}
-            </p>
             <div class="box-img">
               <img [src]="project.imageLink" [alt]="project.themeName">
+               <p class="checkbox-text--header">
+                <span class="small">#{{ project.id }}</span>
+                &#8195;{{ project.country }}
+              </p>
             </div>
             <span class="checkbox-text--donate">
               <div class="sumtitle">{{ 'PROJECTS.GOAL' | translate }}</div>
               <div class="sumtitle">{{ 'PROJECTS.FUNDING' | translate }}</div>
-              <div class="sumtitle"></div>
+              <div class="none"></div>
             </span>
             <span class="checkbox-text--donate">
               <div class="summ">{{ project.goal | currency }}</div>
               <div class="funding">{{ project.funding | currency }}</div>
-              <div class="check">{{ 'PROJECTS.DONATE' | translate }}</div>
+              <div class="check-btn donate">{{ 'PROJECTS.DONATE' | translate }}</div>
             </span>
             <div class="checkbox-text--title">{{ project.title }}</div>
-            <span class="checkbox-text--donate">
-              <div class="sumtitle">{{ 'PROJECTS.FAVORITES' | translate }}</div>
-              <div class="sumtitle"></div>
-              <div class="check">{{ 'PROJECTS.SHARE' | translate }}</div>
+            <span class="checkbox-text--donate" style="display: flex; justify-content: space-between;">
+              <div class="share-btn">
+                <span class="material-icons" style="vertical-align: middle;">group</span>
+                {{ project.numberOfDonations }}
+              </div>
+              <div class="check-btn favorite">{{ 'PROJECTS.FAVORITES' | translate }}</div>
+              <div class="share-btn share">
+                <span class="material-icons" style="vertical-align: middle;">share</span>
+              </div>
+              <!-- <div class="check">{{ 'PROJECTS.SHARE' | translate }}</div> -->
             </span>
           </div>
         </label>
       </li>
     </ul>
-    <!-- <button
+    <button
       class="more-btn bg-base-block stacks-base-block"
       (click)="nextPage()">
       {{ 'PROJECTS.BTN_MORE' | translate }}
-    </button> -->
+    </button>
     <!-- <span class="warning-message">{{ PROJECTS.ERR_MESSAGE }}</span> -->
   </div>
 
