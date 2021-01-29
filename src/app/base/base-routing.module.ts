@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { ProjectsPageComponent } from './pages/projects-page/projects-page.component';
 import { ThemesListComponent } from './components/themes-list/themes-list.component';
 import { ProjectListComponent } from './components/project-list/project-list.component';
+import { ProjectCardComponent } from './components/project-card/project-card.component';
 
 const routes: Routes = [
   {
@@ -15,8 +16,12 @@ const routes: Routes = [
         component: ThemesListComponent,
       },
       {
-        path: ':id',
+        path: ':theme',
         component: ProjectListComponent,
+      },
+      {
+        path: ':theme/:id',
+        component: ProjectCardComponent,
       }
     ]
   }

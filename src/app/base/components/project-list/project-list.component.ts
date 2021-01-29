@@ -4,7 +4,7 @@ import {
 import {
   filter, switchMap, debounceTime, catchError
  } from 'rxjs/operators';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import {
  EMPTY, Observable, Subscription
 } from 'rxjs';
@@ -47,13 +47,13 @@ export class ProjectListComponent implements OnInit, OnDestroy {
   constructor(
     private globalGivingApiService: GlobalGivingApiService,
     private route: ActivatedRoute,
+    private router: Router,
     private cdr: ChangeDetectorRef
   ) {}
 
   ngOnInit(): void {
     this.subscription = this.route.params.subscribe((params): void => {
-      this.queryOptions.theme = params.id as string;
-      console.log(this.queryOptions)
+      this.queryOptions.theme = params.theme as string;
     });
 
     this.getProjectsByFilters(this.queryOptions);
@@ -136,6 +136,12 @@ export class ProjectListComponent implements OnInit, OnDestroy {
     } else {
       console.log('There are no more active projects!');
     }
+  }
+
+  public goToDonatePage(project: IProject): void {
+    const path = `projects/${this.queryOptions.theme || ''}`;
+     // eslint-disable-next-line @typescript-eslint/no-floating-promises
+    this.router.navigate([path, project.id]);
   }
 
   ngOnDestroy(): void {

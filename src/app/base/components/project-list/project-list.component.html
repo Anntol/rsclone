@@ -21,7 +21,11 @@
             <span class="checkbox-text--donate">
               <div class="summ">{{ project.goal | currency }}</div>
               <div class="funding">{{ project.funding | currency }}</div>
-              <div class="check-btn donate">{{ 'PROJECTS.DONATE' | translate }}</div>
+              <div
+                class="check-btn donate"
+                (click)="goToDonatePage(project)">
+                {{ 'PROJECTS.DONATE' | translate }}
+              </div>
             </span>
             <div class="checkbox-text--title">{{ project.title }}</div>
             <span class="checkbox-text--donate" style="display: flex; justify-content: space-between;">
