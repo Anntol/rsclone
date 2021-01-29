@@ -1,14 +1,20 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { Observable, Subject } from 'rxjs';
+import { Observable, Subject, throwError } from 'rxjs';
+import { MatDialog } from '@angular/material/dialog';
 
+import { ErrorComponent } from '../../shared/components/error/error.component';
 import { environment } from '../../../environments/environment';
 import { AuthData } from '../models/authdata.model';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(
+    private http: HttpClient,
+    private router: Router,
+    private dialog: MatDialog
+  ) {}
 
   serverUrl = environment.serverUrl;
 
@@ -33,13 +39,22 @@ export class AuthService {
     return this.authStatus.asObservable();
   }
 
+  handleError(error: HttpErrorResponse): Observable<never> {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+    const msg = error.error.message as string;
+    const errorMessage = msg || "An unknown error occurred!";
+    this.dialog.open(ErrorComponent, { data: { message: errorMessage } });
+    return throwError(errorMessage);
+  }
+
   createUser(email: string, password: string): void {
     const authData: AuthData = { email, password };
     this.http.post(`${this.serverUrl}/api/user/signup`, authData)
     .subscribe(() => {
       this.loginUser(email, password);
-    }, () => {
+    }, (e) => {
       this.authStatus.next(false);
+      this.handleError(e);
     });
   }
 
@@ -55,8 +70,9 @@ export class AuthService {
         this.saveAuthData(this.token, expirationDate);
         this.changeAuthStatus(true);
       }
-    }, () => {
+    }, (e) => {
       this.authStatus.next(false);
+      this.handleError(e);
     });
   }
 
@@ -72,7 +88,7 @@ export class AuthService {
     this.authStatus.next(isLogin);
 
     this.router.navigate(['/'])
-    .catch((err: Error) => console.error(err.message));
+    .catch((e) => this.handleError(e));
   }
 
   private saveAuthData(token: string, expirationDate: Date) {
