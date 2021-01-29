@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
 import { Injectable } from '@angular/core';
 import {
   HttpRequest,
@@ -20,9 +21,12 @@ export class ErrorInterceptor implements HttpInterceptor {
     return next.handle(request).pipe(
       catchError((error: HttpErrorResponse) => {
         console.log(error);
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+        console.log(error.error.error_response);
         const msg = error.error.message as string;
-        const errorMessage = msg || "An unknown error occurred!";
+        const apiMsg = error.error.error_response.status as string;
+        const errorMessage = msg || apiMsg
+         || (error.status !== 400 && error.statusText)
+         || "An unknown error occurred!";
 
         this.dialog.open(ErrorComponent, { data: { message: errorMessage } });
         return throwError(error);
