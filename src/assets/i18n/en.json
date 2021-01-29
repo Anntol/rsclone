@@ -61,5 +61,26 @@
     "PASSWORD_INVALID": "Please enter a password.",
     "LOG_IN": "Log In",
     "SIGN_UP": "Sign Up"
+  },
+  "SETTINGS": {
+    "USERNAME": "username",
+    "LOCATION": "City, Country",
+    "DONATIONS": "Donations",
+    "PROJECTS": "Projects",
+    "FAVOURITE": "Favourite",
+    "MODE": "Mode",
+    "LANGUAGE": "Language",
+    "COUNTRY": "Country",
+    "SELECT_COUNTRY": "Select country",
+    "MY_INFO": "My Info",
+    "MY_FAVOURITES": "My Favourites",
+    "MY_TRANSACTIONS": "My Transactions",
+    "FIRST_NAME": "First name",
+    "LAST_NAME": "Last name",
+    "EMAIL": "E-mail",
+    "PHONE": "Phone number",
+    "CITY": "City",
+    "REG_NOTICE": "Please register to see additional info!",
+    "PHONE_ERROR": "Please, enter correct phone number!"
   }
 }

@@ -9,12 +9,15 @@ import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import { ClickOutsideModule } from 'ng-click-outside';
 import { MatBadgeModule } from '@angular/material/badge';
+import { MatSelectModule } from '@angular/material/select';
+import { MatTabsModule } from '@angular/material/tabs';
+import { NgxMatIntlTelInputModule } from 'ngx-mat-intl-tel-input';
 import { SelectLangComponent } from './components/select-lang/select-lang.component';
+import { SelectCountryComponent } from './components/select-country/select-country.component';
 
 @NgModule({
-  declarations: [SelectLangComponent],
+  declarations: [SelectLangComponent, SelectCountryComponent],
   imports: [
     CommonModule,
     RouterModule,
@@ -27,8 +30,10 @@ import { SelectLangComponent } from './components/select-lang/select-lang.compon
     MatTooltipModule,
     MatMenuModule,
     MatIconModule,
-    ClickOutsideModule,
-    MatBadgeModule
+    MatBadgeModule,
+    MatSelectModule,
+    MatTabsModule,
+    NgxMatIntlTelInputModule
   ],
   exports: [
     CommonModule,
@@ -43,7 +48,10 @@ import { SelectLangComponent } from './components/select-lang/select-lang.compon
     SelectLangComponent,
     MatMenuModule,
     MatIconModule,
-    ClickOutsideModule
+    MatSelectModule,
+    MatTabsModule,
+    SelectCountryComponent,
+    NgxMatIntlTelInputModule
   ],
 })
 export class SharedModule {}

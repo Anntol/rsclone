@@ -1,0 +1,12 @@
+<div class="phone-form">
+  <form [formGroup]="phoneForm">
+      <mat-form-field appearance="outline">
+        <ngx-mat-intl-tel-input formControlName="phone" [preferredCountries]="['by', 'ua', 'kz', 'ru']"
+          [enablePlaceholder]="true" [enableSearch]="true" name="phone" #phone>
+        </ngx-mat-intl-tel-input>
+        <mat-label>{{ 'SETTINGS.PHONE' | translate }}</mat-label>
+        <mat-hint>eg : {{phone.selectedCountry.placeHolder}}</mat-hint>
+      </mat-form-field>
+  </form>
+  <div class="error" *ngIf="phoneValue.touched &&phoneValue.invalid"> {{ 'SETTINGS.PHONE_ERROR' | translate}}</div>
+</div>

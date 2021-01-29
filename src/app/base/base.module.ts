@@ -13,6 +13,10 @@ import { VerticalMenuComponent } from './components/vertical-menu/vertical-menu.
 import { ProjectsPageComponent } from './pages/projects-page/projects-page.component';
 import { ThemesListComponent } from './components/themes-list/themes-list.component';
 import { AuthPageComponent } from './pages/auth-page/auth-page.component';
+import { UserProfileComponent } from './components/user-profile/user-profile.component';
+import { PhoneValidationComponent } from './components/phone-validation/phone-validation.component';
+import { SetModeComponent } from './components/set-mode/set-mode.component';
+import { AuthNoticeComponent } from './components/auth-notice/auth-notice.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +26,11 @@ import { AuthPageComponent } from './pages/auth-page/auth-page.component';
     VerticalMenuComponent,
     ProjectsPageComponent,
     ThemesListComponent,
-    AuthPageComponent
+    AuthPageComponent,
+    UserProfileComponent,
+    PhoneValidationComponent,
+    SetModeComponent,
+    AuthNoticeComponent
   ],
   imports: [
     CommonModule,
@@ -35,7 +43,11 @@ import { AuthPageComponent } from './pages/auth-page/auth-page.component';
     ProjectListComponent,
     ProjectCardComponent,
     VerticalMenuComponent,
-    ProjectsPageComponent
+    ProjectsPageComponent,
+    UserProfileComponent,
+    PhoneValidationComponent,
+    SetModeComponent,
+    AuthNoticeComponent
   ],
   providers: [
     GlobalGivingApiService,
