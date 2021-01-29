@@ -1,10 +1,14 @@
 import { Injectable } from '@angular/core';
 import {
- HttpClient, HttpHeaders, HttpErrorResponse, HttpParams
+ HttpClient, HttpErrorResponse, HttpHeaders, HttpParams
 } from '@angular/common/http';
 
-import { Observable, throwError } from 'rxjs';
-import { retry, catchError } from 'rxjs/operators';
+import {
+ Observable, of, throwError, timer
+} from 'rxjs';
+import {
+ catchError, mergeMap, retry, retryWhen
+} from 'rxjs/operators';
 import { IUserToken } from '../models/users.models';
 import { IProjects, IQueryOptions, ISearchResults } from '../models/projects.model';
 import { BASE_URL, NUMBER_RETRIES_OF_REQUESTS } from '../../shared/constants/constants';
@@ -27,30 +31,15 @@ export class GlobalGivingApiService {
 
   constructor(private http: HttpClient) {}
 
-  handleError(error: HttpErrorResponse): Observable<never> {
-    let errorMessage = 'Unknown error!';
-    if (error.error instanceof ErrorEvent) {
-      // Client-side errors
-      errorMessage = `Error: ${error.error.message}`;
-    } else {
-      // Server-side errors
-      errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
-    }
-    // TODO replace with component
-    window.alert(errorMessage);
-    return throwError(errorMessage);
-  }
-
   public getAccessToken(): Observable<IUserToken> {
     return this.http.post<IUserToken>(GLOBAL_GIVIN.TOKEN, this.body);
   }
 
-public getActiveProjectsForCountry(iso3166CountryCode: string, nextProjectID?: number): Observable<IProjects> {
+  public getActiveProjectsForCountry(iso3166CountryCode: string, nextProjectID?: number): Observable<IProjects> {
     const id: number = nextProjectID || 1;
     const options = { params: new HttpParams({ fromString: `&nextProjectId=${id}` }) };
     return this.http.get<IProjects>(`${GLOBAL_GIVIN.ACTIVE_FOR_COUNTRY(iso3166CountryCode)}`, options).pipe(
-      retry(NUMBER_RETRIES_OF_REQUESTS),
-      catchError((e) => this.handleError(e))
+      retry(NUMBER_RETRIES_OF_REQUESTS)
     );
   }
 
@@ -60,7 +49,7 @@ public getActiveProjectsForCountry(iso3166CountryCode: string, nextProjectID?: n
       .map((item) => item)
       .join('+');
     const id: number = queryParams.startNumber || 0;
-    let params: HttpParams = new HttpParams().set('q', query).set('start', String(id));
+    let params: HttpParams = new HttpParams().set('qry', query).set('start', String(id));
     let filterQuery = '';
     const country: string = queryParams.iso3166CountryCode || '';
     if (country.length !== 0) {
@@ -76,8 +65,26 @@ public getActiveProjectsForCountry(iso3166CountryCode: string, nextProjectID?: n
     return this.http
       .get<ISearchResults>(GLOBAL_GIVIN.ACTIVE_BY_KEYWORD, { params })
       .pipe(
-        retry(NUMBER_RETRIES_OF_REQUESTS),
-        catchError((e) => this.handleError(e))
+        retryWhen(this.genericRetryStrategy())
+        // catchError((error) => this.handleError(error))
       );
   }
+
+  handleError(error: unknown): Observable<never> {
+    return throwError(error);
+  }
+
+  genericRetryStrategy = ({ maxRetryAttempts = NUMBER_RETRIES_OF_REQUESTS }: {
+    maxRetryAttempts?: number
+  } = {}) => (attempts: Observable<unknown>): Observable<number> => attempts.pipe(
+      mergeMap((error, i) => {
+        const retryAttempt = i + 1;
+        if (retryAttempt > maxRetryAttempts) {
+          console.log('generic error');
+          return this.handleError(error);
+        }
+        console.log('attempt:', retryAttempt);
+        return timer(retryAttempt);
+      })
+    );
 }
