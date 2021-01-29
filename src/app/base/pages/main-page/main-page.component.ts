@@ -10,7 +10,12 @@ import { SelectLangComponent } from '../../../shared/components/select-lang/sele
 @Component({
   selector: 'app-main-page',
   templateUrl: './main-page.component.html',
-  styleUrls: ['./main-page.component.scss', '../../../../theme/globo.scss', '../../../../theme/buttons.scss']
+  styleUrls: [
+    './main-page.component.scss',
+    '../../../../theme/globo.scss',
+    '../../../../theme/buttons.scss',
+    '../../../../theme/stacks.scss'
+  ]
 })
 export class MainPageComponent implements AfterViewChecked {
   dataProjects: IProject[] = [];

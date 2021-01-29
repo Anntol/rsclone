@@ -6,10 +6,6 @@
       "ABOUT": "authors"
     }
   },
-  "SEARCH": {
-    "LABEL": "Find a projects:",
-    "ERR_MESSAGE": "No projects found! Please try again."
-  },
   "MAIN": {
     "LOGO_TITLE": "easy to help",
     "GO_PROJECTS": "go to the projects →",
@@ -35,8 +31,17 @@
     "WILDLIFE": "Wildlife Conservation"
   },
   "PROJECTS": {
-    "BTN_MORE": "more projects",
-    "ERR_MESSAGE": "There are no more active projects!"
+    "GOAL": "Goal",
+    "FUNDING": "Funding",
+    "DONATE": "Dotate",
+    "SHARE": "Share",
+    "FAVORITES": "Interested",
+    "BTN_MORE": "Load more",
+    "ERR_MESSAGE": "There are no more active projects!",
+    "SEARCH": {
+      "LABEL": "Find a projects:",
+      "ERR_MESSAGE": "No projects found! Please try again."
+    }
   },
   "NAV_MENU": {
     "HOME": "Home",
@@ -56,5 +61,26 @@
     "PASSWORD_INVALID": "Please enter a password.",
     "LOG_IN": "Log In",
     "SIGN_UP": "Sign Up"
+  },
+  "SETTINGS": {
+    "USERNAME": "username",
+    "LOCATION": "City, Country",
+    "DONATIONS": "Donations",
+    "PROJECTS": "Projects",
+    "FAVOURITE": "Favourite",
+    "MODE": "Mode",
+    "LANGUAGE": "Language",
+    "COUNTRY": "Country",
+    "SELECT_COUNTRY": "Select country",
+    "MY_INFO": "My Info",
+    "MY_FAVOURITES": "My Favourites",
+    "MY_TRANSACTIONS": "My Transactions",
+    "FIRST_NAME": "First name",
+    "LAST_NAME": "Last name",
+    "EMAIL": "E-mail",
+    "PHONE": "Phone number",
+    "CITY": "City",
+    "REG_NOTICE": "Please register to see additional info!",
+    "PHONE_ERROR": "Please, enter correct phone number!"
   }
 }

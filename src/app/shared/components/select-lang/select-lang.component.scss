@@ -3,25 +3,22 @@
 .form_lang_btn {
   display: inline-block;
   margin-right: .8em;
-  @media screen and (max-width: 485px) {
-    display: block;
-    margin-bottom: .5em;
-  }
 }
 .select-language input[type=radio] {
 	display: none;
 }
 .select-language label {
 	display: inline-block;
-	cursor: pointer;
+
   height: 34px;
   width: 34px;
-  border-radius: 50%;
+
+  cursor: pointer;
   filter: grayscale(100%);
   user-select: none;
-  border: 1px solid rgba(255, 255, 255, 0.8);
+  border: 1px solid $color-white-op08;
+  border-radius: 50%;
   box-sizing: border-box;
-  box-shadow: -5px -5px 10px #FAFBFF, 3px 3px 5px #A6ABBD;
 }
 /* Checked */
 .select-language input[type=radio]:checked + label {
@@ -30,5 +27,4 @@
 /* Hover */
 .select-language label:hover {
   filter: grayscale(0%);
-	box-shadow: -5px -5px 10px #FAFBFF, 3px 3px 6px #763a76b9;
 }
