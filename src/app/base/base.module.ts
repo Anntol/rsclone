@@ -15,6 +15,8 @@ import { ThemesListComponent } from './components/themes-list/themes-list.compon
 import { AuthPageComponent } from './pages/auth-page/auth-page.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { PhoneValidationComponent } from './components/phone-validation/phone-validation.component';
+import { SetModeComponent } from './components/set-mode/set-mode.component';
+import { AuthNoticeComponent } from './components/auth-notice/auth-notice.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { PhoneValidationComponent } from './components/phone-validation/phone-va
     ThemesListComponent,
     AuthPageComponent,
     UserProfileComponent,
-    PhoneValidationComponent
+    PhoneValidationComponent,
+    SetModeComponent,
+    AuthNoticeComponent
   ],
   imports: [
     CommonModule,
@@ -41,7 +45,9 @@ import { PhoneValidationComponent } from './components/phone-validation/phone-va
     VerticalMenuComponent,
     ProjectsPageComponent,
     UserProfileComponent,
-    PhoneValidationComponent
+    PhoneValidationComponent,
+    SetModeComponent,
+    AuthNoticeComponent
   ],
   providers: [
     GlobalGivingApiService,
