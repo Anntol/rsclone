@@ -12,6 +12,7 @@ function compare(a: number | string, b: number | string, isAsc: boolean): number
 })
 export class SortProjectsPipe implements PipeTransform {
   public transform(allProjects: IProject[], sort: Sort): IProject[] {
+    if (!allProjects) { return []; }
     const data: IProject[] = allProjects.slice();
     if (!sort.active || sort.direction === '') {
       return allProjects;

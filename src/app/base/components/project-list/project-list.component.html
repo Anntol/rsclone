@@ -2,7 +2,7 @@
     <ul id="cards-block">
       <li
         class="card-itm stacks-base-block"
-        *ngFor="let project of dataProjects">
+        *ngFor="let project of dataProjects | sortProjects: optionsSort">
         <input
           type="checkbox"
           name="pasta"

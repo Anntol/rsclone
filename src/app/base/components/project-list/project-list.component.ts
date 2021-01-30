@@ -46,7 +46,10 @@ export class ProjectListComponent implements OnInit, OnDestroy {
 
   dataProjects!: IProject[];
 
-  public optionsSort!: Sort;
+  public optionsSort: Sort = {
+    active: '',
+    direction: ''
+  };
 
   constructor(
     private globalGivingApiService: GlobalGivingApiService,
@@ -63,7 +66,6 @@ export class ProjectListComponent implements OnInit, OnDestroy {
 
     this.dataService.isSort.subscribe((sort: Sort) => {
       this.optionsSort = sort;
-      console.log(this.optionsSort);
     });
 
     this.getProjectsByFilters(this.queryOptions);
@@ -117,7 +119,6 @@ export class ProjectListComponent implements OnInit, OnDestroy {
           this.dataProjects = results.search.response.projects.project;
           this.error = false;
           this.errorMessage = '';
-          console.log(this.dataProjects);
         } else {
           this.errorMessage = 'No projects found! Please try again.';
         }
