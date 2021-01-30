@@ -5,6 +5,8 @@ import mongoose from 'mongoose';
 import path from 'path';
 
 import userRoutes from './routes/user.js';
+import favouriteRoutes from './routes/favourite.js';
+
 import { MONGO_CONNECTION_STRING } from './config.js';
 import AppError from './appError.js';
 
@@ -50,6 +52,7 @@ app.use((err: Error, req: express.Request, res: express.Response, next: express.
 });
 
 app.use('/api/user', userRoutes);
+app.use('/api/userFavourite', favouriteRoutes);
 app.use((req, res) => {
   res.sendFile(path.join(path.resolve(), distAngular, "index.html"));
 });
