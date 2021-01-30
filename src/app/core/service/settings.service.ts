@@ -12,9 +12,16 @@ export class SettingsService {
   serverUrl = environment.serverUrl;
 
   addUserFavourite(favProject: IFavourite): void {
-    this.http.post(`${this.serverUrl}/api/userFavourite/add`, favProject)
+    this.http.post(`${this.serverUrl}/api/userFavourite/`, favProject)
     .subscribe(() => {
-      console.log('Subscribed to addUserFavourite');
+      console.log('UserFavourite added');
+    }, (e) => console.error(e)); // TODO error handling
+  }
+
+  removeUserFavourite(projectId: string): void {
+    this.http.delete(`${this.serverUrl}/api/userFavourite/${projectId}`)
+    .subscribe(() => {
+      console.log('UserFavourite removed');
     }, (e) => console.error(e));
   }
 }

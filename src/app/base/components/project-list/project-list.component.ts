@@ -149,6 +149,8 @@ export class ProjectListComponent implements OnInit, OnDestroy {
         title: checkbox.title
       }
       this.settingsService.addUserFavourite(favourite);
+    } else {
+      this.settingsService.removeUserFavourite(checkbox.id);
     }
   }
 

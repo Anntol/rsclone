@@ -20,4 +20,22 @@ export class UserSettingsService {
         throw new AppError(`Favourite creation failed: ${error.message}`, 400);
       });
   }
+
+  public async RemoveFavourite(projectId: number, userId: string): Promise<IUserFavourite> {
+    const dbUserFav = await UserFavouriteModel.findOne({ userId }).exec();
+    if (!dbUserFav) {
+      throw new AppError('Favourite was not found', 404);
+    }
+    const index = dbUserFav.favourites.findIndex((item) => item.projectId === projectId);
+    if (index > -1) {
+      dbUserFav.favourites.splice(index, 1);
+    }
+
+    return dbUserFav.save()
+      .then((dbFav) => dbFav,
+      (error: Error) => {
+        console.error(error);
+        throw new AppError(`Favourite removing failed: ${error.message}`, 400);
+      });
+  }
 }
