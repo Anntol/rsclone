@@ -1,7 +1,6 @@
 import {
  AfterViewChecked, Component, ViewChild, ChangeDetectorRef, OnInit
 } from '@angular/core';
-// import { Subject } from 'rxjs';
 import { Router } from '@angular/router';
 
 import { Sort } from '@angular/material/sort';
@@ -9,6 +8,7 @@ import { FormControl } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 // import { IProject, IQueryOptions } from '../../../core/models/projects.model';
 import { SelectLangComponent } from '../../../shared/components/select-lang/select-lang.component';
+import { DataService } from 'src/app/core/service/data.service';
 
 @Component({
   selector: 'app-projects-page',
@@ -18,11 +18,14 @@ import { SelectLangComponent } from '../../../shared/components/select-lang/sele
 export class ProjectsPageComponent implements AfterViewChecked, OnInit {
   @ViewChild(SelectLangComponent) selectLang!: SelectLangComponent;
 
-  searchQuery: FormControl = new FormControl();
+  public searchQuery: FormControl = new FormControl();
+
+  public sort!: Sort;
 
   constructor(
     public translate: TranslateService,
     public router: Router,
+    public dataService: DataService,
     private cdr: ChangeDetectorRef
   ) {}
 
@@ -31,7 +34,7 @@ export class ProjectsPageComponent implements AfterViewChecked, OnInit {
     }
 
     public sortData(sort: Sort): void {
-      console.log(sort);
+      this.dataService.setSortOptions(sort);
     }
 
    ngAfterViewChecked(): void {
