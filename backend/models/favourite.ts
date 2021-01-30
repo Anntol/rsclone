@@ -9,7 +9,7 @@ const favouriteSchema = new Schema({
 
 const userFavouriteSchema = new Schema({
   userId: { type: mongoose.Schema.Types.ObjectId, ref: "User", required: true },
-  favourites: favouriteSchema
+  favourites: [favouriteSchema]
 });
 
 export interface IFavourite extends mongoose.Document {

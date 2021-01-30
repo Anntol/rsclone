@@ -5,7 +5,7 @@ import AppError from '../appError.js';
 import { SECRET_TOKEN } from '../config.js';
 import { ITokenData } from '../models/user.js';
 
-interface RequestWithUserData extends express.Request {
+export interface RequestWithUserData extends express.Request {
   userData?: ITokenData;
 }
 
