@@ -5,11 +5,5 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './vertical-menu.component.html',
   styleUrls: ['./vertical-menu.component.scss']
 })
-export class VerticalMenuComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+export class VerticalMenuComponent {
 }

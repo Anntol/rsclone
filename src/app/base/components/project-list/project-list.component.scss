@@ -29,14 +29,14 @@ $font-bold: 500;
   float: left;
   width: 550px;
   height: 540px;
-  padding: 1rem 1rem;
-  margin-bottom: 2rem;
-  margin-right: 2.5rem;
+  padding: 1em 1em;
+  margin-top: 2em;
+  margin-right: 2.5em;
   border-radius: 8px;
 
   @media screen and (max-width: 730px) {
-    padding: .5rem .5rem;
-    margin-right: 1.5rem;
+    padding: .5em .5em;
+    margin-right: 1.5em;
 		width: 100%;
   }
 }
@@ -105,6 +105,9 @@ $font-bold: 500;
                   1px 1px 1px $shadow-ligth;
     transform: translate(0%, -50%);
     transition: all .4s ease;
+    @media screen and (max-width: 730px) {
+      font-size: 64px;
+    }
   }
 }
 
@@ -194,6 +197,9 @@ $font-bold: 500;
       padding: .2em;
       margin: 0 .3em;
       text-align: center;
+      @media screen and (max-width: 590px) {
+        font-size: 16px;
+      }
     }
     .share {
       width: 2em;
@@ -243,7 +249,7 @@ $font-bold: 500;
 }
 .box-img img {
   transition: filter 0.5s linear;
-  filter: brightness(1) grayscale(1) opacity(0.5);
+  filter: brightness(1) grayscale(1) opacity(0.8);
 }
 .box-img:hover img {
   filter: none;

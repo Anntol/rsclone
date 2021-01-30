@@ -9,11 +9,13 @@ import {
  EMPTY, Observable, Subscription
 } from 'rxjs';
 import { FormControl } from '@angular/forms';
+import { Sort } from '@angular/material/sort';
 import {
  IProject, IQueryOptions, ISearchResults
 } from 'src/app/core/models/projects.model';
 import { MIN_LENGTH_QUERY, WAIT_FOR_INPUT } from '../../../shared/constants/constants';
 import { GlobalGivingApiService } from '../../../core/service/global-giving-api.service';
+import { DataService } from '../../../core/service/data.service';
 
 @Component({
   selector: 'app-project-list',
@@ -44,10 +46,13 @@ export class ProjectListComponent implements OnInit, OnDestroy {
 
   dataProjects!: IProject[];
 
+  public optionsSort!: Sort;
+
   constructor(
     private globalGivingApiService: GlobalGivingApiService,
     private route: ActivatedRoute,
     private router: Router,
+    private dataService: DataService,
     private cdr: ChangeDetectorRef
   ) {}
 
@@ -56,12 +61,12 @@ export class ProjectListComponent implements OnInit, OnDestroy {
       this.queryOptions.theme = params.theme as string;
     });
 
-    this.getProjectsByFilters(this.queryOptions);
-  }
+    this.dataService.isSort.subscribe((sort: Sort) => {
+      this.optionsSort = sort;
+      console.log(this.optionsSort);
+    });
 
-  ngOnChange(): void {
-    this.getProjectsBySearchQuery(this.searchQuery);
-    this.cdr.detectChanges();
+    this.getProjectsByFilters(this.queryOptions);
   }
 
   public getProjectsByFilters(options: IQueryOptions): void {

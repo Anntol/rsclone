@@ -15,7 +15,7 @@ import { DataService } from 'src/app/core/service/data.service';
   templateUrl: './projects-page.component.html',
   styleUrls: ['./projects-page.component.scss', '../../../../theme/buttons.scss', '../../../../theme/stacks.scss']
 })
-export class ProjectsPageComponent implements AfterViewChecked, OnInit {
+export class ProjectsPageComponent implements AfterViewChecked {
   @ViewChild(SelectLangComponent) selectLang!: SelectLangComponent;
 
   public searchQuery: FormControl = new FormControl();
@@ -29,16 +29,12 @@ export class ProjectsPageComponent implements AfterViewChecked, OnInit {
     private cdr: ChangeDetectorRef
   ) {}
 
-    ngOnInit(): void {
-      console.log(this.searchQuery.value);
-    }
+  public sortData(sort: Sort): void {
+    this.dataService.setSortOptions(sort);
+  }
 
-    public sortData(sort: Sort): void {
-      this.dataService.setSortOptions(sort);
-    }
-
-   ngAfterViewChecked(): void {
-     this.translate.use(this.selectLang.myLanguage);
-     this.cdr.detectChanges();
-   }
+  ngAfterViewChecked(): void {
+    this.translate.use(this.selectLang.myLanguage);
+    this.cdr.detectChanges();
+  }
 }

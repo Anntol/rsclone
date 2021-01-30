@@ -3,7 +3,11 @@
       <li
         class="card-itm stacks-base-block"
         *ngFor="let project of dataProjects">
-        <input type="checkbox" name="pasta" [id]="project.id" class="checkbox-input"/>
+        <input
+          type="checkbox"
+          name="pasta"
+          [id]="project.id"
+          class="checkbox-input"/>
         <label [for]="project.id" class="checkbox-label">
           <div class="checkbox-text">
             <div class="box-img">

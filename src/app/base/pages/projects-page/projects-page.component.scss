@@ -188,15 +188,19 @@ form:hover .material-icons {
 //--filter
 section {
   display: table;
-  // margin-top: 1rem;
+  margin-top: 1.5em;
   font-size: 18px;
-  font-weight: 600;
+  font-weight: 400;
+  opacity: 0.7;
+  @media screen and (max-width: 540px) {
+    margin-top: 1.5em;
+    font-size: 14px;
+  }
 
   .filter-label {
     display: table-cell;
-    padding-right: 1rem;
+    padding-right: .3em;
     min-width: 100px;
-    color: #fff;
   }
 
   .filter-button-row {
@@ -204,7 +208,7 @@ section {
   }
 
   .filter-button-row .mat-button-base {
-    margin: 0 .7rem 0 0;
+    margin: 0 .3rem 0 0;
   }
 
   .underline {
@@ -223,5 +227,5 @@ section {
 }
 
 ::ng-deep .mat-sort-header-arrow {
-  color: #000;
+  color: $secondary-text-color;
 }
