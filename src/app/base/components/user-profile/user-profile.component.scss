@@ -1,0 +1,198 @@
+@import "../../../../theme/colors.scss";
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 25em 36em;
+  grid-template-rows: repeat(2, 1fr);
+  gap: 20px;
+  grid-template-areas:
+    "profile info-extended"
+    "settings info-extended";
+  @media screen and (max-width: 540px) {
+    display: inline-grid;
+    grid-template-columns: 36em;
+    grid-template-rows: 1fr;
+    grid-template-areas:
+      "profile"
+      "settings"
+      "info-extended";
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .profile,
+  .settings,
+  .info-extended {
+    justify-self: center;
+  }
+}
+
+.profile {
+  grid-area: profile;
+}
+
+.settings {
+  grid-area: settings;
+}
+
+.info-extended {
+  grid-area: info-extended;
+}
+
+.profile,
+.settings,
+.info-extended {
+  background: white;
+  border-radius: 1em;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5);
+}
+
+.profile,
+.settings {
+  width: 25em;
+}
+.profile {
+  height: 16em;
+  margin-top: 7em;
+}
+
+.settings {
+  display: flex;
+  flex-direction: column;
+  height: 17.5em;
+}
+
+.info-extended {
+  width: 36em;
+  height: 42em;
+}
+
+.content {
+  width: 25em;
+  height: 5em;
+}
+
+.avatar {
+  width: 12em;
+  height: 12em;
+  margin-top: -6em;
+  margin-left: 6.5em;
+  background-size: cover;
+  border-radius: 50%;
+  box-shadow: 0px 0px 0px 4pt white;
+  transition: all 1s ease-in-out;
+}
+
+.avatar:hover {
+  transform: scale(1.3);
+}
+
+.user-name {
+  color: #424242;
+  text-align: center;
+  font-size: 1.6em;
+  margin-bottom: 0;
+}
+
+.location {
+  font-size: 14px;
+  text-align: center;
+  color: #9c9c9c;
+  padding-top: 3px;
+  margin-bottom: 5px;
+}
+
+.statistics {
+  display: flex;
+  width: 25em;
+  height: 5em;
+  border-bottom-left-radius: 0.51em;
+  border-bottom-right-radius: 0.51em;
+  overflow: hidden;
+}
+
+.statistics-box {
+  width: 8.3em;
+  height: 4.5em;
+  float: right;
+  overflow: hidden;
+  position: relative;
+}
+
+.vertical-line {
+  border-left: 1px solid #949494;
+  height: 60px;
+}
+
+.counter-block {
+  position: relative;
+  width: 5em;
+  height: 5em;
+  margin: auto;
+  z-index: 999;
+}
+
+.counter-value {
+  font-size: 24px;
+  line-height: 29px;
+  color: #424242;
+  text-align: center;
+}
+
+.counter-title {
+  color: #949494;
+}
+
+.mode-box,
+.language-box,
+.country-box {
+  display: flex;
+  padding: 15px 20px;
+}
+
+.mode-box {
+  padding-top: 20px;
+  padding-bottom: 15px;
+}
+
+.language-box {
+  padding-bottom: 15px;
+}
+
+.settings-title {
+  font-size: 18px;
+}
+
+.country {
+  margin-left: 38px;
+}
+
+.country-title {
+  margin-top: 12px;
+}
+
+.language {
+  margin-left: 80px;
+}
+
+.form {
+  margin-left: 2em;
+  margin-top: 2em;
+  min-width: 100px;
+  max-width: 300px;
+  width: 100%;
+}
+
+.full-width {
+  width: 100%;
+}
+
+td {
+  padding-right: 20px;
+}
+
+.set-mode {
+  margin-left: 200px;
+  margin-top: 15px;
+}
+

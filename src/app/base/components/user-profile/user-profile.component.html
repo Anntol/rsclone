@@ -1,0 +1,112 @@
+<div class="grid-container">
+  <div class="profile">
+    <div class="content">
+      <img class="avatar" src="../../../../assets/user_unknown.jpg" />
+      <h3 class="user-name">{{ "SETTINGS.USERNAME" | translate }}</h3>
+      <p class="location">{{ "SETTINGS.LOCATION" | translate }}</p>
+      <div class="statistics">
+        <div class="statistics-box">
+          <div class="counter-block">
+            <p class="counter-value">$ 0</p>
+            <p class="counter-title">{{ "SETTINGS.DONATIONS" | translate }}</p>
+          </div>
+        </div>
+        <div class="vertical-line"></div>
+        <div class="statistics-box">
+          <div class="counter-block">
+            <p class="counter-value">0</p>
+            <p class="counter-title">{{ "SETTINGS.PROJECTS" | translate }}</p>
+          </div>
+        </div>
+        <div class="vertical-line"></div>
+        <div class="statistics-box">
+          <div class="counter-block">
+            <p class="counter-value">0</p>
+            <p class="counter-title">{{ "SETTINGS.FAVOURITE" | translate }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="settings">
+    <div class="country-box">
+      <h3 class="settings-title country-title">
+        {{ "SETTINGS.COUNTRY" | translate }}:
+      </h3>
+      <div class="country">
+        <app-select-country></app-select-country>
+      </div>
+    </div>
+    <div class="language-box">
+      <h3 class="settings-title">{{ "SETTINGS.LANGUAGE" | translate }}:</h3>
+      <div class="language">
+        <app-select-lang></app-select-lang>
+      </div>
+    </div>
+    <div class="mode-box">
+      <h3 class="settings-title">{{ "SETTINGS.MODE" | translate }}:</h3>
+      <app-set-mode class="set-mode"></app-set-mode>
+    </div>
+  </div>
+  <div class="info-extended">
+    <mat-tab-group animationDuration="1500ms">
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <mat-icon class="example-tab-icon">perm_identity</mat-icon>
+          {{ "SETTINGS.MY_INFO" | translate }}
+        </ng-template>
+        <table class="form table-flex" cellspacing="0">
+          <tr>
+            <td>
+              <mat-form-field class="full-width" appearance="outline">
+                <mat-label>{{ "SETTINGS.FIRST_NAME" | translate }}</mat-label>
+                <input matInput />
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field class="full-width" appearance="outline">
+                <mat-label> {{ "SETTINGS.LAST_NAME" | translate }} </mat-label>
+                <input matInput />
+              </mat-form-field>
+            </td>
+          </tr>
+        </table>
+        <!-- <mat-form-field class="form" appearance="outline">
+          <mat-label>{{ 'SETTINGS.EMAIL' | translate }}</mat-label>
+          <input matInput placeholder="name@example.com" [formControl]="email" required>
+        </mat-form-field> -->
+        <table class="form" cellspacing="0">
+          <tr>
+            <td>
+              <mat-form-field class="full-width" appearance="outline">
+                <mat-label>{{ "SETTINGS.CITY" | translate }}</mat-label>
+                <input matInput />
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field class="full-width" appearance="outline">
+                <mat-label>{{ "SETTINGS.COUNTRY" | translate }}</mat-label>
+                <input matInput />
+              </mat-form-field>
+            </td>
+          </tr>
+        </table>
+        <app-phone-validation class="form"></app-phone-validation>
+      </mat-tab>
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <mat-icon class="example-tab-icon">star_border</mat-icon>
+          {{ "SETTINGS.MY_FAVOURITES" | translate }}
+        </ng-template>
+        <app-auth-notice></app-auth-notice>
+      </mat-tab>
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <mat-icon class="example-tab-icon">local_atm</mat-icon>
+          {{ "SETTINGS.MY_TRANSACTIONS" | translate }}
+        </ng-template>
+        <app-auth-notice></app-auth-notice>
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+</div>
