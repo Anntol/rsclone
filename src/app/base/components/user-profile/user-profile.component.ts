@@ -1,18 +1,32 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
-import { IFavourite } from '../../../core/models/favourite.model';
+import {
+ AfterViewInit, Component, OnDestroy, OnInit
+} from '@angular/core';
+import { Subscription } from 'rxjs';
+import { AuthService } from '../../../core/service/auth.service';
 import { SettingsService } from '../../../core/service/settings.service';
+import { IFavourite } from '../../../core/models/favourite.model';
 
 @Component({
   selector: 'app-user-profile',
   templateUrl: './user-profile.component.html',
   styleUrls: ['./user-profile.component.scss']
 })
-export class UserProfileComponent implements OnInit, AfterViewInit {
-  constructor(private settingsService: SettingsService) {}
+export class UserProfileComponent implements AfterViewInit, OnInit, OnDestroy {
+  isUserAuthenticated = false;
+
+  private authStatusSubscriber!: Subscription;
+
+  constructor(private settingsService: SettingsService, private authService: AuthService) {}
 
   userFavourites!: IFavourite[]
 
   ngOnInit(): void {
+    this.isUserAuthenticated = this.authService.getIsUserAuthenticated();
+    this.authStatusSubscriber = this.authService
+    .getAuthStatusListener()
+    .subscribe((isAuthenticated) => {
+      this.isUserAuthenticated = isAuthenticated;
+    });
     this.getFavs();
   }
 
@@ -20,14 +34,18 @@ export class UserProfileComponent implements OnInit, AfterViewInit {
     this.getFavs();
   }
 
+  ngOnDestroy(): void {
+    this.authStatusSubscriber.unsubscribe();
+  }
+
   getFavs(): void {
-    const favsObservable = this.settingsService.getUserFavourites();
-    favsObservable.subscribe((data) => {
-      console.log('data:', data);
-      this.userFavourites = data.favourites;
-      console.log(this.userFavourites);
-    });
-    console.log(this.userFavourites);
+    if (this.isUserAuthenticated) {
+      const favsObservable = this.settingsService.getUserFavourites();
+      favsObservable.subscribe((data) => {
+        this.userFavourites = data.favourites;
+        console.log(this.userFavourites);
+      });
+    }
   }
   /* email = new FormControl('', [Validators.required, Validators.email]);
 

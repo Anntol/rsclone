@@ -71,10 +71,10 @@
             </td>
           </tr>
         </table>
-        <!-- <mat-form-field class="form" appearance="outline">
+        <mat-form-field class="form" appearance="outline">
           <mat-label>{{ 'SETTINGS.EMAIL' | translate }}</mat-label>
-          <input matInput placeholder="name@example.com" [formControl]="email" required>
-        </mat-form-field> -->
+          <input matInput placeholder="name@example.com" readonly>
+        </mat-form-field>
         <table class="form" cellspacing="0">
           <tr>
             <td>
@@ -98,7 +98,12 @@
           <mat-icon class="example-tab-icon">star_border</mat-icon>
           {{ "SETTINGS.MY_FAVOURITES" | translate }}
         </ng-template>
-        <app-auth-notice></app-auth-notice>
+        <app-auth-notice *ngIf="!this.isUserAuthenticated"></app-auth-notice>
+        <ul *ngIf="this.isUserAuthenticated">
+          <li *ngFor="let fav of userFavourites">
+            {{fav.title}}
+          </li>
+        </ul>
       </mat-tab>
       <mat-tab>
         <ng-template mat-tab-label>
