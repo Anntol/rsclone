@@ -38,4 +38,9 @@ export class UserSettingsService {
         throw new AppError(`Favourite removing failed: ${error.message}`, 400);
       });
   }
+
+  public async GetUserFavourites(userId: string): Promise<IFavourite[]> {
+    const dbUserFav = await UserFavouriteModel.findOne({ userId }).exec();
+    return dbUserFav?.favourites || [];
+  }
 }

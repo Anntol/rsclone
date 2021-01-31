@@ -48,4 +48,25 @@ router.delete('/:projectId', verifyToken, (async (req: RequestWithUserData, res:
   }
 }));
 
+router.get('/', verifyToken, (async (req: RequestWithUserData, res: express.Response) => {
+  if (req.userData) {
+    await settingsService.GetUserFavourites(req.userData.userId)
+    .then((userFavourites) => {
+      res.status(200).json({
+        message: 'Favourites fetched successfully!',
+        favourites: userFavourites
+      });
+    },
+    (error: AppError) => {
+      // logger.error(error.message); TODO add after logger merge
+      console.error(error.message);
+      res.status(error.statusCode || 500).json({
+        message: error.message
+      })
+    });
+  } else {
+    res.status(401).json({ message: "Not authorized!" });
+  }
+}));
+
 export default router;

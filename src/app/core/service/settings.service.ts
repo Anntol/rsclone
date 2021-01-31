@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { environment } from '../../../environments/environment';
 import { IFavourite } from '../models/favourite.model';
 
@@ -23,5 +24,9 @@ export class SettingsService {
     .subscribe(() => {
       console.log('UserFavourite removed');
     }, (e) => console.error(e));
+  }
+
+  getUserFavourites(): Observable<{message: string, favourites: IFavourite[]}> {
+    return this.http.get< { message: string, favourites: IFavourite[]}>(`${this.serverUrl}/api/userFavourite/`);
   }
 }
