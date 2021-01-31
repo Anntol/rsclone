@@ -2,7 +2,7 @@
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 
-import UserModel, { IUser, IToken, ITokenData } from '../models/user.js';
+import UserModel, { IUser, IToken, ITokenData } from '../models/user.model.js';
 import AppError from '../appError.js';
 import { SECRET_TOKEN } from '../config.js';
 

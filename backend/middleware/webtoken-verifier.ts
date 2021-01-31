@@ -3,7 +3,7 @@ import jwt from 'jsonwebtoken';
 
 import AppError from '../appError.js';
 import { SECRET_TOKEN } from '../config.js';
-import { ITokenData } from '../models/user.js';
+import { ITokenData } from '../models/user.model.js';
 
 export interface RequestWithUserData extends express.Request {
   userData?: ITokenData;

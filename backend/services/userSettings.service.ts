@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import UserFavouriteModel, { IFavourite, IUserFavourite } from '../models/favourite.js';
+import UserFavouriteModel, { IFavourite, IUserFavourite } from '../models/favourite.model.js';
 import AppError from '../appError.js';
 
 export class UserSettingsService {

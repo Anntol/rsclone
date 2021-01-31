@@ -141,7 +141,7 @@ export class ProjectListComponent implements OnInit, OnDestroy {
     }
   }
 
-  onChangeUserFavorites(e: Event) {
+  onChangeUserFavorites(e: Event): void {
     const checkbox = e.target as HTMLInputElement;
     if (checkbox.checked) {
       const favourite: IFavourite = {
