@@ -12,9 +12,14 @@
           <div class="checkbox-text">
             <div class="box-img">
               <img [src]="project.imageLink" [alt]="project.themeName">
-               <p class="checkbox-text--header">
+            </div>
+            <div class="box-text">
+              <p class="checkbox-text--header text-accent">
                 <span class="small">#{{ project.id }}</span>
                 &#8195;{{ project.country }}
+              </p>
+              <p class="checkbox-text--header text-accent">
+                <span class="small">{{ project.dateOfMostRecentReport | date }}</span>
               </p>
             </div>
             <span class="checkbox-text--donate">

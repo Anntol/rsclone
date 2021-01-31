@@ -215,7 +215,7 @@ $font-bold: 500;
   }
 
   &--header {
-    margin: 1em;
+    margin: .1em;
     text-align: right;
     color: $color-white;
     .small {
@@ -254,6 +254,13 @@ $font-bold: 500;
 }
 .box-img:hover img {
   filter: none;
+}
+
+.box-text {
+  position: absolute;
+  top: 1em;
+  right: 1em;
+  
 }
 
 img {

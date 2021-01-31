@@ -32,8 +32,8 @@ export class SortProjectsPipe implements PipeTransform {
         return compare(goalA, goalB, isAsc);
       }
       case 'date': {
-        const dateA = Number(new Date(a.approvedDate));
-        const dateB = Number(new Date(b.approvedDate));
+        const dateA = Number(new Date(a.dateOfMostRecentReport));
+        const dateB = Number(new Date(b.dateOfMostRecentReport));
         return compare(dateA, dateB, isAsc);
       }
       default: {
