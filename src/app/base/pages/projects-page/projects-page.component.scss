@@ -96,26 +96,13 @@
 }
 .content {
   position: relative;
-  justify-content: top;
-  overflow: auto;
+  overflow-y: auto;
   background-color: $color-white-alt;
   @media screen and (max-width: 540px) {
     margin-left: 0;
   }
-  .btn-more {
-    position: absolute;
-    left: 1em;
-    bottom: 1.5em;
-    width: 12em;
-    height: 40px;
-    color: $accent-violet-color;
-    text-transform: uppercase;
-    font-weight: 600;
-    @media screen and (max-width: 540px) {
-      bottom: 1.5em;
-    }
-  }
 }
+
 .lang {
   position: absolute;
   bottom: 1.5em;

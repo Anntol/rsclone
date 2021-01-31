@@ -150,6 +150,10 @@ export class ProjectListComponent implements OnInit, OnDestroy {
     this.router.navigate([path, project.id]);
   }
 
+  public addToFavorites(project: IProject): void {
+
+  }
+
   ngOnDestroy(): void {
     this.subscriptions.forEach((sb) => sb.unsubscribe())
   }
