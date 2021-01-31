@@ -2,9 +2,11 @@ import { Injectable } from '@angular/core';
 import {
  HttpClient, HttpHeaders, HttpErrorResponse, HttpParams
 } from '@angular/common/http';
-
 import { Observable, throwError } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
+import { MatDialog } from '@angular/material/dialog';
+
+import { ErrorComponent } from '../../shared/components/error/error.component';
 import { IUserToken } from '../models/users.models';
 import { IProjects, IQueryOptions, ISearchResults } from '../models/projects.model';
 import { BASE_URL, NUMBER_RETRIES_OF_REQUESTS } from '../../shared/constants/constants';
@@ -25,24 +27,21 @@ export class GlobalGivingApiService {
 
   body = { auth_request: 'USER_API' };
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private dialog: MatDialog) {}
 
   handleError(error: HttpErrorResponse): Observable<never> {
-    let errorMessage = 'Unknown error!';
-    if (error.error instanceof ErrorEvent) {
-      // Client-side errors
-      errorMessage = `Error: ${error.error.message}`;
-    } else {
-      // Server-side errors
-      errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
-    }
-    // TODO replace with component
-    window.alert(errorMessage);
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+    const apiMsg = error.error.error_response?.status as string;
+    const errorMessage = apiMsg
+         || (error.status !== 400 && error.statusText)
+         || "An unknown error occurred!";
+    this.dialog.open(ErrorComponent, { data: { message: errorMessage } });
     return throwError(errorMessage);
   }
 
   public getAccessToken(): Observable<IUserToken> {
-    return this.http.post<IUserToken>(GLOBAL_GIVIN.TOKEN, this.body);
+    return this.http.post<IUserToken>(GLOBAL_GIVIN.TOKEN, this.body)
+      .pipe(catchError((e) => this.handleError(e)));
   }
 
 public getActiveProjectsForCountry(iso3166CountryCode: string, nextProjectID?: number): Observable<IProjects> {
