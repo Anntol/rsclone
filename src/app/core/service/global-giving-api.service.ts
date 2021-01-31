@@ -31,7 +31,7 @@ export class GlobalGivingApiService {
 
   handleError(error: HttpErrorResponse): Observable<never> {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-    const apiMsg = error.error.error_response.status as string;
+    const apiMsg = error.error.error_response?.status as string;
     const errorMessage = apiMsg
          || (error.status !== 400 && error.statusText)
          || "An unknown error occurred!";
@@ -40,7 +40,8 @@ export class GlobalGivingApiService {
   }
 
   public getAccessToken(): Observable<IUserToken> {
-    return this.http.post<IUserToken>(GLOBAL_GIVIN.TOKEN, this.body);
+    return this.http.post<IUserToken>(GLOBAL_GIVIN.TOKEN, this.body)
+      .pipe(catchError((e) => this.handleError(e)));
   }
 
 public getActiveProjectsForCountry(iso3166CountryCode: string, nextProjectID?: number): Observable<IProjects> {
