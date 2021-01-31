@@ -1,8 +1,6 @@
 import * as http from 'http';
 import app from './backend/app.js';
-
-// import debugmod from 'debug';
-// const debug = debugmod('rsclone-node');
+import logger from './backend/logger.js';
 
 // Normalize a port.
 function normalizePort(val: string): string | number | boolean {
@@ -36,14 +34,13 @@ function onError(error: NodeJS.ErrnoException) {
 
   const bind = typeof port === 'string' ? `Pipe ${port}` : `Port ${port.toString()}`;
 
-  // TODO error logging!
   switch (error.code) {
     case 'EACCES':
-      console.error(`${bind} requires elevated privileges`);
+      logger.error(`${bind} requires elevated privileges`);
       process.exit(1);
       break;
     case 'EADDRINUSE':
-      console.error(`${bind} is already in use`);
+      logger.error(`${bind} is already in use`);
       process.exit(1);
       break;
     default:
@@ -58,7 +55,7 @@ function onListening() {
   if (addr) {
     bind = typeof addr === 'string' ? `pipe ${addr}` : `port ${addr.port}`;
   }
-  console.log(`Listening on ${bind}`);
+  logger.info(`Server is listening on ${bind}`);
 }
 
 server.listen(port);

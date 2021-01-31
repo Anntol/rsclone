@@ -28,7 +28,11 @@ export class UsersService {
         });
     }
     catch(err) {
-      throw new AppError(`User creation failed!`, 500);
+      if (err instanceof AppError) {
+        throw err;
+      } else {
+        throw new AppError(`User creation failed!`, 500);
+      }
     };
   }
 
@@ -36,12 +40,12 @@ export class UsersService {
     try {
       const dbUser = await UserModel.findOne({ email: reqUser.email }).exec();
       if (!dbUser) {
-        throw new AppError('Auth failed: user not found', 401);
+        throw new AppError('Authorization failed: user not found', 401);
       }
 
       const isPwdCorrect = await bcrypt.compare(reqUser.password, dbUser.password);
       if (!isPwdCorrect) {
-        throw new AppError('Auth failed: password is incorrect', 401);
+        throw new AppError('Authorization failed: password is incorrect', 401);
       }
 
       if (!SECRET_TOKEN) {
@@ -56,7 +60,11 @@ export class UsersService {
       }
     }
     catch(err) {
-      throw new AppError(`Auth failed!`, 500);
+      if (err instanceof AppError) {
+        throw err;
+      } else {
+        throw new AppError(`Authorization failed!`, 500);
+      }
     };
   }
 }
