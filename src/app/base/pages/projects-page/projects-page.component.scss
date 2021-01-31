@@ -126,6 +126,7 @@
   }
 }
 
+/* Search block */
 form {
   position: relative;
   top: 0.4em;
@@ -155,14 +156,17 @@ input {
   padding-left: 20px;
 }
 
+.search {
+  padding: 0.5em;
+  top: 0;
+  right: 0;
+}
+
 .material-icons {
   box-sizing: border-box;
-  padding: 0.5em;
   width: 42px;
   height: 42px;
   position: absolute;
-  top: 0;
-  right: 0;
   border-radius: 50%;
   color: $accent-violet-color;
   text-align: center;
@@ -185,7 +189,7 @@ form:hover .material-icons {
   color: $primary-text-color;
 }
 
-//--filter
+/* Sort block */
 section {
   display: table;
   margin-top: 1.5em;
@@ -229,4 +233,54 @@ section {
 
 ::ng-deep .mat-sort-header-arrow {
   color: $secondary-text-color;
+}
+
+/* Filter button */
+.filter-dropdown {
+  border: none;
+}
+
+.filter-dropdown {
+  position: absolute;
+  top: 1em;
+  left: .5em;
+  @media screen and (max-width: 540px) {
+    right: 3em;
+  }
+}
+
+.dropdown-content {
+  position: absolute;
+  z-index: 1;
+  display: none;
+  min-width: 10em;
+  font-weight: 500;
+  background-color: $color-white-alt;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px 0px $shadow-accent;
+}
+
+.dropdown-content a {
+  color: lighter($secondary-text-color, 25%);
+  padding: 12px 16px;
+  text-decoration: none;
+  text-transform: uppercase;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: $divider-color;
+}
+
+.filter-dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropbtn {
+  padding: 0.5em 0;
+  top: 0;
+  left: 0;
+}
+.filter-dropdown:hover .dropbtn {
+  background-color: $shadow-accent;
 }

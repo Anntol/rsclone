@@ -37,6 +37,10 @@
     "SHARE": "Share",
     "FAVORITES": "Interested",
     "BTN_MORE": "Load more",
+    "FILTER": {
+      "SEARCH": "Search",
+      "SORT": "Sort"
+    },
     "ERR_MESSAGE": "There are no more active projects!",
     "SEARCH": {
       "LABEL": "Find a projects:",

@@ -3,12 +3,21 @@
     <app-vertical-menu></app-vertical-menu>
   </div>
   <div id="pageTop" class="top">
+    <div class="filter-dropdown">
+        <span class="material-icons dropbtn">
+          more_vert
+        </span>
+      <div class="dropdown-content">
+        <a href="#">{{ 'PROJECTS.FILTER.SEARCH' | translate }}</a>
+        <a href="#">{{ 'PROJECTS.FILTER.SORT' | translate }}</a>
+      </div>
+    </div>
     <!-- <form>
       <input type="text" />
       <input type="text" matInput [formControl]="searchQuery" />
-      <span class="material-icons stacks-base-block">search</span>
+      <span class="material-icons search stacks-base-block">search</span>
     </form> -->
-    <section>
+    <!-- <section>
       <div class="filter-label">Sorting by:</div>
       <div class="filter-button-row" matSort (matSortChange)="sortData($event)">
         <span class="mat-button-base" mat-sort-header="date" >
@@ -20,10 +29,10 @@
         <span class="mat-button-base"  mat-sort-header="goal" >
           <span class="underline">goal</span>
         </span>
-        <!-- <span class="mat-button-base">by word or sentance</span>
-        <input #readWord (input)="inputWords(readWord.value)"> -->
+        <span class="mat-button-base">by word or sentance</span>
+        <input #readWord (input)="inputWords(readWord.value)">
       </div>
-    </section>
+    </section> -->
   </div>
   <div id="pageContent" class="content">
     <router-outlet #outlet="outlet"></router-outlet>
