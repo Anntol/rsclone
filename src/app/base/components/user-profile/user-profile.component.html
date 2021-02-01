@@ -55,43 +55,10 @@
           <mat-icon class="example-tab-icon">perm_identity</mat-icon>
           {{ "SETTINGS.MY_INFO" | translate }}
         </ng-template>
-        <table class="form table-flex" cellspacing="0">
-          <tr>
-            <td>
-              <mat-form-field class="full-width" appearance="outline">
-                <mat-label>{{ "SETTINGS.FIRST_NAME" | translate }}</mat-label>
-                <input matInput />
-              </mat-form-field>
-            </td>
-            <td>
-              <mat-form-field class="full-width" appearance="outline">
-                <mat-label> {{ "SETTINGS.LAST_NAME" | translate }} </mat-label>
-                <input matInput />
-              </mat-form-field>
-            </td>
-          </tr>
-        </table>
-        <mat-form-field class="form" appearance="outline">
-          <mat-label>{{ 'SETTINGS.EMAIL' | translate }}</mat-label>
-          <input matInput placeholder="name@example.com" readonly>
-        </mat-form-field>
-        <table class="form" cellspacing="0">
-          <tr>
-            <td>
-              <mat-form-field class="full-width" appearance="outline">
-                <mat-label>{{ "SETTINGS.CITY" | translate }}</mat-label>
-                <input matInput />
-              </mat-form-field>
-            </td>
-            <td>
-              <mat-form-field class="full-width" appearance="outline">
-                <mat-label>{{ "SETTINGS.COUNTRY" | translate }}</mat-label>
-                <input matInput />
-              </mat-form-field>
-            </td>
-          </tr>
-        </table>
-        <app-phone-validation class="form"></app-phone-validation>
+        <app-auth-notice *ngIf="!this.isUserAuthenticated"></app-auth-notice>
+        <div *ngIf="this.isUserAuthenticated">
+          <app-user-info></app-user-info>
+        </div>
       </mat-tab>
       <mat-tab>
         <ng-template mat-tab-label>

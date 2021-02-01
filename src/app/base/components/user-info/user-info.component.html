@@ -1,0 +1,40 @@
+<form (ngSubmit)="onSubmit()" #userInfoForm="ngForm">
+  <table class="form table-flex" cellspacing="0">
+    <tr>
+      <td>
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>{{ "SETTINGS.FIRST_NAME" | translate }}</mat-label>
+          <input matInput [(ngModel)]="model.firstName" name="firstName" />
+        </mat-form-field>
+      </td>
+      <td>
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label> {{ "SETTINGS.LAST_NAME" | translate }} </mat-label>
+          <input matInput [(ngModel)]="model.lastName" name="lastName" />
+        </mat-form-field>
+      </td>
+    </tr>
+  </table>
+  <mat-form-field class="form" appearance="outline">
+    <mat-label>{{ 'SETTINGS.EMAIL' | translate }}</mat-label>
+    <input matInput placeholder="name@example.com" readonly>
+  </mat-form-field>
+  <table class="form" cellspacing="0">
+    <tr>
+      <td>
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>{{ "SETTINGS.CITY" | translate }}</mat-label>
+          <input matInput [(ngModel)]="model.city" name="city" />
+        </mat-form-field>
+      </td>
+      <td>
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>{{ "SETTINGS.COUNTRY" | translate }}</mat-label>
+          <input matInput [(ngModel)]="model.country" name="country" />
+        </mat-form-field>
+      </td>
+    </tr>
+  </table>
+  <app-phone-validation class="form" [(ngModel)]="model.phone" name="phone"></app-phone-validation>
+  <button type="submit">Save</button>
+</form>

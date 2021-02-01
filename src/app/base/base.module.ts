@@ -17,6 +17,7 @@ import { UserProfileComponent } from './components/user-profile/user-profile.com
 import { PhoneValidationComponent } from './components/phone-validation/phone-validation.component';
 import { SetModeComponent } from './components/set-mode/set-mode.component';
 import { AuthNoticeComponent } from './components/auth-notice/auth-notice.component';
+import { UserInfoComponent } from './components/user-info/user-info.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { AuthNoticeComponent } from './components/auth-notice/auth-notice.compon
     UserProfileComponent,
     PhoneValidationComponent,
     SetModeComponent,
-    AuthNoticeComponent
+    AuthNoticeComponent,
+    UserInfoComponent
   ],
   imports: [
     CommonModule,

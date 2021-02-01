@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from '../../../environments/environment';
 import { IFavourite } from '../models/favourite.model';
+import { IUserInfo } from '../models/userinfo.model';
 
 @Injectable({
   providedIn: 'root'
@@ -28,5 +29,12 @@ export class SettingsService {
 
   getUserFavourites(): Observable<{message: string, favourites: IFavourite[]}> {
     return this.http.get< { message: string, favourites: IFavourite[]}>(`${this.serverUrl}/api/userFavourite/`);
+  }
+
+  SaveUserInfo(userInfo: IUserInfo): void {
+    this.http.post(`${this.serverUrl}/api/userSettings/`, userInfo)
+    .subscribe(() => {
+      console.log('UserInfo saved');
+    }, (e) => console.error(e)); // TODO error handling
   }
 }

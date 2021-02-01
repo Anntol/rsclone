@@ -1,5 +1,6 @@
 import mongoose from 'mongoose';
 import UserFavouriteModel, { IFavourite, IUserFavourite } from '../models/favourite.model.js';
+import UserSettingsModel, { IUserInfo, IUserSettings } from '../models/settings.model.js';
 import AppError from '../appError.js';
 
 export class UserSettingsService {
@@ -42,5 +43,23 @@ export class UserSettingsService {
   public async GetUserFavourites(userId: string): Promise<IFavourite[]> {
     const dbUserFav = await UserFavouriteModel.findOne({ userId }).exec();
     return dbUserFav?.favourites || [];
+  }
+
+  public async SaveUserInfoSettings(userInfo: IUserInfo, userId: string): Promise<IUserSettings> {
+    let dbUserSettings = await UserSettingsModel.findOne({ userId }).exec();
+    if (dbUserSettings) {
+      dbUserSettings.userInfo = userInfo;
+    } else {
+      dbUserSettings = new UserSettingsModel({
+        userId: mongoose.Types.ObjectId(userId),
+        userInfo
+      });
+    }
+    return dbUserSettings.save()
+      .then((newSettings) => newSettings,
+      (error: Error) => {
+        console.error(error);
+        throw new AppError(`User settings saving failed: ${error.message}`, 400);
+      });
   }
 }
