@@ -2,30 +2,48 @@
 
 .grid-container {
   display: grid;
-  grid-template-columns: 25em 36em;
-  grid-template-rows: repeat(2, 1fr);
-  gap: 20px;
+  grid-template-columns: 0.5em 25em 46em 1em;
+  grid-template-rows: 22em 22em;
+  gap: 2em;
   grid-template-areas:
-    "profile info-extended"
-    "settings info-extended";
-  @media screen and (max-width: 540px) {
-    display: inline-grid;
-    grid-template-columns: 36em;
-    grid-template-rows: 1fr;
+    ". profile  info-extended ."
+    ". settings info-extended .";
+  @media screen and (max-width: 1024px) {
+    grid-template-columns: 25em 38em;
+    grid-template-rows: 22em 22em;
+    gap: 0.5em;
     grid-template-areas:
-      "profile"
-      "settings"
-      "info-extended";
+    "profile  info-extended"
+    "settings info-extended";
+  }
+  @media screen and (max-width: 950px) {
+    grid-template-columns: 0.1em 25em 25em 1em;
+    grid-template-rows: 20em 35em;
+    gap: 1em;
+    grid-template-areas:
+      ". profile settings ."
+      ". info-extended info-extended .";
+  }
+  @media screen and (max-width: 860px) {
+    grid-template-columns: 25em 25em;
+    grid-template-rows: 20em 35em;
+    gap: 1em;
+    grid-template-areas:
+      "profile settings"
+      "info-extended info-extended";
+  }
+  @media screen and (max-width: 750px) {
+    display: flex;
+    flex-direction: column;
   }
 }
 
-@media screen and (max-width: 540px) {
-  .profile,
-  .settings,
-  .info-extended {
+.profile,
+.settings,
+.info-extended {
     justify-self: center;
+    align-self: center;
   }
-}
 
 .profile {
   grid-area: profile;
@@ -42,29 +60,61 @@
 .profile,
 .settings,
 .info-extended {
-  background: white;
+  background: $color-white-deep;
   border-radius: 1em;
-  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 5px 10px $shadow-button;
 }
 
 .profile,
 .settings {
   width: 25em;
-}
-.profile {
-  height: 16em;
-  margin-top: 7em;
+  height: 18em;
+  margin-top: 2em;
+  @media screen and (max-width: 860px){
+    width: 24.5em;
+  }
+  @media screen and (max-width: 750px){
+    width: 32em;
+  }
+  @media screen and (max-width: 540px){
+    width: 25em;
+  }
 }
 
 .settings {
   display: flex;
   flex-direction: column;
-  height: 17.5em;
 }
 
 .info-extended {
-  width: 36em;
+  width: 42em;
   height: 42em;
+  margin-top: 2em;
+  @media screen and (max-width: 1024px) {
+    width: 36em;
+    height: 40em;
+    margin-top: 2em;
+  }
+  @media screen and (max-width: 950px) {
+    width: 51em;
+    height: 34em;
+    margin-top: 0;
+  }
+  @media screen and (max-width: 860px) {
+    width: 50em;
+    height: 34em;
+    margin-top: 0;
+  }
+  @media screen and (max-width: 750px) {
+    width: 32em;
+    height: 36em;
+    margin-top: 2em;
+  }
+ 
+  @media screen and (max-width: 540px) {
+    width: 25em;
+    height: 36em;
+  }
 }
 
 .content {
@@ -73,22 +123,29 @@
 }
 
 .avatar {
-  width: 12em;
-  height: 12em;
-  margin-top: -6em;
-  margin-left: 6.5em;
+  width: 8em;
+  height: 8em;
+  margin-top: -2em;
+  margin-left: 8.5em;
   background-size: cover;
   border-radius: 50%;
-  box-shadow: 0px 0px 0px 4pt white;
+  box-shadow: 0px 0px 0px 4pt $color-white-alt;
   transition: all 1s ease-in-out;
 }
 
 .avatar:hover {
-  transform: scale(1.3);
+  transform: scale(1.1);
 }
 
+.user-name,
+.location,
+.counter-value,
+.counter-title {
+  color: $secondary-text-color;
+}
+
+
 .user-name {
-  color: #424242;
   text-align: center;
   font-size: 1.6em;
   margin-bottom: 0;
@@ -97,7 +154,6 @@
 .location {
   font-size: 14px;
   text-align: center;
-  color: #9c9c9c;
   padding-top: 3px;
   margin-bottom: 5px;
 }
@@ -120,7 +176,7 @@
 }
 
 .vertical-line {
-  border-left: 1px solid #949494;
+  border-left: 1px solid $secondary-text-color;
   height: 60px;
 }
 
@@ -135,12 +191,7 @@
 .counter-value {
   font-size: 24px;
   line-height: 29px;
-  color: #424242;
   text-align: center;
-}
-
-.counter-title {
-  color: #949494;
 }
 
 .mode-box,

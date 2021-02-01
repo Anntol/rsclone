@@ -29,14 +29,10 @@
     </div>
   </div>
   <div class="settings">
-    <div class="country-box">
-      <h3 class="settings-title country-title">
-        {{ "SETTINGS.COUNTRY" | translate }}:
-      </h3>
-      <div class="country">
-        <app-select-country></app-select-country>
-      </div>
-    </div>
+    <!-- <div class="country-box">
+      <h3 class="settings-title country-title">{{ "SETTINGS.COUNTRY" | translate }}: </h3>
+      <div class="country"><app-select-country></app-select-country></div>
+    </div> -->
     <div class="language-box">
       <h3 class="settings-title">{{ "SETTINGS.LANGUAGE" | translate }}:</h3>
       <div class="language">
@@ -59,6 +55,40 @@
         <div *ngIf="this.isUserAuthenticated">
           <app-user-info></app-user-info>
         </div>
+        <!-- <table class="form table-flex" cellspacing="0">
+          <tr>
+            <td>
+              <mat-form-field class="full-width" appearance="outline">
+                <mat-label>{{ "SETTINGS.FIRST_NAME" | translate }}</mat-label>
+                <input matInput />
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field class="full-width" appearance="outline">
+                <mat-label> {{ "SETTINGS.LAST_NAME" | translate }} </mat-label>
+                <input matInput />
+              </mat-form-field>
+            </td>
+          </tr>
+        </table> -->
+        <!-- <mat-form-field class="form" appearance="outline">
+          <mat-label>{{ 'SETTINGS.EMAIL' | translate }}</mat-label>
+          <input matInput placeholder="name@example.com" [formControl]="email" required>
+        </mat-form-field> -->
+        <!-- <table class="form" cellspacing="0">
+          <tr>
+            <td>
+              <mat-form-field class="full-width" appearance="outline">
+                <mat-label>{{ "SETTINGS.CITY" | translate }}</mat-label>
+                <input matInput />
+              </mat-form-field>
+            </td>
+            <td>
+              <app-select-country></app-select-country>
+            </td>
+          </tr>
+        </table>
+        <app-phone-validation class="form"></app-phone-validation> -->
       </mat-tab>
       <mat-tab>
         <ng-template mat-tab-label>
