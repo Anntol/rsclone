@@ -28,7 +28,7 @@ export class SelectCountryComponent implements OnInit, OnDestroy {
     this.countriesList = this.countries.getAllCountriesByLang(
       this.translate.currentLang as Langs
     );
-    console.log(this.countriesList);
+    console.log(this.translate.currentLang, this.countriesList);
   }
 
   public ngOnDestroy(): void {

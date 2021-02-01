@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 import { CommonConstants } from '../../constants/constants';
 
 @Component({
@@ -9,5 +10,7 @@ import { CommonConstants } from '../../constants/constants';
 export class SelectLangComponent {
   public languageArr: Array<string> = CommonConstants.LANGUAGE_ARR;
 
-  myLanguage = 'en';
+  myLanguage = this.translate.currentLang || 'en';
+
+  constructor(public translate: TranslateService) {}
 }
