@@ -1,3 +1,5 @@
+@import "../../../../theme/colors.scss";
+
 .phone-form {
   margin-left: 2rem;
 }
@@ -26,5 +28,5 @@ input:not(.country-search){
 
 .error{
   margin-top:10px;
-  color:red;
+  color:$color-error;
 }
