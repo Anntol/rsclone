@@ -27,17 +27,17 @@
       <span class="material-icons search stacks-base-block">search</span>
     </form>
     <section *ngIf="isSort">
-      <div class="filter-label">Sorting by:</div>
+      <div class="filter-label">{{ 'PROJECTS.FILTER.SORTING_BY' | translate }}:</div>
       <div class="filter-button-row" matSort (matSortChange)="sortData($event)">
-        <span class="mat-button-base" mat-sort-header="date" >
-          <span class="underline">date</span>
-        </span>
-        <span class="mat-button-base"  mat-sort-header="count" >
-          <span class="underline">donations</span>
-        </span>
         <span class="mat-button-base"  mat-sort-header="goal" >
-          <span class="underline">goal</span>
+          <span class="underline">{{ 'PROJECTS.GOAL' | translate }}</span>
         </span>
+        <span class="mat-button-base" mat-sort-header="date" >
+          <span class="underline">{{ 'PROJECTS.DATE' | translate }}</span>
+        </span>
+        <!-- <span class="mat-button-base"  mat-sort-header="count" >
+          <span class="underline">{{ 'PROJECTS.DONATIONS' | translate }}</span>
+        </span> -->
         <!-- <span class="mat-button-base">by word or sentance</span>
         <input #readWord (input)="inputWords(readWord.value)"> -->
       </div>
