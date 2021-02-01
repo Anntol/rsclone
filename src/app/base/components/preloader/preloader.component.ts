@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Observable, of } from 'rxjs';
 import { PreloaderService } from '../../../core/service/preloader.service';
 
 @Component({
@@ -7,12 +8,12 @@ import { PreloaderService } from '../../../core/service/preloader.service';
   styleUrls: ['./preloader.component.scss']
 })
 export class PreloaderComponent {
-  active!: boolean;
+  active!: Observable<boolean>;
 
   constructor(public preloader: PreloaderService) {
-    preloader.loading$
+    preloader.isLoading$
     .subscribe((status: boolean) => {
-      this.active = status
+      this.active = of(status);
     });
    }
 }

@@ -1,56 +1,64 @@
 @import '../../../../theme/colors.scss';
 
-:host {
-  display: block;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+.overlay {
+  position:fixed;
+  display:block;
+  width:100%;
+  height:100%;
+  top:0;
+  left:0;
+  background-color: $color-white-op08;
+  z-index: 10;
 }
 
 .preloader {
-  height: 20px;
-  width: 250px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: block;
+  height: 2.5em;
+  width: 17.5em;
+  transform: translate(-50%, -50%);
 }
 
 .preloader-dot {
-  height: 20px;
-  width: 20px;
+  height: 2.5em;
+  width: 2.5em;
   border-radius: 100%;
   background-color: $color-black;
   position: absolute;
-  border: 2px solid $color-white;
+  border: 2px solid $color-white-alt;
   animation: preloader 3s infinite ease-in-out alternate;
 }
 
 .preloader-dot:first-child {
   background-color: $primary-color;
-  animation-delay: 0.5s;
+  animation-delay: 0.6s;
 }
 
 .preloader-dot:nth-child(2) {
   background-color: $primary-text-color;
-  animation-delay: 0.4s;
+  animation-delay: 0.5s;
 }
 
 .preloader-dot:nth-child(3) {
   background-color: $accent-color;
-  animation-delay: 0.3s;
+  animation-delay: 0.4s;
 }
 
 .preloader-dot:nth-child(4) {
   background-color: $accent-violet-color;
-  animation-delay: 0.2s;
+  animation-delay: 0.3s;
 }
 
 .preloader-dot:nth-child(5) {
   background-color: $accent-color;
-  animation-delay: 0.1s;
+  animation-delay: 0.2s;
 }
 
 .preloader-dot:nth-child(6) {
   background-color: $primary-text-color;
-  animation-delay: 0s;
+  animation-delay: 0.1s;
 }
 
 .preloader-dot:nth-child(7) {

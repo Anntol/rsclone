@@ -16,6 +16,7 @@ import {
 import { MIN_LENGTH_QUERY, WAIT_FOR_INPUT } from '../../../shared/constants/constants';
 import { GlobalGivingApiService } from '../../../core/service/global-giving-api.service';
 import { DataService } from '../../../core/service/data.service';
+import { PreloaderService } from '../../../core/service/preloader.service';
 
 @Component({
   selector: 'app-project-list',
@@ -55,6 +56,7 @@ export class ProjectListComponent implements OnInit, OnDestroy {
     private globalGivingApiService: GlobalGivingApiService,
     private route: ActivatedRoute,
     private router: Router,
+    public preloader: PreloaderService,
     private dataService: DataService,
     private cdr: ChangeDetectorRef
   ) {}
@@ -87,10 +89,12 @@ export class ProjectListComponent implements OnInit, OnDestroy {
         this.dataProjects = results.search.response.projects.project;
         this.error = false;
         this.errorMessage = '';
+        this.preloader.hide();
         console.log(this.countAllProjects, results.search);
       } else {
         this.errorMessage = 'No projects found! Please try again.';
         console.log(this.errorMessage);
+        this.preloader.hide();
       }
     });
   }
@@ -119,7 +123,9 @@ export class ProjectListComponent implements OnInit, OnDestroy {
           this.dataProjects = results.search.response.projects.project;
           this.error = false;
           this.errorMessage = '';
+          this.preloader.hide();
         } else {
+          this.preloader.hide();
           this.errorMessage = 'No projects found! Please try again.';
         }
       });
@@ -139,7 +145,9 @@ export class ProjectListComponent implements OnInit, OnDestroy {
           this.dataProjects = this.dataProjects.concat(results.search.response.projects.project);
           console.log(this.countShowProjects, results.search);
         });
+        this.preloader.hide();
     } else {
+      this.preloader.hide();
       console.log('There are no more active projects!');
     }
   }
@@ -148,10 +156,6 @@ export class ProjectListComponent implements OnInit, OnDestroy {
     const path = `projects/${this.queryOptions.theme || ''}`;
      // eslint-disable-next-line @typescript-eslint/no-floating-promises
     this.router.navigate([path, project.id]);
-  }
-
-  public addToFavorites(project: IProject): void {
-
   }
 
   ngOnDestroy(): void {
