@@ -78,6 +78,14 @@
   font-size: 18px;
 }
 
+.user-name,
+.location,
+.counter-value,
+.counter-title {
+  color: $secondary-text-color;
+}
+
+
 .user-name {
   text-align: center;
   font-size: 1.6em;
