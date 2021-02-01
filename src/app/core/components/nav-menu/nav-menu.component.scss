@@ -4,7 +4,7 @@
 	width: 48px;
 	height: 48px;
 	position: absolute;
-	right: 1px;
+  right: 1px;
 	top: 10px;
 	list-style: none;
   text-align: center;
@@ -20,7 +20,7 @@
 	top: -10px;
 	border-radius: 50%;
 	overflow: hidden;
-  color: white;
+  color: $color-white;
   background-color: $accent-color;
   z-index: 10;
   cursor: pointer;
@@ -29,7 +29,7 @@
     top: 28px;
     right: 12px;
     border-radius: 10px;
-    background: white;
+    background: $color-white;
     content: "";
     width: 20px;
     height: 3px;
@@ -41,7 +41,7 @@
     top: 12px;
     right: 12px;
     border-radius: 10px;
-    background: white;
+    background: $color-white;
     content: "";
     width: 20px;
     height: 3px;
@@ -52,11 +52,7 @@
 
 .menu-button,
 .menu-item {
-  box-shadow:
-    -.3em -.2em 1em #fff,
-    inset .4em .5em .9em #E3E3E375,
-    .3em .2em .5em #88888890,
-    inset -.4em -.5em .9em #E3E3E390;
+  box-shadow: 0px 1px 3px $shadow-button, inset 0px 1px 2px $color-white;
 }
 
 .burger_center {
@@ -66,7 +62,7 @@
   top: 10px;
   right: 57px;
   border-radius: 10px;
-  background:white;
+  background:$color-white;
   z-index: 20;
   -webkit-transition: all .4s ease ;
   transition: all .4s ease ;
@@ -91,15 +87,15 @@
 }
 
 .menu-item a {
-	color: white;
+	color: $color-white;
 	position: relative;
-	top: 10%;
-	right: 10%;
+	top: 14%;
+	right: 7%;
   text-decoration: none;
 }
 
 .mat-icon {
-  font-size: 32px;
+  font-size: 30px;
 }
 
 .menu_opener {
