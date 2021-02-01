@@ -8,17 +8,15 @@ import { IProject } from '../models/projects.model';
 })
 export class DataService {
   public isSearchQuery: Subject<string> = new Subject();
-  public isToggle: Subject<boolean> = new Subject();
+
   public isSort: Subject<Sort> = new Subject();
+
   public isSomeWord: Subject<string> = new Subject();
+
   public isCardItem: Subject<IProject> = new Subject();
 
   public setSearchQuery(query: string): void {
     this.isSearchQuery.next(query);
-  }
-
-  public setToggleOutput(toggle: boolean): void {
-    this.isToggle.next(toggle);
   }
 
   public setSortOptions(sort: Sort): void {
@@ -29,11 +27,11 @@ export class DataService {
     this.isSomeWord.next(query);
   }
 
-  public setCardById(item: IProject): void {
+  public setProjectById(item: IProject): void {
     this.isCardItem.next(item);
   }
 
-  // public getCardById(): Observable<CardItem> {
+  // public getProjectById(): Observable<CardItem> {
   //   return this.isCardItem.asObservable();
   // }
 }

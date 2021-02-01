@@ -1,5 +1,5 @@
 import {
- Component, Input, OnDestroy, OnInit
+ Component, OnDestroy, OnInit
 } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
@@ -15,7 +15,7 @@ export class ProjectCardComponent implements OnInit, OnDestroy {
 
   set subscription(sb: Subscription) { this.subscriptions.push(sb) };
 
-  @Input() public dataProjects!: IProject[];
+  public dataProjects!: IProject[];
 
   constructor (private route: ActivatedRoute) {
 
@@ -23,7 +23,7 @@ export class ProjectCardComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.subscription = this.route.params.subscribe((params): void => {
-     console.log(params)
+     console.log(params);
     });
   }
 
