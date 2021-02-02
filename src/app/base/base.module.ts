@@ -14,9 +14,9 @@ import { ProjectsPageComponent } from './pages/projects-page/projects-page.compo
 import { ThemesListComponent } from './components/themes-list/themes-list.component';
 import { AuthPageComponent } from './pages/auth-page/auth-page.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
-import { PhoneValidationComponent } from './components/phone-validation/phone-validation.component';
 import { SetModeComponent } from './components/set-mode/set-mode.component';
 import { AuthNoticeComponent } from './components/auth-notice/auth-notice.component';
+import { UserInfoComponent } from './components/user-info/user-info.component';
 
 @NgModule({
   declarations: [
@@ -28,9 +28,9 @@ import { AuthNoticeComponent } from './components/auth-notice/auth-notice.compon
     ThemesListComponent,
     AuthPageComponent,
     UserProfileComponent,
-    PhoneValidationComponent,
     SetModeComponent,
-    AuthNoticeComponent
+    AuthNoticeComponent,
+    UserInfoComponent
   ],
   imports: [
     CommonModule,
@@ -45,7 +45,6 @@ import { AuthNoticeComponent } from './components/auth-notice/auth-notice.compon
     VerticalMenuComponent,
     ProjectsPageComponent,
     UserProfileComponent,
-    PhoneValidationComponent,
     SetModeComponent,
     AuthNoticeComponent
   ],

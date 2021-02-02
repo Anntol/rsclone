@@ -12,8 +12,10 @@ import { FormControl } from '@angular/forms';
 import {
  IProject, IQueryOptions, ISearchResults
 } from 'src/app/core/models/projects.model';
-import { MIN_LENGTH_QUERY, WAIT_FOR_INPUT } from '../../../shared/constants/constants';
 import { GlobalGivingApiService } from '../../../core/service/global-giving-api.service';
+import { SettingsService } from '../../../core/service/settings.service';
+import { MIN_LENGTH_QUERY, WAIT_FOR_INPUT } from '../../../shared/constants/constants';
+import { IFavourite } from '../../../core/models/favourite.model';
 
 @Component({
   selector: 'app-project-list',
@@ -46,6 +48,7 @@ export class ProjectListComponent implements OnInit, OnDestroy {
 
   constructor(
     private globalGivingApiService: GlobalGivingApiService,
+    private settingsService: SettingsService,
     private route: ActivatedRoute,
     private cdr: ChangeDetectorRef
   ) {}
@@ -135,6 +138,19 @@ export class ProjectListComponent implements OnInit, OnDestroy {
         });
     } else {
       console.log('There are no more active projects!');
+    }
+  }
+
+  onChangeUserFavorites(e: Event): void {
+    const checkbox = e.target as HTMLInputElement;
+    if (checkbox.checked) {
+      const favourite: IFavourite = {
+        projectId: +checkbox.id,
+        title: checkbox.title
+      }
+      this.settingsService.addUserFavourite(favourite);
+    } else {
+      this.settingsService.removeUserFavourite(checkbox.id);
     }
   }
 
