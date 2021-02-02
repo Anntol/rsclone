@@ -27,12 +27,12 @@ export class SettingsService {
 
   addUserFavourite(favProject: IFavourite): void {
     this.http.post(`${this.serverUrl}/api/userFavourite/`, favProject)
-      .pipe(catchError((e) => this.handleError(e)));
+      .pipe(catchError((e) => this.handleError(e))).subscribe();
   }
 
   removeUserFavourite(projectId: string): void {
     this.http.delete(`${this.serverUrl}/api/userFavourite/${projectId}`)
-      .pipe(catchError((e) => this.handleError(e)));
+      .pipe(catchError((e) => this.handleError(e))).subscribe();
   }
 
   getUserFavourites(): Observable<{message: string, favourites: IFavourite[]}> {
@@ -42,7 +42,7 @@ export class SettingsService {
 
   SaveUserInfo(userInfo: IUserInfo): void {
     this.http.post(`${this.serverUrl}/api/userSettings/`, userInfo)
-      .pipe(catchError((e) => this.handleError(e)));
+      .pipe(catchError((e) => this.handleError(e))).subscribe();
   }
 
   getUserInfoSettings(): Observable<{message: string, userInfo: IUserInfo}> {
