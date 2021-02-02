@@ -13,11 +13,6 @@
         <mat-icon>attach_money</mat-icon>
       </a>
     </li>
-    <li class="menu-item link_three" matTooltip="{{ 'NAV_MENU.MAP' | translate }}">
-      <a [routerLink]="['/map']">
-        <mat-icon>public</mat-icon>
-      </a>
-    </li>
     <li class="menu-item link_four" matTooltip="{{ 'NAV_MENU.SIGN_IN' | translate }}" *ngIf="!this.isUserAuthenticated">
       <a [routerLink]="['/login']">
         <mat-icon>account_circle</mat-icon>
