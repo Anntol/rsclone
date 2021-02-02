@@ -1,4 +1,5 @@
 import express from 'express';
+import logger from '../logger.js';
 import AppError from '../appError.js';
 import { RequestWithUserData, verifyToken } from '../middleware/webtoken-verifier.js'
 import { UserSettingsService } from '../services/userSettings.service.js';
@@ -16,8 +17,7 @@ router.post('/', verifyToken, (async (req: RequestWithUserData, res: express.Res
       });
     },
     (error: AppError) => {
-      // logger.error(error.message); TODO add after logger merge
-      console.error(error.message);
+      logger.error(error.message);
       res.status(error.statusCode || 500).json({
         message: error.message
       })
@@ -37,8 +37,7 @@ router.delete('/:projectId', verifyToken, (async (req: RequestWithUserData, res:
       });
     },
     (error: AppError) => {
-      // logger.error(error.message); TODO add after logger merge
-      console.error(error.message);
+      logger.error(error.message);
       res.status(error.statusCode || 500).json({
         message: error.message
       })
@@ -58,8 +57,7 @@ router.get('/', verifyToken, (async (req: RequestWithUserData, res: express.Resp
       });
     },
     (error: AppError) => {
-      // logger.error(error.message); TODO add after logger merge
-      console.error(error.message);
+      logger.error(error.message);
       res.status(error.statusCode || 500).json({
         message: error.message
       })
