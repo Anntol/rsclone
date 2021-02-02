@@ -10,9 +10,10 @@ import {
 } from 'rxjs';
 import { FormControl } from '@angular/forms';
 import {
- IProject, IQueryOptions, ISearchResults
-} from 'src/app/core/models/projects.model';
+ IProjectWithFavourite, IQueryOptions, ISearchResults
+} from '../../../core/models/projects.model';
 import { GlobalGivingApiService } from '../../../core/service/global-giving-api.service';
+import { AuthService } from '../../../core/service/auth.service';
 import { SettingsService } from '../../../core/service/settings.service';
 import { MIN_LENGTH_QUERY, WAIT_FOR_INPUT } from '../../../shared/constants/constants';
 import { IFavourite } from '../../../core/models/favourite.model';
@@ -23,6 +24,8 @@ import { IFavourite } from '../../../core/models/favourite.model';
   styleUrls: ['./project-list.component.scss', '../../../../theme/stacks.scss']
 })
 export class ProjectListComponent implements OnInit, OnDestroy {
+  isUserAuthenticated = false;
+
   private subscriptions: Subscription[] = [];
 
   set subscription(sb: Subscription) { this.subscriptions.push(sb) };
@@ -44,11 +47,14 @@ export class ProjectListComponent implements OnInit, OnDestroy {
 
   errorMessage = '';
 
-  dataProjects!: IProject[];
+  dataProjects!: IProjectWithFavourite[];
+
+  userFavourites: IFavourite[] = [];
 
   constructor(
     private globalGivingApiService: GlobalGivingApiService,
     private settingsService: SettingsService,
+    private authService: AuthService,
     private route: ActivatedRoute,
     private cdr: ChangeDetectorRef
   ) {}
@@ -59,6 +65,15 @@ export class ProjectListComponent implements OnInit, OnDestroy {
       console.log(this.queryOptions)
     });
 
+    this.isUserAuthenticated = this.authService.getIsUserAuthenticated();
+    this.subscription = this.authService
+    .getAuthStatusListener()
+    .subscribe((isAuthenticated) => {
+      this.isUserAuthenticated = isAuthenticated;
+      console.log('list-auth-changed: ', this.isUserAuthenticated);
+    });
+
+    this.getUserFavourites();
     this.getProjectsByFilters(this.queryOptions);
   }
 
@@ -80,10 +95,13 @@ export class ProjectListComponent implements OnInit, OnDestroy {
       if (results.search.response.numberFound > 10) {
         this.countShowProjects = 10;
         this.countAllProjects = results.search.response.numberFound;
-        this.dataProjects = results.search.response.projects.project;
+        this.dataProjects = results.search.response.projects.project.map((obj) => (
+          { ...obj, isFavourite: this.userFavourites.findIndex((item) => item.projectId === obj.id) > -1 }));
         this.error = false;
         this.errorMessage = '';
         console.log(this.countAllProjects, results.search);
+        console.log('proj:', this.dataProjects);
+        console.log('favs:', this.userFavourites);
       } else {
         this.errorMessage = 'No projects found! Please try again.';
         console.log(this.errorMessage);
@@ -112,7 +130,8 @@ export class ProjectListComponent implements OnInit, OnDestroy {
       )
       .subscribe((results: ISearchResults) => {
         if (results.search.response.numberFound > 0) {
-          this.dataProjects = results.search.response.projects.project;
+          this.dataProjects = results.search.response.projects.project.map((obj) => (
+            { ...obj, isFavourite: this.userFavourites.findIndex((item) => item.projectId === obj.id) > -1 }));
           this.error = false;
           this.errorMessage = '';
           console.log(this.dataProjects);
@@ -133,7 +152,8 @@ export class ProjectListComponent implements OnInit, OnDestroy {
             ? this.countShowProjects + 10
             : this.countAllProjects;
           this.countAllProjects = results.search.response.numberFound;
-          this.dataProjects = this.dataProjects.concat(results.search.response.projects.project);
+          this.dataProjects = this.dataProjects.concat(results.search.response.projects.project).map((obj) => (
+            { ...obj, isFavourite: this.userFavourites.findIndex((item) => item.projectId === obj.id) > -1 }));
           console.log(this.countShowProjects, results.search);
         });
     } else {
@@ -142,15 +162,32 @@ export class ProjectListComponent implements OnInit, OnDestroy {
   }
 
   onChangeUserFavorites(e: Event): void {
-    const checkbox = e.target as HTMLInputElement;
-    if (checkbox.checked) {
-      const favourite: IFavourite = {
-        projectId: +checkbox.id,
-        title: checkbox.title
+    if (this.isUserAuthenticated) {
+      const checkbox = e.target as HTMLInputElement;
+      if (checkbox.checked) {
+        const favourite: IFavourite = {
+          projectId: +checkbox.id,
+          title: checkbox.title
+        }
+        this.settingsService.addUserFavourite(favourite);
+      } else {
+        this.settingsService.removeUserFavourite(checkbox.id);
       }
-      this.settingsService.addUserFavourite(favourite);
-    } else {
-      this.settingsService.removeUserFavourite(checkbox.id);
+    }
+  }
+
+  getUserFavourites(): void {
+    if (this.isUserAuthenticated) {
+      const favsObservable = this.settingsService.getUserFavourites();
+      favsObservable.subscribe((data) => {
+        this.userFavourites = data.favourites;
+        console.log('favs changed: ', this.userFavourites);
+        this.dataProjects?.forEach((obj) => {
+          const project = obj;
+          project.isFavourite = this.userFavourites.findIndex((item) => item.projectId === obj.id) > -1;
+        });
+        console.log('favs changed: ', this.dataProjects);
+      });
     }
   }
 
