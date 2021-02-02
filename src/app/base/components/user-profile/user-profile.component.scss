@@ -2,48 +2,13 @@
 
 .grid-container {
   display: grid;
-  grid-template-columns: 0.5em 25em 46em 1em;
+  grid-template-columns: 0.5em 25em 43em 1em;
   grid-template-rows: 22em 22em;
   gap: 2em;
   grid-template-areas:
     ". profile  info-extended ."
     ". settings info-extended .";
-  @media screen and (max-width: 1024px) {
-    grid-template-columns: 25em 38em;
-    grid-template-rows: 22em 22em;
-    gap: 0.5em;
-    grid-template-areas:
-    "profile  info-extended"
-    "settings info-extended";
-  }
-  @media screen and (max-width: 950px) {
-    grid-template-columns: 0.1em 25em 25em 1em;
-    grid-template-rows: 20em 35em;
-    gap: 1em;
-    grid-template-areas:
-      ". profile settings ."
-      ". info-extended info-extended .";
-  }
-  @media screen and (max-width: 860px) {
-    grid-template-columns: 25em 25em;
-    grid-template-rows: 20em 35em;
-    gap: 1em;
-    grid-template-areas:
-      "profile settings"
-      "info-extended info-extended";
-  }
-  @media screen and (max-width: 750px) {
-    display: flex;
-    flex-direction: column;
-  }
 }
-
-.profile,
-.settings,
-.info-extended {
-    justify-self: center;
-    align-self: center;
-  }
 
 .profile {
   grid-area: profile;
@@ -58,63 +23,28 @@
 }
 
 .profile,
+.settings {
+  width: 25em;
+  height: 20em;
+}
+
+.profile {
+  margin-top: 4em;
+}
+
+.profile,
 .settings,
 .info-extended {
   background: $color-white-deep;
   border-radius: 1em;
   box-shadow: 0px 5px 10px $shadow-button;
-}
-
-.profile,
-.settings {
-  width: 25em;
-  height: 18em;
-  margin-top: 2em;
-  @media screen and (max-width: 860px){
-    width: 24.5em;
-  }
-  @media screen and (max-width: 750px){
-    width: 32em;
-  }
-  @media screen and (max-width: 540px){
-    width: 25em;
-  }
-}
-
-.settings {
-  display: flex;
-  flex-direction: column;
+  align-self: center;
 }
 
 .info-extended {
   width: 42em;
   height: 42em;
   margin-top: 2em;
-  @media screen and (max-width: 1024px) {
-    width: 36em;
-    height: 40em;
-    margin-top: 2em;
-  }
-  @media screen and (max-width: 950px) {
-    width: 51em;
-    height: 34em;
-    margin-top: 0;
-  }
-  @media screen and (max-width: 860px) {
-    width: 50em;
-    height: 34em;
-    margin-top: 0;
-  }
-  @media screen and (max-width: 750px) {
-    width: 32em;
-    height: 36em;
-    margin-top: 2em;
-  }
- 
-  @media screen and (max-width: 540px) {
-    width: 25em;
-    height: 36em;
-  }
 }
 
 .content {
@@ -123,10 +53,10 @@
 }
 
 .avatar {
-  width: 8em;
-  height: 8em;
-  margin-top: -2em;
-  margin-left: 8.5em;
+  width: 10em;
+  height: 10em;
+  margin-top: -3em;
+  margin-left: 8em;
   background-size: cover;
   border-radius: 50%;
   box-shadow: 0px 0px 0px 4pt $color-white-alt;
@@ -140,10 +70,13 @@
 .user-name,
 .location,
 .counter-value,
-.counter-title {
+.el-title {
   color: $secondary-text-color;
 }
 
+.el-title {
+  font-size: 18px;
+}
 
 .user-name {
   text-align: center;
@@ -152,16 +85,17 @@
 }
 
 .location {
-  font-size: 14px;
+  font-size: 16px;
   text-align: center;
-  padding-top: 3px;
-  margin-bottom: 5px;
+  padding-top: 10px;
+  margin-bottom: 10px;
 }
 
 .statistics {
   display: flex;
   width: 25em;
   height: 5em;
+  margin-top: 25px;
   border-bottom-left-radius: 0.51em;
   border-bottom-right-radius: 0.51em;
   overflow: hidden;
@@ -194,36 +128,17 @@
   text-align: center;
 }
 
-.mode-box,
-.language-box,
-.country-box {
+.settings {
   display: flex;
-  padding: 15px 20px;
+  flex-direction: column;
 }
 
-.mode-box {
-  padding-top: 20px;
-  padding-bottom: 15px;
-}
-
-.language-box {
-  padding-bottom: 15px;
-}
-
-.settings-title {
-  font-size: 18px;
-}
-
-.country {
-  margin-left: 38px;
-}
-
-.country-title {
-  margin-top: 12px;
-}
-
-.language {
-  margin-left: 80px;
+.mode-box,
+.language-box{
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  margin: 60px  40px 0;
 }
 
 .set-mode {
@@ -231,3 +146,18 @@
   margin-top: 15px;
 }
 
+// .form {
+//   margin-left: 2em;
+//   margin-top: 2em;
+//   min-width: 100px;
+//   max-width: 300px;
+//   width: 100%;
+// }
+
+// .full-width {
+//   width: 100%;
+// }
+
+// td {
+//   padding-right: 20px;
+// }
