@@ -8,22 +8,31 @@ import { SettingsService } from '../../../core/service/settings.service';
   styleUrls: ['./user-info.component.scss']
 })
 export class UserInfoComponent implements OnInit {
-  model!:IUserInfo;
+  model:IUserInfo = {
+    firstName: '',
+    lastName: '',
+    city: '',
+    country: '',
+    phone: '',
+    email: ''
+  }
 
   constructor (private settingsService: SettingsService) {}
 
   ngOnInit(): void {
-    this.model = {
-      firstName: 'First',
-      lastName: 'Last',
-      city: 'Kyiv',
-      country: 'Ukraine',
-      phone: '+38(050)9876543'
-    }
+    this.getUserInfo();
   }
 
   onSubmit(): void {
     console.log(this.model);
     this.settingsService.SaveUserInfo(this.model);
+  }
+
+  getUserInfo(): void {
+    const infoObservable = this.settingsService.getUserInfoSettings();
+    infoObservable.subscribe((data) => {
+      this.model = data.userInfo;
+      console.log(this.model);
+    });
   }
 }

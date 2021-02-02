@@ -37,4 +37,8 @@ export class SettingsService {
       console.log('UserInfo saved');
     }, (e) => console.error(e)); // TODO error handling
   }
+
+  getUserInfoSettings(): Observable<{message: string, userInfo: IUserInfo}> {
+    return this.http.get< { message: string, userInfo: IUserInfo}>(`${this.serverUrl}/api/userSettings/`);
+  }
 }

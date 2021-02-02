@@ -17,7 +17,7 @@
   </table>
   <mat-form-field class="form" appearance="outline">
     <mat-label>{{ 'SETTINGS.EMAIL' | translate }}</mat-label>
-    <input matInput placeholder="name@example.com" readonly>
+    <input matInput [(ngModel)]="model.email" name="email" readonly>
   </mat-form-field>
   <table class="form" cellspacing="0">
     <tr>

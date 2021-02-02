@@ -3,5 +3,6 @@ export interface IUserInfo {
   lastName: string,
   city: string,
   country: string,
-  phone: string
+  phone: string,
+  email: string
 }

@@ -44,5 +44,7 @@ export interface IUserSettings extends mongoose.Document {
   appSettings: IAppSettings,
   userInfo: IUserInfo
 }
+const UserInfoModel = model<IUserInfo>('UserInfo', userInfoSchema);
+export { UserInfoModel };
 
 export default model<IUserSettings>('UserSetting', userSettingsSchema);

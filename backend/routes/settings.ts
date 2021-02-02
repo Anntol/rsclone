@@ -27,4 +27,33 @@ router.post('/', verifyToken, (async (req: RequestWithUserData, res: express.Res
   }
 }));
 
+router.get('/', verifyToken, (async (req: RequestWithUserData, res: express.Response) => {
+  if (req.userData) {
+    await settingsService.GetUserInfoSettings(req.userData.userId)
+    .then((userInfoSettings) => {
+      const result = {
+        firstName: userInfoSettings.firstName,
+        lastName: userInfoSettings.lastName,
+        city: userInfoSettings.city,
+        country: userInfoSettings.country,
+        phone: userInfoSettings.phone,
+        email: req.userData?.email
+      };
+      res.status(200).json({
+        message: 'Settings fetched successfully!',
+        userInfo: result
+      });
+    },
+    (error: AppError) => {
+      // logger.error(error.message); TODO add after logger merge
+      console.error(error.message);
+      res.status(error.statusCode || 500).json({
+        message: error.message
+      })
+    });
+  } else {
+    res.status(401).json({ message: "Not authorized!" });
+  }
+}));
+
 export default router;

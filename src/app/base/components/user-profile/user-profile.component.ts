@@ -1,5 +1,5 @@
 import {
- AfterViewInit, Component, OnDestroy, OnInit
+  Component, OnDestroy, OnInit
 } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { AuthService } from '../../../core/service/auth.service';
@@ -11,7 +11,7 @@ import { IFavourite } from '../../../core/models/favourite.model';
   templateUrl: './user-profile.component.html',
   styleUrls: ['./user-profile.component.scss']
 })
-export class UserProfileComponent implements AfterViewInit, OnInit, OnDestroy {
+export class UserProfileComponent implements OnInit, OnDestroy {
   isUserAuthenticated = false;
 
   private authStatusSubscriber!: Subscription;
@@ -27,10 +27,6 @@ export class UserProfileComponent implements AfterViewInit, OnInit, OnDestroy {
     .subscribe((isAuthenticated) => {
       this.isUserAuthenticated = isAuthenticated;
     });
-    this.getFavs();
-  }
-
-  ngAfterViewInit(): void {
     this.getFavs();
   }
 
