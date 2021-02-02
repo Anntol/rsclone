@@ -55,50 +55,22 @@
           <mat-icon class="example-tab-icon">perm_identity</mat-icon>
           {{ "SETTINGS.MY_INFO" | translate }}
         </ng-template>
-        <table class="form table-flex" cellspacing="0">
-          <tr>
-            <td>
-              <mat-form-field class="full-width" appearance="outline">
-                <mat-label>{{ "SETTINGS.FIRST_NAME" | translate }}</mat-label>
-                <input matInput />
-              </mat-form-field>
-            </td>
-            <td>
-              <mat-form-field class="full-width" appearance="outline">
-                <mat-label> {{ "SETTINGS.LAST_NAME" | translate }} </mat-label>
-                <input matInput />
-              </mat-form-field>
-            </td>
-          </tr>
-        </table>
-        <!-- <mat-form-field class="form" appearance="outline">
-          <mat-label>{{ 'SETTINGS.EMAIL' | translate }}</mat-label>
-          <input matInput placeholder="name@example.com" [formControl]="email" required>
-        </mat-form-field> -->
-        <table class="form" cellspacing="0">
-          <tr>
-            <td>
-              <mat-form-field class="full-width" appearance="outline">
-                <mat-label>{{ "SETTINGS.CITY" | translate }}</mat-label>
-                <input matInput />
-              </mat-form-field>
-            </td>
-            <td>
-              <mat-form-field class="full-width" appearance="outline">
-                <mat-label>{{ "SETTINGS.COUNTRY" | translate }}</mat-label>
-                <input matInput />
-              </mat-form-field>
-            </td>
-          </tr>
-        </table>
-        <app-phone-validation class="form"></app-phone-validation>
+        <app-auth-notice *ngIf="!this.isUserAuthenticated"></app-auth-notice>
+        <div *ngIf="this.isUserAuthenticated">
+          <app-user-info></app-user-info>
+        </div>
       </mat-tab>
       <mat-tab>
         <ng-template mat-tab-label>
           <mat-icon class="example-tab-icon">star_border</mat-icon>
           {{ "SETTINGS.MY_FAVOURITES" | translate }}
         </ng-template>
-        <app-auth-notice></app-auth-notice>
+        <app-auth-notice *ngIf="!this.isUserAuthenticated"></app-auth-notice>
+        <ul *ngIf="this.isUserAuthenticated">
+          <li *ngFor="let fav of userFavourites">
+            {{fav.title}}
+          </li>
+        </ul>
       </mat-tab>
       <mat-tab>
         <ng-template mat-tab-label>

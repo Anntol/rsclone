@@ -19,4 +19,9 @@ export interface IToken {
   expiresIn: number;
 }
 
+export interface ITokenData {
+  email: string;
+  userId: string;
+}
+
 export default model<IUser>('User', userSchema);

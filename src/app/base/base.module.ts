@@ -15,10 +15,10 @@ import { ThemesListComponent } from './components/themes-list/themes-list.compon
 import { AuthPageComponent } from './pages/auth-page/auth-page.component';
 import { SortProjectsPipe } from './pipes/sort-projects.pipe';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
-import { PhoneValidationComponent } from './components/phone-validation/phone-validation.component';
 import { SetModeComponent } from './components/set-mode/set-mode.component';
 import { AuthNoticeComponent } from './components/auth-notice/auth-notice.component';
 import { PreloaderComponent } from './components/preloader/preloader.component';
+import { UserInfoComponent } from './components/user-info/user-info.component';
 
 @NgModule({
   declarations: [
@@ -31,10 +31,10 @@ import { PreloaderComponent } from './components/preloader/preloader.component';
     AuthPageComponent,
     SortProjectsPipe,
     UserProfileComponent,
-    PhoneValidationComponent,
     SetModeComponent,
     AuthNoticeComponent,
-    PreloaderComponent
+    PreloaderComponent,
+    UserInfoComponent
   ],
   imports: [
     CommonModule,
@@ -49,7 +49,6 @@ import { PreloaderComponent } from './components/preloader/preloader.component';
     VerticalMenuComponent,
     ProjectsPageComponent,
     UserProfileComponent,
-    PhoneValidationComponent,
     SetModeComponent,
     AuthNoticeComponent
   ],

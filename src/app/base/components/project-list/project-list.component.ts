@@ -13,10 +13,12 @@ import { Sort } from '@angular/material/sort';
 import {
  IProject, IQueryOptions, ISearchResults
 } from 'src/app/core/models/projects.model';
-import { MIN_LENGTH_QUERY, WAIT_FOR_INPUT } from '../../../shared/constants/constants';
 import { GlobalGivingApiService } from '../../../core/service/global-giving-api.service';
 import { DataService } from '../../../core/service/data.service';
 import { PreloaderService } from '../../../core/service/preloader.service';
+import { SettingsService } from '../../../core/service/settings.service';
+import { MIN_LENGTH_QUERY, WAIT_FOR_INPUT } from '../../../shared/constants/constants';
+import { IFavourite } from '../../../core/models/favourite.model';
 
 @Component({
   selector: 'app-project-list',
@@ -58,6 +60,7 @@ export class ProjectListComponent implements OnInit, OnDestroy {
 
   constructor(
     private globalGivingApiService: GlobalGivingApiService,
+    private settingsService: SettingsService,
     private route: ActivatedRoute,
     private router: Router,
     public preloader: PreloaderService,
@@ -160,6 +163,18 @@ export class ProjectListComponent implements OnInit, OnDestroy {
     const path = `projects/${this.queryOptions.theme || ''}`;
      // eslint-disable-next-line @typescript-eslint/no-floating-promises
     this.router.navigate([path, project.id]);
+    
+  onChangeUserFavorites(e: Event): void {
+    const checkbox = e.target as HTMLInputElement;
+    if (checkbox.checked) {
+      const favourite: IFavourite = {
+        projectId: +checkbox.id,
+        title: checkbox.title
+      }
+      this.settingsService.addUserFavourite(favourite);
+    } else {
+      this.settingsService.removeUserFavourite(checkbox.id);
+    }
   }
 
   ngOnDestroy(): void {

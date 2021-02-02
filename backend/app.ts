@@ -6,6 +6,9 @@ import path from 'path';
 import morgan from 'morgan';
 
 import userRoutes from './routes/user.js';
+import favouriteRoutes from './routes/favourite.js';
+import settingsRoutes from './routes/settings.js'
+
 import { MONGO_CONNECTION_STRING } from './config.js';
 import AppError from './appError.js';
 import logger from './logger.js'
@@ -58,6 +61,8 @@ app.use((err: Error, req: express.Request, res: express.Response, next: express.
 });
 
 app.use('/api/user', userRoutes);
+app.use('/api/userFavourite', favouriteRoutes);
+app.use('/api/userSettings', settingsRoutes);
 app.use((req, res) => {
   res.sendFile(path.join(path.resolve(), distAngular, "index.html"));
 });

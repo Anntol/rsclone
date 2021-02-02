@@ -2,7 +2,7 @@
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 
-import UserModel, { IUser, IToken } from '../models/user.js';
+import UserModel, { IUser, IToken, ITokenData } from '../models/user.model.js';
 import AppError from '../appError.js';
 import { SECRET_TOKEN } from '../config.js';
 
@@ -52,8 +52,8 @@ export class UsersService {
         throw new AppError('SECRET_TOKEN is not defined!', 500);
       }
       const expiresIn = 3600; // seconds
-
-      const token = jwt.sign({ email: dbUser.email, userId: dbUser._id.toHexString() }, SECRET_TOKEN, { expiresIn });
+      const tokenData: ITokenData = { email: dbUser.email, userId: dbUser._id.toHexString() };
+      const token = jwt.sign(tokenData, SECRET_TOKEN, { expiresIn });
       return {
         token,
         expiresIn
