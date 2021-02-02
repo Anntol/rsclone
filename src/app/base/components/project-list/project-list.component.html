@@ -4,7 +4,7 @@
         class="card-item stacks-base-block"
         *ngFor="let project of dataProjects">
         <input type="checkbox" name="checkbox-project" [id]="project.id" [title]="project.title" class="checkbox-input"
-          (change)="onChangeUserFavorites($event)" [checked]="project.isFavourite"/>
+          (change)="onChangeUserFavorites($event)"/>
         <label [for]="project.id" class="checkbox-label">
           <div class="checkbox-text">
             <p class="checkbox-text--header">

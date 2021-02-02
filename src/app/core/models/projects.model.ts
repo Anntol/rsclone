@@ -71,10 +71,6 @@ export interface IProject {
   type: string;
 }
 
-export interface IProjectWithFavourite extends IProject {
-  isFavourite? :boolean
-}
-
 export interface ICountry {
   iso3166CountryCode: string;
   name: string;
