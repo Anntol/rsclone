@@ -13,13 +13,20 @@
   transform: scale(2);
   transition: transform 0.3s ease-out;
   @media screen and (max-width: 1024px) {
-    transform: scale(1.9);
+    margin: 120px 100px;
+    transform: scale(1.8);
+  }
+  @media screen and (max-width: 830px) {
+    margin: 120px 100px;
+    transform: scale(1.6);
   }
   @media screen and (max-width: 650px) {
-    transform: scale(1.7);
+    margin: 120px 100px;
+    transform: scale(1.4);
   }
   @media screen and (max-width: 550px) {
-    transform: scale(1.5);
+    margin: 120px 100px;
+    transform: scale(1.2);
   }
 }
 .globe {

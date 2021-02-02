@@ -21,7 +21,11 @@ import { PreloaderService } from '../../../core/service/preloader.service';
 @Component({
   selector: 'app-project-list',
   templateUrl: './project-list.component.html',
-  styleUrls: ['./project-list.component.scss', '../../../../theme/stacks.scss']
+  styleUrls: [
+    './project-list.component.scss',
+    '../../../../theme/stacks.scss',
+    '../../../../theme/buttons.scss',
+  ]
 })
 export class ProjectListComponent implements OnInit, OnDestroy {
   private subscriptions: Subscription[] = [];

@@ -4,19 +4,23 @@ $color-white:         #FFF;
 $color-success:       #00BF32;
 $color-error:         #FF1E00;
 //light theme:
-$primary-color:        #15a4cb;
-// $primary-color:       #017494;  //dark
-$primary-text-color:   #f6f3ec;
-// $primary-text-color:   #3d3d3d; //dark
+$primary-color:        #15a4cb; //left-menu-color
+$primary-color-btn:    #15a4cb; //btn-color
+$primary-text-color:   #f2f2f2; //btn-text-color, logo-color, bg-card-color
 $accent-color:         #FF4081;
 $accent-color-dark:    #C2185B;
-$accent-violet-color:  #783b78;
-// $accent-violet-color:   #C2185B; //dark
-$secondary-text-color: #151515;
-// $secondary-text-color: #EBECF0; //dark
-$divider-color:        #BDBDBD;
-$color-white-alt:      #EBECF0;
-// $color-white-alt: #3d3d3de6; //dark
+$accent-violet-color:  #783b78; //text-color-accent, footer
+$secondary-text-color: #151515; //text-color-base
+$color-white-alt:      #EBECF0; //bg-base-color
+// dark theme:
+// $primary-color:        #252042; //left-menu-color
+// $primary-color-btn:    #1381ff; //btn-color
+// $primary-text-color:   #7878ab; //btn-text-color
+// $accent-color:         #FF4081;
+// $accent-color-dark:    #C2185B;
+// $accent-violet-color:  #f2f2f2; //text-color-accent, footer
+// $secondary-text-color: #f2f2f2; //text-color-base
+// $color-white-alt:      #131924; //bg-base-color
 
 $color-violet-op04:   #783b7866;
 $color-black-op04:    #14141466;
@@ -25,5 +29,4 @@ $color-white-op08:    #ffffffcc;
 
 $shadow-ligth:        #fafbfff2;
 $shadow-dark:         #0028780c;
-$shadow-button:       #a6abbd;
 $shadow-accent:       #763a76b9;

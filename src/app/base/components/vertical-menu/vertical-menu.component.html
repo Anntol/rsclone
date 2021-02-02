@@ -3,4 +3,10 @@
       <span class="logo">ANT</span>
       <span class="logo-title">{{ 'MAIN.LOGO_TITLE' | translate }}</span>
     </div>
+    <div
+      *ngIf="isVisibleVerticalButton"
+      class="projects-btn base-vertical"
+      [routerLink]="['/projects']">
+      {{ 'MAIN.GO_PROJECTS' | translate }}
+    </div>
   </div>

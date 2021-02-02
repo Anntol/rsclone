@@ -20,7 +20,7 @@
       'content'
       'bottom'
       'footer';
-    grid-template-rows: 5em 5em 1fr 1em 7em;
+    grid-template-rows: 6.5em 5em 1fr 1em 6em;
     grid-template-columns: 1fr;
   }
 }
@@ -57,29 +57,6 @@
   position: relative;
 }
 
-.projects-btn {
-  position: absolute;
-  top: 13em;
-  left: -4.5em;
-  width: 13em;
-  height: auto;
-  font-size: 2em;
-  line-height: 42px;
-  color: $primary-text-color;
-  @media screen and (max-width: 540px) {
-    top: 12em;
-    z-index: 6;
-    font-size: 1.6em;
-    color: $primary-color;
-  }
-  a {
-    text-decoration: none;
-  }
-  .projects-btn:active {
-    color: $primary-text-color;
-  }
-}
-
 .globo {
   background-color: $primary-color;
   @media screen and (max-width: 540px) {
@@ -93,7 +70,7 @@
   padding-top: 1.3em;
   background-color: $primary-color;
   @media screen and (max-width: 540px) {
-    background-color: $accent-violet-color;
+    background-color: lighten(#252042, 15%);
     width: 100%;
   }
 }
@@ -114,10 +91,11 @@
 }
 
 .creation {
-  color: $primary-text-color;
-  text-align: left;
   display: inline-block;
   margin: 1em;
+  font-weight: bold;
+  color: #F6F3EC;
+  text-align: left;
   opacity: 0.7;
 }
 

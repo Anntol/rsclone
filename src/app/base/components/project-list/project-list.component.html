@@ -1,8 +1,8 @@
  <div>
   <app-preloader></app-preloader>
-  <ul id="cards-block">
-    <li
-      class="card-itm stacks-base-block"
+  <div id="cards-block" class="card-list">
+    <div
+      class="card-item stacks-base-block"
       *ngFor="let project of dataProjects | sortProjects: optionsSort">
       <input
         type="checkbox"
@@ -15,52 +15,42 @@
             <img [src]="project.imageLink" [alt]="project.themeName">
           </div>
           <div class="box-text">
-            <p class="checkbox-text--header text-accent">
-              <span class="small">#{{ project.id }}</span>
-              &#8195;{{ project.country }}
+            <p class="checkbox-text--header">
+              <!-- <span class="small">#{{ project.id }}</span> -->
+              {{ project.country }}
             </p>
-            <p class="checkbox-text--header text-accent">
+            <p class="checkbox-text--header">
               <span class="small">{{ project.dateOfMostRecentReport | date }}</span>
             </p>
-          </div>
-          <span class="checkbox-text--donate">
-            <div class="sumtitle">{{ 'PROJECTS.GOAL' | translate }}</div>
-            <div class="sumtitle">{{ 'PROJECTS.FUNDING' | translate }}</div>
-            <div class="none"></div>
-          </span>
-          <span class="checkbox-text--donate">
-            <div class="summ">{{ project.goal | currency }}</div>
-            <div class="funding">{{ project.funding | currency }}</div>
-            <div
-              class="check-btn donate"
-              (click)="goToDonatePage(project)">
-              {{ 'PROJECTS.DONATE' | translate }}
-            </div>
-          </span>
-          <div class="checkbox-text--title">{{ project.title }}</div>
-          <span class="checkbox-text--donate" style="display: flex; justify-content: space-between;">
-            <div class="share-btn">
+            <p class="checkbox-text--header">
               <span class="material-icons" style="vertical-align: middle;">group</span>
-              {{ project.numberOfDonations }}
-            </div>
-            <div
-              class="check-btn favorite">
-              <!-- (click)="addToFavorites(project)"> -->
-              {{ 'PROJECTS.FAVORITES' | translate }}
-            </div>
-            <div class="share-btn share">
+              <span class="small">{{ project.numberOfDonations }}</span>
+              <span class="material-icons grade"
+                style="vertical-align: middle;">
+                grade
+              </span>
               <span
                 class="material-icons"
                 style="vertical-align: middle;"
                 matTooltip="{{ 'PROJECTS.SHARE' | translate }}">
                 share
               </span>
+            </p>
+          </div>
+          <span class="checkbox-text--donate">
+            <div class="summ">{{ project.goal | currency }}</div>
+            <div class="funding">{{ project.funding | currency }}</div>
+            <div class="checkbox-text--title">{{ project.title }}</div>
+            <div
+              class="check-btn base-button-blue"
+              (click)="goToDonatePage(project)">
+              {{ 'PROJECTS.DONATE' | translate }}
             </div>
           </span>
         </div>
       </label>
-    </li>
-  </ul>
+    </div>
+  </div>
   <button
     class="more-btn bg-base-block stacks-base-block"
     (click)="nextPage()">

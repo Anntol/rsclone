@@ -61,7 +61,7 @@
   z-index: 4;
   padding-top: .5em;
   @media screen and (max-width: 540px) {
-    background-color: $accent-violet-color;
+    background-color: lighten(#252042, 15%);
     width: 100%;
   }
 }
@@ -85,7 +85,8 @@
   }
 }
 .creation {
-  color: $primary-text-color;
+  font-weight: bold;
+  color: #F6F3EC;
   text-align: center;
   opacity: 0.7;
   @media screen and (max-width: 540px) {
@@ -256,7 +257,7 @@ section {
 
 .dropdown-content span:hover {
   color: $color-white;
-  background-color: $divider-color;
+  background-color: $color-white-op04;
 }
 
 .filter-dropdown:hover .dropdown-content {
