@@ -4,15 +4,18 @@ import {
 import {
   filter, switchMap, debounceTime, catchError
  } from 'rxjs/operators';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import {
  EMPTY, Observable, Subscription
 } from 'rxjs';
 import { FormControl } from '@angular/forms';
+import { Sort } from '@angular/material/sort';
 import {
  IProject, IQueryOptions, ISearchResults
 } from 'src/app/core/models/projects.model';
 import { GlobalGivingApiService } from '../../../core/service/global-giving-api.service';
+import { DataService } from '../../../core/service/data.service';
+import { PreloaderService } from '../../../core/service/preloader.service';
 import { SettingsService } from '../../../core/service/settings.service';
 import { MIN_LENGTH_QUERY, WAIT_FOR_INPUT } from '../../../shared/constants/constants';
 import { IFavourite } from '../../../core/models/favourite.model';
@@ -20,7 +23,11 @@ import { IFavourite } from '../../../core/models/favourite.model';
 @Component({
   selector: 'app-project-list',
   templateUrl: './project-list.component.html',
-  styleUrls: ['./project-list.component.scss', '../../../../theme/stacks.scss']
+  styleUrls: [
+    './project-list.component.scss',
+    '../../../../theme/stacks.scss',
+    '../../../../theme/buttons.scss',
+  ]
 })
 export class ProjectListComponent implements OnInit, OnDestroy {
   private subscriptions: Subscription[] = [];
@@ -46,25 +53,31 @@ export class ProjectListComponent implements OnInit, OnDestroy {
 
   dataProjects!: IProject[];
 
+  public optionsSort: Sort = {
+    active: '',
+    direction: ''
+  };
+
   constructor(
     private globalGivingApiService: GlobalGivingApiService,
     private settingsService: SettingsService,
     private route: ActivatedRoute,
+    private router: Router,
+    public preloader: PreloaderService,
+    private dataService: DataService,
     private cdr: ChangeDetectorRef
   ) {}
 
   ngOnInit(): void {
     this.subscription = this.route.params.subscribe((params): void => {
-      this.queryOptions.theme = params.id as string;
-      console.log(this.queryOptions)
+      this.queryOptions.theme = params.theme as string;
+    });
+
+    this.dataService.isSort.subscribe((sort: Sort) => {
+      this.optionsSort = sort;
     });
 
     this.getProjectsByFilters(this.queryOptions);
-  }
-
-  ngOnChange(): void {
-    this.getProjectsBySearchQuery(this.searchQuery);
-    this.cdr.detectChanges();
   }
 
   public getProjectsByFilters(options: IQueryOptions): void {
@@ -83,10 +96,12 @@ export class ProjectListComponent implements OnInit, OnDestroy {
         this.dataProjects = results.search.response.projects.project;
         this.error = false;
         this.errorMessage = '';
+        this.preloader.hide();
         console.log(this.countAllProjects, results.search);
       } else {
         this.errorMessage = 'No projects found! Please try again.';
         console.log(this.errorMessage);
+        this.preloader.hide();
       }
     });
   }
@@ -115,8 +130,9 @@ export class ProjectListComponent implements OnInit, OnDestroy {
           this.dataProjects = results.search.response.projects.project;
           this.error = false;
           this.errorMessage = '';
-          console.log(this.dataProjects);
+          this.preloader.hide();
         } else {
+          this.preloader.hide();
           this.errorMessage = 'No projects found! Please try again.';
         }
       });
@@ -136,12 +152,20 @@ export class ProjectListComponent implements OnInit, OnDestroy {
           this.dataProjects = this.dataProjects.concat(results.search.response.projects.project);
           console.log(this.countShowProjects, results.search);
         });
+        this.preloader.hide();
     } else {
+      this.preloader.hide();
       console.log('There are no more active projects!');
     }
   }
 
-  onChangeUserFavorites(e: Event): void {
+  public goToDonatePage(project: IProject): void {
+    const path = `projects/${this.queryOptions.theme || ''}`;
+     // eslint-disable-next-line @typescript-eslint/no-floating-promises
+    this.router.navigate([path, project.id]);
+  }
+
+  public onChangeUserFavorites(e: Event): void {
     const checkbox = e.target as HTMLInputElement;
     if (checkbox.checked) {
       const favourite: IFavourite = {

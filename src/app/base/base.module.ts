@@ -13,9 +13,11 @@ import { VerticalMenuComponent } from './components/vertical-menu/vertical-menu.
 import { ProjectsPageComponent } from './pages/projects-page/projects-page.component';
 import { ThemesListComponent } from './components/themes-list/themes-list.component';
 import { AuthPageComponent } from './pages/auth-page/auth-page.component';
+import { SortProjectsPipe } from './pipes/sort-projects.pipe';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { SetModeComponent } from './components/set-mode/set-mode.component';
 import { AuthNoticeComponent } from './components/auth-notice/auth-notice.component';
+import { PreloaderComponent } from './components/preloader/preloader.component';
 import { UserInfoComponent } from './components/user-info/user-info.component';
 
 @NgModule({
@@ -27,9 +29,11 @@ import { UserInfoComponent } from './components/user-info/user-info.component';
     ProjectsPageComponent,
     ThemesListComponent,
     AuthPageComponent,
+    SortProjectsPipe,
     UserProfileComponent,
     SetModeComponent,
     AuthNoticeComponent,
+    PreloaderComponent,
     UserInfoComponent
   ],
   imports: [

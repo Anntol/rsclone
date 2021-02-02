@@ -1,44 +1,67 @@
-  <div>
-    <ul id="cards-block">
-      <li
-        class="card-item stacks-base-block"
-        *ngFor="let project of dataProjects">
-        <input type="checkbox" name="checkbox-project" [id]="project.id" [title]="project.title" class="checkbox-input"
-          (change)="onChangeUserFavorites($event)"/>
-        <label [for]="project.id" class="checkbox-label">
-          <div class="checkbox-text">
-            <p class="checkbox-text--header">
-              <span class="small">#{{ project.id }}</span>
-              &#8195;{{ project.country }}
-            </p>
-            <div class="box-img">
-              <img [src]="project.imageLink" [alt]="project.themeName">
-            </div>
-            <span class="checkbox-text--donate">
-              <div class="sumtitle">{{ 'PROJECTS.GOAL' | translate }}</div>
-              <div class="sumtitle">{{ 'PROJECTS.FUNDING' | translate }}</div>
-              <div class="sumtitle"></div>
-            </span>
-            <span class="checkbox-text--donate">
-              <div class="summ">{{ project.goal | currency }}</div>
-              <div class="funding">{{ project.funding | currency }}</div>
-              <div class="check">{{ 'PROJECTS.DONATE' | translate }}</div>
-            </span>
-            <div class="checkbox-text--title">{{ project.title }}</div>
-            <span class="checkbox-text--donate">
-              <div class="sumtitle">{{ 'PROJECTS.FAVORITES' | translate }}</div>
-              <div class="sumtitle"></div>
-              <div class="check">{{ 'PROJECTS.SHARE' | translate }}</div>
-            </span>
+ <div>
+  <app-preloader></app-preloader>
+  <div id="cards-block" class="card-list">
+    <div
+      class="card-item stacks-base-block"
+      *ngFor="let project of dataProjects | sortProjects: optionsSort">
+      <input
+        type="checkbox"
+        name="checkbox-project"
+        [id]="project.id"
+        [title]="project.title"
+        class="checkbox-input"
+        (change)="onChangeUserFavorites($event)"/>
+      <label [for]="project.id" class="checkbox-label">
+        <div class="checkbox-text">
+          <div class="box-img">
+            <img [src]="project.imageLink" [alt]="project.themeName">
           </div>
-        </label>
-      </li>
-    </ul>
-    <button
-      class="more-btn bg-base-block stacks-base-block"
-      (click)="nextPage()">
-      {{ 'PROJECTS.BTN_MORE' | translate }}
-    </button>
-    <!-- <span class="warning-message">{{ PROJECTS.ERR_MESSAGE }}</span> -->
-  </div>
+          <div class="box-text">
+            <div class="checkbox-text--header">
+              <!-- <span class="small">#{{ project.id }}</span> -->
+              <p>{{ project.country }}</p>
+              <span class="small">{{ project.dateOfMostRecentReport | date }}</span>
+            </div>
+            <div class="checkbox-text--bottom group">
+              <span
+                class="material-icons"
+                style="vertical-align: middle;">
+                group
+              </span>
+              <span class="small">{{ project.numberOfDonations }}</span>
 
+              <span
+                class="material-icons grade"
+                style="vertical-align: middle;"
+                matTooltip="{{ 'PROJECTS.FAVORITES' | translate }}">
+                grade
+              </span>
+              <span
+                class="material-icons share"
+                style="vertical-align: middle;"
+                matTooltip="{{ 'PROJECTS.SHARE' | translate }}">
+                share
+              </span>
+            </div>
+          </div>
+          <span class="checkbox-text--donate">
+            <div class="summ">{{ project.goal | currency }}</div>
+            <div class="funding">{{ project.funding | currency }}</div>
+            <div class="checkbox-text--title">{{ project.title }}</div>
+            <div
+              class="check-btn base-button-blue"
+              (click)="goToDonatePage(project)">
+              {{ 'PROJECTS.DONATE' | translate }}
+            </div>
+          </span>
+        </div>
+      </label>
+    </div>
+  </div>
+  <button
+    class="more-btn bg-base-block stacks-base-block"
+    (click)="nextPage()">
+    {{ 'PROJECTS.BTN_MORE' | translate }}
+  </button>
+  <!-- <span class="warning-message">{{ PROJECTS.ERR_MESSAGE }}</span> -->
+</div>

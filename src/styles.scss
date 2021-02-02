@@ -2,6 +2,7 @@
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
 @import '~@angular/material/theming';
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300&display=swap');
 // Plus imports for other components in your app.
 
 // Include the common styles for Angular Material. We include this here so that you only
@@ -34,10 +35,42 @@ $rsclone-theme: mat-light-theme((
 @include angular-material-theme($rsclone-theme);
 
 /* You can add global styles to this file, and also import other style files */
+:root {
+  --primary-color:        #15a4cb; //left-menu-color
+  --primary-color-btn:    #15a4cb; //btn-color
+  --primary-text-color:   #f2f2f2; //btn-text-color, logo-color, bg-card-color
+  --accent-color-dark:    #C2185B;
+  --accent-violet-color:  #783b78; //text-color-accent, footer
+  --secondary-text-color: #151515; //text-color-base
+  --color-white-alt:      #EBECF0; //bg-body-color
+
+  --body-bg: var(--color-white-alt);
+  --left-bg: var(--primary-color);
+  --card-bg: var(--primary-text-color);
+  // --border: var(--color-3);
+  // --shadow: rgba(0,0,0,.1);
+  --title: var(--accent-violet-color);
+  --text: var(--secondary-text-color);
+  --link: var(--color-4-darker);
+  --link-hover: var(--color-4);
+  --button-bg: var(--primary-color-btn);
+}
+
+[data-theme="dark"] {
+  --primary-color:        #252042; //left-menu-color
+  --primary-color-btn:    #15a4cb; //btn-color
+  --primary-text-color:   #7878ab; //btn-text-color, logo-color, bg-card-color
+  --accent-color:         #FF4081;
+  --accent-color-dark:    #C2185B;
+  --accent-violet-color:  #252042; //text-color-accent, footer
+  --secondary-text-color: #f2f2f2; //text-color-base
+  --color-white-alt:      #131924; //bg-base-color
+}
+
 :host {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  font-size: 14px;
-  color: #333;
+  font-family: -apple-system, BlinkMacSystemFont, 'Fira Sans', sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 16px;
+  color: var(--text);
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

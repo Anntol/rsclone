@@ -6,20 +6,20 @@
   height: 100vh;
   background-color: $primary-color;
   @media screen and (max-width: 540px) {
-    height: 80px;
+    height: 6.5em;
   }
   .logo {
     position: absolute;
     top: 1em;
     left: 0.1em;
+    z-index: 5;
     font-weight: 600;
     font-size: 4em;
     line-height: 32px;
     text-align: center;
-    color: $primary-text-color;
+    color: #F6F3EC;
     text-transform: uppercase;
-    z-index: 5;
-    text-shadow: -1px -1px 2px #fafbff00, 2px 2px 3px #763a76b9;
+    opacity: 0.7;
   }
   .logo-title {
     position: absolute;
@@ -27,9 +27,33 @@
     left: 1.3em;
     font-size: 1em;
     width: 75px;
-    color: $accent-color-dark;
+    color: $color-white;
     text-align: center;
     line-height: 0.8em;
     z-index: 5;
+    @media screen and (max-width: 540px) {
+      top: 5.5em;
+      left: 8em;
+      width: auto;
+    }
+  }
+  .projects-btn {
+    position: absolute;
+    top: 11em;
+    left: -4.5em;
+    width: 13em;
+    height: auto;
+    font-size: 2em;
+    line-height: 42px;
+    color: $primary-text-color;
+    @media screen and (max-width: 540px) {
+      top: 13em;
+      z-index: 6;
+      font-size: 1.6em;
+      // color: $primary-text-color;
+    }
+  }
+  .projects-btn:active {
+    color: $primary-text-color;
   }
 }

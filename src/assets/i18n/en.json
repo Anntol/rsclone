@@ -31,12 +31,19 @@
     "WILDLIFE": "Wildlife Conservation"
   },
   "PROJECTS": {
+    "DONATIONS": "Donations",
+    "DATE": "Last report",
     "GOAL": "Goal",
     "FUNDING": "Funding",
-    "DONATE": "Dotate",
+    "DONATE": "Donate $",
     "SHARE": "Share",
-    "FAVORITES": "Interested",
+    "FAVORITES": "Favorites",
     "BTN_MORE": "Load more",
+    "FILTER": {
+      "SEARCH": "Search",
+      "SORT": "Sort",
+      "SORTING_BY": "Sorting by"
+    },
     "ERR_MESSAGE": "There are no more active projects!",
     "SEARCH": {
       "LABEL": "Find a projects:",

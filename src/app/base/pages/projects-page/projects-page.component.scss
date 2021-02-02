@@ -61,7 +61,7 @@
   z-index: 4;
   padding-top: .5em;
   @media screen and (max-width: 540px) {
-    background-color: $accent-violet-color;
+    background-color: lighten(#252042, 15%);
     width: 100%;
   }
 }
@@ -85,7 +85,8 @@
   }
 }
 .creation {
-  color: $primary-text-color;
+  font-weight: bold;
+  color: #F6F3EC;
   text-align: center;
   opacity: 0.7;
   @media screen and (max-width: 540px) {
@@ -96,26 +97,13 @@
 }
 .content {
   position: relative;
-  justify-content: top;
-  overflow: auto;
+  overflow-y: auto;
   background-color: $color-white-alt;
   @media screen and (max-width: 540px) {
     margin-left: 0;
   }
-  .btn-more {
-    position: absolute;
-    left: 1em;
-    bottom: 1.5em;
-    width: 12em;
-    height: 40px;
-    color: $accent-violet-color;
-    text-transform: uppercase;
-    font-weight: 600;
-    @media screen and (max-width: 540px) {
-      bottom: 1.5em;
-    }
-  }
 }
+
 .lang {
   position: absolute;
   bottom: 1.5em;
@@ -126,17 +114,15 @@
   }
 }
 
+/* Search block */
 form {
   position: relative;
   top: 0.4em;
-  left: 1.5em;
+  left: 2.5em;
   transition: all 1s;
   width: 42px;
   height: 42px;
   border-radius: 20px;
-  @media screen and (max-width: 540px) {
-    margin-left: 7em;
-  }
 }
 
 input {
@@ -155,14 +141,17 @@ input {
   padding-left: 20px;
 }
 
+.search {
+  padding: 0.5em;
+  top: 0;
+  right: 0;
+}
+
 .material-icons {
   box-sizing: border-box;
-  padding: 0.5em;
   width: 42px;
   height: 42px;
   position: absolute;
-  top: 0;
-  right: 0;
   border-radius: 50%;
   color: $accent-violet-color;
   text-align: center;
@@ -172,7 +161,7 @@ input {
 }
 
 form:hover {
-  width: 12em;
+  width: 20em;
   cursor: pointer;
 }
 
@@ -183,4 +172,104 @@ form:hover input {
 form:hover .material-icons {
   background: $accent-violet-color;
   color: $primary-text-color;
+}
+
+/* Sort block */
+section {
+  display: table;
+  margin-top: 1em;
+  margin-left: 2em;
+  font-size: 14px;
+  font-weight: 400;
+  color: $secondary-text-color;
+  opacity: 0.7;
+  @media screen and (max-width: 540px) {
+    font-size: 13px;
+    letter-spacing: -0.05em;
+  }
+
+  .filter-label {
+    display: table-cell;
+    padding-right: .1em;
+    min-width: 100px;
+  }
+
+  .filter-button-row {
+    display: flex;
+  }
+
+  .filter-button-row .mat-button-base {
+    margin: 0 .1rem 0 0;
+  }
+
+  .underline {
+    line-height: 13px;
+    letter-spacing: -0.05em;
+    background-image: linear-gradient(currentColor, currentColor);
+    background-position: 0% 100%;
+    background-repeat: no-repeat;
+    background-size: 100% 1px;
+    transition: background-size .3s;
+  }
+}
+
+.filter-container {
+  display:flex;
+  justify-content: center;
+}
+
+::ng-deep .mat-sort-header-arrow {
+  color: $secondary-text-color;
+}
+
+/* Filter button */
+.filter-dropdown {
+  border: none;
+}
+
+.filter-dropdown {
+  position: absolute;
+  top: 1em;
+  left: .5em;
+  @media screen and (max-width: 540px) {
+    right: 3em;
+  }
+}
+
+.dropdown-content {
+  position: absolute;
+  z-index: 1;
+  display: none;
+  min-width: 10em;
+  font-weight: 500;
+  background-color: $color-white-alt;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px 0px $shadow-accent;
+}
+
+.dropdown-content span {
+  color: lighter($secondary-text-color, 25%);
+  padding: 12px 16px;
+  text-decoration: none;
+  text-transform: uppercase;
+  display: block;
+}
+
+.dropdown-content span:hover {
+  color: $color-white;
+  background-color: $color-white-op04;
+}
+
+.filter-dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropbtn {
+  padding: 0.5em 0;
+  top: 0;
+  left: 0;
+}
+
+.filter-dropdown:hover .dropbtn {
+  background-color: $shadow-accent;
 }
