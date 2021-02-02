@@ -7,11 +7,11 @@
 }
 
 .staсks-globe {
-  box-shadow: -5px -5px 10px $color-white-op04, 3px 3px 7px $shadow-button;
+  box-shadow: -5px -5px 10px $color-white-op04, 3px 3px 7px $color-black-op04;
 }
 
 .staсks-lang {
-  box-shadow: -5px -5px 10px $shadow-ligth, 3px 3px 5px $shadow-button;
+  box-shadow: -5px -5px 10px $shadow-ligth, 3px 3px 5px rgba($secondary-text-color, 0.8);
 }
 
 .staсks-lang:hover {
@@ -21,7 +21,7 @@
 .stacks-base-block {
   border: 1px solid $color-white-op04;
   box-sizing: border-box;
-  box-shadow: -5px -5px 10px $shadow-ligth, 3px 3px 6px $shadow-button;
+  box-shadow: -5px -5px 10px $shadow-ligth, 3px 3px 6px rgba($secondary-text-color, 0.8);
 }
 
 .stacks-base-block:hover {
