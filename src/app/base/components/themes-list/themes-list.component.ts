@@ -24,8 +24,8 @@ export class ThemesListComponent {
     this.theme.emit(id);
   }
 
-  public goToProjectsList(id: string): void {
-    // eslint-disable-next-line @typescript-eslint/no-floating-promises
-    this.router.navigate(['projects', id]);
+  public goToProjectsList(theme: string): void {
+     // eslint-disable-next-line @typescript-eslint/no-floating-promises
+    this.router.navigate(['projects', theme]);
   }
 }

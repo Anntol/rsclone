@@ -11,6 +11,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatBadgeModule } from '@angular/material/badge';
+import { MatSortModule } from '@angular/material/sort';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTabsModule } from '@angular/material/tabs';
 import { NgxMatIntlTelInputModule } from 'ngx-mat-intl-tel-input';
@@ -34,6 +35,7 @@ import { SelectCountryComponent } from './components/select-country/select-count
     MatMenuModule,
     MatIconModule,
     MatBadgeModule,
+    MatSortModule,
     MatSelectModule,
     MatTabsModule,
     NgxMatIntlTelInputModule
@@ -52,6 +54,7 @@ import { SelectCountryComponent } from './components/select-country/select-count
     SelectLangComponent,
     MatMenuModule,
     MatIconModule,
+    MatSortModule,
     MatSelectModule,
     MatTabsModule,
     SelectCountryComponent,
