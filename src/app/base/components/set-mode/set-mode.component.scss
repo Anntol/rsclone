@@ -1,15 +1,8 @@
 @import "../../../../theme/colors.scss";
 
-.toggleWrapper {
+input {
   position: absolute;
-  overflow: hidden;
-  padding: 0 200px;
-  transform: translate3d(-50%, -50%, 0);
-
-  input {
-    position: absolute;
-    left: -99em;
-  }
+  left: -99em;
 }
 
 .toggle {

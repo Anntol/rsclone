@@ -4,7 +4,7 @@ import { FormControl, Validators } from '@angular/forms';
 @Component({
   selector: 'app-user-profile',
   templateUrl: './user-profile.component.html',
-  styleUrls: ['./user-profile.component.scss']
+  styleUrls: ['./user-profile.component.scss', './user-profile-adaptive.scss']
 })
 export class UserProfileComponent {
   email = new FormControl('', [Validators.required, Validators.email]);

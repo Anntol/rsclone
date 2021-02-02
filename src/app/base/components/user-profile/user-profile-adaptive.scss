@@ -1,0 +1,110 @@
+@media screen and (max-width: 1024px){
+  .grid-container {
+    grid-template-columns: 25em 38em;
+    grid-template-rows: 22em 22em;
+    gap: 0.5em;
+    grid-template-areas:
+    "profile  info-extended"
+    "settings info-extended";
+  } 
+  .info-extended {
+    width: 36em;
+    height: 40em;
+    margin-top: 2em;
+  }
+}
+
+@media screen and (max-width: 950px){
+  .grid-container {
+    grid-template-columns: 0.1em 25em 25em 1em;
+    grid-template-rows: 20em 35em;
+    gap: 1em;
+    grid-template-areas:
+      ". profile settings ."
+      ". info-extended info-extended .";
+  }
+  .info-extended {
+    width: 51em;
+    height: 34em;
+    margin-top: 4em;
+  }
+  .settings {
+    margin-top: 4em;
+  }
+}
+
+@media screen and (max-width: 860px){
+  .grid-container {
+    grid-template-columns: 25em 25em;
+    grid-template-rows: 20em 35em;
+    gap: 1em;
+    grid-template-areas:
+      "profile settings"
+      "info-extended info-extended";
+  }
+  .profile,
+  .settings {
+    width: 24.5em;
+  }
+  .info-extended {
+    width: 50em;
+    height: 34em;
+    margin-top: 4em;
+  }
+}
+
+@media screen and (max-width: 750px){
+  .grid-container {
+    display: flex;
+    flex-direction: column;
+  }
+  .avatar {
+    margin-left: 11em;
+  }
+  .content {
+    width: 32em;
+  }
+  .statistics {
+    margin-left: 3em;
+  }
+  .profile,
+  .settings {
+    width: 32em;
+  }
+  .profile {
+    margin-top: 3em;
+  }
+  .settings {
+    margin-top: 0;
+    height: 10em;
+  }
+  .mode-box,
+  .language-box {
+    margin: 1em 3em;
+  }
+  .info-extended {
+    width: 32em;
+    height: 36em;
+    margin-top: 0;
+  }
+}
+
+@media screen and (max-width: 540px){
+  .profile,
+  .settings {
+    width: 25em;
+  }
+  .info-extended {
+    width: 25em;
+    height: 36em;
+  }
+  .avatar {
+    margin-left: 8em;
+  }
+  .content {
+    width: 25em;
+  }
+  .statistics {
+    margin-left: 0;
+  }
+}
