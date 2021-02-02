@@ -35,7 +35,7 @@
     </div>
     <div class="mode-box">
       <h3 class="el-title">{{ "SETTINGS.MODE" | translate }}:</h3>
-      <app-set-mode class="set-mode"></app-set-mode>
+      <app-set-mode></app-set-mode>
     </div>
   </div>
   <div class="info-extended">
@@ -49,40 +49,6 @@
         <div *ngIf="this.isUserAuthenticated">
           <app-user-info></app-user-info>
         </div>
-        <!-- <table class="form table-flex" cellspacing="0">
-          <tr>
-            <td>
-              <mat-form-field class="full-width" appearance="outline">
-                <mat-label>{{ "SETTINGS.FIRST_NAME" | translate }}</mat-label>
-                <input matInput />
-              </mat-form-field>
-            </td>
-            <td>
-              <mat-form-field class="full-width" appearance="outline">
-                <mat-label> {{ "SETTINGS.LAST_NAME" | translate }} </mat-label>
-                <input matInput />
-              </mat-form-field>
-            </td>
-          </tr>
-        </table> -->
-        <!-- <mat-form-field class="form" appearance="outline">
-          <mat-label>{{ 'SETTINGS.EMAIL' | translate }}</mat-label>
-          <input matInput placeholder="name@example.com" [formControl]="email" required>
-        </mat-form-field> -->
-        <!-- <table class="form" cellspacing="0">
-          <tr>
-            <td>
-              <mat-form-field class="full-width" appearance="outline">
-                <mat-label>{{ "SETTINGS.CITY" | translate }}</mat-label>
-                <input matInput />
-              </mat-form-field>
-            </td>
-            <td>
-              <app-select-country></app-select-country>
-            </td>
-          </tr>
-        </table>
-        <app-phone-validation class="form"></app-phone-validation> -->
       </mat-tab>
       <mat-tab>
         <ng-template mat-tab-label>
