@@ -1,4 +1,4 @@
-<form (ngSubmit)="onSubmit()" #userInfoForm="ngForm">
+<form (ngSubmit)="onSubmit(userInfoForm)" #userInfoForm="ngForm">
   <table class="form table-flex" cellspacing="0">
     <tr>
       <td>
@@ -35,6 +35,13 @@
       </td>
     </tr>
   </table>
-  <app-phone-validation class="form" [(ngModel)]="model.phone" name="phone"></app-phone-validation>
+  <mat-form-field class="form" appearance="outline">
+    <ngx-mat-intl-tel-input [preferredCountries]="['by', 'ua', 'kz', 'ru']"
+      [enablePlaceholder]="true" [enableSearch]="true" [(ngModel)]="model.phone" name="phone" #phone>
+    </ngx-mat-intl-tel-input>
+    <mat-label>{{ 'SETTINGS.PHONE' | translate }}</mat-label>
+    <mat-hint>eg : {{phone.selectedCountry.placeHolder}}</mat-hint>
+    <mat-error *ngIf="userInfoForm.form.controls['phone']?.errors?.validatePhoneNumber"> {{ 'SETTINGS.PHONE_ERROR' | translate}}</mat-error>
+  </mat-form-field>
   <button type="submit">Save</button>
 </form>

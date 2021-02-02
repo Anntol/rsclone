@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { IUserInfo } from '../../../core/models/userinfo.model';
 import { SettingsService } from '../../../core/service/settings.service';
 
@@ -23,8 +24,11 @@ export class UserInfoComponent implements OnInit {
     this.getUserInfo();
   }
 
-  onSubmit(): void {
+  onSubmit(form: NgForm): void {
     console.log(this.model);
+    if (form.invalid) {
+      return;
+    }
     this.settingsService.SaveUserInfo(this.model);
   }
 

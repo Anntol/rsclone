@@ -14,7 +14,6 @@ import { ProjectsPageComponent } from './pages/projects-page/projects-page.compo
 import { ThemesListComponent } from './components/themes-list/themes-list.component';
 import { AuthPageComponent } from './pages/auth-page/auth-page.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
-import { PhoneValidationComponent } from './components/phone-validation/phone-validation.component';
 import { SetModeComponent } from './components/set-mode/set-mode.component';
 import { AuthNoticeComponent } from './components/auth-notice/auth-notice.component';
 import { UserInfoComponent } from './components/user-info/user-info.component';
@@ -29,7 +28,6 @@ import { UserInfoComponent } from './components/user-info/user-info.component';
     ThemesListComponent,
     AuthPageComponent,
     UserProfileComponent,
-    PhoneValidationComponent,
     SetModeComponent,
     AuthNoticeComponent,
     UserInfoComponent
@@ -47,7 +45,6 @@ import { UserInfoComponent } from './components/user-info/user-info.component';
     VerticalMenuComponent,
     ProjectsPageComponent,
     UserProfileComponent,
-    PhoneValidationComponent,
     SetModeComponent,
     AuthNoticeComponent
   ],
