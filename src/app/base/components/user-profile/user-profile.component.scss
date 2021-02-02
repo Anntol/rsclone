@@ -35,9 +35,9 @@
 .profile,
 .settings,
 .info-extended {
-  background: $color-white-deep;
+  background: $primary-text-color;
   border-radius: 1em;
-  box-shadow: 0px 5px 10px $shadow-button;
+  box-shadow: 0px 3px 3px rgba($secondary-text-color, 0.2);
   align-self: center;
 }
 
@@ -59,7 +59,7 @@
   margin-left: 8em;
   background-size: cover;
   border-radius: 50%;
-  box-shadow: 0px 0px 0px 4pt $color-white-alt;
+  // box-shadow: 0px 0px 0px 4pt $secondary-text-color;
   transition: all 1s ease-in-out;
 }
 
