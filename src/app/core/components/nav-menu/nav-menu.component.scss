@@ -104,14 +104,10 @@
 
 .menu_opener:checked ~ {
   .link_one {
-    transform: translateX(-275px);
-    transition-delay: 0.1s;
-  }
-  .link_two {
     transform: translateX(-220px);
     transition-delay: 0.2s;
   }
-  .link_three {
+  .link_two {
     transform: translateX(-165px);
     transition-delay: 0.3s;
   }
@@ -148,17 +144,13 @@
       transform: translateY(110px);
       transition-delay: 0.2s;
     }
-    .link_three {
+    .link_four {
       transform: translateY(165px);
       transition-delay: 0.3s;
     }
-    .link_four {
+    .link_five {
       transform: translateY(220px);
       transition-delay: 0.4s;
-    }
-    .link_five {
-      transform: translateY(275px);
-      transition-delay: 0.5s;
     }
   }
 }
