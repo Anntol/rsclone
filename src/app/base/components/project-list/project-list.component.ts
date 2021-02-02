@@ -163,8 +163,9 @@ export class ProjectListComponent implements OnInit, OnDestroy {
     const path = `projects/${this.queryOptions.theme || ''}`;
      // eslint-disable-next-line @typescript-eslint/no-floating-promises
     this.router.navigate([path, project.id]);
-    
-  onChangeUserFavorites(e: Event): void {
+  }
+
+  public onChangeUserFavorites(e: Event): void {
     const checkbox = e.target as HTMLInputElement;
     if (checkbox.checked) {
       const favourite: IFavourite = {

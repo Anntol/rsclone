@@ -6,9 +6,11 @@
       *ngFor="let project of dataProjects | sortProjects: optionsSort">
       <input
         type="checkbox"
-        name="pasta"
+        name="checkbox-project"
         [id]="project.id"
-        class="checkbox-input"/>
+        [title]="project.title"
+        class="checkbox-input"
+        (change)="onChangeUserFavorites($event)"/>
       <label [for]="project.id" class="checkbox-label">
         <div class="checkbox-text">
           <div class="box-img">
