@@ -15,27 +15,33 @@
             <img [src]="project.imageLink" [alt]="project.themeName">
           </div>
           <div class="box-text">
-            <p class="checkbox-text--header">
+            <div class="checkbox-text--header">
               <!-- <span class="small">#{{ project.id }}</span> -->
-              {{ project.country }}
-            </p>
-            <p class="checkbox-text--header">
+              <p>{{ project.country }}</p>
               <span class="small">{{ project.dateOfMostRecentReport | date }}</span>
-            </p>
-            <p class="checkbox-text--header">
-              <span class="material-icons" style="vertical-align: middle;">group</span>
-              <span class="small">{{ project.numberOfDonations }}</span>
-              <span class="material-icons grade"
+            </div>
+            <div class="checkbox-text--bottom group">
+              <span
+                class="material-icons"
                 style="vertical-align: middle;">
+                group
+              </span>
+              <span class="small">{{ project.numberOfDonations }}</span>
+
+              <span
+                class="material-icons grade"
+                style="vertical-align: middle;"
+                matTooltip="{{ 'PROJECTS.FAVORITES' | translate }}">
                 grade
               </span>
               <span
-                class="material-icons"
+                class="material-icons share"
                 style="vertical-align: middle;"
                 matTooltip="{{ 'PROJECTS.SHARE' | translate }}">
                 share
               </span>
-            </p>
+            </div>
+            <!-- </div> -->
           </div>
           <span class="checkbox-text--donate">
             <div class="summ">{{ project.goal | currency }}</div>
