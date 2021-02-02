@@ -9,6 +9,7 @@
         name="checkbox-project"
         [id]="project.id"
         [title]="project.title"
+        [checked]="project.isFavourite"
         class="checkbox-input"
         (change)="onChangeUserFavorites($event)"/>
       <label [for]="project.id" class="checkbox-label">

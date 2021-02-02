@@ -1,7 +1,7 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { Sort } from '@angular/material/sort';
 
-import { IProject } from '../../core/models/projects.model';
+import { IProjectWithFavourite } from '../../core/models/projects.model';
 
 function compare(a: number | string, b: number | string, isAsc: boolean): number {
   return (a < b ? -1 : 1) * (isAsc ? 1 : -1);
@@ -11,14 +11,14 @@ function compare(a: number | string, b: number | string, isAsc: boolean): number
   name: 'sortProjects'
 })
 export class SortProjectsPipe implements PipeTransform {
-  public transform(allProjects: IProject[], sort: Sort): IProject[] {
+  public transform(allProjects: IProjectWithFavourite[], sort: Sort): IProjectWithFavourite[] {
     if (!allProjects) { return []; }
-    const data: IProject[] = allProjects.slice();
+    const data: IProjectWithFavourite[] = allProjects.slice();
     if (!sort.active || sort.direction === '') {
       return allProjects;
   }
     // eslint-disable-next-line no-param-reassign
-    allProjects = data.sort((a: IProject, b: IProject) => {
+    allProjects = data.sort((a: IProjectWithFavourite, b: IProjectWithFavourite) => {
     const isAsc: boolean = sort.direction === 'asc';
     switch (sort.active) {
       case 'count': {
