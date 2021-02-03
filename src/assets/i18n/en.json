@@ -8,7 +8,7 @@
   },
   "MAIN": {
     "LOGO_TITLE": "easy to help",
-    "GO_PROJECTS": "go to the projects →",
+    "GO_PROJECTS": "to projects →",
     "BTN_START": "get started",
     "PROMO_TITLE": "Share your goodness!",
     "PROMO_TEXT": "Many projects around the world are waiting for your to be involved"
@@ -89,5 +89,10 @@
     "CITY": "City",
     "REG_NOTICE": "Please register to see additional info!",
     "PHONE_ERROR": "Please, enter correct phone number!"
+  },
+  "PAGE": {
+    "NOT_FOUND": "Not found",
+    "GO_BACK": "Go back"
+
   }
 }
