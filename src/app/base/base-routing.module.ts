@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
+import { ContentPageComponent } from './pages/content-page/content-page.component';
 import { ProjectsPageComponent } from './pages/projects-page/projects-page.component';
-import { ThemesListComponent } from './components/themes-list/themes-list.component';
 import { ProjectListComponent } from './components/project-list/project-list.component';
 import { ProjectCardComponent } from './components/project-card/project-card.component';
 
@@ -13,7 +13,7 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        component: ThemesListComponent,
+        component: ContentPageComponent,
       },
       {
         path: ':theme',
