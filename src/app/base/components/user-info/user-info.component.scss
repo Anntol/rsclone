@@ -2,6 +2,7 @@ form {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  justify-content: center;
   align-content: stretch;
   overflow-y: scroll;
   max-height: 42em;
