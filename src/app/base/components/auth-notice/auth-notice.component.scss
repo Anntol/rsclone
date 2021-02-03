@@ -1,3 +1,5 @@
+@import '../../../../theme/colors.scss';
+
 .notice-container {
   display: flex;
   width: 100%;
@@ -9,18 +11,18 @@
 
 .notice {
   font-size: 20px;
-  color: lightgray;
+  color: $secondary-text-color;
   text-align: center;
 }
 
 .notice-btn {
   width: 130px;
   height: 40px;
-  color: lightgray;
+  color: $secondary-text-color;
   font-size: 20px;
   border: none;
   outline: none;
-  background: white;
+  background: $primary-text-color;
   cursor: pointer;
   position: relative;
   margin-top: 10px;
@@ -57,7 +59,7 @@
 }
 
 .notice-btn:active {
-  color: white;
+  color: $primary-text-color;
 }
 
 .notice-btn:active:after {
@@ -74,7 +76,7 @@
   position: absolute;
   width: 100%;
   height: 100%;
-  background: white;
+  background: $primary-text-color;
   left: 0;
   top: 0;
   border-radius: 10px;

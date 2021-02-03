@@ -1,0 +1,32 @@
+@import "../../../../theme/colors.scss";
+
+.phone-form {
+  margin-left: 2rem;
+}
+
+.country-selector{
+  opacity:1 !important;
+  bottom:8px !important;
+}
+
+input:not(.country-search){
+  bottom: 3px;
+  left: 10px;
+}
+
+.country-list-button{
+  font-size: 0.8rem!important;
+}
+
+.mat-menu-content:not(:empty){
+  max-height:250px;
+}
+ 
+.mat-form-field{
+    width: 300px;
+}
+
+.error{
+  margin-top:10px;
+  color:$color-error;
+}
