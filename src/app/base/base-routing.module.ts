@@ -1,10 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { ContentPageComponent } from './pages/content-page/content-page.component';
 import { ProjectsPageComponent } from './pages/projects-page/projects-page.component';
 import { ProjectListComponent } from './components/project-list/project-list.component';
 import { ProjectCardComponent } from './components/project-card/project-card.component';
+
+import { AuthPageComponent } from './pages/auth-page/auth-page.component';
+import { UserProfileComponent } from './components/user-profile/user-profile.component';
+import { ThemesListComponent } from './components/themes-list/themes-list.component';
 
 const routes: Routes = [
   {
@@ -12,15 +15,27 @@ const routes: Routes = [
     component: ProjectsPageComponent,
     children: [
       {
-        path: '',
-        component: ContentPageComponent,
+        path: 'signup',
+        component: AuthPageComponent,
       },
       {
-        path: ':theme',
+        path: 'login',
+        component: AuthPageComponent,
+      },
+      {
+        path: 'settings',
+        component: UserProfileComponent,
+      },
+      {
+        path: 'projects',
+        component: ThemesListComponent,
+      },
+      {
+        path: 'projects/:theme',
         component: ProjectListComponent,
       },
       {
-        path: ':theme/:id',
+        path: 'projects/:theme/:id',
         component: ProjectCardComponent,
       }
     ]

@@ -3,6 +3,7 @@ import {
 } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { SubscriptionLike } from 'rxjs';
 
 import { AuthData } from '../../../core/models/authdata.model';
 import { AuthService } from '../../../core/service/auth.service';
@@ -16,6 +17,8 @@ import { SelectLangComponent } from '../../../shared/components/select-lang/sele
 export class AuthPageComponent implements OnInit {
   @ViewChild(SelectLangComponent) selectLang!: SelectLangComponent;
 
+  subscription!: SubscriptionLike;
+
   authType = '';
 
   constructor(
@@ -27,13 +30,8 @@ export class AuthPageComponent implements OnInit {
   ngOnInit(): void {
     this.route.url.subscribe((data) => {
       // Get the last piece of the URL (it's either 'login' or 'signup')
-      // this.authType = data[data.length - 1].path;
+      this.authType = data[data.length - 1].path;
     });
-    this.route.params.subscribe((params): void => {
-      console.log(params);
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-      this.authType = params.page;
-     });
   }
 
   onSubmit(form: NgForm): void {
@@ -46,6 +44,12 @@ export class AuthPageComponent implements OnInit {
       this.authService.loginUser(email, password);
     } else {
       this.authService.createUser(email, password);
+    }
+  }
+
+   ngOnDestroy(): void {
+    if (this.subscription) {
+      this.subscription.unsubscribe();
     }
   }
 }
