@@ -1,15 +1,56 @@
-.form {
-  margin-left: 2em;
-  margin-top: 2em;
-  min-width: 100px;
-  max-width: 300px;
-  width: 100%;
+form {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: stretch;
+  overflow-y: scroll;
+  max-height: 42em;
+  vertical-align: middle;
 }
 
-.full-width {
-  width: 100%;
+mat-form-field {
+  padding: 3em 2em 1em 1em;
 }
 
-td {
-  padding-right: 20px;
+.btn-save {
+  height: 3em;
+  width: 8em;
+  margin: 2em;
+}
+
+@media screen and (max-width: 1024px) {
+  form {
+    max-height: 36em;
+  }
+}
+
+@media screen and (max-width: 950px) {
+  form {
+    max-height: 30em;
+  }
+  mat-form-field {
+    padding: 2em 3em 0em 1em;
+  }
+  .btn-save {
+    width: 9em;
+    margin: 4em;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  form {
+    max-height: 30em;
+    flex-direction: column;
+    flex-wrap: nowrap;
+  }
+  mat-form-field {
+    padding: 1em 1em 0em;
+  }
+  .btn-save {
+    align-self: center;
+    height: 3em;
+    width: 5em;
+    margin: 2em;
+  }
 }
