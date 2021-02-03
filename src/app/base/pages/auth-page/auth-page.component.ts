@@ -1,9 +1,9 @@
 import {
- Component, OnInit, ViewChild , ChangeDetectorRef, AfterViewChecked
+ Component, OnInit, ViewChild , ChangeDetectorRef
 } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { TranslateService } from '@ngx-translate/core';
 import { ActivatedRoute } from '@angular/router';
+import { SubscriptionLike } from 'rxjs';
 
 import { AuthData } from '../../../core/models/authdata.model';
 import { AuthService } from '../../../core/service/auth.service';
@@ -14,14 +14,15 @@ import { SelectLangComponent } from '../../../shared/components/select-lang/sele
   templateUrl: './auth-page.component.html',
   styleUrls: ['./auth-page.component.scss', '../../../../theme/buttons.scss']
 })
-export class AuthPageComponent implements AfterViewChecked, OnInit {
+export class AuthPageComponent implements OnInit {
   @ViewChild(SelectLangComponent) selectLang!: SelectLangComponent;
+
+  subscription!: SubscriptionLike;
 
   authType = '';
 
   constructor(
     public authService: AuthService,
-    public translate: TranslateService,
     private route: ActivatedRoute,
     private cdr: ChangeDetectorRef
 ) {}
@@ -46,8 +47,9 @@ export class AuthPageComponent implements AfterViewChecked, OnInit {
     }
   }
 
-  ngAfterViewChecked(): void {
-    this.translate.use(this.selectLang.myLanguage);
-    this.cdr.detectChanges();
+   ngOnDestroy(): void {
+    if (this.subscription) {
+      this.subscription.unsubscribe();
+    }
   }
 }

@@ -56,7 +56,6 @@ export class ProjectsPageComponent implements AfterViewChecked, OnInit {
   ngOnInit(): void {
     this.router.events.subscribe((e) => {
       if (e instanceof NavigationEnd) {
-        console.log(e.url);
         if (e.url.includes('/projects')) {
           this.isVisibleFilterButton = true;
         } else {
