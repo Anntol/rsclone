@@ -1,0 +1,59 @@
+@import '../../../../theme/colors.scss';
+
+.github-img {
+  height: 40px;
+  width: 40px;
+  margin: 0 0.5em;
+  cursor: pointer;
+}
+
+.dropbtn {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  user-select: none;
+}
+
+.github-img,
+.dropbtn,
+.dropup,
+.dropup-content,
+.dropup-content a {
+  transition: all 1s ease;
+}
+
+.dropup {
+  position: relative;
+  display: inline-block;
+}
+
+.dropup-content {
+  display: none;
+  position: absolute;
+  background-color: $color-white-alt;
+  min-width: 180px;
+  bottom: 46px;
+  left: 10px;
+  border-radius: 5px;
+}
+
+.dropup-content a {
+  color: $secondary-text-color;
+  padding: 12px 12px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropup-content a:hover {
+  background-color: rgba($primary-color-btn, 0.5);
+  border-radius: 5px;
+}
+
+.dropup:hover .dropup-content {
+  display: block;
+}
+
+.gh-link::first-letter {
+  font-size: 200%;
+  color: $accent-color;
+}
