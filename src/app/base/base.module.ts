@@ -19,6 +19,7 @@ import { SetModeComponent } from './components/set-mode/set-mode.component';
 import { AuthNoticeComponent } from './components/auth-notice/auth-notice.component';
 import { PreloaderComponent } from './components/preloader/preloader.component';
 import { UserInfoComponent } from './components/user-info/user-info.component';
+import { GitMenuComponent } from './components/git-menu/git-menu.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { UserInfoComponent } from './components/user-info/user-info.component';
     SetModeComponent,
     AuthNoticeComponent,
     PreloaderComponent,
-    UserInfoComponent
+    UserInfoComponent,
+    GitMenuComponent
   ],
   imports: [
     CommonModule,
@@ -50,7 +52,8 @@ import { UserInfoComponent } from './components/user-info/user-info.component';
     ProjectsPageComponent,
     UserProfileComponent,
     SetModeComponent,
-    AuthNoticeComponent
+    AuthNoticeComponent,
+    GitMenuComponent
   ],
   providers: [
     GlobalGivingApiService,
