@@ -21,6 +21,7 @@ import { PreloaderComponent } from './components/preloader/preloader.component';
 import { UserInfoComponent } from './components/user-info/user-info.component';
 import { ContentPageComponent } from './pages/content-page/content-page.component';
 import { GitMenuComponent } from './components/git-menu/git-menu.component';
+import { FavouritesListComponent } from './components/favourites-list/favourites-list.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { GitMenuComponent } from './components/git-menu/git-menu.component';
     PreloaderComponent,
     UserInfoComponent,
     ContentPageComponent,
-    GitMenuComponent
+    GitMenuComponent,
+    FavouritesListComponent
   ],
   imports: [
     CommonModule,
@@ -55,7 +57,8 @@ import { GitMenuComponent } from './components/git-menu/git-menu.component';
     UserProfileComponent,
     SetModeComponent,
     AuthNoticeComponent,
-    GitMenuComponent
+    GitMenuComponent,
+    FavouritesListComponent
   ],
   providers: [
     GlobalGivingApiService,

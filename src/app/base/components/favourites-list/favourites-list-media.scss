@@ -1,0 +1,36 @@
+@media screen and (max-width: 1024px) {
+  .fav-container {
+    width: 32em;
+    height: 36em;
+  }
+}
+@media screen and (max-width: 950px) {
+  .fav-container {
+    width: 42em;
+    height: 28em;
+    margin-left: 8em;
+  }
+}
+@media screen and (max-width: 860px) {
+  .fav-container {
+    width: 46em;
+    height: 30em;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .fav-container {
+    width: 28em;
+    height: 32em;
+    margin-top: 0;
+    margin-left: 2em;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .fav-container {
+    width: 21em;
+    height: 32em;
+    margin-left: 2em;
+  }
+}

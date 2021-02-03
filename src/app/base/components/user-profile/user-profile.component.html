@@ -56,11 +56,7 @@
           {{ "SETTINGS.MY_FAVOURITES" | translate }}
         </ng-template>
         <app-auth-notice *ngIf="!this.isUserAuthenticated"></app-auth-notice>
-        <ul *ngIf="this.isUserAuthenticated">
-          <li *ngFor="let fav of userFavourites">
-            {{fav.title}}
-          </li>
-        </ul>
+        <app-favourites-list></app-favourites-list>
       </mat-tab>
       <mat-tab>
         <ng-template mat-tab-label>
