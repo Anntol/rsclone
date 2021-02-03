@@ -17,6 +17,7 @@
   padding: 0 10px;
   justify-content: center;
   align-items: center;
+  border-radius: 10px;
 
   background-color: $color-white-alt;
 
@@ -45,4 +46,8 @@ mat-form-field {
 
 .auth-links {
   text-align: center;
+}
+
+mat-card {
+  background-color: $primary-text-color;
 }
