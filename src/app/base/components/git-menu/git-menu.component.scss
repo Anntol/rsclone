@@ -2,9 +2,11 @@
 
 .github-img {
   height: 40px;
-  width: 40px;
-  margin: 0 0.5em;
+  margin: 2em 1em 0.5em 3em;
   cursor: pointer;
+  @media screen and (max-width: 540px) {
+    margin: 0 0.5em;
+  }
 }
 
 .dropbtn {

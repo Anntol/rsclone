@@ -7,7 +7,7 @@ import { MainPageComponent } from './base/pages/main-page/main-page.component';
 const routes: Routes = [
   { path: 'home', component: MainPageComponent },
   {
-    path: '',
+    path: 'page',
     loadChildren: () => import('src/app/base/base.module').then((m) => m.BaseModule)
   },
   { path: '', redirectTo: '/home', pathMatch: 'full' },

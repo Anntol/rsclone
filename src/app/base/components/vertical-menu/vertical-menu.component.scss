@@ -25,7 +25,7 @@
   .logo-title {
     position: absolute;
     top: 8em;
-    left: .3em;
+    left: 0.3em;
     font-size: 1em;
     width: 75px;
     color: $color-white;
@@ -52,10 +52,11 @@
       z-index: 6;
       font-size: 1.6em;
       display: none;
-      // color: $primary-text-color;
     }
   }
-  .projects-btn:active {
+  .projects-btn:active,
+  .projects-btn:focus,
+  .projects-btn:hover {
     color: $primary-text-color;
   }
 }
