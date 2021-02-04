@@ -35,8 +35,11 @@
   background-color: $color-white-alt;
   min-width: 200px;
   bottom: 46px;
-  left: 10px;
+  right: -106px;
   border-radius: 5px;
+  @media screen and (max-width: 541px){
+    right: 1px;
+  }
 }
 
 .dropup-content a {

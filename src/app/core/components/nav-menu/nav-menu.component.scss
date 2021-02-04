@@ -1,10 +1,10 @@
 @import '../../../../theme/colors.scss';
 
-#menu {
+.menu-list {
 	width: 48px;
 	height: 48px;
-	position: absolute;
-  right: -25px;
+  position: absolute;
+  right: 0px;
 	top: 10px;
 	list-style: none;
   text-align: center;
