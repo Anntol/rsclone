@@ -52,6 +52,8 @@ export class ProjectListComponent implements OnInit, OnDestroy {
 
   errorMessage = '';
 
+  fundingIndicator = 1;
+
   dataProjects!: IProjectWithFavourite[];
 
   userFavourites: IFavourite[] = [];
@@ -110,11 +112,14 @@ export class ProjectListComponent implements OnInit, OnDestroy {
         this.countShowProjects = 10;
         this.countAllProjects = results.search.response.numberFound;
         this.dataProjects = results.search.response.projects.project.map((obj) => (
-          { ...obj, isFavourite: this.userFavourites.findIndex((item) => item.projectId === obj.id) > -1 }));
+        {
+          ...obj,
+          isFavourite: this.userFavourites.findIndex((item) => item.projectId === obj.id) > -1,
+          fundingIndicator: `${Math.floor(100 * (obj.funding / obj.goal))}%`
+        }));
         this.error = false;
         this.errorMessage = '';
         this.preloader.hide();
-        console.log(this.countAllProjects, results.search);
       } else {
         this.errorMessage = 'No projects found! Please try again.';
         console.log(this.errorMessage);
@@ -169,7 +174,6 @@ export class ProjectListComponent implements OnInit, OnDestroy {
           this.countAllProjects = results.search.response.numberFound;
           this.dataProjects = this.dataProjects.concat(results.search.response.projects.project).map((obj) => (
             { ...obj, isFavourite: this.userFavourites.findIndex((item) => item.projectId === obj.id) > -1 }));
-          console.log(this.countShowProjects, results.search);
         });
         this.preloader.hide();
     } else {
@@ -179,6 +183,7 @@ export class ProjectListComponent implements OnInit, OnDestroy {
   }
 
   public goToDonatePage(project: IProjectWithFavourite): void {
+    this.dataService.setProjectById(project);
     const path = `projects/${this.queryOptions.theme || ''}`;
      // eslint-disable-next-line @typescript-eslint/no-floating-promises
     this.router.navigate([path, project.id]);
