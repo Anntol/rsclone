@@ -15,6 +15,6 @@ export class SelectLangComponent implements AfterViewChecked {
   constructor(public translate: TranslateService) {}
 
   public ngAfterViewChecked(): void {
-    localStorage.setItem('userLang', JSON.stringify(this.myLanguage));
+    localStorage.setItem('rs_userLang', JSON.stringify(this.myLanguage));
   }
 }
