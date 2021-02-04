@@ -31,7 +31,6 @@ export class AuthService {
   }
 
   getIsUserAuthenticated(): boolean {
-    console.log('getIsUserAuthenticated ', this.isUserAuthenticated);
     return this.isUserAuthenticated;
   }
 

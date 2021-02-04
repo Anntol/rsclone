@@ -28,7 +28,6 @@ export class UserInfoComponent implements OnInit {
   }
 
   onSubmit(form: NgForm): void {
-    console.log(this.model);
     if (form.invalid) {
       return;
     }
@@ -39,7 +38,6 @@ export class UserInfoComponent implements OnInit {
     const infoObservable = this.settingsService.getUserInfoSettings();
     infoObservable.subscribe((data) => {
       this.model = data.userInfo;
-      console.log(this.model);
     });
   }
 }
