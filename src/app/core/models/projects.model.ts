@@ -72,7 +72,8 @@ export interface IProject {
 }
 
 export interface IProjectWithFavourite extends IProject {
-  isFavourite? :boolean
+  isFavourite? :boolean;
+  fundingIndicator?: string
 }
 
 export interface ICountry {
