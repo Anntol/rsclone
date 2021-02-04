@@ -162,7 +162,9 @@ $font-bold: 700;
 
   &--header,
   &--bottom {
-    width: 100%;
+    position: absolute;
+    top: 0.5em;
+    right: 1em;
     margin-left: auto;
     margin-right: auto;
     font-family: Fira Sans;
@@ -191,9 +193,9 @@ $font-bold: 700;
     }
   }
   &--bottom {
-    margin-top: 7.5em;
-    @media screen and (max-width: 590px) {
-      margin-top: 9.5em;
+    margin-top: 9.5em;
+    @media screen and (max-width: 540px) {
+      margin-top: 11.5em;
     }
   }
 }
