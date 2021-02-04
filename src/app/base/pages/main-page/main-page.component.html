@@ -2,7 +2,7 @@
   <div id="navLogo" class="nav-vertcal">
     <app-vertical-menu></app-vertical-menu>
   </div>
-  <div id="pageGlobo" class="globo">
+  <div id="pageGlobo" class="globo noselect">
     <span class="before"></span>
     <div class="globe-rotate">
       <div class="globe stacks-globe">
@@ -16,18 +16,18 @@
       </div>
     </div>
   </div>
-  <div id="pageTop" class="top">
+  <div id="pageTop" class="top noselect">
   </div>
   <div id="pageContent" class="content">
     <span class="before"></span>
     <span class="promo">
-      <h3 class="text-accent">{{ 'MAIN.PROMO_TITLE' | translate }}</h3>
-      <p>{{ 'MAIN.PROMO_TEXT' | translate }}</p>
+      <h3 class="text-accent noselect">{{ 'MAIN.PROMO_TITLE' | translate }}</h3>
+      <p class="noselect">{{ 'MAIN.PROMO_TEXT' | translate }}</p>
       <button class="start-btn base-button-blue">{{ 'MAIN.BTN_START' | uppercase | translate }}</button>
     </span>
   </div>
 
-  <div id="pageBottom" class="bottom">
+  <div id="pageBottom" class="bottom noselect">
     <app-select-lang class="lang "></app-select-lang>
   </div>
 
@@ -36,6 +36,6 @@
       <img class="rsschool-img" src="../../../../assets/RSSchool_logo.svg" alt="RSSchool" />
     </a>
     <app-git-menu></app-git-menu>
-    <p class="creation">@ 2021</p>
+    <p class="creation noselect">@ 2021</p>
   </div>
 </section>

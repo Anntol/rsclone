@@ -20,7 +20,7 @@
         </mat-form-field>
         <button class="btn-auth base-button-blue" type="submit" *ngIf="authType == 'signup'">{{ 'AUTH.SIGN_UP' | translate }}</button>
         <button class="btn-auth base-button-blue" type="submit" *ngIf="authType == 'login'">{{ 'AUTH.LOG_IN' | translate }}</button>
-        <p class="auth-links">
+        <p class="auth-links noselect">
           <a [routerLink]="['/login']" *ngIf="authType == 'signup'">{{ 'AUTH.LOG_IN' | translate }}</a>
           <a [routerLink]="['/signup']" *ngIf="authType == 'login'">{{ 'AUTH.SIGN_UP' | translate }}</a>
         </p>

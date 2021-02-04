@@ -2,7 +2,7 @@
   <app-preloader></app-preloader>
   <div id="cards-block" class="card-list">
     <div
-      class="card-item stacks-base-block"
+      class="card-item stacks-base-block noselect"
       *ngFor="let project of dataProjects | sortProjects: optionsSort">
       <input
         type="checkbox"
@@ -60,7 +60,7 @@
     </div>
   </div>
   <button
-    class="more-btn bg-base-block stacks-base-block"
+    class="more-btn bg-base-block stacks-base-block noselect"
     (click)="nextPage()">
     {{ 'PROJECTS.BTN_MORE' | translate }}
   </button>

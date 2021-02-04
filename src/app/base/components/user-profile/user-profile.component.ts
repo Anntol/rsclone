@@ -10,7 +10,8 @@ import { SettingsService } from '../../../core/service/settings.service';
   templateUrl: './user-profile.component.html',
   styleUrls: [
     './user-profile.component.scss',
-    './user-profile-adaptive.scss'
+    './user-profile-adaptive.scss',
+    '../../../../theme/noselect.scss'
   ]
 })
 export class UserProfileComponent implements OnInit, OnDestroy {

@@ -1,6 +1,6 @@
 <div class="grid-container">
   <div class="profile">
-    <div class="content">
+    <div class="content noselect">
       <img class="avatar" src="../../../../assets/user_unknown.jpg" />
       <h3 class="user-name">{{ "SETTINGS.USERNAME" | translate }}</h3>
       <p class="location">{{ "SETTINGS.LOCATION" | translate }}</p>
@@ -28,7 +28,7 @@
       </div>
     </div>
   </div>
-  <div class="settings">
+  <div class="settings noselect">
     <div class="language-box">
       <h3 class="el-title">{{ "SETTINGS.LANGUAGE" | translate }}:</h3>
       <div class="language"><app-select-lang></app-select-lang></div>
@@ -38,7 +38,7 @@
       <app-set-mode></app-set-mode>
     </div>
   </div>
-  <div class="info-extended">
+  <div class="info-extended noselect">
     <mat-tab-group animationDuration="1500ms">
       <mat-tab>
         <ng-template mat-tab-label>

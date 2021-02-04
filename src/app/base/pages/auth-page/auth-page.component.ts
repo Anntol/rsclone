@@ -12,7 +12,11 @@ import { SelectLangComponent } from '../../../shared/components/select-lang/sele
 @Component({
   selector: 'app-auth-page',
   templateUrl: './auth-page.component.html',
-  styleUrls: ['./auth-page.component.scss', '../../../../theme/buttons.scss']
+  styleUrls: [
+    './auth-page.component.scss',
+    '../../../../theme/buttons.scss',
+    '../../../../theme/noselect.scss'
+  ]
 })
 export class AuthPageComponent implements OnInit {
   @ViewChild(SelectLangComponent) selectLang!: SelectLangComponent;

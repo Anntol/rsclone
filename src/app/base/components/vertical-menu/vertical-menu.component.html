@@ -1,11 +1,11 @@
   <div class="nav-vert-primary">
     <div class="fontsize">
-      <span class="logo">ANT</span>
-      <span class="logo-title">{{ 'MAIN.LOGO_TITLE' | translate }}</span>
+      <span class="logo noselect">ANT</span>
+      <span class="logo-title noselect">{{ 'MAIN.LOGO_TITLE' | translate }}</span>
     </div>
     <div
       *ngIf="isVisibleVerticalButton"
-      class="projects-btn base-vertical"
+      class="projects-btn base-vertical noselect"
       [routerLink]="['/projects']">
       {{ 'MAIN.GO_PROJECTS' | translate }}
     </div>

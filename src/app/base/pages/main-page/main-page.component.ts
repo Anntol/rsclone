@@ -14,7 +14,8 @@ import { SelectLangComponent } from '../../../shared/components/select-lang/sele
     './main-page-adaptive.scss',
     '../../../../theme/globo.scss',
     '../../../../theme/buttons.scss',
-    '../../../../theme/stacks.scss'
+    '../../../../theme/stacks.scss',
+    '../../../../theme/noselect.scss'
   ]
 })
 export class MainPageComponent implements AfterViewChecked {

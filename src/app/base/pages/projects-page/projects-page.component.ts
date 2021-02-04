@@ -12,7 +12,12 @@ import { DataService } from '../../../core/service/data.service';
 @Component({
   selector: 'app-projects-page',
   templateUrl: './projects-page.component.html',
-  styleUrls: ['./projects-page.component.scss', '../../../../theme/buttons.scss', '../../../../theme/stacks.scss']
+  styleUrls: [
+    './projects-page.component.scss',
+    '../../../../theme/buttons.scss',
+    '../../../../theme/stacks.scss',
+    '../../../../theme/noselect.scss'
+  ]
 })
 export class ProjectsPageComponent implements AfterViewChecked, OnInit {
   @ViewChild(SelectLangComponent) selectLang!: SelectLangComponent;
