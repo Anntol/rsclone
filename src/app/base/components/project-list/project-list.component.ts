@@ -90,7 +90,6 @@ export class ProjectListComponent implements OnInit, OnDestroy {
     .getAuthStatusListener()
     .subscribe((isAuthenticated) => {
       this.isUserAuthenticated = isAuthenticated;
-      console.log('list-auth-changed: ', this.isUserAuthenticated);
     });
 
     this.getUserFavourites();
@@ -215,12 +214,10 @@ export class ProjectListComponent implements OnInit, OnDestroy {
       const favsObservable = this.settingsService.getUserFavourites();
       favsObservable.subscribe((data) => {
         this.userFavourites = data.favourites;
-        console.log('favs changed: ', this.userFavourites);
         this.dataProjects?.forEach((obj) => {
           const project = obj;
           project.isFavourite = this.userFavourites.findIndex((item) => item.projectId === obj.id) > -1;
         });
-        console.log('favs changed: ', this.dataProjects);
       });
     }
   }

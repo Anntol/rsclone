@@ -20,7 +20,6 @@ export const verifyToken: express.RequestHandler = (
 
     const token = req.headers.authorization?.split(" ")[1] || '';
     const tokenData = jwt.verify(token, SECRET_TOKEN) as ITokenData;
-    console.log('tokenData:', tokenData);
     req.userData = tokenData;
 
     next();

@@ -1,11 +1,11 @@
 import dotenv from 'dotenv';
+import logger from './logger.js';
 
-console.log('config NODE_ENV:', process.env.NODE_ENV);
 const environment = process.env.NODE_ENV || 'development';
 if (environment === 'development') {
   const envConfig = dotenv.config();
   if (envConfig.error) {
-    console.error(envConfig.error);
+    logger.error(envConfig.error);
   }
 }
 
