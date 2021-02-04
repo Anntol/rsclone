@@ -113,3 +113,8 @@ export interface IQueryOptions {
   iso3166CountryCode?: string;
   theme?: string;
 }
+
+export interface IRecommended {
+  id: number;
+  theme: string
+}

@@ -23,7 +23,11 @@
     <span class="promo">
       <h3 class="text-accent">{{ 'MAIN.PROMO_TITLE' | translate }}</h3>
       <p>{{ 'MAIN.PROMO_TEXT' | translate }}</p>
-      <button class="start-btn base-button-blue">{{ 'MAIN.BTN_START' | uppercase | translate }}</button>
+      <button
+        (click) = "getStarted()"
+        class="start-btn base-button-blue">
+        {{ 'MAIN.BTN_START' | uppercase | translate }}
+      </button>
     </span>
   </div>
 
