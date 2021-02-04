@@ -9,7 +9,10 @@ import { THEMES } from '../../../shared/constants/constants';
 @Component({
   selector: 'app-themes-list',
   templateUrl: './themes-list.component.html',
-  styleUrls: ['./themes-list.component.scss']
+  styleUrls: [
+    './themes-list.component.scss',
+    '../../../../theme/noselect.scss'
+  ]
 })
 
 export class ThemesListComponent {
