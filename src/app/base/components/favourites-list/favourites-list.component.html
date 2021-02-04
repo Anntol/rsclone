@@ -1,0 +1,7 @@
+<div class="fav-container">
+  <ol *ngIf="this.isUserAuthenticated" class="favourites">
+    <li *ngFor="let fav of userFavourites">
+      {{fav.title}}
+    </li>
+  </ol>
+</div>

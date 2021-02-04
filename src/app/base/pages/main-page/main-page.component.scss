@@ -13,16 +13,6 @@
   max-width: 1366px;
   height: 100vh;
   margin: 0 auto;
-  @media screen and (max-width: 540px) {
-    grid-template-areas:
-      'logo'
-      'top'
-      'content'
-      'bottom'
-      'footer';
-    grid-template-rows: 6.5em 5em 1fr 1em 6em;
-    grid-template-columns: 1fr;
-  }
 }
 
 #navLogo {
@@ -59,20 +49,13 @@
 
 .globo {
   background-color: $primary-color;
-  @media screen and (max-width: 540px) {
-    display: none;
-  }
 }
 
 .footer-secondary {
   width: 24em;
-  z-index: 4;
+  z-index: 5;
   padding-top: 1.3em;
   background-color: $primary-color;
-  @media screen and (max-width: 540px) {
-    background-color: lighten(#252042, 15%);
-    width: 100%;
-  }
 }
 
 .rsschool-img {
@@ -101,29 +84,14 @@
 
 .content {
   position: relative;
-  padding-left: 22em;
+  padding-left: 34em;
   overflow: auto;
   background-color: $color-white-alt;
-  @media screen and (max-width: 1024px) {
-    padding-top: 27em;
-    padding-left: 10em;
-  }
-  @media screen and (max-width: 850px) {
-    padding-top: 20em;
-    padding-left: 3em;
-  }
-  @media screen and (max-width: 540px) {
-    padding-top: 0;
-    padding-left: 7.5em;
-  }
 
   .before {
     display: inline-block;
     height: 100%;
     vertical-align: middle;
-    @media screen and (max-width: 540px) {
-      display: none;
-    }
   }
 
   .promo {
@@ -141,18 +109,6 @@
     line-height: 64px;
     letter-spacing: -1px;
     color: $accent-violet-color;
-    @media screen and (max-width: 1024px) {
-      font-size: 48px;
-      line-height: 48px;
-    }
-    @media screen and (max-width: 850px) {
-      font-size: 36px;
-      line-height: 36px;
-    }
-    @media screen and (max-width: 540px) {
-      width: 180px;
-      height: auto;
-    }
   }
   p {
     width: 360px;
@@ -162,13 +118,6 @@
     line-height: 28px;
     color: $secondary-text-color;
     opacity: 0.7;
-    @media screen and (max-width: 850px) {
-      line-height: 18px;
-    }
-    @media screen and (max-width: 540px) {
-      width: 200px;
-      line-height: 25px;
-    }
   }
   .start-btn {
     height: 40px;
@@ -180,8 +129,4 @@
   position: absolute;
   bottom: 1.5em;
   right: 1em;
-  @media screen and (max-width: 540px) {
-    z-index: 6;
-    bottom: -1em;
-  }
 }

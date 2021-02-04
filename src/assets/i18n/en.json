@@ -89,5 +89,10 @@
     "CITY": "City",
     "REG_NOTICE": "Please register to see additional info!",
     "PHONE_ERROR": "Please, enter correct phone number!"
+  },
+  "DEVELOPERS": {
+    "ANNA": "Anna Tolstova",
+    "TANIA": "Tatsiana Kastrubai",
+    "NATA": "Natali Tverdokhlibova"
   }
 }

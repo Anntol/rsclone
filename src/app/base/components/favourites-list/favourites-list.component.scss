@@ -1,0 +1,56 @@
+@import "../../../../theme/colors.scss";
+
+%boxshadow {
+  box-shadow: 0px 3px 3px rgba($secondary-text-color, 0.2);
+}
+
+.fav-container {
+  display: flex;
+  width: 36em;
+  height: 36em;
+  margin-left: 4em;
+  overflow-y: auto;
+}
+
+ol.favourites {
+  counter-reset: gradient-counter;
+  list-style: none;
+  margin: 1.75rem 0;
+  padding-left: 1rem;
+  > li {
+    background: $primary-text-color;
+    border-radius: 0 0.5rem 0.5rem 0.5rem;
+    @extend %boxshadow;
+    counter-increment: gradient-counter;
+    margin-top: 1rem;
+    min-height: 3rem;
+    padding: 1rem 1rem 1rem 3rem;
+    position: relative;
+    &::before,
+    &::after {
+      background: $primary-color;
+      border-radius: 1rem 1rem 0 1rem;
+      content: '';
+      height: 3rem;
+      left: -1rem;
+      overflow: hidden;
+      position: absolute;
+      top: -1rem;
+      width: 3rem;
+    }
+    &::before {
+      align-items: flex-end;
+      @extend %boxshadow;
+      content: counter(gradient-counter);
+      color: $color-white;
+      display: flex;
+      font-size: 120%;
+      justify-content: flex-end;
+      padding: 0.125em 0.25em;
+      z-index: 1;
+    }
+    + li {
+      margin-top: 2rem;
+    }
+  }
+}

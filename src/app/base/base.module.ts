@@ -20,6 +20,8 @@ import { AuthNoticeComponent } from './components/auth-notice/auth-notice.compon
 import { PreloaderComponent } from './components/preloader/preloader.component';
 import { UserInfoComponent } from './components/user-info/user-info.component';
 import { ContentPageComponent } from './pages/content-page/content-page.component';
+import { GitMenuComponent } from './components/git-menu/git-menu.component';
+import { FavouritesListComponent } from './components/favourites-list/favourites-list.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,9 @@ import { ContentPageComponent } from './pages/content-page/content-page.componen
     AuthNoticeComponent,
     PreloaderComponent,
     UserInfoComponent,
-    ContentPageComponent
+    ContentPageComponent,
+    GitMenuComponent,
+    FavouritesListComponent
   ],
   imports: [
     CommonModule,
@@ -52,7 +56,9 @@ import { ContentPageComponent } from './pages/content-page/content-page.componen
     ProjectsPageComponent,
     UserProfileComponent,
     SetModeComponent,
-    AuthNoticeComponent
+    AuthNoticeComponent,
+    GitMenuComponent,
+    FavouritesListComponent
   ],
   providers: [
     GlobalGivingApiService,
