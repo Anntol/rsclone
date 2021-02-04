@@ -115,7 +115,8 @@ export class ProjectListComponent implements OnInit, OnDestroy {
         {
           ...obj,
           isFavourite: this.userFavourites.findIndex((item) => item.projectId === obj.id) > -1,
-          fundingIndicator: `${Math.floor(100 * (obj.funding / obj.goal))}%`
+          fundingIndicator: (Math.floor(100 * (obj.funding / obj.goal)) > 100) ? '100%'
+          : `${Math.floor(100 * (obj.funding / obj.goal))}%`
         }));
         this.error = false;
         this.errorMessage = '';
@@ -173,7 +174,12 @@ export class ProjectListComponent implements OnInit, OnDestroy {
             : this.countAllProjects;
           this.countAllProjects = results.search.response.numberFound;
           this.dataProjects = this.dataProjects.concat(results.search.response.projects.project).map((obj) => (
-            { ...obj, isFavourite: this.userFavourites.findIndex((item) => item.projectId === obj.id) > -1 }));
+          {
+            ...obj,
+            isFavourite: this.userFavourites.findIndex((item) => item.projectId === obj.id) > -1,
+            fundingIndicator: (Math.floor(100 * (obj.funding / obj.goal)) > 100) ? '100%'
+            : `${Math.floor(100 * (obj.funding / obj.goal))}%`
+          }));
         });
         this.preloader.hide();
     } else {
