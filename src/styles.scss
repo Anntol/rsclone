@@ -44,6 +44,10 @@ $rsclone-theme: mat-light-theme((
   --secondary-text-color: #151515; //text-color-base
   --color-white-alt:      #EBECF0; //bg-body-color
 
+  --shadow-ligth:        #fafbfff2;
+  --shadow-dark:         #0028780c;
+  --shadow-accent:       #763a76b9;
+
   --body-bg: var(--color-white-alt);
   --left-bg: var(--primary-color);
   --card-bg: var(--primary-text-color);
@@ -57,7 +61,7 @@ $rsclone-theme: mat-light-theme((
 }
 
 [data-theme="dark"] {
-  --primary-color:        #252042; //left-menu-color
+  --primary-color:        #252c42; //left-menu-color
   --primary-color-btn:    #15a4cb; //btn-color
   --primary-text-color:   #7878ab; //btn-text-color, logo-color, bg-card-color
   --accent-color:         #FF4081;
@@ -91,3 +95,23 @@ p {
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+::-webkit-scrollbar {
+  width: 0.5rem;
+  height: 0.5rem;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px var(--shadow-dark);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary-color);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: vat(--color-violet-op04);
+}
