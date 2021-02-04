@@ -6,7 +6,10 @@ import { SettingsService } from '../../../core/service/settings.service';
 @Component({
   selector: 'app-user-info',
   templateUrl: './user-info.component.html',
-  styleUrls: ['./user-info.component.scss']
+  styleUrls: [
+    './user-info.component.scss',
+    '../../../../theme/buttons.scss',
+  ]
 })
 export class UserInfoComponent implements OnInit {
   model:IUserInfo = {

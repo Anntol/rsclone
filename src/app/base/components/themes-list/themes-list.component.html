@@ -1,7 +1,7 @@
 <p class="theme-title">{{ 'THEME.TITLE' | translate }}</p>
 <ul class="themes-list">
   <li *ngFor="let theme of themesList" class="themes-item">
-    <div
+    <div class="theme-container"
     (mouseenter)="selectTheme(theme.id)"
     (click)="goToProjectsList(theme.id)">
     <img class="theme-img" src="{{ theme.img }}" alt="{{ theme.id }}" />

@@ -93,6 +93,10 @@
   "PAGE": {
     "NOT_FOUND": "Not found",
     "GO_BACK": "Go back"
-
+  },
+  "DEVELOPERS": {
+    "ANNA": "Anna Tolstova",
+    "TANIA": "Tatsiana Kastrubai",
+    "NATA": "Natali Tverdokhlibova"
   }
 }

@@ -23,6 +23,8 @@ import { UserInfoComponent } from './components/user-info/user-info.component';
 import { ContentPageComponent } from './pages/content-page/content-page.component';
 import { NotFoundPageComponent } from './components/not-found-page/not-found-page.component';
 import { LoaderInterceptor } from '../core/interceptors/loader.interceptor';
+import { GitMenuComponent } from './components/git-menu/git-menu.component';
+import { FavouritesListComponent } from './components/favourites-list/favourites-list.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +42,9 @@ import { LoaderInterceptor } from '../core/interceptors/loader.interceptor';
     PreloaderComponent,
     UserInfoComponent,
     ContentPageComponent,
-    NotFoundPageComponent
+    NotFoundPageComponent,
+    GitMenuComponent,
+    FavouritesListComponent
   ],
   imports: [
     CommonModule,
@@ -57,7 +61,9 @@ import { LoaderInterceptor } from '../core/interceptors/loader.interceptor';
     UserProfileComponent,
     SetModeComponent,
     AuthNoticeComponent,
-    NotFoundPageComponent
+    NotFoundPageComponent,
+    GitMenuComponent,
+    FavouritesListComponent
   ],
   providers: [
     GlobalGivingApiService,
