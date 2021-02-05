@@ -1,7 +1,7 @@
 import {
  AfterViewChecked, Component, ViewChild, ChangeDetectorRef, OnInit
 } from '@angular/core';
-import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
+import { Router, NavigationEnd } from '@angular/router';
 
 import { Sort } from '@angular/material/sort';
 import { FormControl } from '@angular/forms';
@@ -28,10 +28,11 @@ export class ProjectsPageComponent implements AfterViewChecked, OnInit {
 
   public isSearch = false;
 
+  public pathId!: string;
+
   constructor(
     public translate: TranslateService,
     public router: Router,
-    private route: ActivatedRoute,
     public dataService: DataService,
     private cdr: ChangeDetectorRef
   ) {}
@@ -57,8 +58,8 @@ export class ProjectsPageComponent implements AfterViewChecked, OnInit {
   ngOnInit(): void {
     this.router.events.subscribe((e) => {
       if (e instanceof NavigationEnd) {
-        const pathId: string = e.url.slice(e.url.lastIndexOf('/') + 1);
-        const isIncludesPathId: number = THEMES.filter((element) => element.id === pathId).length
+        this.pathId = e.url.slice(e.url.lastIndexOf('/') + 1);
+        const isIncludesPathId: number = THEMES.filter((element) => element.id === this.pathId).length
         if (isIncludesPathId) {
           this.isVisibleFilterButton = true;
         } else {
@@ -69,7 +70,9 @@ export class ProjectsPageComponent implements AfterViewChecked, OnInit {
   }
 
   ngAfterViewChecked(): void {
-    this.translate.use(this.selectLang.myLanguage);
+    if (this.pathId !== 'settings') {
+      this.translate.use(this.selectLang.myLanguage);
+    }
     this.cdr.detectChanges();
   }
 }

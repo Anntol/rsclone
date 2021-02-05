@@ -38,8 +38,6 @@
         <!-- <span class="mat-button-base"  mat-sort-header="count" >
           <span class="underline">{{ 'PROJECTS.DONATIONS' | translate }}</span>
         </span> -->
-        <!-- <span class="mat-button-base">by word or sentance</span>
-        <input #readWord (input)="inputWords(readWord.value)"> -->
       </div>
     </section>
   </div>
@@ -47,7 +45,7 @@
     <router-outlet #outlet="outlet"></router-outlet>
   </div>
   <div id="pageBottom" class="bottom">
-    <app-select-lang class="lang"></app-select-lang>
+    <app-select-lang class="lang" *ngIf="pathId !== 'settings'"></app-select-lang>
   </div>
 
   <div id="pageFooter" class="footer-secondary">
