@@ -33,9 +33,9 @@ export class MainPageComponent implements AfterViewChecked {
 getStarted(): void {
   const project = Math.floor(Math.random() * 5);
   const { id, theme } = RECOMMENDED[project];
-  const path = `projects/${theme}`;
+  const path = `projects`;
   // eslint-disable-next-line @typescript-eslint/no-floating-promises
-  this.router.navigate([path, id]);
+  this.router.navigate([path]);
  }
 
   ngAfterViewChecked(): void {
