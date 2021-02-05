@@ -1,13 +1,13 @@
-@import "../../../../theme/colors.scss";
+@import '../../../../theme/colors.scss';
 
 .grid-container {
   display: grid;
   grid-template-columns: 0.5em 25em 43em 1em;
-  grid-template-rows: 22em 22em;
+  grid-template-rows: 19em 19em;
   gap: 2em;
   grid-template-areas:
-    ". profile  info-extended ."
-    ". settings info-extended .";
+    '. profile  info-extended .'
+    '. settings info-extended .';
 }
 
 .profile {
@@ -25,7 +25,7 @@
 .profile,
 .settings {
   width: 25em;
-  height: 20em;
+  height: 18em;
 }
 
 .profile {
@@ -43,7 +43,7 @@
 
 .info-extended {
   width: 42em;
-  height: 42em;
+  height: 38em;
   margin-top: 2em;
 }
 
@@ -98,7 +98,7 @@
 .location {
   font-size: 16px;
   text-align: center;
-  padding-top: 10px;
+  // padding-top: 10px;
   margin-bottom: 10px;
 }
 
@@ -145,9 +145,9 @@
 }
 
 .mode-box,
-.language-box{
+.language-box {
   display: flex;
   flex-wrap: nowrap;
   justify-content: space-between;
-  margin: 60px  40px 0;
+  margin: 60px 40px 0;
 }
