@@ -24,6 +24,10 @@ export interface IAllProjects {
   project: IProject[];
 }
 
+export interface IProjectById {
+  project: IProject
+}
+
 export interface IProject {
   id: number;
   goal: number;
