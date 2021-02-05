@@ -52,6 +52,8 @@ export class ProjectListComponent implements OnInit, OnDestroy {
 
   errorMessage = '';
 
+  fundingIndicator = 1;
+
   dataProjects!: IProjectWithFavourite[];
 
   userFavourites: IFavourite[] = [];
@@ -88,7 +90,6 @@ export class ProjectListComponent implements OnInit, OnDestroy {
     .getAuthStatusListener()
     .subscribe((isAuthenticated) => {
       this.isUserAuthenticated = isAuthenticated;
-      console.log('list-auth-changed: ', this.isUserAuthenticated);
     });
 
     this.getUserFavourites();
@@ -110,11 +111,15 @@ export class ProjectListComponent implements OnInit, OnDestroy {
         this.countShowProjects = 10;
         this.countAllProjects = results.search.response.numberFound;
         this.dataProjects = results.search.response.projects.project.map((obj) => (
-          { ...obj, isFavourite: this.userFavourites.findIndex((item) => item.projectId === obj.id) > -1 }));
+        {
+          ...obj,
+          isFavourite: this.userFavourites.findIndex((item) => item.projectId === obj.id) > -1,
+          fundingIndicator: (Math.floor(100 * (obj.funding / obj.goal)) > 100) ? '100%'
+          : `${Math.floor(100 * (obj.funding / obj.goal))}%`
+        }));
         this.error = false;
         this.errorMessage = '';
         this.preloader.hide();
-        console.log(this.countAllProjects, results.search);
       } else {
         this.errorMessage = 'No projects found! Please try again.';
         console.log(this.errorMessage);
@@ -168,8 +173,12 @@ export class ProjectListComponent implements OnInit, OnDestroy {
             : this.countAllProjects;
           this.countAllProjects = results.search.response.numberFound;
           this.dataProjects = this.dataProjects.concat(results.search.response.projects.project).map((obj) => (
-            { ...obj, isFavourite: this.userFavourites.findIndex((item) => item.projectId === obj.id) > -1 }));
-          console.log(this.countShowProjects, results.search);
+          {
+            ...obj,
+            isFavourite: this.userFavourites.findIndex((item) => item.projectId === obj.id) > -1,
+            fundingIndicator: (Math.floor(100 * (obj.funding / obj.goal)) > 100) ? '100%'
+            : `${Math.floor(100 * (obj.funding / obj.goal))}%`
+          }));
         });
         this.preloader.hide();
     } else {
@@ -179,6 +188,7 @@ export class ProjectListComponent implements OnInit, OnDestroy {
   }
 
   public goToDonatePage(project: IProjectWithFavourite): void {
+    this.dataService.setProjectById(project);
     const path = `projects/${this.queryOptions.theme || ''}`;
      // eslint-disable-next-line @typescript-eslint/no-floating-promises
     this.router.navigate([path, project.id]);
@@ -204,12 +214,10 @@ export class ProjectListComponent implements OnInit, OnDestroy {
       const favsObservable = this.settingsService.getUserFavourites();
       favsObservable.subscribe((data) => {
         this.userFavourites = data.favourites;
-        console.log('favs changed: ', this.userFavourites);
         this.dataProjects?.forEach((obj) => {
           const project = obj;
           project.isFavourite = this.userFavourites.findIndex((item) => item.projectId === obj.id) > -1;
         });
-        console.log('favs changed: ', this.dataProjects);
       });
     }
   }

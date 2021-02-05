@@ -17,7 +17,6 @@ export class SettingsService {
   serverUrl = environment.serverUrl;
 
   handleError(error: HttpErrorResponse): Observable<never> {
-    console.log('handler: ', error);
     // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
     const msg = error.error.message as string;
     const errorMessage = msg || "An unknown error occurred!";

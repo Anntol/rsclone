@@ -5,6 +5,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { SharedModule } from '../shared/shared.module';
 import { BaseRoutingModule } from './base-routing.module';
 import { GlobalGivingApiService } from '../core/service/global-giving-api.service';
+import { PreloaderService } from '../core/service/preloader.service';
 import { MainPageComponent } from './pages/main-page/main-page.component';
 import { ParamsInterceptor } from '../core/interceptors/params.interceptor';
 import { ProjectListComponent } from './components/project-list/project-list.component';
@@ -20,6 +21,8 @@ import { AuthNoticeComponent } from './components/auth-notice/auth-notice.compon
 import { PreloaderComponent } from './components/preloader/preloader.component';
 import { UserInfoComponent } from './components/user-info/user-info.component';
 import { ContentPageComponent } from './pages/content-page/content-page.component';
+import { NotFoundPageComponent } from './components/not-found-page/not-found-page.component';
+import { LoaderInterceptor } from '../core/interceptors/loader.interceptor';
 import { GitMenuComponent } from './components/git-menu/git-menu.component';
 import { FavouritesListComponent } from './components/favourites-list/favourites-list.component';
 
@@ -39,6 +42,7 @@ import { FavouritesListComponent } from './components/favourites-list/favourites
     PreloaderComponent,
     UserInfoComponent,
     ContentPageComponent,
+    NotFoundPageComponent,
     GitMenuComponent,
     FavouritesListComponent
   ],
@@ -57,6 +61,7 @@ import { FavouritesListComponent } from './components/favourites-list/favourites
     UserProfileComponent,
     SetModeComponent,
     AuthNoticeComponent,
+    NotFoundPageComponent,
     GitMenuComponent,
     FavouritesListComponent
   ],
@@ -66,7 +71,13 @@ import { FavouritesListComponent } from './components/favourites-list/favourites
       provide: HTTP_INTERCEPTORS,
       useClass: ParamsInterceptor,
       multi: true
-    }
+    },
+    PreloaderService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: LoaderInterceptor,
+      multi: true
+    },
   ]
 })
 export class BaseModule {}

@@ -1,5 +1,5 @@
 import {
- Component, OnInit, ViewChild , ChangeDetectorRef
+ Component, OnInit, ViewChild , ChangeDetectorRef, OnDestroy
 } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
@@ -14,7 +14,7 @@ import { SelectLangComponent } from '../../../shared/components/select-lang/sele
   templateUrl: './auth-page.component.html',
   styleUrls: ['./auth-page.component.scss', '../../../../theme/buttons.scss']
 })
-export class AuthPageComponent implements OnInit {
+export class AuthPageComponent implements OnInit, OnDestroy {
   @ViewChild(SelectLangComponent) selectLang!: SelectLangComponent;
 
   subscription!: SubscriptionLike;
@@ -28,7 +28,7 @@ export class AuthPageComponent implements OnInit {
 ) {}
 
   ngOnInit(): void {
-    this.route.url.subscribe((data) => {
+    this.subscription = this.route.url.subscribe((data) => {
       // Get the last piece of the URL (it's either 'login' or 'signup')
       this.authType = data[data.length - 1].path;
     });

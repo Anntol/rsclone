@@ -45,10 +45,15 @@
               </span>
             </div>
           </div>
+          <div class="box-line">
+            <div class="indicator goal" [style.width]="project.fundingIndicator"></div>
+          </div>
           <span class="checkbox-text--donate">
             <div class="summ">{{ project.goal | currency }}</div>
             <div class="funding">{{ project.funding | currency }}</div>
+          </span>
             <div class="checkbox-text--title">{{ project.title }}</div>
+          <span class="checkbox-text--donate">
             <div
               class="check-btn base-button-blue"
               (click)="goToDonatePage(project)">

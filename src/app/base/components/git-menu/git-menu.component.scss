@@ -2,9 +2,11 @@
 
 .github-img {
   height: 40px;
-  width: 40px;
-  margin: 0 0.5em;
+  margin: 2em 1em 0.5em 3em;
   cursor: pointer;
+  @media screen and (max-width: 540px) {
+    margin: 0 0.5em;
+  }
 }
 
 .dropbtn {
@@ -33,8 +35,11 @@
   background-color: $color-white-alt;
   min-width: 200px;
   bottom: 46px;
-  left: 10px;
+  right: -106px;
   border-radius: 5px;
+  @media screen and (max-width: 541px){
+    right: 1px;
+  }
 }
 
 .dropup-content a {
