@@ -67,7 +67,10 @@ export class AuthService {
         this.setAuthTimer(response.expiresIn);
         const expirationDate = new Date(new Date().getTime() + response.expiresIn * 1000);
         this.saveAuthData(this.token, expirationDate);
-        this.changeAuthStatus(true, returnUrl);
+        this.changeAuthStatus(true);
+
+        this.router.navigate([returnUrl])
+          .catch((e) => this.handleError(e));
       }
     }, (e) => {
       this.authStatus.next(false);
@@ -82,12 +85,9 @@ export class AuthService {
     this.changeAuthStatus(false);
   }
 
-  changeAuthStatus(isLogin: boolean, returnUrl = '/'): void {
+  changeAuthStatus(isLogin: boolean): void {
     this.isUserAuthenticated = isLogin;
     this.authStatus.next(isLogin);
-
-    this.router.navigate([returnUrl])
-    .catch((e) => this.handleError(e));
   }
 
   private saveAuthData(token: string, expirationDate: Date) {
@@ -122,6 +122,9 @@ export class AuthService {
       this.token = authInformation.token;
       this.setAuthTimer(expiresIn / 1000);
       this.changeAuthStatus(true);
+
+      this.router.navigate(['/'])
+        .catch((e) => this.handleError(e));
     }
   }
 }
