@@ -21,6 +21,8 @@ export class AuthPageComponent implements OnInit, OnDestroy {
 
   authType = '';
 
+  returnUrl = '/';
+
   constructor(
     public authService: AuthService,
     private route: ActivatedRoute,
@@ -31,6 +33,9 @@ export class AuthPageComponent implements OnInit, OnDestroy {
     this.subscription = this.route.url.subscribe((data) => {
       // Get the last piece of the URL (it's either 'login' or 'signup')
       this.authType = data[data.length - 1].path;
+
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+      this.returnUrl = this.route.snapshot.queryParams.returnUrl || '/';
     });
   }
 
@@ -41,9 +46,9 @@ export class AuthPageComponent implements OnInit, OnDestroy {
 
     const { email, password } = form.value as AuthData;
     if (this.authType === 'login') {
-      this.authService.loginUser(email, password);
+      this.authService.loginUser(email, password, this.returnUrl);
     } else {
-      this.authService.createUser(email, password);
+      this.authService.createUser(email, password, this.returnUrl);
     }
   }
 
