@@ -8,6 +8,7 @@ import { FormControl } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import { SelectLangComponent } from '../../../shared/components/select-lang/select-lang.component';
 import { DataService } from '../../../core/service/data.service';
+import { THEMES } from '../../../shared/constants/constants';
 
 @Component({
   selector: 'app-projects-page',
@@ -42,12 +43,12 @@ export class ProjectsPageComponent implements AfterViewChecked, OnInit {
   public changeFilter(el: HTMLElement): void {
     if(el.getAttribute('data-filter') === 'search') {
       this.isSearch = !this.isSearch;
-      if (this.isSearch === this.isSort) {
+      if (this.isSearch === this.isSort && this.isSort) {
         this.isSort = !this.isSort;
       }
     } else {
       this.isSort = !this.isSort;
-      if (this.isSearch === this.isSort) {
+      if (this.isSearch === this.isSort && this.isSort) {
         this.isSearch = !this.isSearch;
       }
     }
@@ -56,7 +57,9 @@ export class ProjectsPageComponent implements AfterViewChecked, OnInit {
   ngOnInit(): void {
     this.router.events.subscribe((e) => {
       if (e instanceof NavigationEnd) {
-        if (e.url.includes('/projects')) {
+        const pathId: string = e.url.slice(e.url.lastIndexOf('/') + 1);
+        const isIncludesPathId: number = THEMES.filter((element) => element.id === pathId).length
+        if (isIncludesPathId) {
           this.isVisibleFilterButton = true;
         } else {
           this.isVisibleFilterButton = false;
