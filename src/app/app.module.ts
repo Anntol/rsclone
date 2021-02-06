@@ -12,6 +12,7 @@ import { AppComponent } from './app.component';
 import { BaseModule } from './base/base.module';
 import { AuthInterceptor } from './core/interceptors/auth.interceptor';
 import { ErrorComponent } from './shared/components/error/error.component';
+import { WarningComponent } from './shared/components/warning/warning.component';
 
 // this function for load any static json file from ./assets/i18n
 export function HttpLoaderFactory(http: HttpClient): TranslateLoader {
@@ -41,6 +42,6 @@ export function HttpLoaderFactory(http: HttpClient): TranslateLoader {
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
   ],
   bootstrap: [AppComponent],
-  entryComponents: [ErrorComponent]
+  entryComponents: [ErrorComponent, WarningComponent]
 })
 export class AppModule {}

@@ -18,9 +18,10 @@ import { NgxMatIntlTelInputModule } from 'ngx-mat-intl-tel-input';
 import { ErrorComponent } from './components/error/error.component';
 import { SelectLangComponent } from './components/select-lang/select-lang.component';
 import { SelectCountryComponent } from './components/select-country/select-country.component';
+import { WarningComponent } from './components/warning/warning.component';
 
 @NgModule({
-  declarations: [SelectLangComponent, SelectCountryComponent, ErrorComponent],
+  declarations: [SelectLangComponent, SelectCountryComponent, ErrorComponent, WarningComponent],
   imports: [
     CommonModule,
     RouterModule,

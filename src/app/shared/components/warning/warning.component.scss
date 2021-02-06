@@ -1,0 +1,17 @@
+@import '../../../../theme/colors.scss';
+
+.mat-dialog-title {
+  text-align: center;
+  color: $primary-color-btn;
+}
+
+.mat-dialog-actions {
+  justify-content: center;
+}
+
+.btn-close {
+  height: 35px;
+  width: 90px;
+  border: none;
+  outline: none;
+}

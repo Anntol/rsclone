@@ -21,12 +21,12 @@
         </span>
       </div>
     </div>
-    <form *ngIf="isSearch">
+    <form *ngIf="isSearch && isVisibleFilterButton">
       <input type="text" />
       <input type="text" matInput [formControl]="searchQuery" />
       <span class="material-icons search stacks-base-block">search</span>
     </form>
-    <section *ngIf="isSort">
+    <section *ngIf="isSort && isVisibleFilterButton">
       <div class="filter-label">{{ 'PROJECTS.FILTER.SORTING_BY' | translate }}:</div>
       <div class="filter-button-row" matSort (matSortChange)="sortData($event)">
         <span class="mat-button-base"  mat-sort-header="goal" >
