@@ -1,27 +1,32 @@
-@media screen and (max-width: 1024px){
+@media screen and (max-width: 1024px) {
   .grid-container {
     grid-template-columns: 25em 38em;
-    grid-template-rows: 22em 22em;
+    grid-template-rows: 19em 19em;
     gap: 0.5em;
     grid-template-areas:
-    "profile  info-extended"
-    "settings info-extended";
-  } 
+      'profile  info-extended'
+      'settings info-extended';
+  }
+  .profile,
+  .settings {
+    width: 25em;
+    height: 19em;
+  }
   .info-extended {
     width: 36em;
-    height: 40em;
+    height: 37em;
     margin-top: 2em;
   }
 }
 
-@media screen and (max-width: 950px){
+@media screen and (max-width: 950px) {
   .grid-container {
     grid-template-columns: 0.1em 25em 25em 1em;
     grid-template-rows: 20em 35em;
     gap: 1em;
     grid-template-areas:
-      ". profile settings ."
-      ". info-extended info-extended .";
+      '. profile settings .'
+      '. info-extended info-extended .';
   }
   .info-extended {
     width: 51em;
@@ -33,14 +38,14 @@
   }
 }
 
-@media screen and (max-width: 860px){
+@media screen and (max-width: 860px) {
   .grid-container {
     grid-template-columns: 25em 25em;
     grid-template-rows: 20em 35em;
     gap: 1em;
     grid-template-areas:
-      "profile settings"
-      "info-extended info-extended";
+      'profile settings'
+      'info-extended info-extended';
   }
   .profile,
   .settings {
@@ -53,7 +58,7 @@
   }
 }
 
-@media screen and (max-width: 750px){
+@media screen and (max-width: 750px) {
   .grid-container {
     display: flex;
     flex-direction: column;
@@ -89,7 +94,7 @@
   }
 }
 
-@media screen and (max-width: 540px){
+@media screen and (max-width: 540px) {
   .profile,
   .settings {
     width: 25em;
