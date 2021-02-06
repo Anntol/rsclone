@@ -54,7 +54,7 @@ export class ProjectListComponent implements OnInit, OnDestroy {
 
   isUserAuthenticated = false;
 
-  IsVisibleMore = true;
+  IsVisibleMoreButton = false;
 
   public search!: string;
 
@@ -113,11 +113,12 @@ export class ProjectListComponent implements OnInit, OnDestroy {
       })
     ).subscribe((results: ISearchResults): void => {
       this.countAllProjects = results.search.response.numberFound;
-      if (this.countAllProjects > 10) {
+      if (this.countAllProjects > 0) {
+        this.IsVisibleMoreButton = true;
+        console.log(this.IsVisibleMoreButton);
         this.countShowProjects = (this.countAllProjects - this.countShowProjects > 10)
             ? this.countShowProjects + 10
             : this.countAllProjects;
-        this.IsVisibleMore = true;
         this.dataProjects = this.dataProjects.concat(results.search.response.projects.project).map((obj) => (
         {
           ...obj,
@@ -129,6 +130,7 @@ export class ProjectListComponent implements OnInit, OnDestroy {
         this.errorMessage = '';
         this.preloader.hide();
       } else {
+        this.IsVisibleMoreButton = false;
         const warningMessage = 'No projects found! Please try again.';
         this.dialog.open(WarningComponent, { data: { message: warningMessage } });
         this.preloader.hide();
@@ -139,9 +141,9 @@ export class ProjectListComponent implements OnInit, OnDestroy {
   public nextPage(): void {
     if (this.countAllProjects > this.countShowProjects) {
       this.queryOptions.startNumber = this.countShowProjects;
-      this.IsVisibleMore = false;
       this.getProjectsByFilters(this.queryOptions);
     } else {
+      this.IsVisibleMoreButton = false;
       this.preloader.hide();
       const warningMessage = 'There are no more active projects!';
       this.dialog.open(WarningComponent, { data: { message: warningMessage } });
