@@ -1,9 +1,15 @@
 import {
  Component, OnDestroy, OnInit
 } from '@angular/core';
+import { catchError } from 'rxjs/operators';
 import { ActivatedRoute } from '@angular/router';
-import { Subscription } from 'rxjs';
-import { IProject } from '../../../core/models/projects.model';
+import {
+ EMPTY, Subscription
+} from 'rxjs';
+
+import { DataService } from 'src/app/core/service/data.service';
+import { GlobalGivingApiService } from '../../../core/service/global-giving-api.service';
+import { IProject, IProjectById } from '../../../core/models/projects.model';
 
 @Component({
   selector: 'app-project-card',
@@ -15,17 +21,30 @@ export class ProjectCardComponent implements OnInit, OnDestroy {
 
   set subscription(sb: Subscription) { this.subscriptions.push(sb) };
 
-  public dataProjects!: IProject[];
+  projectId!: number;
 
-  constructor (private route: ActivatedRoute) {
+  public project!: IProject;
+
+  fundingIndicator = '';
+
+  error = false;
+
+  errorMessage = '';
+
+  constructor (
+    private route: ActivatedRoute,
+    private dataService: DataService,
+    private globalGivingApiService: GlobalGivingApiService
+    ) {
 
   }
 
   ngOnInit(): void {
     this.subscription = this.route.params.subscribe((params): void => {
-     console.log(params);
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+      this.projectId = params.id;
     });
-  }
+}
 
   ngOnDestroy(): void {
     this.subscriptions.forEach((sb) => sb.unsubscribe())

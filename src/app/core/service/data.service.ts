@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import { Subject, Observable } from 'rxjs';
 import { Sort } from '@angular/material/sort';
 import { IProject } from '../models/projects.model';
 
@@ -31,7 +31,7 @@ export class DataService {
     this.isCardItem.next(item);
   }
 
-  // public getProjectById(): Observable<CardItem> {
-  //   return this.isCardItem.asObservable();
-  // }
+  public getProjectById(): Observable<IProject> {
+    return this.isCardItem.asObservable();
+  }
 }

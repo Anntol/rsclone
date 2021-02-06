@@ -1,10 +1,12 @@
 import {
  Component, AfterViewChecked, ViewChild, ChangeDetectorRef
 } from '@angular/core';
-
+import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
+
 import { IUser } from '../../../core/models/users.models';
 import { SelectLangComponent } from '../../../shared/components/select-lang/select-lang.component';
+import { RECOMMENDED } from '../../../shared/constants/constants';
 
 @Component({
   selector: 'app-main-page',
@@ -24,8 +26,17 @@ export class MainPageComponent implements AfterViewChecked {
 
  constructor(
    public translate: TranslateService,
+   private router: Router,
    private cdr: ChangeDetectorRef,
    ) {}
+
+getStarted(): void {
+  const project = Math.floor(Math.random() * 5);
+  const { id, theme } = RECOMMENDED[project];
+  const path = `projects`;
+  // eslint-disable-next-line @typescript-eslint/no-floating-promises
+  this.router.navigate([path]);
+ }
 
   ngAfterViewChecked(): void {
     this.translate.use(this.selectLang.myLanguage);

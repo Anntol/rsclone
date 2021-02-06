@@ -1,9 +1,11 @@
 import {
-  Component, OnDestroy, OnInit
+  AfterViewChecked, ViewChild, Component, OnDestroy, OnInit, ChangeDetectorRef
 } from '@angular/core';
 import { Subscription } from 'rxjs';
+import { TranslateService } from '@ngx-translate/core';
 import { AuthService } from '../../../core/service/auth.service';
 import { SettingsService } from '../../../core/service/settings.service';
+import { SelectLangComponent } from '../../../shared/components/select-lang/select-lang.component';
 
 @Component({
   selector: 'app-user-profile',
@@ -13,12 +15,19 @@ import { SettingsService } from '../../../core/service/settings.service';
     './user-profile-adaptive.scss'
   ]
 })
-export class UserProfileComponent implements OnInit, OnDestroy {
+export class UserProfileComponent implements OnInit, OnDestroy, AfterViewChecked {
   isUserAuthenticated = false;
 
   private authStatusSubscriber!: Subscription;
 
-  constructor(private settingsService: SettingsService, private authService: AuthService) {}
+  @ViewChild(SelectLangComponent) selectLang!: SelectLangComponent;
+
+  constructor(
+    private settingsService: SettingsService,
+    private authService: AuthService,
+    public translate: TranslateService,
+    private cdr: ChangeDetectorRef
+    ) {}
 
   ngOnInit(): void {
     this.isUserAuthenticated = this.authService.getIsUserAuthenticated();
@@ -27,6 +36,11 @@ export class UserProfileComponent implements OnInit, OnDestroy {
     .subscribe((isAuthenticated) => {
       this.isUserAuthenticated = isAuthenticated;
     });
+  }
+
+  ngAfterViewChecked(): void {
+    this.translate.use(this.selectLang.myLanguage);
+    this.cdr.detectChanges();
   }
 
   ngOnDestroy(): void {
