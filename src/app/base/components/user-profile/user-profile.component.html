@@ -63,7 +63,7 @@
           <mat-icon class="example-tab-icon">local_atm</mat-icon>
           {{ "SETTINGS.MY_TRANSACTIONS" | translate }}
         </ng-template>
-        <app-auth-notice></app-auth-notice>
+        <app-auth-notice *ngIf="!this.isUserAuthenticated"></app-auth-notice>
       </mat-tab>
     </mat-tab-group>
   </div>
