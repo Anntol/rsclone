@@ -1,6 +1,10 @@
 import {
  AfterViewChecked, Component, ViewChild, ChangeDetectorRef, OnInit
 } from '@angular/core';
+import {
+  filter, switchMap, debounceTime
+ } from 'rxjs/operators';
+import { Observable, Subscription, of } from 'rxjs';
 import { Router, NavigationEnd } from '@angular/router';
 
 import { Sort } from '@angular/material/sort';
@@ -8,7 +12,8 @@ import { FormControl } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import { SelectLangComponent } from '../../../shared/components/select-lang/select-lang.component';
 import { DataService } from '../../../core/service/data.service';
-import { THEMES } from '../../../shared/constants/constants';
+import { MIN_LENGTH_QUERY, WAIT_FOR_INPUT, THEMES } from '../../../shared/constants/constants';
+import { IProjectWithFavourite } from '../../../core/models/projects.model';
 
 @Component({
   selector: 'app-projects-page',
@@ -20,13 +25,27 @@ export class ProjectsPageComponent implements AfterViewChecked, OnInit {
 
   public searchQuery: FormControl = new FormControl();
 
+  private subscriptions: Subscription[] = [];
+
+  set subscription(sb: Subscription) { this.subscriptions.push(sb) };
+
   public sort!: Sort;
+
+  public search!: string;
 
   public isVisibleFilterButton = false;
 
   public isSort = false;
 
   public isSearch = false;
+
+  error = false;
+
+  errorMessage = '';
+
+  fundingIndicator = 1;
+
+  dataProjects!: IProjectWithFavourite[];
 
   public pathId!: string;
 
@@ -39,6 +58,10 @@ export class ProjectsPageComponent implements AfterViewChecked, OnInit {
 
   public sortData(sort: Sort): void {
     this.dataService.setSortOptions(sort);
+  }
+
+  public searchQueryData(search: string): void {
+    this.dataService.setSearchQuery(search);
   }
 
   public changeFilter(el: HTMLElement): void {
@@ -66,6 +89,17 @@ export class ProjectsPageComponent implements AfterViewChecked, OnInit {
           this.isVisibleFilterButton = false;
         }
       }
+    });
+
+    this.searchQuery.valueChanges
+    .pipe(
+      filter((value: string) => value.length > MIN_LENGTH_QUERY),
+      debounceTime(WAIT_FOR_INPUT),
+      switchMap(
+        (value: string): Observable<string> => of(value)
+      )
+    ).subscribe((value) => {
+      this.searchQueryData(value);
     });
   }
 
