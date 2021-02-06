@@ -1,4 +1,4 @@
-@import "../../../../theme/colors.scss";
+@import '../../../../theme/colors.scss';
 
 %boxshadow {
   box-shadow: 0px 3px 3px rgba($secondary-text-color, 0.2);
@@ -7,7 +7,7 @@
 .fav-container {
   display: flex;
   width: 36em;
-  height: 36em;
+  height: 33em;
   margin-left: 4em;
   overflow-y: auto;
 }
