@@ -5,7 +5,11 @@ import { SubscriptionLike } from 'rxjs';
 @Component({
   selector: 'app-vertical-menu',
   templateUrl: './vertical-menu.component.html',
-  styleUrls: ['./vertical-menu.component.scss', '../../../../theme/buttons.scss']
+  styleUrls: [
+    './vertical-menu.component.scss',
+    '../../../../theme/buttons.scss',
+    '../../../../theme/noselect.scss'
+  ]
 })
 export class VerticalMenuComponent implements OnInit, OnDestroy {
   public isVisibleVerticalButton = true;

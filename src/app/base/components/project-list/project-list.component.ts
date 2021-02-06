@@ -23,6 +23,7 @@ import { IFavourite } from '../../../core/models/favourite.model';
     './project-list.component.scss',
     '../../../../theme/stacks.scss',
     '../../../../theme/buttons.scss',
+    '../../../../theme/noselect.scss'
   ]
 })
 export class ProjectListComponent implements OnInit, OnDestroy {

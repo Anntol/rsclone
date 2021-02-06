@@ -16,7 +16,8 @@ import { RECOMMENDED } from '../../../shared/constants/constants';
     './main-page-adaptive.scss',
     '../../../../theme/globo.scss',
     '../../../../theme/buttons.scss',
-    '../../../../theme/stacks.scss'
+    '../../../../theme/stacks.scss',
+    '../../../../theme/noselect.scss'
   ]
 })
 export class MainPageComponent implements AfterViewChecked {

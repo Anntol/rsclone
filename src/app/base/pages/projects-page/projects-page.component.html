@@ -2,7 +2,7 @@
   <div id="navLogo" class="nav-vertical">
     <app-vertical-menu></app-vertical-menu>
   </div>
-  <div id="pageTop" class="top">
+  <div id="pageTop" class="top noselect">
     <div class="filter-dropdown" *ngIf="isVisibleFilterButton">
         <span class="material-icons dropbtn">
           more_vert
@@ -48,12 +48,12 @@
     <app-select-lang class="lang"></app-select-lang>
   </div>
 
-  <div id="pageFooter" class="footer-secondary">
+  <div id="pageFooter" class="footer-secondary noselect">
     <a href="https://rs.school/js/">
       <img class="rsschool-img" src="../../../../assets/RSSchool_logo.svg" alt="RSSchool" />
     </a>
     <app-git-menu></app-git-menu>
-    <p class="creation">@ 2021</p>
+    <p class="creation noselect">@ 2021</p>
   </div>
 
 </div>
