@@ -2,7 +2,29 @@ export const BASE_URL = 'https://api.globalgiving.org/api';
 export const MIN_LENGTH_QUERY = 3;
 export const WAIT_FOR_INPUT = 1500;
 export const NUMBER_RETRIES_OF_REQUESTS = 3;
+export const RECOMMENDED = [
+  {
+    id: 12702,
+    theme: 'health'
+  },
+  {
+    id: 34188,
+    theme: 'climate'
+  },
+  {
+    id: 37379,
+    theme: 'cildren'
+  },
+  {
+    id: 37368,
+    theme: 'animal'
+  },
+  {
+    id: 32248,
+    theme: 'edu'
+  }
 
+]
 export const THEMES = [
   {
     id: 'animals',

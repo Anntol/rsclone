@@ -8,13 +8,13 @@ import { MatDialog } from '@angular/material/dialog';
 
 import { ErrorComponent } from '../../shared/components/error/error.component';
 import { IUserToken } from '../models/users.models';
-import { IProjects, IQueryOptions, ISearchResults } from '../models/projects.model';
+import { IProjectById, IQueryOptions, ISearchResults } from '../models/projects.model';
 import { BASE_URL, NUMBER_RETRIES_OF_REQUESTS } from '../../shared/constants/constants';
 
 const GLOBAL_GIVIN = {
   TOKEN: `${BASE_URL}/userservice/tokens`,
   ACTIVE_BY_KEYWORD: `${BASE_URL}/public/services/search/projects`,
-  ACTIVE_FOR_COUNTRY: (country: string) => `${BASE_URL}/public/projectservice/countries/${country}/projects/active`
+  ACTIVE_FOR_ID: (id: number) => `${BASE_URL}/public/projectservice/projects/${id}?`
 };
 
 @Injectable({
@@ -44,10 +44,9 @@ export class GlobalGivingApiService {
       .pipe(catchError((e) => this.handleError(e)));
   }
 
-public getActiveProjectsForCountry(iso3166CountryCode: string, nextProjectID?: number): Observable<IProjects> {
-    const id: number = nextProjectID || 1;
-    const options = { params: new HttpParams({ fromString: `&nextProjectId=${id}` }) };
-    return this.http.get<IProjects>(`${GLOBAL_GIVIN.ACTIVE_FOR_COUNTRY(iso3166CountryCode)}`, options).pipe(
+public getActiveProjectById(projectId: number): Observable<IProjectById> {
+    const id: number = projectId || 1;
+      return this.http.get<IProjectById>(`${GLOBAL_GIVIN.ACTIVE_FOR_ID(id)}`).pipe(
       retry(NUMBER_RETRIES_OF_REQUESTS),
       catchError((e) => this.handleError(e))
     );

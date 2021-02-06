@@ -46,18 +46,18 @@ export class AuthService {
     return throwError(errorMessage);
   }
 
-  createUser(email: string, password: string): void {
+  createUser(email: string, password: string, returnUrl: string): void {
     const authData: AuthData = { email, password };
     this.http.post(`${this.serverUrl}/api/user/signup`, authData)
     .subscribe(() => {
-      this.loginUser(email, password);
+      this.loginUser(email, password, returnUrl);
     }, (e) => {
       this.authStatus.next(false);
       this.handleError(e);
     });
   }
 
-  loginUser(email: string, password: string): void {
+  loginUser(email: string, password: string, returnUrl: string): void {
     const authData: AuthData = { email, password };
     this.http.post<{token: string, expiresIn: number}>(`${this.serverUrl}/api/user/login`, authData)
     .subscribe((response) => {
@@ -68,6 +68,9 @@ export class AuthService {
         const expirationDate = new Date(new Date().getTime() + response.expiresIn * 1000);
         this.saveAuthData(this.token, expirationDate);
         this.changeAuthStatus(true);
+
+        this.router.navigate([returnUrl])
+          .catch((e) => this.handleError(e));
       }
     }, (e) => {
       this.authStatus.next(false);
@@ -85,9 +88,6 @@ export class AuthService {
   changeAuthStatus(isLogin: boolean): void {
     this.isUserAuthenticated = isLogin;
     this.authStatus.next(isLogin);
-
-    this.router.navigate(['/'])
-    .catch((e) => this.handleError(e));
   }
 
   private saveAuthData(token: string, expirationDate: Date) {
@@ -122,6 +122,9 @@ export class AuthService {
       this.token = authInformation.token;
       this.setAuthTimer(expiresIn / 1000);
       this.changeAuthStatus(true);
+
+      this.router.navigate(['/'])
+        .catch((e) => this.handleError(e));
     }
   }
 }

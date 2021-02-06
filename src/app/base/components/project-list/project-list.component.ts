@@ -151,7 +151,12 @@ export class ProjectListComponent implements OnInit, OnDestroy {
       .subscribe((results: ISearchResults) => {
         if (results.search.response.numberFound > 0) {
           this.dataProjects = results.search.response.projects.project.map((obj) => (
-            { ...obj, isFavourite: this.userFavourites.findIndex((item) => item.projectId === obj.id) > -1 }));
+            {
+              ...obj,
+            isFavourite: this.userFavourites.findIndex((item) => item.projectId === obj.id) > -1,
+            fundingIndicator: (Math.floor(100 * (obj.funding / obj.goal)) > 100) ? '100%'
+            : `${Math.floor(100 * (obj.funding / obj.goal))}%`
+          }));
           this.error = false;
           this.errorMessage = '';
           this.preloader.hide();

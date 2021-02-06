@@ -22,8 +22,12 @@
     <span class="before"></span>
     <span class="promo">
       <h3 class="text-accent noselect">{{ 'MAIN.PROMO_TITLE' | translate }}</h3>
-      <p class="noselect">{{ 'MAIN.PROMO_TEXT' | translate }}</p>
-      <button class="start-btn base-button-blue">{{ 'MAIN.BTN_START' | uppercase | translate }}</button>
+      <p>{{ 'MAIN.PROMO_TEXT' | translate }}</p>
+      <button
+        (click) = "getStarted()"
+        class="start-btn base-button-blue">
+        {{ 'MAIN.BTN_START' | uppercase | translate }}
+      </button>
     </span>
   </div>
 

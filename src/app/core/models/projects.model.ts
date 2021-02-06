@@ -24,6 +24,10 @@ export interface IAllProjects {
   project: IProject[];
 }
 
+export interface IProjectById {
+  project: IProject
+}
+
 export interface IProject {
   id: number;
   goal: number;
@@ -112,4 +116,9 @@ export interface IQueryOptions {
   startNumber?: number;
   iso3166CountryCode?: string;
   theme?: string;
+}
+
+export interface IRecommended {
+  id: number;
+  theme: string
 }
