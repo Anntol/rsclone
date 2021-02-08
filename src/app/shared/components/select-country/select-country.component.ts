@@ -15,6 +15,8 @@ export class SelectCountryComponent implements OnInit, OnDestroy {
 
   public countriesList!: ICountry[];
 
+  selectedCountry!: string;
+
   constructor(private countries: CountriesService, public translate: TranslateService) {}
 
   ngOnInit(): void {

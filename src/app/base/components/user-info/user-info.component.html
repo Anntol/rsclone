@@ -19,7 +19,12 @@
     <input matInput [(ngModel)]="model.city" name="city" />
   </mat-form-field>
 
-  <app-select-country></app-select-country>
+  <app-select-country class="countries-select"></app-select-country>
+
+  <!-- <mat-form-field appearance="outline">
+    <mat-label>{{ "SETTINGS.COUNTRY" | translate }}</mat-label>
+    <input matInput [(ngModel)]="model.country" name="country" />
+  </mat-form-field> -->
 
   <mat-form-field appearance="outline">
     <ngx-mat-intl-tel-input
