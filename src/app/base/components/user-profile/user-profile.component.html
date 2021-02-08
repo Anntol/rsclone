@@ -3,7 +3,7 @@
     <div class="content noselect">
       <img class="avatar" src="../../../../assets/user_unknown.jpg" />
       <h3 class="user-name" *ngIf="!this.isUserAuthenticated">{{ "SETTINGS.USERNAME" | translate }}</h3>
-      <h3 class="user-name" *ngIf="this.isUserAuthenticated">{{ model.firstName}} {{ model.lastName}}</h3>
+      <h3 class="user-name" *ngIf="this.isUserAuthenticated">Hi, {{ model.firstName}}!</h3>
       <p class="location" *ngIf="!this.isUserAuthenticated">{{ "SETTINGS.LOCATION" | translate }}</p>
       <p class="location" *ngIf="this.isUserAuthenticated">{{ model.city }}, {{ model.country }}</p>
       <div class="statistics">

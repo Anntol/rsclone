@@ -1,5 +1,5 @@
 import {
-  AfterViewInit, AfterViewChecked, ViewChild, Component, OnDestroy, OnInit, ChangeDetectorRef
+  AfterViewChecked, ViewChild, Component, OnDestroy, OnInit, ChangeDetectorRef
 } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { TranslateService } from '@ngx-translate/core';
@@ -15,12 +15,10 @@ import { SelectLangComponent } from '../../../shared/components/select-lang/sele
   styleUrls: ['./user-profile.component.scss', './user-profile-adaptive.scss', '../../../../theme/noselect.scss']
 })
 
-export class UserProfileComponent implements OnInit, OnDestroy, AfterViewChecked, AfterViewInit {
- @ViewChild(UserInfoComponent) child!: UserInfoComponent;
+export class UserProfileComponent implements OnInit, OnDestroy, AfterViewChecked {
+ @ViewChild(UserInfoComponent) userInfo!: UserInfoComponent;
 
  @ViewChild(SelectLangComponent) selectLang!: SelectLangComponent;
-
-  location!: string;
 
   model: IUserInfo = {
     firstName: '',
@@ -49,13 +47,10 @@ export class UserProfileComponent implements OnInit, OnDestroy, AfterViewChecked
     });
   }
 
-  ngAfterViewInit(): void {
-    setTimeout(() => { this.model = this.child.model }, 1000)
-  }
-
   ngAfterViewChecked(): void {
     this.translate.use(this.selectLang.myLanguage);
     this.cdr.detectChanges();
+    if (this.isUserAuthenticated) this.model = this.userInfo.model;
   }
 
   ngOnDestroy(): void {
