@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import { Injectable } from '@angular/core';
 import { Mode, LIGHT, DARK } from "../../shared/constants/mode";
 
@@ -5,8 +6,9 @@ import { Mode, LIGHT, DARK } from "../../shared/constants/mode";
   providedIn: 'root'
 })
 export class ModeService {
-  // private active: Mode = JSON.parse(localStorage.getItem('rs_userMode')) || LIGHT;
-  private active: Mode = LIGHT;
+  private userMode = localStorage.getItem('rs_userMode');
+
+  private active: Mode = this.userMode !== null ? JSON.parse(this.userMode) : LIGHT;
 
   private availableMode: Mode[] = [LIGHT, DARK];
 
