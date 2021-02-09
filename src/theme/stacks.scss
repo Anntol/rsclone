@@ -1,7 +1,7 @@
 @import './colors.scss';
 
 .stacks-base-buttons {
-  background: $primary-color-btn;
+  background: var(--primary-color-btn);
   border: 1px solid $color-white-op04;
   box-shadow: 0 8px 16px 0 $shadow-dark;
 }
@@ -23,7 +23,7 @@
   box-sizing: border-box;
   box-shadow: -1px 1px 6px 2px $color-violet-op04;
 
-  background-color: $primary-text-color;
+  background-color: var(--primary-text-color);
   background-blend-mode: soft-light, normal;
 }
 
@@ -39,7 +39,7 @@
 }
 
 .bg-base-block-in {
-  background: linear-gradient(135.37deg, $color-black-op04 4.29%, $color-white-op04 95.6%), $color-white-alt;
+  background: linear-gradient(135.37deg, $color-black-op04 4.29%, $color-white-op04 95.6%), var(--color-white-alt);
   background-blend-mode: soft-light, normal;
 }
 

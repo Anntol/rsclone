@@ -23,7 +23,7 @@ $font-bold: 700;
   margin-left: 1.5rem;
   margin-top: 1.5rem;
   @media screen and (max-width: 540px) {
-		margin-left: .5rem;
+    margin-left: 0.5rem;
   }
 }
 
@@ -38,21 +38,20 @@ $font-bold: 700;
 
   @media screen and (max-width: 730px) {
     width: 100%;
-    margin-right: .5em;
+    margin-right: 0.5em;
     border-radius: 3em;
   }
 }
 
 // Reference from: http://maximilianhoffmann.com/posts/better-font-rendering-on-osx
 @mixin font-smoothing($value: on) {
-    @if $value == on {
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-    }
-    @else {
-        -webkit-font-smoothing: subpixel-antialiased;
-        -moz-osx-font-smoothing: auto;
-    }
+  @if $value == on {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  } @else {
+    -webkit-font-smoothing: subpixel-antialiased;
+    -moz-osx-font-smoothing: auto;
+  }
 }
 
 .title {
@@ -72,7 +71,7 @@ $font-bold: 700;
 .checkbox-text,
 .checkbox-text--goal,
 .checkbox-text--description {
-  transition: all .4s ease;
+  transition: all 0.4s ease;
 }
 
 .checkbox-label {
@@ -96,12 +95,12 @@ $font-bold: 700;
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
-    margin: 1em .5em;
+    margin: 1em 0.5em;
     font-weight: $font-bold;
     overflow: hidden;
     text-overflow: ellipsis;
     text-align: center;
-    color: $secondary-text-color;
+    color: var(--secondary-text-color);
     @media screen and (max-width: 675px) {
       font-size: 22px;
     }
@@ -111,7 +110,7 @@ $font-bold: 700;
     display: flex;
     justify-content: space-between;
     font-size: 20px;
-    color: $secondary-text-color;
+    color: var(--secondary-text-color);
     @media screen and (max-width: 675px) {
       font-size: 18px;
     }
@@ -119,26 +118,26 @@ $font-bold: 700;
     .funding {
       display: inline-block;
       width: 45%;
-      padding: .4em;
+      padding: 0.4em;
       @media screen and (max-width: 570px) {
         width: 43%;
         font-size: 16px;
       }
     }
     .summ {
-      color: $primary-color-btn;
+      color: var(--primary-color-btn);
     }
     .funding {
       text-align: right;
-      color: $secondary-text-color;
-      opacity: .7;
+      color: var(--secondary-text-color);
+      opacity: 0.7;
     }
     .check-btn {
       bottom: -1em;
       display: block;
       width: 80%;
       max-width: 12em;
-      padding: .5em 1.5em;
+      padding: 0.5em 1.5em;
       margin: auto;
       justify-content: center;
       text-align: center;
@@ -203,7 +202,7 @@ $font-bold: 700;
 .checkbox-input:checked + .checkbox-label {
   & .checkbox-text {
     &--bottom .grade {
-      color: $primary-color-btn;
+      color: var(--primary-color-btn);
     }
   }
 }
@@ -234,16 +233,17 @@ $font-bold: 700;
 
 img {
   position: absolute;
-   top: 50%;
-   left: 50%;
-   transform:translate(-50%,-50%);
-   width: 100%;
-   height: 300px;
-   object-fit: cover;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
 }
 
 // ---More projects...
-button:active, button:focus {
+button:active,
+button:focus {
   outline: none;
 }
 button::-moz-focus-inner {
@@ -261,7 +261,9 @@ button::-moz-focus-inner {
   color: $color-white;
 }
 
-.goal { background-color: $primary-color-btn;}
+.goal {
+  background-color: var(--primary-color-btn);
+}
 
 .more-btn {
   display: block;
@@ -271,7 +273,7 @@ button::-moz-focus-inner {
   width: auto;
   padding: 0 1em 0 1em;
   box-sizing: border-box;
-  color: $accent-violet-color;
+  color: var(--accent-violet-color);
   font-size: $font-size-md;
   font-weight: $font-bold;
   border-radius: 2em;

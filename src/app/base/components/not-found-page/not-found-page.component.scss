@@ -1,11 +1,6 @@
-$primary-color-btn:    #15a4cb;
-$accent-color:         #FF4081;
-$color-white-alt:      #EBECF0;
-
 :host {
-  background-color: $color-white-alt;
+  background-color: var(--color-white-alt);
 }
-
 
 .page-404 {
   text-align: center;
@@ -19,8 +14,9 @@ $color-white-alt:      #EBECF0;
   justify-content: center;
   align-items: center;
   opacity: 1;
-  transition: opacity ease-out .3s;
+  transition: opacity ease-out 0.3s;
 }
+
 .error-404 {
   width: 50%;
   min-width: 280px;
@@ -34,8 +30,8 @@ $color-white-alt:      #EBECF0;
   font-size: 20px;
   font-weight: 250;
   letter-spacing: 12px;
-  color: $accent-color;
-  border-top: 1px solid $primary-color-btn;
+  color: var(--accent-color);
+  border-top: 1px solid var(--primary-color-btn);
   padding-top: 10px;
 }
 

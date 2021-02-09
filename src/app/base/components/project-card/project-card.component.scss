@@ -13,25 +13,25 @@
   justify-content: center;
   display: none;
   // @media screen and (max-width: 540px) {
-	// 	margin-left: .5rem;
+  // 	margin-left: .5rem;
   // }
 }
 
 .box-paiment,
 .box-text {
-    position: relative;
-    float: left;
-    width: 550px;
+  position: relative;
+  float: left;
+  width: 550px;
+  height: auto;
+  margin-bottom: 4em;
+  margin-right: 1.5em;
+  @media screen and (max-width: 730px) {
+    width: 100%;
     height: auto;
-    margin-bottom: 4em;
-    margin-right: 1.5em;
-    @media screen and (max-width: 730px) {
-      width: 100%;
-      height: auto;
-      margin-right: .5em;
-      border-radius: 3em;
-    }
+    margin-right: 0.5em;
+    border-radius: 3em;
   }
+}
 
 .form-header {
   display: block;
@@ -39,24 +39,23 @@
   padding: 1em 1.5em;
   font-weight: 500;
   font-size: 18px;
-  color: $secondary-text-color;
+  color: var(--secondary-text-color);
   background: $color-white;
-
 }
 
 #outer-grid {
   display: grid;
   grid-template-rows: 1fr 1fr;
-  grid-column-gap: 4; grid-row-gap: 4;
+  grid-column-gap: 4;
+  grid-row-gap: 4;
   grid-template-rows: 50px;
   grid-gap: 8px;
-
 }
 #outer-grid > div {
   padding: 0.5em;
   font-size: 1.5em;
   background: $color-white;
-  color:$secondary-text-color;
+  color: var(--secondary-text-color);
 }
 
 #outer-grid > div:nth-of-type(6) {
@@ -67,10 +66,10 @@
 button {
   height: 48px;
   line-height: 48px;
-  background-color: $primary-color-btn;
-  transition: background-color .15s linear;
+  background-color: var(--primary-color-btn);
+  transition: background-color 0.15s linear;
   text-transform: uppercase;
-  letter-spacing: .1em;
+  letter-spacing: 0.1em;
   border-radius: 4px;
   border: 0;
   font-size: 15px;
@@ -78,11 +77,13 @@ button {
   font-weight: 500;
   display: inline-block;
 }
-.button, .button:active, .button:focus {
+.button,
+.button:active,
+.button:focus {
   outline: none;
 }
 .w-full {
-  width: 100%!important;
+  width: 100% !important;
 }
 .checkbox-text {
   &--title {
@@ -90,12 +91,12 @@ button {
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
-    margin: 1em .5em;
+    margin: 1em 0.5em;
     font-weight: 500;
     overflow: hidden;
     text-overflow: ellipsis;
     text-align: center;
-    color: $secondary-text-color;
+    color: var(--secondary-text-color);
     @media screen and (max-width: 675px) {
       font-size: 22px;
     }
@@ -105,7 +106,7 @@ button {
     display: flex;
     justify-content: space-between;
     font-size: 20px;
-    color: $secondary-text-color;
+    color: var(--secondary-text-color);
     @media screen and (max-width: 675px) {
       font-size: 18px;
     }
@@ -113,19 +114,19 @@ button {
     .funding {
       display: inline;
       width: 45%;
-      padding: .4em;
+      padding: 0.4em;
       @media screen and (max-width: 570px) {
         width: 43%;
         font-size: 16px;
       }
     }
     .summ {
-      color: $primary-color-btn;
+      color: var(--primary-color-btn);
     }
     .funding {
       text-align: right;
-      color: $secondary-text-color;
-      opacity: .7;
+      color: var(--secondary-text-color);
+      opacity: 0.7;
     }
   }
   &--description {
@@ -198,14 +199,13 @@ button {
 
 img {
   position: absolute;
-   top: 50%;
-   left: 50%;
-   transform:translate(-50%,-50%);
-   width: 100%;
-   height: 180px;
-   object-fit: cover;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
 }
-
 
 .box-line {
   width: 100%;
@@ -218,4 +218,6 @@ img {
   color: $color-white;
 }
 
-.goal { background-color: $primary-color-btn;}
+.goal {
+  background-color: var(--primary-color-btn);
+}
