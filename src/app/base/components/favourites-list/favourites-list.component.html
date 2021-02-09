@@ -1,7 +1,8 @@
 <div class="fav-container">
   <ol *ngIf="this.isUserAuthenticated" class="favourites">
-    <li *ngFor="let fav of userFavourites">
-      {{fav.title}}
+    <li class="fav-item" *ngFor="let fav of userFavourites">
+      {{fav.title}} 
+      <app-delete-item></app-delete-item>
     </li>
   </ol>
 </div>

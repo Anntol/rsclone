@@ -25,6 +25,7 @@ import { NotFoundPageComponent } from './components/not-found-page/not-found-pag
 import { LoaderInterceptor } from '../core/interceptors/loader.interceptor';
 import { GitMenuComponent } from './components/git-menu/git-menu.component';
 import { FavouritesListComponent } from './components/favourites-list/favourites-list.component';
+import { DeleteItemComponent } from './components/delete-item/delete-item.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { FavouritesListComponent } from './components/favourites-list/favourites
     ContentPageComponent,
     NotFoundPageComponent,
     GitMenuComponent,
-    FavouritesListComponent
+    FavouritesListComponent,
+    DeleteItemComponent
   ],
   imports: [
     CommonModule,
@@ -63,7 +65,8 @@ import { FavouritesListComponent } from './components/favourites-list/favourites
     AuthNoticeComponent,
     NotFoundPageComponent,
     GitMenuComponent,
-    FavouritesListComponent
+    FavouritesListComponent,
+    DeleteItemComponent
   ],
   providers: [
     GlobalGivingApiService,
