@@ -1,7 +1,7 @@
 <div class="fav-container">
   <ol *ngIf="this.isUserAuthenticated" class="favourites">
     <li class="fav-item" *ngFor="let fav of userFavourites">
-      {{fav.title}}
+      <a [routerLink]="['/projects/favourites', fav.projectId]">{{fav.title}}</a>
       <app-delete-item (delClick)="onDeleteFavourite(fav.projectId)"></app-delete-item>
     </li>
   </ol>
