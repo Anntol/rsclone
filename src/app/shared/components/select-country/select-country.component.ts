@@ -8,7 +8,7 @@ import { CountriesService } from '../../../core/service/countries.service';
 @Component({
   selector: 'app-select-country',
   templateUrl: './select-country.component.html',
-  styleUrls: ['./select-country.component.scss']
+  styleUrls: ['./select-country.component.scss','../../../../../node_modules/flag-icon-css/css/flag-icon.css']
 })
 export class SelectCountryComponent implements OnInit, OnDestroy {
   private subscription!: Subscription;

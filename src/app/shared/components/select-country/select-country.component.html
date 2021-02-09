@@ -1,6 +1,9 @@
 <mat-form-field appearance="outline">
-  <mat-label>{{ "SETTINGS.COUNTRY" | translate }}</mat-label>
-  <mat-select placeholder="{{ 'SETTINGS.SELECT_COUNTRY' | translate}}" [(ngModel)]="selectedCountry">
-    <mat-option *ngFor="let country of countriesList" [value]="country.iso3166CountryCode">{{ country.name }}</mat-option>
+  <mat-label>{{ 'SETTINGS.COUNTRY' | translate }}</mat-label>
+  <mat-select placeholder="{{ 'SETTINGS.SELECT_COUNTRY' | translate }}" [(ngModel)]="selectedCountry">
+    <mat-option *ngFor="let country of countriesList" [value]="country.iso3166CountryCode">
+      <span class="flag-icon flag-icon-{{ country.iso3166CountryCode | lowercase }}"></span>
+      {{ country.name }}
+    </mat-option>
   </mat-select>
 </mat-form-field>
