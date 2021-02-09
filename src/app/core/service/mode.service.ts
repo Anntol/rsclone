@@ -5,6 +5,7 @@ import { Mode, LIGHT, DARK } from "../../shared/constants/mode";
   providedIn: 'root'
 })
 export class ModeService {
+  // private active: Mode = JSON.parse(localStorage.getItem('rs_userMode')) || LIGHT;
   private active: Mode = LIGHT;
 
   private availableMode: Mode[] = [LIGHT, DARK];
@@ -19,15 +20,16 @@ export class ModeService {
 
   setDarkMode(): void {
     this.setActiveMode(DARK);
+    localStorage.setItem('rs_userMode', JSON.stringify(DARK));
   }
 
   setLightMode(): void {
     this.setActiveMode(LIGHT);
+    localStorage.setItem('rs_userMode', JSON.stringify(LIGHT));
   }
 
   setActiveMode(mode: Mode): void {
     this.active = mode;
-    console.log(this.active);
 
     Object.keys(this.active.properties).forEach((property) => {
       document.documentElement.style.setProperty(
