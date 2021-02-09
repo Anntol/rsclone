@@ -141,6 +141,7 @@ input {
   display: none;
   font-size: 1em;
   color: var(--secondary-text-color);
+  background-color: var(--primary-text-color);
   border-radius: 20px;
   padding-left: 20px;
 }
@@ -261,7 +262,7 @@ section {
 .dropdown-content span:hover {
   cursor: pointer;
   color: var(--primary-color-btn);
-  background-color: $color-white-op04;
+  background-color: $color-white-op08;
 }
 
 .filter-dropdown:hover .dropdown-content {

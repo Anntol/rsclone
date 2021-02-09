@@ -44,8 +44,8 @@ export const DARK: Mode = {
   "--primary-text-color": "#252C42", // btn-text-color
   "--accent-color": "#FF4081",
   "--accent-color-dark": "#C2185B",
-  "--accent-violet-color": "#f2f2f2", // text-color-accent, footer
-  "--secondary-text-color": "#f2f2f2", // text-color-base
+  "--accent-violet-color": "#fefefe", // text-color-accent, footer
+  "--secondary-text-color": "#fefefe", // text-color-base
   "--color-white-alt": "#131924", // bg-base-color
 
   "--color-violet-op04": "#783b7866",
