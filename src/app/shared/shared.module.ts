@@ -15,6 +15,7 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTabsModule } from '@angular/material/tabs';
 import { NgxMatIntlTelInputModule } from 'ngx-mat-intl-tel-input';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { ErrorComponent } from './components/error/error.component';
 import { SelectLangComponent } from './components/select-lang/select-lang.component';
 import { SelectCountryComponent } from './components/select-country/select-country.component';
@@ -39,7 +40,8 @@ import { WarningComponent } from './components/warning/warning.component';
     MatSortModule,
     MatSelectModule,
     MatTabsModule,
-    NgxMatIntlTelInputModule
+    NgxMatIntlTelInputModule,
+    MatAutocompleteModule
   ],
   exports: [
     CommonModule,
@@ -59,7 +61,8 @@ import { WarningComponent } from './components/warning/warning.component';
     MatSelectModule,
     MatTabsModule,
     SelectCountryComponent,
-    NgxMatIntlTelInputModule
+    NgxMatIntlTelInputModule,
+    MatAutocompleteModule
   ],
 })
 export class SharedModule {}
