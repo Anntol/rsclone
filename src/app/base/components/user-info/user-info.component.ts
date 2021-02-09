@@ -30,7 +30,7 @@ export class UserInfoComponent implements OnInit, AfterViewChecked {
   }
 
   ngAfterViewChecked(): void {
-    this.model.country = this.countryCode.selectedCountry;
+    this.model.country = this.countryCode.iso3166CountryCode;
   }
 
   onSubmit(form: NgForm): void {
@@ -44,7 +44,7 @@ export class UserInfoComponent implements OnInit, AfterViewChecked {
     const infoObservable = this.settingsService.getUserInfoSettings();
     infoObservable.subscribe((data) => {
       this.model = data.userInfo;
-      this.countryCode.selectedCountry = this.model.country;
+      this.countryCode.iso3166CountryCode = this.model.country;
     });
   }
 }
