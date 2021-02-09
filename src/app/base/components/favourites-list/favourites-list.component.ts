@@ -44,8 +44,8 @@ export class FavouritesListComponent implements OnInit, OnDestroy {
     }
   }
 
-  onDeleteFavourite(projectId: string): void {
-    this.settingsService.removeUserFavourite(projectId).subscribe((data) => {
+  onDeleteFavourite(projectId: number): void {
+    this.settingsService.removeUserFavourite(projectId.toString()).subscribe((data) => {
       this.userFavourites = data.favourites;
     });
   }
