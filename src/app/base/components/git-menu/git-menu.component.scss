@@ -32,25 +32,25 @@
 .dropup-content {
   display: none;
   position: absolute;
-  background-color: $color-white-alt;
+  background-color: var(--color-white-alt);
   min-width: 200px;
   bottom: 46px;
   right: -106px;
   border-radius: 5px;
-  @media screen and (max-width: 541px){
+  @media screen and (max-width: 541px) {
     right: 1px;
   }
 }
 
 .dropup-content a {
-  color: $secondary-text-color;
+  color: var(--secondary-text-color);
   padding: 12px 12px;
   text-decoration: none;
   display: block;
 }
 
 .dropup-content a:hover {
-  background-color: rgba($primary-color-btn, 0.5);
+  background-color: rgba(var(--primary-color-btn), 0.5);
   border-radius: 5px;
 }
 
@@ -60,5 +60,5 @@
 
 .gh-link::first-letter {
   font-size: 200%;
-  color: $accent-color;
+  color: var(--accent-color);
 }

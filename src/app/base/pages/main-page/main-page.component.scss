@@ -40,7 +40,7 @@
 .bottom {
   position: relative;
   padding: 10px;
-  background-color: $color-white-alt;
+  background-color: var(--color-white-alt);
 }
 
 .nav-vertical {
@@ -48,14 +48,14 @@
 }
 
 .globo {
-  background-color: $primary-color;
+  background-color: var(--primary-color);
 }
 
 .footer-secondary {
   width: 24em;
   z-index: 5;
   padding-top: 1.3em;
-  background-color: $primary-color;
+  background-color: var(--primary-color);
 }
 
 .rsschool-img {
@@ -77,7 +77,7 @@
   display: inline-block;
   margin: 1em;
   font-weight: bold;
-  color: #F6F3EC;
+  color: #f6f3ec;
   text-align: left;
   opacity: 0.7;
 }
@@ -86,7 +86,7 @@
   position: relative;
   padding-left: 34em;
   overflow: auto;
-  background-color: $color-white-alt;
+  background-color: var(--color-white-alt);
 
   .before {
     display: inline-block;
@@ -108,7 +108,7 @@
     font-size: 56px;
     line-height: 64px;
     letter-spacing: -1px;
-    color: $accent-violet-color;
+    color: var(--accent-violet-color);
   }
   p {
     width: 360px;
@@ -116,7 +116,7 @@
     padding-bottom: 1em;
     font-size: 18px;
     line-height: 28px;
-    color: $secondary-text-color;
+    color: var(--secondary-text-color);
     opacity: 0.7;
   }
   .start-btn {

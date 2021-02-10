@@ -4,12 +4,12 @@
   box-sizing: border-box;
   font-weight: 600;
   text-transform: uppercase;
-  color: #F6F3EC;
-  background: $primary-color-btn;
+  color: $color-white;
+  background: var(--primary-color-btn);
   border: 1px solid $color-white-op04;
   border-radius: 2em;
-  box-shadow: 0 8px 16px 0 shadow-dark;
-  transition: .5s;
+  box-shadow: 0 8px 16px 0 $shadow-dark;
+  transition: 0.5s;
 }
 
 .base-button-blue:active,
@@ -21,7 +21,7 @@
 }
 
 .base-vertical {
-  color: $primary-color-btn;
+  color: var(--primary-color-btn);
   -moz-transform: rotate(90deg);
   -webkit-transform: rotate(90deg);
   transform: rotate(90deg);
