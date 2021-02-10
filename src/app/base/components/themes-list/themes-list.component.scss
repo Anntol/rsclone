@@ -6,9 +6,9 @@ ul {
 
 .themes-list {
   display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
   align-items: center;
   padding-left: 0;
 }
@@ -20,7 +20,6 @@ ul {
   justify-content: center;
   align-items: center;
   padding: 1em 1em 0em 2em;
-
 }
 
 .theme-img {
@@ -38,7 +37,7 @@ ul {
 
 .theme-title,
 .theme-name {
-  color: $secondary-text-color;
+  color: var(--secondary-text-color);
   line-height: normal;
   opacity: 0.7;
 }

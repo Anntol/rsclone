@@ -1,7 +1,7 @@
 @import '../../../../theme/colors.scss';
 
 %boxshadow {
-  box-shadow: 0px 3px 3px rgba($secondary-text-color, 0.2);
+  box-shadow: 0px 3px 3px rgba(var(--secondary-text-color), 0.2);
 }
 
 .fav-container {
@@ -18,7 +18,7 @@ ol.favourites {
   margin: 1.75rem 0;
   padding-left: 1rem;
   > li {
-    background: $primary-text-color;
+    background: var(--primary-text-color);
     border-radius: 0 0.5rem 0.5rem 0.5rem;
     @extend %boxshadow;
     counter-increment: gradient-counter;
@@ -28,7 +28,7 @@ ol.favourites {
     position: relative;
     &::before,
     &::after {
-      background: $primary-color;
+      background: var(--primary-color);
       border-radius: 1rem 1rem 0 1rem;
       content: '';
       height: 3rem;

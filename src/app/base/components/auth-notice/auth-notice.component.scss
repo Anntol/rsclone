@@ -11,18 +11,18 @@
 
 .notice {
   font-size: 20px;
-  color: $secondary-text-color;
+  color: var(--secondary-text-color);
   text-align: center;
 }
 
 .notice-btn {
   width: 130px;
   height: 40px;
-  color: $secondary-text-color;
+  color: var(--secondary-text-color);
   font-size: 20px;
   border: none;
   outline: none;
-  background: $primary-text-color;
+  background: var(--primary-text-color);
   cursor: pointer;
   position: relative;
   margin-top: 10px;
@@ -33,23 +33,12 @@
 
 .notice-btn a {
   text-decoration: none;
-  color: $secondary-text-color;
+  color: var(--secondary-text-color);
 }
 
 .notice-btn:before {
-  content: "";
-  background: linear-gradient(
-    45deg,
-    red,
-    orangered,
-    yellow,
-    green,
-    blue,
-    blueviolet,
-    purple,
-    violet,
-    red
-  );
+  content: '';
+  background: linear-gradient(45deg, red, orangered, yellow, green, blue, blueviolet, purple, violet, red);
   position: absolute;
   top: -2px;
   left: -2px;
@@ -65,7 +54,7 @@
 }
 
 .notice-btn:active {
-  color: $primary-text-color;
+  color: var(--primary-text-color);
 }
 
 .notice-btn:active:after {
@@ -78,11 +67,11 @@
 
 .notice-btn:after {
   z-index: -1;
-  content: "";
+  content: '';
   position: absolute;
   width: 100%;
   height: 100%;
-  background: $primary-text-color;
+  background: var(--primary-text-color);
   left: 0;
   top: 0;
   border-radius: 10px;

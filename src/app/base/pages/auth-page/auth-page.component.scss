@@ -2,7 +2,7 @@
 
 .auth {
   display: -webkit-flex;
-	display: flex;
+  display: flex;
 }
 
 .navLogo {
@@ -10,7 +10,7 @@
 }
 
 .content {
-	display: -webkit-flex;
+  display: -webkit-flex;
   display: flex;
   width: calc(100% - 9em);
   margin: 0 auto;
@@ -19,7 +19,7 @@
   align-items: center;
   border-radius: 10px;
 
-  background-color: $color-white-alt;
+  background-color: var(--color-white-alt);
 
   .lang {
     position: absolute;
@@ -50,9 +50,9 @@ mat-form-field {
 
 .auth-links a {
   text-decoration: none;
-  color: rgba($secondary-text-color, 0.8);
+  color: rgba(var(--secondary-text-color), 0.8);
 }
 
 mat-card {
-  background-color: $primary-text-color;
+  background-color: var(--primary-text-color);
 }

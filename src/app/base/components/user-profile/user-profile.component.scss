@@ -35,9 +35,9 @@
 .profile,
 .settings,
 .info-extended {
-  background: $primary-text-color;
+  background: var(--primary-text-color);
   border-radius: 1em;
-  box-shadow: 0px 3px 3px rgba($secondary-text-color, 0.2);
+  box-shadow: 0px 3px 3px rgba(var(--secondary-text-color), 0.2);
   align-self: center;
 }
 
@@ -59,7 +59,7 @@
   margin-left: 8em;
   background-size: cover;
   border-radius: 50%;
-  // box-shadow: 0px 0px 0px 4pt $secondary-text-color;
+  // box-shadow: 0px 0px 0px 4pt var(--secondary-text-color);
   transition: all 1s ease-in-out;
 }
 
@@ -71,7 +71,7 @@
 .location,
 .counter-value,
 .el-title {
-  color: $secondary-text-color;
+  color: var(--secondary-text-color);
 }
 
 .el-title {
@@ -82,7 +82,7 @@
 .location,
 .counter-value,
 .counter-title {
-  color: $secondary-text-color;
+  color: var(--secondary-text-color);
 }
 
 .el-title {
@@ -121,7 +121,7 @@
 }
 
 .vertical-line {
-  border-left: 1px solid $secondary-text-color;
+  border-left: 1px solid var(--secondary-text-color);
   height: 60px;
 }
 

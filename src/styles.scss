@@ -36,9 +36,11 @@ $rsclone-theme: mat-light-theme((
 
 /* You can add global styles to this file, and also import other style files */
 :root {
+
   --primary-color:        #15a4cb; //left-menu-color
   --primary-color-btn:    #15a4cb; //btn-color
-  --primary-text-color:   #f2f2f2; //btn-text-color, logo-color, bg-card-color
+  --primary-text-color:   #fefefe; //btn-text-color, logo-color, bg-card-color
+  --accent-color:         #FF4081;
   --accent-color-dark:    #C2185B;
   --accent-violet-color:  #783b78; //text-color-accent, footer
   --secondary-text-color: #151515; //text-color-base
@@ -47,34 +49,13 @@ $rsclone-theme: mat-light-theme((
   --shadow-ligth:        #fafbfff2;
   --shadow-dark:         #0028780c;
   --shadow-accent:       #763a76b9;
-
-  --body-bg: var(--color-white-alt);
-  --left-bg: var(--primary-color);
-  --card-bg: var(--primary-text-color);
-  // --border: var(--color-3);
-  // --shadow: rgba(0,0,0,.1);
-  --title: var(--accent-violet-color);
-  --text: var(--secondary-text-color);
-  --link: var(--color-4-darker);
-  --link-hover: var(--color-4);
-  --button-bg: var(--primary-color-btn);
-}
-
-[data-theme="dark"] {
-  --primary-color:        #252c42; //left-menu-color
-  --primary-color-btn:    #15a4cb; //btn-color
-  --primary-text-color:   #7878ab; //btn-text-color, logo-color, bg-card-color
-  --accent-color:         #FF4081;
-  --accent-color-dark:    #C2185B;
-  --accent-violet-color:  #252042; //text-color-accent, footer
-  --secondary-text-color: #f2f2f2; //text-color-base
-  --color-white-alt:      #131924; //bg-base-color
 }
 
 :host {
   font-family: -apple-system, BlinkMacSystemFont, 'Fira Sans', sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   font-size: 16px;
-  color: var(--text);
+  color: var(--secondary-text-color);
+  background-color: var(--color-white-alt);
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -94,7 +75,7 @@ p {
 }
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0; }
 
 
 ::-webkit-scrollbar {

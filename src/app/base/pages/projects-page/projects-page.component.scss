@@ -49,17 +49,17 @@
 .bottom {
   position: relative;
   padding: 10px;
-  background-color: $color-white-alt;
+  background-color: var(--color-white-alt);
 }
 
 .nav-vertical {
-  background-color: $primary-color;
+  background-color: var(--primary-color);
 }
 
 .footer-secondary {
   width: 9em;
   z-index: 4;
-  padding-top: .5em;
+  padding-top: 0.5em;
   @media screen and (max-width: 540px) {
     background-color: lighten(#252042, 15%);
     width: 100%;
@@ -86,7 +86,7 @@
 }
 .creation {
   font-weight: bold;
-  color: #F6F3EC;
+  color: #f6f3ec;
   text-align: center;
   opacity: 0.7;
   @media screen and (max-width: 540px) {
@@ -98,7 +98,7 @@
 .content {
   position: relative;
   overflow-y: auto;
-  background-color: $color-white-alt;
+  background-color: var(--color-white-alt);
   @media screen and (max-width: 540px) {
     margin-left: 0;
   }
@@ -140,7 +140,8 @@ input {
   border: 0;
   display: none;
   font-size: 1em;
-  color: $secondary-text-color;
+  color: var(--secondary-text-color);
+  background-color: var(--primary-text-color);
   border-radius: 20px;
   padding-left: 20px;
 }
@@ -157,7 +158,7 @@ input {
   height: 42px;
   position: absolute;
   border-radius: 50%;
-  color: $accent-violet-color;
+  color: var(--accent-violet-color);
   text-align: center;
   font-size: 1.5em;
   font-weight: 600;
@@ -174,8 +175,8 @@ form:hover input {
 }
 
 form:hover .material-icons {
-  background: $accent-violet-color;
-  color: $primary-text-color;
+  background: var(--accent-violet-color);
+  color: var(--primary-text-color);
 }
 
 /* Sort block */
@@ -185,7 +186,7 @@ section {
   margin-left: 2.5em;
   font-size: 16px;
   font-weight: 400;
-  color: $secondary-text-color;
+  color: var(--secondary-text-color);
   opacity: 0.7;
   @media screen and (max-width: 540px) {
     letter-spacing: 0.05em;
@@ -193,7 +194,7 @@ section {
 
   .filter-label {
     display: table-cell;
-    padding-right: .1em;
+    padding-right: 0.1em;
     min-width: 100px;
   }
 
@@ -202,7 +203,7 @@ section {
   }
 
   .filter-button-row .mat-button-base {
-    margin: 0 .1rem 0 0;
+    margin: 0 0.1rem 0 0;
   }
 
   .underline {
@@ -212,17 +213,17 @@ section {
     background-position: 0% 100%;
     background-repeat: no-repeat;
     background-size: 100% 1px;
-    transition: background-size .3s;
+    transition: background-size 0.3s;
   }
 }
 
 .filter-container {
-  display:flex;
+  display: flex;
   justify-content: center;
 }
 
 ::ng-deep .mat-sort-header-arrow {
-  color: $secondary-text-color;
+  color: var(--secondary-text-color);
 }
 
 /* Filter button */
@@ -233,7 +234,7 @@ section {
 .filter-dropdown {
   position: absolute;
   top: 1em;
-  left: .5em;
+  left: 0.5em;
   @media screen and (max-width: 540px) {
     right: 3em;
   }
@@ -245,13 +246,13 @@ section {
   display: none;
   min-width: 10em;
   font-weight: 500;
-  background-color: $color-white-alt;
+  background-color: var(--color-white-alt);
   border-radius: 8px;
   box-shadow: 0px 4px 8px 0px $shadow-accent;
 }
 
 .dropdown-content span {
-  color: $accent-violet-color;
+  color: var(--accent-violet-color);
   padding: 12px 16px;
   text-decoration: none;
   text-transform: uppercase;
@@ -260,8 +261,8 @@ section {
 
 .dropdown-content span:hover {
   cursor: pointer;
-  color: $primary-color-btn;
-  background-color: $color-white-op04;
+  color: var(--primary-color-btn);
+  background-color: $color-white-op08;
 }
 
 .filter-dropdown:hover .dropdown-content {
