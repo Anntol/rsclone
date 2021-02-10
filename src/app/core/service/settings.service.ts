@@ -5,7 +5,7 @@ import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { ErrorComponent } from '../../shared/components/error/error.component';
 import { environment } from '../../../environments/environment';
-import { IFavourite } from '../models/favourite.model';
+import { IFavourite, IFavouriteResponse } from '../models/favourite.model';
 import { IUserInfo } from '../models/userinfo.model';
 
 @Injectable({
@@ -24,18 +24,18 @@ export class SettingsService {
     return throwError(errorMessage);
   }
 
-  addUserFavourite(favProject: IFavourite): void {
-    this.http.post(`${this.serverUrl}/api/userFavourite/`, favProject)
-      .pipe(catchError((e) => this.handleError(e))).subscribe();
+  addUserFavourite(favProject: IFavourite): Observable<IFavouriteResponse> {
+    return this.http.post<IFavouriteResponse>(`${this.serverUrl}/api/userFavourite/`, favProject)
+      .pipe(catchError((e) => this.handleError(e)));
   }
 
-  removeUserFavourite(projectId: string): void {
-    this.http.delete(`${this.serverUrl}/api/userFavourite/${projectId}`)
-      .pipe(catchError((e) => this.handleError(e))).subscribe();
+  removeUserFavourite(projectId: string): Observable<IFavouriteResponse> {
+    return this.http.delete<IFavouriteResponse>(`${this.serverUrl}/api/userFavourite/${projectId}`)
+      .pipe(catchError((e) => this.handleError(e)));
   }
 
-  getUserFavourites(): Observable<{message: string, favourites: IFavourite[]}> {
-    return this.http.get< { message: string, favourites: IFavourite[]}>(`${this.serverUrl}/api/userFavourite/`)
+  getUserFavourites(): Observable<IFavouriteResponse> {
+    return this.http.get<IFavouriteResponse>(`${this.serverUrl}/api/userFavourite/`)
       .pipe(catchError((e) => this.handleError(e)));
   }
 

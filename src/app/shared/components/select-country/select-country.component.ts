@@ -15,7 +15,7 @@ export class SelectCountryComponent implements OnInit, OnDestroy {
 
   public countriesList!: ICountry[];
 
-  selectedCountry!: string;
+  iso3166CountryCode!: string;
 
   constructor(private countries: CountriesService, public translate: TranslateService) {}
 

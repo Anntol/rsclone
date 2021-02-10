@@ -12,7 +12,7 @@ import { SelectCountryComponent } from '../../../shared/components/select-countr
   styleUrls: ['./user-info.component.scss', '../../../../theme/buttons.scss']
 })
 export class UserInfoComponent implements OnInit, AfterViewChecked {
-  @ViewChild(SelectCountryComponent) country!: SelectCountryComponent;
+  @ViewChild(SelectCountryComponent) countryCode!: SelectCountryComponent;
 
   model: IUserInfo = {
     firstName: '',
@@ -25,13 +25,12 @@ export class UserInfoComponent implements OnInit, AfterViewChecked {
 
   constructor(private settingsService: SettingsService) {}
 
-  ngAfterViewChecked(): void {
-    this.model.country = this.country.selectedCountry;
-    // console.log(this.model.country);
-  }
-
   ngOnInit(): void {
     this.getUserInfo();
+  }
+
+  ngAfterViewChecked(): void {
+    this.model.country = this.countryCode.iso3166CountryCode;
   }
 
   onSubmit(form: NgForm): void {
@@ -45,7 +44,7 @@ export class UserInfoComponent implements OnInit, AfterViewChecked {
     const infoObservable = this.settingsService.getUserInfoSettings();
     infoObservable.subscribe((data) => {
       this.model = data.userInfo;
-      // this.model.country = this.country.selectedCountry;
+      this.countryCode.iso3166CountryCode = this.model.country;
     });
   }
 }

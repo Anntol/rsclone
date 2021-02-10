@@ -15,12 +15,10 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTabsModule } from '@angular/material/tabs';
 import { NgxMatIntlTelInputModule } from 'ngx-mat-intl-tel-input';
-
 import { ShareButtonsPopupModule } from 'ngx-sharebuttons/popup';
 import { ShareIconsModule } from 'ngx-sharebuttons/icons';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-// import { FaIconLibrary } from '@fortawesome/angular-fontawesome';
-
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { ErrorComponent } from './components/error/error.component';
 import { SelectLangComponent } from './components/select-lang/select-lang.component';
 import { SelectCountryComponent } from './components/select-country/select-country.component';
@@ -48,7 +46,8 @@ import { WarningComponent } from './components/warning/warning.component';
     NgxMatIntlTelInputModule,
     ShareButtonsPopupModule,
     ShareIconsModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    MatAutocompleteModule
   ],
   exports: [
     CommonModule,
@@ -71,7 +70,8 @@ import { WarningComponent } from './components/warning/warning.component';
     NgxMatIntlTelInputModule,
     ShareButtonsPopupModule,
     ShareIconsModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    MatAutocompleteModule
   ]
 })
 export class SharedModule {}

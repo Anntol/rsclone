@@ -59,7 +59,6 @@
   margin-left: 8em;
   background-size: cover;
   border-radius: 50%;
-  // box-shadow: 0px 0px 0px 4pt var(--secondary-text-color);
   transition: all 1s ease-in-out;
 }
 
@@ -76,6 +75,7 @@
 
 .el-title {
   font-size: 18px;
+  text-align: center;
 }
 
 .user-name,
@@ -98,7 +98,6 @@
 .location {
   font-size: 16px;
   text-align: center;
-  // padding-top: 10px;
   margin-bottom: 10px;
 }
 
@@ -127,7 +126,7 @@
 
 .counter-block {
   position: relative;
-  width: 5em;
+  width: 8em;
   height: 5em;
   margin: auto;
   z-index: 999;
