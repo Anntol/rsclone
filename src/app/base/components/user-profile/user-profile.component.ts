@@ -48,9 +48,11 @@ export class UserProfileComponent implements OnInit, OnDestroy, AfterViewChecked
   }
 
   ngAfterViewChecked(): void {
-    this.translate.use(this.selectLang.myLanguage);
-    this.cdr.detectChanges();
+    if (this.selectLang.myLanguage !== undefined) {
+      this.translate.use(this.selectLang.myLanguage)
+    }
     if (this.isUserAuthenticated) this.model = this.userInfo.model;
+    this.cdr.detectChanges();
   }
 
   ngOnDestroy(): void {

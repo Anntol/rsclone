@@ -109,7 +109,7 @@ export class ProjectsPageComponent implements AfterViewChecked, OnInit {
   }
 
   ngAfterViewChecked(): void {
-    if (this.pathId !== 'settings') {
+    if (this.selectLang.myLanguage !== undefined) {
       this.translate.use(this.selectLang.myLanguage);
     }
     this.cdr.detectChanges();
