@@ -10,10 +10,10 @@ const router = express.Router();
 router.post('/', verifyToken, (async (req: RequestWithUserData, res: express.Response) => {
   if (req.userData) {
     await settingsService.AddFavourite(req.body, req.userData.userId)
-    .then((newFavourite) => {
+    .then((userFavourites) => {
       res.status(201).json({
         message: 'Favourite created!',
-        ...newFavourite
+        favourites: userFavourites.favourites
       });
     },
     (error: AppError) => {
@@ -30,10 +30,10 @@ router.post('/', verifyToken, (async (req: RequestWithUserData, res: express.Res
 router.delete('/:projectId', verifyToken, (async (req: RequestWithUserData, res: express.Response) => {
   if (req.userData) {
     await settingsService.RemoveFavourite(+req.params.projectId, req.userData.userId)
-    .then((userFavourite) => {
+    .then((userFavourites) => {
       res.status(200).json({
         message: 'Favourite removed!',
-        ...userFavourite
+        favourites: userFavourites.favourites
       });
     },
     (error: AppError) => {
