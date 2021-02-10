@@ -41,8 +41,35 @@ export class ProjectCardComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.subscription = this.route.params.subscribe((params): void => {
+      console.log(params);
       // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
       this.projectId = params.id;
+    });
+
+    this.getProjectById(this.projectId);
+  }
+
+  public getProjectById(id: number): void {
+    this.subscription = this.globalGivingApiService
+    .getActiveProjectById(id)
+    .pipe(
+      catchError((error) => {
+        this.error = true;
+        return EMPTY;
+      })
+    ).subscribe((result: IProjectById): void => {
+      if (result) {
+        this.project = result.project;
+        this.fundingIndicator = (Math.floor(100 * (result.project.funding / result.project.goal)) > 100) ? '100%'
+          : `${Math.floor(100 * (result.project.funding / result.project.goal))}%`;
+        const { donationOptions } = result.project;
+         console.log(this.project, donationOptions);
+        this.error = false;
+        this.errorMessage = '';
+      } else {
+        this.errorMessage = 'No projects found! Please try again.';
+        console.log(this.errorMessage);
+      }
     });
 }
 
