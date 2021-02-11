@@ -50,7 +50,8 @@
 }
 
 .dropup-content a:hover {
-  background-color: rgba(var(--primary-color-btn), 0.5);
+  background-color: var(--primary-color-btn);
+  opacity: 0.75;
   border-radius: 5px;
 }
 
