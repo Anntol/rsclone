@@ -17,7 +17,9 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { NgxMatIntlTelInputModule } from 'ngx-mat-intl-tel-input';
 import { ShareButtonsPopupModule } from 'ngx-sharebuttons/popup';
 import { ShareIconsModule } from 'ngx-sharebuttons/icons';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { faShare } from '@fortawesome/free-solid-svg-icons/faShare';
+import { faTimesCircle } from '@fortawesome/free-solid-svg-icons/faTimesCircle';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { ErrorComponent } from './components/error/error.component';
 import { SelectLangComponent } from './components/select-lang/select-lang.component';
@@ -74,4 +76,8 @@ import { WarningComponent } from './components/warning/warning.component';
     MatAutocompleteModule
   ]
 })
-export class SharedModule {}
+export class SharedModule {
+  constructor(iconLibrary: FaIconLibrary) {
+    iconLibrary.addIcons(faTimesCircle, faShare);
+  }
+}
