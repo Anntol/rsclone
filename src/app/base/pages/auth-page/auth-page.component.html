@@ -1,7 +1,7 @@
 <div class="auth">
   <div class="content">
     <mat-card>
-      <form (submit)="onSubmit(authForm)" #authForm="ngForm">
+      <form (submit)="onSubmit(authForm)" #authForm="ngForm" [ngClass]="{'dark-theme-mode':isDarkMode}">
         <mat-form-field>
           <input matInput name="email" ngModel type="email" placeholder="{{ 'AUTH.EMAIL' | translate }}" #emailInput="ngModel" required email />
           <mat-error *ngIf="emailInput.invalid">{{ 'AUTH.EMAIL_INVALID' | translate }}</mat-error>

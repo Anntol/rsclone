@@ -89,7 +89,8 @@
     "PHONE": "Phone number",
     "CITY": "City",
     "REG_NOTICE": "Please register to see additional info!",
-    "PHONE_ERROR": "Please, enter correct phone number!"
+    "PHONE_ERROR": "Please, enter correct phone number!",
+    "SAVE": "Save"
   },
   "PAGE": {
     "NOT_FOUND": "Not found",
