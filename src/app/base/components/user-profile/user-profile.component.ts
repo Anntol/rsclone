@@ -29,6 +29,8 @@ export class UserProfileComponent implements OnInit, OnDestroy {
 
   isUserAuthenticated = false;
 
+  isDarkMode!: boolean;
+
   private authStatusSubscriber!: Subscription;
 
   userFavourites!: IFavourite[];
@@ -46,6 +48,11 @@ export class UserProfileComponent implements OnInit, OnDestroy {
     this.authStatusSubscriber = this.authService.getAuthStatusListener().subscribe((isAuthenticated) => {
       this.isUserAuthenticated = isAuthenticated
     });
+
+    const dataMode = localStorage.getItem('rs_userMode');
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+    if (dataMode !== null) this.isDarkMode = JSON.parse(dataMode).name === "dark";
+    
     this.getFavs();
     this.getUserInfo();
   }

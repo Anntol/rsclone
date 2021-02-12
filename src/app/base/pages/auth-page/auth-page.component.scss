@@ -50,7 +50,7 @@ mat-form-field {
 
 .auth-links a {
   text-decoration: none;
-  color: rgba(var(--secondary-text-color), 0.8);
+  color: var(--secondary-text-color);
 }
 
 mat-card {

@@ -1,5 +1,5 @@
 import {
- Component, OnInit, ViewChild , ChangeDetectorRef, OnDestroy
+ Component, OnInit, ViewChild , ChangeDetectorRef, OnDestroy, AfterViewChecked
 } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
@@ -18,7 +18,7 @@ import { SelectLangComponent } from '../../../shared/components/select-lang/sele
     '../../../../theme/noselect.scss'
   ]
 })
-export class AuthPageComponent implements OnInit, OnDestroy {
+export class AuthPageComponent implements OnInit, OnDestroy, AfterViewChecked {
   @ViewChild(SelectLangComponent) selectLang!: SelectLangComponent;
 
   subscription!: SubscriptionLike;
@@ -27,11 +27,19 @@ export class AuthPageComponent implements OnInit, OnDestroy {
 
   returnUrl = '/';
 
+  isDarkMode!: boolean;
+
   constructor(
     public authService: AuthService,
     private route: ActivatedRoute,
     private cdr: ChangeDetectorRef
 ) {}
+
+  ngAfterViewChecked(): void {
+    const dataMode = localStorage.getItem('rs_userMode');
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+    if (dataMode !== null) this.isDarkMode = JSON.parse(dataMode).name === "dark";
+  }
 
   ngOnInit(): void {
     this.subscription = this.route.url.subscribe((data) => {
