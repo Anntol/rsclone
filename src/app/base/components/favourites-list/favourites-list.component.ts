@@ -1,7 +1,6 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs';
-import { AuthService } from 'src/app/core/service/auth.service';
-import { SettingsService } from 'src/app/core/service/settings.service';
+import {
+ Component, Input, Output, EventEmitter
+} from '@angular/core';
 import { IFavourite } from '../../../core/models/favourite.model';
 
 @Component({
@@ -12,41 +11,14 @@ import { IFavourite } from '../../../core/models/favourite.model';
     './favourites-list-media.scss'
   ]
 })
-export class FavouritesListComponent implements OnInit, OnDestroy {
-  isUserAuthenticated = false;
+export class FavouritesListComponent {
+  @Input() isUserAuthenticated!: boolean;
 
-  private authStatusSubscriber!: Subscription;
+  @Input() userFavourites!: IFavourite[];
 
-  constructor(private settingsService: SettingsService, private authService: AuthService) {}
-
-  userFavourites!: IFavourite[]
-
-  ngOnInit(): void {
-    this.isUserAuthenticated = this.authService.getIsUserAuthenticated();
-    this.authStatusSubscriber = this.authService
-    .getAuthStatusListener()
-    .subscribe((isAuthenticated) => {
-      this.isUserAuthenticated = isAuthenticated;
-    });
-    this.getFavs();
-  }
-
-  ngOnDestroy(): void {
-    this.authStatusSubscriber.unsubscribe();
-  }
-
-  getFavs(): void {
-    if (this.isUserAuthenticated) {
-      const favsObservable = this.settingsService.getUserFavourites();
-      favsObservable.subscribe((data) => {
-        this.userFavourites = data.favourites;
-      });
-    }
-  }
+  @Output() favouritesDel: EventEmitter<number> = new EventEmitter<number>();
 
   onDeleteFavourite(projectId: number): void {
-    this.settingsService.removeUserFavourite(projectId.toString()).subscribe((data) => {
-      this.userFavourites = data.favourites;
-    });
+    this.favouritesDel.emit(projectId);
   }
 }

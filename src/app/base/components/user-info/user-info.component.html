@@ -1,27 +1,27 @@
 <form (ngSubmit)="onSubmit(userInfoForm)" #userInfoForm="ngForm">
   <mat-form-field appearance="outline">
     <mat-label>{{ "SETTINGS.FIRST_NAME" | translate }}</mat-label>
-    <input matInput [(ngModel)]="model.firstName" name="firstName" />
+    <input matInput [(ngModel)]="modelUser.firstName" name="firstName" />
   </mat-form-field>
 
   <mat-form-field appearance="outline">
     <mat-label> {{ "SETTINGS.LAST_NAME" | translate }} </mat-label>
-    <input matInput [(ngModel)]="model.lastName" name="lastName" />
+    <input matInput [(ngModel)]="modelUser.lastName" name="lastName" />
   </mat-form-field>
 
   <mat-form-field appearance="outline">
     <mat-label>{{ 'SETTINGS.EMAIL' | translate }}</mat-label>
-    <input matInput [(ngModel)]="model.email" name="email" readonly />
+    <input matInput [(ngModel)]="modelUser.email" name="email" readonly />
   </mat-form-field>
 
   <mat-form-field appearance="outline">
     <mat-label>{{ "SETTINGS.CITY" | translate }}</mat-label>
-    <input matInput [(ngModel)]="model.city" name="city" />
+    <input matInput [(ngModel)]="modelUser.city" name="city" />
   </mat-form-field>
 
   <app-select-country
     class="countries-select"
-    [(ngModel)]="model.country"
+    [(ngModel)]="modelUser.country"
     name="selectedCountry"
     ngDefaultControl>
   </app-select-country>
@@ -31,7 +31,7 @@
       [preferredCountries]="['by', 'ua', 'kz', 'ru']"
       [enablePlaceholder]="true"
       [enableSearch]="true"
-      [(ngModel)]="model.phone"
+      [(ngModel)]="modelUser.phone"
       name="phone"
       #phone
     >

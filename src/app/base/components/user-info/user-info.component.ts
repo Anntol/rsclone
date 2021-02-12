@@ -1,9 +1,8 @@
 import {
-Component, EventEmitter, OnInit, ViewChild, Output
+Component, EventEmitter, ViewChild, Output, Input, SimpleChanges, OnChanges
 } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { IUserInfo } from '../../../core/models/userinfo.model';
-import { SettingsService } from '../../../core/service/settings.service';
 import { SelectCountryComponent } from '../../../shared/components/select-country/select-country.component';
 
 @Component({
@@ -11,40 +10,24 @@ import { SelectCountryComponent } from '../../../shared/components/select-countr
   templateUrl: './user-info.component.html',
   styleUrls: ['./user-info.component.scss', '../../../../theme/buttons.scss']
 })
-export class UserInfoComponent implements OnInit {
+export class UserInfoComponent implements OnChanges {
   @ViewChild(SelectCountryComponent) countryCode!: SelectCountryComponent;
 
-  model: IUserInfo = {
-    firstName: '',
-    lastName: '',
-    city: '',
-    country: '',
-    phone: '',
-    email: ''
-  };
+  @Input() modelUser!: IUserInfo;
 
-  @Output() userName: EventEmitter<string> = new EventEmitter<string>();
+  @Output() userData: EventEmitter<IUserInfo> = new EventEmitter<IUserInfo>();
 
-  constructor(private settingsService: SettingsService) {}
-
-  ngOnInit(): void {
-    this.getUserInfo();
+  ngOnChanges(changes: SimpleChanges): void {
+    if (this.countryCode && changes.modelUser) {
+      this.countryCode.iso3166CountryCode = this.modelUser.country;
+    }
   }
 
   onSubmit(form: NgForm): void {
     if (form.invalid) {
       return;
     }
-    this.model.country = this.countryCode.iso3166CountryCode;
-    this.userName.emit(this.model.firstName);
-    this.settingsService.SaveUserInfo(this.model);
-  }
-
-  getUserInfo(): void {
-    const infoObservable = this.settingsService.getUserInfoSettings();
-    infoObservable.subscribe((data) => {
-      this.model = data.userInfo;
-      this.countryCode.iso3166CountryCode = this.model.country;
-    });
+    this.modelUser.country = this.countryCode.iso3166CountryCode;
+    this.userData.emit(this.modelUser);
   }
 }
