@@ -44,11 +44,8 @@
 
 #outer-grid {
   display: grid;
-  grid-template-rows: 1fr 1fr;
-  grid-column-gap: 4;
-  grid-row-gap: 4;
-  grid-template-rows: 50px;
-  grid-gap: 8px;
+  grid-template-rows: 4em 4em;
+  grid-gap: 0.7em;
 }
 #outer-grid > div {
   padding: 0.5em;
@@ -64,6 +61,7 @@
 
 button {
   height: 48px;
+  margin-top: 0.7em;
   line-height: 48px;
   background-color: var(--primary-color-btn);
   transition: background-color 0.15s linear;

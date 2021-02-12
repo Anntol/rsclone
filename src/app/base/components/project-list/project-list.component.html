@@ -30,28 +30,20 @@
                 group
               </span>
               <span class="small">{{ project.numberOfDonations }}</span>
-
               <span
                 class="material-icons grade"
                 style="vertical-align: middle;"
                 matTooltip="{{ 'PROJECTS.FAVORITES' | translate }}">
                 grade
               </span>
-              <span
-                class="material-icons share"
-                style="vertical-align: middle;"
-                matTooltip="{{ 'PROJECTS.SHARE' | translate }}">
-                share
-              </span>
-             
             </div>
           </div>
           <div class="box-line">
             <div class="indicator goal" [style.width]="project.fundingIndicator"></div>
           </div>
           <span class="checkbox-text--donate">
-            <div class="summ">{{ project.goal | currency }}</div>
-            <div class="funding">{{ project.funding | currency }}</div>
+            <div class="summ">{{ project.funding | currency }}</div>
+            <div class="funding">{{ project.goal | currency }}</div>
           </span>
           <div class="checkbox-text--title">{{ project.title }}</div>
           <span class="checkbox-text--donate">

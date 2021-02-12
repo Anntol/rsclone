@@ -1,6 +1,5 @@
 <H2 class="box-title">{{ projectId }}</H2>
 <!-- <H2 class="box-title">{{ project.title }}</H2> -->
-<share-popup-button>Share</share-popup-button>
 <div class="box-donate">
   <div class="box-paiment">
     <form autocomplete="off" id="general">
@@ -64,12 +63,12 @@
             matTooltip="{{ 'PROJECTS.FAVORITES' | translate }}">
             grade
           </span>
-          <span
+          <!-- <span
             class="material-icons share"
             style="vertical-align: middle;"
             matTooltip="{{ 'PROJECTS.SHARE' | translate }}">
             share
-          </span>
+          </span> -->
         </div>
       </div>
     </div>
@@ -77,9 +76,15 @@
       <div class="box-line">
         <div class="indicator goal" [style.width]="fundingIndicator"></div>
       </div>
-      <!-- <div class="summ">{{ project.goal | currency }}</div>
-      <div class="funding">{{ project.funding | currency }}</div> -->
+      <!-- <div class="summ">{{ project.funding | currency }}</div>
+      <div class="funding">{{ project.goal | currency }}</div> -->
     </span>
     <!-- <div class="checkbox-text--title">{{ project.summary }}</div> -->
   </div>
 </div>
+<share-popup-button [theme]="'material-dark'"
+  [include]="['facebook','twitter','linkedin', 'telegram','messenger','whatsapp', 'reddit','tumblr','mix','viber','vk','xing', 'pinterest', 'line','sms','email','print','copy']"
+  [show]="9"
+  [size]="4"
+  [title]="'Tatsiana'"
+ ></share-popup-button>
