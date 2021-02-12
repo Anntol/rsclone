@@ -56,3 +56,9 @@ mat-form-field {
 mat-card {
   background-color: var(--primary-text-color);
 }
+
+input.mat-input-element {
+  padding: 10px 0 9px 9px;
+  border-radius: 3px;
+  width: 95%;
+}
