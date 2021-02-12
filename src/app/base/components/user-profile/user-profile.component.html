@@ -2,7 +2,7 @@
   <div class="profile">
     <div class="content noselect">
       <img class="avatar" src="../../../../assets/user_unknown.jpg" />
-      <h3 class="user-name" *ngIf="this.isUserAuthenticated">Hi, {{ model.firstName}}!</h3>
+      <h3 class="user-name" *ngIf="this.isUserAuthenticated">Hi, {{ userName }}!</h3>
       <div class="statistics">
         <div class="statistics-box">
           <div class="counter-block">
@@ -46,7 +46,7 @@
         </ng-template>
         <app-auth-notice *ngIf="!this.isUserAuthenticated"></app-auth-notice>
         <div *ngIf="this.isUserAuthenticated">
-          <app-user-info></app-user-info>
+          <app-user-info (userName)="userNameHandler($event)"></app-user-info>
         </div>
       </mat-tab>
       <mat-tab>

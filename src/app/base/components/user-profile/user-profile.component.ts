@@ -1,44 +1,41 @@
 import {
-  AfterViewChecked, ViewChild, Component, OnDestroy, OnInit, ChangeDetectorRef
+ViewChild, Component, OnDestroy, OnInit, Input, ChangeDetectionStrategy, ChangeDetectorRef
 } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { TranslateService } from '@ngx-translate/core';
 import { AuthService } from '../../../core/service/auth.service';
-import { SettingsService } from '../../../core/service/settings.service';
 import { UserInfoComponent } from '../user-info/user-info.component';
-import { IUserInfo } from '../../../core/models/userinfo.model';
-import { SelectLangComponent } from '../../../shared/components/select-lang/select-lang.component';
+// import { IUserInfo } from '../../../core/models/userinfo.model';
 
 @Component({
   selector: 'app-user-profile',
   templateUrl: './user-profile.component.html',
-  styleUrls: ['./user-profile.component.scss', './user-profile-adaptive.scss', '../../../../theme/noselect.scss']
+  styleUrls: [
+    './user-profile.component.scss',
+    './user-profile-adaptive.scss',
+    '../../../../theme/noselect.scss'
+  ],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 
-export class UserProfileComponent implements OnInit, OnDestroy, AfterViewChecked {
- @ViewChild(UserInfoComponent) userInfo!: UserInfoComponent;
+export class UserProfileComponent implements OnInit, OnDestroy {
+//  @ViewChild(UserInfoComponent) userInfo!: UserInfoComponent;
 
- @ViewChild(SelectLangComponent) selectLang!: SelectLangComponent;
-
-  model: IUserInfo = {
-    firstName: '',
-    lastName: '',
-    city: '',
-    country: '',
-    phone: '',
-    email: ''
-  };
+  // model: IUserInfo = {
+  //   firstName: '',
+  //   lastName: '',
+  //   city: '',
+  //   country: '',
+  //   phone: '',
+  //   email: ''
+  // };
 
   isUserAuthenticated = false;
 
+  @Input() userName = 'User';
+
   private authStatusSubscriber!: Subscription;
 
-  constructor(
-    private settingsService: SettingsService,
-    private authService: AuthService,
-    public translate: TranslateService,
-    private cdr: ChangeDetectorRef
-    ) {}
+  constructor(private authService: AuthService, private cdr: ChangeDetectorRef) {}
 
   ngOnInit(): void {
     this.isUserAuthenticated = this.authService.getIsUserAuthenticated();
@@ -47,13 +44,15 @@ export class UserProfileComponent implements OnInit, OnDestroy, AfterViewChecked
     });
   }
 
-  ngAfterViewChecked(): void {
-    if (this.selectLang.myLanguage !== undefined) {
-      this.translate.use(this.selectLang.myLanguage)
-    }
-    if (this.isUserAuthenticated) this.model = this.userInfo.model;
+  public userNameHandler(userName: string): void {
+    this.userName = userName;
     this.cdr.detectChanges();
   }
+
+  // ngAfterViewChecked(): void {
+  //   if (this.isUserAuthenticated) this.userName = this.userInfo.model.firstName;
+  //   this.cdr.detectChanges();
+  // }
 
   ngOnDestroy(): void {
     this.authStatusSubscriber.unsubscribe();
