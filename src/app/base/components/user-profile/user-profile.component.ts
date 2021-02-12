@@ -31,6 +31,8 @@ export class UserProfileComponent implements OnInit, OnDestroy, AfterViewChecked
 
   isUserAuthenticated = false;
 
+  isDarkMode!: boolean;
+
   private authStatusSubscriber!: Subscription;
 
   constructor(
@@ -51,6 +53,10 @@ export class UserProfileComponent implements OnInit, OnDestroy, AfterViewChecked
     this.translate.use(this.selectLang.myLanguage);
     this.cdr.detectChanges();
     if (this.isUserAuthenticated) this.model = this.userInfo.model;
+
+    const dataMode = localStorage.getItem('rs_userMode');
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+    if (dataMode !== null) this.isDarkMode = JSON.parse(dataMode).name === "dark";
   }
 
   ngOnDestroy(): void {

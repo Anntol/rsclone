@@ -2,6 +2,8 @@
 import { ICountry } from '../../app/core/models/projects.model';
 
 export const uaCountries: ICountry[] = [
+{ iso3166CountryCode: "BY", name: "\u0411\u0456\u043b\u043e\u0440\u0443\u0441\u044c" },
+{ iso3166CountryCode: "UA", name: "\u0423\u043a\u0440\u0430\u0457\u043d\u0430" },
 { iso3166CountryCode: "AU", name: "\u0410\u0432\u0441\u0442\u0440\u0430\u043b\u0456\u044f" },
 { iso3166CountryCode: "AT", name: "\u0410\u0432\u0441\u0442\u0440\u0456\u044f" },
 { iso3166CountryCode: "AZ", name: "\u0410\u0437\u0435\u0440\u0431\u0430\u0439\u0434\u0436\u0430\u0430" },
@@ -25,7 +27,6 @@ export const uaCountries: ICountry[] = [
 { iso3166CountryCode: "BE", name: "\u0411\u0435\u043b\u044c\u0491\u0456\u044f" },
 { iso3166CountryCode: "BJ", name: "\u0411\u0435\u043d\u0456\u043d" },
 { iso3166CountryCode: "BM", name: "\u0411\u0435\u0440\u043c\u0443\u0434\u0441\u044c\u043a\u0456 \u041e\u0441\u0442\u0440\u043e\u0432\u0438" },
-{ iso3166CountryCode: "BY", name: "\u0411\u0456\u043b\u043e\u0440\u0443\u0441\u044c" },
 { iso3166CountryCode: "BG", name: "\u0411\u043e\u043b\u0433\u0430\u0440\u0456\u044f" },
 { iso3166CountryCode: "BO", name: "\u0411\u043e\u043b\u0456\u0432\u0456\u044f" },
 { iso3166CountryCode: "BA", name: "\u0411\u043e\u0441\u043d\u0456\u044f \u0456 \u0413\u0435\u0440\u0446\u0435\u0491\u043e\u0432\u0438\u043d\u0430" },
@@ -227,7 +228,6 @@ export const uaCountries: ICountry[] = [
 { iso3166CountryCode: "UG", name: "\u0423\u0433\u0430\u043d\u0434\u0430" },
 { iso3166CountryCode: "HU", name: "\u0423\u0433\u043e\u0440\u0449\u0438\u043d\u0430" },
 { iso3166CountryCode: "UZ", name: "\u0423\u0437\u0431\u0435\u043a\u0438\u0441\u0442\u0430\u043d" },
-{ iso3166CountryCode: "UA", name: "\u0423\u043a\u0440\u0430\u0457\u043d\u0430" },
 { iso3166CountryCode: "WF", name: "\u0423\u043e\u043b\u043b\u0456\u0441 \u0456 \u0424\u0443\u0442\u0443\u043d\u0430" },
 { iso3166CountryCode: "UY", name: "\u0423\u0440\u0443\u0491\u0432\u0430\u0439" },
 { iso3166CountryCode: "FO", name: "\u0424\u0430\u0440\u0435\u0440\u0441\u044c\u043a\u0456 \u041e\u0441\u0442\u0440\u043e\u0432\u0438" },
