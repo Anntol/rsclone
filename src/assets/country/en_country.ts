@@ -1,6 +1,8 @@
 import { ICountry } from '../../app/core/models/projects.model';
 
 export const enCountries: ICountry[] = [
+{ iso3166CountryCode: "BY", name: "Belarus" },
+{ iso3166CountryCode: "UA", name: "Ukraine" },
 { iso3166CountryCode: "AF", name: "Afghanistan" },
 { iso3166CountryCode: "AX", name: "\u00c5land Islands" },
 { iso3166CountryCode: "AL", name: "Albania" },
@@ -21,7 +23,6 @@ export const enCountries: ICountry[] = [
 { iso3166CountryCode: "BH", name: "Bahrain" },
 { iso3166CountryCode: "BD", name: "Bangladesh" },
 { iso3166CountryCode: "BB", name: "Barbados" },
-{ iso3166CountryCode: "BY", name: "Belarus" },
 { iso3166CountryCode: "BE", name: "Belgium" },
 { iso3166CountryCode: "BZ", name: "Belize" },
 { iso3166CountryCode: "BJ", name: "Benin" },
@@ -235,7 +236,6 @@ export const enCountries: ICountry[] = [
 { iso3166CountryCode: "UM", name: "U.S. Outlying Islands" },
 { iso3166CountryCode: "VI", name: "U.S. Virgin Islands" },
 { iso3166CountryCode: "UG", name: "Uganda" },
-{ iso3166CountryCode: "UA", name: "Ukraine" },
 { iso3166CountryCode: "AE", name: "United Arab Emirates" },
 { iso3166CountryCode: "GB", name: "United Kingdom" },
 { iso3166CountryCode: "US", name: "United States" },

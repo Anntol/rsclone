@@ -12,6 +12,7 @@ form {
 mat-form-field,
 .countries-select {
   padding: 3em 2em 1em 1em;
+  color: var(--secondary-text-color);
 }
 
 .btn-save {
@@ -56,7 +57,4 @@ mat-form-field,
     width: 5em;
     margin: 2em;
   }
-}
-.mat-input-element {
-  color: var(--secondary-text-color);
 }
