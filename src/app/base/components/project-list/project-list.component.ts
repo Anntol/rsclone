@@ -150,7 +150,6 @@ export class ProjectListComponent implements OnInit, OnDestroy {
   }
 
   public goToDonatePage(project: IProjectWithFavourite): void {
-    // this.dataService.setProjectById(project);
     const path = `projects/${this.queryOptions.theme || ''}`;
      // eslint-disable-next-line @typescript-eslint/no-floating-promises
     this.router.navigate([path, project.id]);

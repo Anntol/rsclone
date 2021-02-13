@@ -2,6 +2,7 @@
 
 .box-title {
   width: 100%;
+  margin: 1em 0;
   text-align: center;
 }
 
@@ -11,9 +12,6 @@
   flex-wrap: wrap;
   margin: 0, auto;
   justify-content: center;
-  // @media screen and (max-width: 540px) {
-  // 	margin-left: .5rem;
-  // }
 }
 
 .box-paiment,
@@ -38,8 +36,9 @@
   padding: 1em 1.5em;
   font-weight: 500;
   font-size: 18px;
-  color: var(--secondary-text-color);
+  color: $color-black;
   background: $color-white;
+  text-align: center;
 }
 
 #outer-grid {
@@ -48,10 +47,11 @@
   grid-gap: 0.7em;
 }
 #outer-grid > div {
-  padding: 0.5em;
+  padding: 0.8em 0.5em;
   font-size: 1.5em;
+  text-align: center;
   background: $color-white;
-  color: var(--secondary-text-color);
+  color: $color-black;
 }
 
 #outer-grid > div:nth-of-type(6) {
@@ -100,7 +100,7 @@ button {
   }
 
   &--donate {
-    display: flex;
+    margin-top: 2em;
     justify-content: space-between;
     font-size: 20px;
     color: var(--secondary-text-color);
@@ -127,9 +127,17 @@ button {
     }
   }
   &--description {
-    font-size: 18px;
-    margin-top: 1em;
+    width: 80%;
+    margin-top: 2em;
     padding-top: 1em;
+    font-size: 20px;
+    line-height: 48px;
+    color: var(--secondary-text-color);
+
+    @media screen and (max-width: 730px) {
+      width: 550px;
+      height: auto;
+    }
   }
 
   &--header,
@@ -188,6 +196,10 @@ button {
 }
 .box-img:hover img {
   filter: none;
+}
+
+.box-title {
+color: var(--secondary-text-color);
 }
 
 .box-text {

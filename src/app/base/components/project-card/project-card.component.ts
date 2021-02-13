@@ -6,8 +6,9 @@ import { ActivatedRoute } from '@angular/router';
 import {
  EMPTY, Subscription
 } from 'rxjs';
+import { MatDialog } from '@angular/material/dialog';
 
-import { DataService } from 'src/app/core/service/data.service';
+import { WarningComponent } from '../../../shared/components/warning/warning.component';
 import { GlobalGivingApiService } from '../../../core/service/global-giving-api.service';
 import { IProject, IProjectById } from '../../../core/models/projects.model';
 
@@ -33,7 +34,7 @@ export class ProjectCardComponent implements OnInit, OnDestroy {
 
   constructor (
     private route: ActivatedRoute,
-    private dataService: DataService,
+    private dialog: MatDialog,
     private globalGivingApiService: GlobalGivingApiService
     ) {
 
@@ -41,7 +42,6 @@ export class ProjectCardComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.subscription = this.route.params.subscribe((params): void => {
-      console.log(params);
       // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
       this.projectId = params.id;
     });
@@ -67,8 +67,8 @@ export class ProjectCardComponent implements OnInit, OnDestroy {
         this.error = false;
         this.errorMessage = '';
       } else {
-        this.errorMessage = 'No projects found! Please try again.';
-        console.log(this.errorMessage);
+        const warningMessage = 'No projects found! Please try again.';
+        this.dialog.open(WarningComponent, { data: { message: warningMessage } });
       }
     });
 }
