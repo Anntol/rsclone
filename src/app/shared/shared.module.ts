@@ -15,6 +15,11 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTabsModule } from '@angular/material/tabs';
 import { NgxMatIntlTelInputModule } from 'ngx-mat-intl-tel-input';
+import { ShareButtonsPopupModule } from 'ngx-sharebuttons/popup';
+import { ShareIconsModule } from 'ngx-sharebuttons/icons';
+import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { faShare } from '@fortawesome/free-solid-svg-icons/faShare';
+import { faTimesCircle } from '@fortawesome/free-solid-svg-icons/faTimesCircle';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { ErrorComponent } from './components/error/error.component';
 import { SelectLangComponent } from './components/select-lang/select-lang.component';
@@ -41,6 +46,9 @@ import { WarningComponent } from './components/warning/warning.component';
     MatSelectModule,
     MatTabsModule,
     NgxMatIntlTelInputModule,
+    ShareButtonsPopupModule,
+    ShareIconsModule,
+    FontAwesomeModule,
     MatAutocompleteModule
   ],
   exports: [
@@ -62,7 +70,14 @@ import { WarningComponent } from './components/warning/warning.component';
     MatTabsModule,
     SelectCountryComponent,
     NgxMatIntlTelInputModule,
+    ShareButtonsPopupModule,
+    ShareIconsModule,
+    FontAwesomeModule,
     MatAutocompleteModule
-  ],
+  ]
 })
-export class SharedModule {}
+export class SharedModule {
+  constructor(iconLibrary: FaIconLibrary) {
+    iconLibrary.addIcons(faTimesCircle, faShare);
+  }
+}

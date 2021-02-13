@@ -6,8 +6,9 @@ import { ActivatedRoute } from '@angular/router';
 import {
  EMPTY, Subscription
 } from 'rxjs';
+import { MatDialog } from '@angular/material/dialog';
 
-import { DataService } from 'src/app/core/service/data.service';
+import { WarningComponent } from '../../../shared/components/warning/warning.component';
 import { GlobalGivingApiService } from '../../../core/service/global-giving-api.service';
 import { IProject, IProjectById } from '../../../core/models/projects.model';
 
@@ -33,7 +34,7 @@ export class ProjectCardComponent implements OnInit, OnDestroy {
 
   constructor (
     private route: ActivatedRoute,
-    private dataService: DataService,
+    private dialog: MatDialog,
     private globalGivingApiService: GlobalGivingApiService
     ) {
 
@@ -43,6 +44,32 @@ export class ProjectCardComponent implements OnInit, OnDestroy {
     this.subscription = this.route.params.subscribe((params): void => {
       // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
       this.projectId = params.id;
+    });
+
+    this.getProjectById(this.projectId);
+  }
+
+  public getProjectById(id: number): void {
+    this.subscription = this.globalGivingApiService
+    .getActiveProjectById(id)
+    .pipe(
+      catchError((error) => {
+        this.error = true;
+        return EMPTY;
+      })
+    ).subscribe((result: IProjectById): void => {
+      if (result) {
+        this.project = result.project;
+        this.fundingIndicator = (Math.floor(100 * (result.project.funding / result.project.goal)) > 100) ? '100%'
+          : `${Math.floor(100 * (result.project.funding / result.project.goal))}%`;
+        const { donationOptions } = result.project;
+         console.log(this.project, donationOptions);
+        this.error = false;
+        this.errorMessage = '';
+      } else {
+        const warningMessage = 'No projects found! Please try again.';
+        this.dialog.open(WarningComponent, { data: { message: warningMessage } });
+      }
     });
 }
 

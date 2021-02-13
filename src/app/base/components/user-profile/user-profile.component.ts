@@ -1,26 +1,24 @@
 import {
-  AfterViewChecked, ViewChild, Component, OnDestroy, OnInit, ChangeDetectorRef
+Component, OnDestroy, OnInit, ChangeDetectorRef, AfterViewChecked
 } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { TranslateService } from '@ngx-translate/core';
 import { AuthService } from '../../../core/service/auth.service';
 import { SettingsService } from '../../../core/service/settings.service';
-import { UserInfoComponent } from '../user-info/user-info.component';
+import { IFavourite } from '../../../core/models/favourite.model';
 import { IUserInfo } from '../../../core/models/userinfo.model';
-import { SelectLangComponent } from '../../../shared/components/select-lang/select-lang.component';
 
 @Component({
   selector: 'app-user-profile',
   templateUrl: './user-profile.component.html',
-  styleUrls: ['./user-profile.component.scss', './user-profile-adaptive.scss', '../../../../theme/noselect.scss']
+  styleUrls: [
+    './user-profile.component.scss',
+    './user-profile-adaptive.scss',
+    '../../../../theme/noselect.scss'
+  ],
 })
 
 export class UserProfileComponent implements OnInit, OnDestroy, AfterViewChecked {
- @ViewChild(UserInfoComponent) userInfo!: UserInfoComponent;
-
- @ViewChild(SelectLangComponent) selectLang!: SelectLangComponent;
-
-  model: IUserInfo = {
+  modelUser: IUserInfo = {
     firstName: '',
     lastName: '',
     city: '',
@@ -35,28 +33,66 @@ export class UserProfileComponent implements OnInit, OnDestroy, AfterViewChecked
 
   private authStatusSubscriber!: Subscription;
 
+  userFavourites!: IFavourite[];
+
+  countFavourites = 0;
+
   constructor(
-    private settingsService: SettingsService,
     private authService: AuthService,
-    public translate: TranslateService,
+    private settingsService: SettingsService,
     private cdr: ChangeDetectorRef
-    ) {}
+  ) {}
 
   ngOnInit(): void {
     this.isUserAuthenticated = this.authService.getIsUserAuthenticated();
     this.authStatusSubscriber = this.authService.getAuthStatusListener().subscribe((isAuthenticated) => {
-      this.isUserAuthenticated = isAuthenticated;
+      this.isUserAuthenticated = isAuthenticated
     });
+
+    this.getFavs();
+    this.getUserInfo();
   }
 
   ngAfterViewChecked(): void {
-    this.translate.use(this.selectLang.myLanguage);
-    this.cdr.detectChanges();
-    if (this.isUserAuthenticated) this.model = this.userInfo.model;
-
     const dataMode = localStorage.getItem('rs_userMode');
     // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
     if (dataMode !== null) this.isDarkMode = JSON.parse(dataMode).name === "dark";
+    this.cdr.detectChanges();
+  }
+
+  public getFavs(): void {
+    if (this.isUserAuthenticated) {
+      const favsObservable = this.settingsService.getUserFavourites();
+      favsObservable.subscribe((data) => {
+        this.userFavourites = data.favourites;
+        this.countFavourites = this.userFavourites.length;
+      });
+    } else {
+      this.countFavourites = 0;
+    }
+  }
+
+  public getUserInfo(): void {
+    if (this.isUserAuthenticated) {
+      const userObservable = this.settingsService.getUserInfoSettings();
+      userObservable.subscribe((data) => {
+        this.modelUser = data.userInfo;
+      });
+    }
+  }
+
+  public userDataHandler(userData: IUserInfo): void {
+    this.modelUser = userData;
+    this.settingsService.SaveUserInfo(this.modelUser);
+    this.cdr.detectChanges();
+  }
+
+  public favouriteDeleteHandler(projectId: number): void {
+    this.settingsService.removeUserFavourite(projectId.toString()).subscribe((data) => {
+      this.userFavourites = data.favourites;
+      this.getFavs();
+    });
+    this.cdr.detectChanges();
   }
 
   ngOnDestroy(): void {

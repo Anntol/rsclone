@@ -1,4 +1,4 @@
-import { Component, AfterViewChecked } from '@angular/core';
+import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { CommonConstants } from '../../constants/constants';
 
@@ -7,14 +7,15 @@ import { CommonConstants } from '../../constants/constants';
   templateUrl: './select-lang.component.html',
   styleUrls: ['./select-lang.component.scss', '../../../../theme/stacks.scss']
 })
-export class SelectLangComponent implements AfterViewChecked {
+export class SelectLangComponent {
   public languageArr: Array<string> = CommonConstants.LANGUAGE_ARR;
 
   myLanguage = this.translate.currentLang || 'en';
 
   constructor(public translate: TranslateService) {}
 
-  public ngAfterViewChecked(): void {
-    localStorage.setItem('rs_userLang', JSON.stringify(this.myLanguage));
+  changeLanguage(lang: string): void {
+    this.translate.use(lang);
+    localStorage.setItem('rs_userLang', JSON.stringify(lang));
   }
 }

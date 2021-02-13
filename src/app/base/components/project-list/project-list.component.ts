@@ -115,7 +115,6 @@ export class ProjectListComponent implements OnInit, OnDestroy {
       this.countAllProjects = results.search.response.numberFound;
       if (this.countAllProjects > 0) {
         this.IsVisibleMoreButton = true;
-        console.log(this.IsVisibleMoreButton);
         this.countShowProjects = (this.countAllProjects - this.countShowProjects > 10)
             ? this.countShowProjects + 10
             : this.countAllProjects;
@@ -151,7 +150,6 @@ export class ProjectListComponent implements OnInit, OnDestroy {
   }
 
   public goToDonatePage(project: IProjectWithFavourite): void {
-    this.dataService.setProjectById(project);
     const path = `projects/${this.queryOptions.theme || ''}`;
      // eslint-disable-next-line @typescript-eslint/no-floating-promises
     this.router.navigate([path, project.id]);

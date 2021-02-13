@@ -1,5 +1,5 @@
 import {
- AfterViewChecked, Component, ViewChild, ChangeDetectorRef, OnInit
+Component, OnInit
 } from '@angular/core';
 import {
   filter, switchMap, debounceTime
@@ -9,8 +9,6 @@ import { Router, NavigationEnd } from '@angular/router';
 
 import { Sort } from '@angular/material/sort';
 import { FormControl } from '@angular/forms';
-import { TranslateService } from '@ngx-translate/core';
-import { SelectLangComponent } from '../../../shared/components/select-lang/select-lang.component';
 import { DataService } from '../../../core/service/data.service';
 import { MIN_LENGTH_QUERY, WAIT_FOR_INPUT, THEMES } from '../../../shared/constants/constants';
 import { IProjectWithFavourite } from '../../../core/models/projects.model';
@@ -25,9 +23,7 @@ import { IProjectWithFavourite } from '../../../core/models/projects.model';
     '../../../../theme/noselect.scss'
   ]
 })
-export class ProjectsPageComponent implements AfterViewChecked, OnInit {
-  @ViewChild(SelectLangComponent) selectLang!: SelectLangComponent;
-
+export class ProjectsPageComponent implements OnInit {
   public searchQuery: FormControl = new FormControl();
 
   private subscriptions: Subscription[] = [];
@@ -55,10 +51,8 @@ export class ProjectsPageComponent implements AfterViewChecked, OnInit {
   public pathId!: string;
 
   constructor(
-    public translate: TranslateService,
     public router: Router,
-    public dataService: DataService,
-    private cdr: ChangeDetectorRef
+    public dataService: DataService
   ) {}
 
   public sortData(sort: Sort): void {
@@ -106,12 +100,5 @@ export class ProjectsPageComponent implements AfterViewChecked, OnInit {
     ).subscribe((value) => {
       this.searchQueryData(value);
     });
-  }
-
-  ngAfterViewChecked(): void {
-    if (this.pathId !== 'settings') {
-      this.translate.use(this.selectLang.myLanguage);
-    }
-    this.cdr.detectChanges();
   }
 }

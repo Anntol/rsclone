@@ -14,8 +14,9 @@ export class AppInitService {
       const data = localStorage.getItem('rs_userLang');
       if (data !== null) {
         const dataLang = JSON.parse(data) as string;
-        console.log(dataLang);
         this.translate.use(dataLang);
+      } else {
+        this.translate.use('en');
       }
 
       const dataMode = localStorage.getItem('rs_userMode');

@@ -1,1 +1,88 @@
-<H2 class="box-title">{{ projectId }}</H2>
+<H1 class="box-title" *ngIf="project">{{ project.title }} (#{{ projectId }})</H1>
+<div class="box-donate" *ngIf="project">
+  <div class="box-paiment">
+    <form autocomplete="off" id="general">
+      <div>
+        <div>
+          <span class="form-header">
+            <span>Choose an amount to give </span>
+          </span>
+          <div class="amount-wrapper">
+            <div class="amount-buttons-wrapper">
+              <div id="outer-grid">
+                <div>
+                  <span class="button amount-button"> $ 10 </span>
+                </div>
+                <div>
+                  <span class="button amount-button">$ 15 </span>
+                </div>
+                <div>
+                  <span class="button amount-button">$ 25 </span>
+                </div>
+                <div>
+                  <span class="button amount-button">$ 50</span>
+                </div>
+                <div>
+                  <span class="button amount-button">$ 100</span>
+                </div>
+                <div>
+                  <span class="button other-amount-button hidden"> {{ 'PROJECTS.AMOUNT' | translate }}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button class="w-full show-next-donate-screen" id="donate-button">
+            {{ 'PROJECTS.DONATE' | translate }}
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="box-text">
+    <div class="checkbox-text">
+      <div class="box-img">
+        <img [src]="project.imageLink" [alt]="project.themeName">
+      </div>
+      <div class="box-text">
+        <div class="checkbox-text--header">
+          <p>{{ project.country }}</p>
+          <span class="small">{{ project.dateOfMostRecentReport | date }}</span>
+        </div>
+        <div class="checkbox-text--bottom group">
+          <span
+            class="material-icons"
+            style="vertical-align: middle;">
+            group
+          </span>
+          <span class="small">{{ project.numberOfDonations }}</span>
+          <span
+            class="material-icons grade"
+            style="vertical-align: middle;"
+            matTooltip="{{ 'PROJECTS.FAVORITES' | translate }}">
+            grade
+          </span>
+
+        </div>
+      </div>
+    </div>
+    <div style="display: block;">
+      <span class="checkbox-text--donate">
+        <div class="box-line">
+          <div class="indicator goal" [style.width]="fundingIndicator"></div>
+        </div>
+        <div class="summ">{{ project.funding | currency }}</div>
+        <div class="funding">{{ project.goal | currency }}</div>
+      </span>
+    </div>
+  </div>
+  <div class="checkbox-text--description">
+    <share-popup-button [theme]="'material-dark'"
+      [include]="['facebook', 'twitter', 'linkedin', 'telegram', 'messenger', 'whatsapp', 'reddit', 'tumblr', 'mix', 'viber','vk','xing', 'pinterest', 'line','sms','email','copy']"
+      [show]="9"
+      [size]="4"
+      [title]="'88'">
+    </share-popup-button>
+    {{ project.summary }}
+  </div>
+</div>
+
