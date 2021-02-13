@@ -48,7 +48,6 @@
         <div *ngIf="this.isUserAuthenticated">
           <app-user-info
             [modelUser]="modelUser"
-            [isUserAuthenticated]="isUserAuthenticated"
             (userData)=userDataHandler($event)>
           </app-user-info>
         </div>
