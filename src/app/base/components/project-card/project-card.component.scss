@@ -83,6 +83,7 @@ button {
   width: 100% !important;
 }
 .checkbox-text {
+  height: 200px;
   &--title {
     height: 1.7em;
     display: -webkit-box;
@@ -229,4 +230,9 @@ img {
 
 .goal {
   background-color: var(--primary-color-btn);
+}
+
+.box-text {
+  display: flex;
+  flex-direction: column;
 }
