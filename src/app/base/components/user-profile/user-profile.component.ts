@@ -1,5 +1,5 @@
 import {
-Component, OnDestroy, OnInit, ChangeDetectorRef
+Component, OnDestroy, OnInit, ChangeDetectorRef, AfterViewChecked
 } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { AuthService } from '../../../core/service/auth.service';
@@ -17,7 +17,7 @@ import { IUserInfo } from '../../../core/models/userinfo.model';
   ],
 })
 
-export class UserProfileComponent implements OnInit, OnDestroy {
+export class UserProfileComponent implements OnInit, OnDestroy, AfterViewChecked {
   modelUser: IUserInfo = {
     firstName: '',
     lastName: '',
@@ -49,12 +49,15 @@ export class UserProfileComponent implements OnInit, OnDestroy {
       this.isUserAuthenticated = isAuthenticated
     });
 
+    this.getFavs();
+    this.getUserInfo();
+  }
+
+  ngAfterViewChecked(): void {
     const dataMode = localStorage.getItem('rs_userMode');
     // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
     if (dataMode !== null) this.isDarkMode = JSON.parse(dataMode).name === "dark";
-    
-    this.getFavs();
-    this.getUserInfo();
+    this.cdr.detectChanges();
   }
 
   public getFavs(): void {
