@@ -13,8 +13,8 @@ import { GlobalGivingApiService } from '../../../core/service/global-giving-api.
 import { DataService } from '../../../core/service/data.service';
 import { PreloaderService } from '../../../core/service/preloader.service';
 import { AuthService } from '../../../core/service/auth.service';
-import { SettingsService } from '../../../core/service/settings.service';
-import { IFavourite } from '../../../core/models/favourite.model';
+import { SettingsService } from '../../../settings/servise/settings.service';
+import { IFavourite } from '../../../settings/models/favourite.model';
 
 @Component({
   selector: 'app-project-list',

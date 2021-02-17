@@ -6,7 +6,7 @@ import { ProjectListComponent } from './components/project-list/project-list.com
 import { ProjectCardComponent } from './components/project-card/project-card.component';
 
 import { AuthPageComponent } from './pages/auth-page/auth-page.component';
-import { UserProfileComponent } from './components/user-profile/user-profile.component';
+import { UserProfileComponent } from '../settings/pages/user-profile/user-profile.component';
 import { ThemesListComponent } from './components/themes-list/themes-list.component';
 
 const routes: Routes = [

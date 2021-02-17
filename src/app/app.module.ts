@@ -10,6 +10,7 @@ import { CoreModule } from './core/core.module';
 import { AppComponent } from './app.component';
 import { AppInitService } from './core/service/app-init.service';
 import { BaseModule } from './base/base.module';
+import { SettingsModule } from './settings/settings.module';
 import { AuthInterceptor } from './core/interceptors/auth.interceptor';
 import { ErrorComponent } from './shared/components/error/error.component';
 import { WarningComponent } from './shared/components/warning/warning.component';
@@ -32,6 +33,7 @@ export function initializeApp1(appInitService: AppInitService) {
     BrowserAnimationsModule,
     HttpClientModule,
     BaseModule,
+    SettingsModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
