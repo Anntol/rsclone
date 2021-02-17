@@ -8,6 +8,7 @@ import { SubscriptionLike } from 'rxjs';
 import { AuthData } from '../../../core/models/authdata.model';
 import { AuthService } from '../../../core/service/auth.service';
 import { SelectLangComponent } from '../../../shared/components/select-lang/select-lang.component';
+import { ModeService } from '../../../core/service/mode.service';
 
 @Component({
   selector: 'app-auth-page',
@@ -32,13 +33,13 @@ export class AuthPageComponent implements OnInit, OnDestroy, AfterViewChecked {
   constructor(
     public authService: AuthService,
     private route: ActivatedRoute,
-    private cdr: ChangeDetectorRef
+    private cdr: ChangeDetectorRef,
+    private modeService: ModeService
 ) {}
 
   ngAfterViewChecked(): void {
-    const dataMode = localStorage.getItem('rs_userMode');
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-    if (dataMode !== null) this.isDarkMode = JSON.parse(dataMode).name === "dark";
+    this.isDarkMode = this.modeService.getActiveMode().name === "dark";
+    this.cdr.detectChanges();
   }
 
   ngOnInit(): void {

@@ -6,6 +6,7 @@ import { AuthService } from '../../../core/service/auth.service';
 import { SettingsService } from '../../../core/service/settings.service';
 import { IFavourite } from '../../../core/models/favourite.model';
 import { IUserInfo } from '../../../core/models/userinfo.model';
+import { ModeService } from '../../../core/service/mode.service';
 
 @Component({
   selector: 'app-user-profile',
@@ -40,7 +41,8 @@ export class UserProfileComponent implements OnInit, OnDestroy, AfterViewChecked
   constructor(
     private authService: AuthService,
     private settingsService: SettingsService,
-    private cdr: ChangeDetectorRef
+    private cdr: ChangeDetectorRef,
+    private modeService: ModeService
   ) {}
 
   ngOnInit(): void {
@@ -54,9 +56,7 @@ export class UserProfileComponent implements OnInit, OnDestroy, AfterViewChecked
   }
 
   ngAfterViewChecked(): void {
-    const dataMode = localStorage.getItem('rs_userMode');
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-    if (dataMode !== null) this.isDarkMode = JSON.parse(dataMode).name === "dark";
+    this.isDarkMode = this.modeService.getActiveMode().name === "dark";
     this.cdr.detectChanges();
   }
 
