@@ -115,8 +115,23 @@
     z-index: 6;
     bottom: -1em;
   }
+  .mode {
+    z-index: 7;
+    bottom: -4.5em;
+    right: 1.5em;
+  }
   .footer-secondary {
     background-color: lighten(#252042, 15%);
     width: 100%;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .creation {
+    display: none;
+  }
+  .mode {
+    bottom: -4.5em;
+    right: 1.5em;
   }
 }

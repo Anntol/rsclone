@@ -44,10 +44,12 @@
   <div id="pageContent" class="content">
     <router-outlet #outlet="outlet"></router-outlet>
   </div>
-  <div id="pageBottom" class="bottom">
+  <div id="pageBottom" class="bottom" *ngIf="this.pathId !== 'settings'">
+    <app-set-mode 
+      class="mode"
+      ></app-set-mode>
     <app-select-lang
       class="lang"
-      *ngIf="this.pathId !== 'settings'"
       ></app-select-lang>
   </div>
 
