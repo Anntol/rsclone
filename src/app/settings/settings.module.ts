@@ -5,6 +5,7 @@ import { SharedModule } from '../shared/shared.module';
 import { UserInfoComponent } from './components/user-info/user-info.component';
 import { FavouritesListComponent } from './components/favourites-list/favourites-list.component';
 import { DeleteItemComponent } from './components/delete-item/delete-item.component';
+import { AuthNoticeComponent } from './components/auth-notice/auth-notice.component';
 import { UserProfileComponent } from './pages/user-profile/user-profile.component';
 
 @NgModule({
@@ -12,7 +13,8 @@ import { UserProfileComponent } from './pages/user-profile/user-profile.componen
     UserProfileComponent,
     UserInfoComponent,
     FavouritesListComponent,
-    DeleteItemComponent
+    DeleteItemComponent,
+    AuthNoticeComponent
   ],
   imports: [
     CommonModule,

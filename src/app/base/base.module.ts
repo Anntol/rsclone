@@ -15,8 +15,6 @@ import { ProjectsPageComponent } from './pages/projects-page/projects-page.compo
 import { ThemesListComponent } from './components/themes-list/themes-list.component';
 import { AuthPageComponent } from './pages/auth-page/auth-page.component';
 import { SortProjectsPipe } from './pipes/sort-projects.pipe';
-import { SetModeComponent } from './components/set-mode/set-mode.component';
-import { AuthNoticeComponent } from './components/auth-notice/auth-notice.component';
 import { PreloaderComponent } from './components/preloader/preloader.component';
 import { ContentPageComponent } from './pages/content-page/content-page.component';
 import { NotFoundPageComponent } from './components/not-found-page/not-found-page.component';
@@ -33,8 +31,6 @@ import { GitMenuComponent } from './components/git-menu/git-menu.component';
     ThemesListComponent,
     AuthPageComponent,
     SortProjectsPipe,
-    SetModeComponent,
-    AuthNoticeComponent,
     PreloaderComponent,
     ContentPageComponent,
     NotFoundPageComponent,
@@ -52,8 +48,6 @@ import { GitMenuComponent } from './components/git-menu/git-menu.component';
     ProjectCardComponent,
     VerticalMenuComponent,
     ProjectsPageComponent,
-    SetModeComponent,
-    AuthNoticeComponent,
     NotFoundPageComponent,
     GitMenuComponent
   ],
