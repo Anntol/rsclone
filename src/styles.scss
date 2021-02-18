@@ -50,6 +50,7 @@ $rsclone-theme-dark: mat-dark-theme((
   @include angular-material-theme($rsclone-theme-dark)
 }
 
+
 /* You can add global styles to this file, and also import other style files */
 :root {
 
@@ -59,7 +60,7 @@ $rsclone-theme-dark: mat-dark-theme((
   --accent-color:         #FF4081;
   --accent-color-dark:    #C2185B;
   --accent-violet-color:  #783b78; //text-color-accent, footer
-  --secondary-text-color: #151515; //text-color-base
+  country-selector: #151515; //text-color-base
   --color-white-alt:      #EBECF0; //bg-body-color
 
   --shadow-ligth:        #fafbfff2;
@@ -111,4 +112,8 @@ body { margin: 0; }
 
 ::-webkit-scrollbar-thumb:hover {
   background: vat(--color-violet-op04);
+}
+
+.country-selector-code {
+  color: var(--secondary-text-color);
 }

@@ -15,17 +15,11 @@ import { ProjectsPageComponent } from './pages/projects-page/projects-page.compo
 import { ThemesListComponent } from './components/themes-list/themes-list.component';
 import { AuthPageComponent } from './pages/auth-page/auth-page.component';
 import { SortProjectsPipe } from './pipes/sort-projects.pipe';
-import { UserProfileComponent } from './components/user-profile/user-profile.component';
-import { SetModeComponent } from './components/set-mode/set-mode.component';
-import { AuthNoticeComponent } from './components/auth-notice/auth-notice.component';
 import { PreloaderComponent } from './components/preloader/preloader.component';
-import { UserInfoComponent } from './components/user-info/user-info.component';
 import { ContentPageComponent } from './pages/content-page/content-page.component';
 import { NotFoundPageComponent } from './components/not-found-page/not-found-page.component';
 import { LoaderInterceptor } from '../core/interceptors/loader.interceptor';
 import { GitMenuComponent } from './components/git-menu/git-menu.component';
-import { FavouritesListComponent } from './components/favourites-list/favourites-list.component';
-import { DeleteItemComponent } from './components/delete-item/delete-item.component';
 
 @NgModule({
   declarations: [
@@ -37,16 +31,10 @@ import { DeleteItemComponent } from './components/delete-item/delete-item.compon
     ThemesListComponent,
     AuthPageComponent,
     SortProjectsPipe,
-    UserProfileComponent,
-    SetModeComponent,
-    AuthNoticeComponent,
     PreloaderComponent,
-    UserInfoComponent,
     ContentPageComponent,
     NotFoundPageComponent,
-    GitMenuComponent,
-    FavouritesListComponent,
-    DeleteItemComponent
+    GitMenuComponent
   ],
   imports: [
     CommonModule,
@@ -60,13 +48,8 @@ import { DeleteItemComponent } from './components/delete-item/delete-item.compon
     ProjectCardComponent,
     VerticalMenuComponent,
     ProjectsPageComponent,
-    UserProfileComponent,
-    SetModeComponent,
-    AuthNoticeComponent,
     NotFoundPageComponent,
-    GitMenuComponent,
-    FavouritesListComponent,
-    DeleteItemComponent
+    GitMenuComponent
   ],
   providers: [
     GlobalGivingApiService,

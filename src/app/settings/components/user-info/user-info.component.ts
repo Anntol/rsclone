@@ -2,7 +2,7 @@ import {
 Component, EventEmitter, ViewChild, Output, Input, SimpleChanges, OnChanges
 } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { IUserInfo } from '../../../core/models/userinfo.model';
+import { IUserInfo } from '../../models/userinfo.model';
 import { SelectCountryComponent } from '../../../shared/components/select-country/select-country.component';
 
 @Component({

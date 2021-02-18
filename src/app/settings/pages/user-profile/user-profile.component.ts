@@ -3,9 +3,10 @@ Component, OnDestroy, OnInit, ChangeDetectorRef, AfterViewChecked
 } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { AuthService } from '../../../core/service/auth.service';
-import { SettingsService } from '../../../core/service/settings.service';
-import { IFavourite } from '../../../core/models/favourite.model';
-import { IUserInfo } from '../../../core/models/userinfo.model';
+import { SettingsService } from '../../servise/settings.service';
+import { IFavourite } from '../../models/favourite.model';
+import { IUserInfo } from '../../models/userinfo.model';
+import { ModeService } from '../../../core/service/mode.service';
 
 @Component({
   selector: 'app-user-profile',
@@ -40,7 +41,8 @@ export class UserProfileComponent implements OnInit, OnDestroy, AfterViewChecked
   constructor(
     private authService: AuthService,
     private settingsService: SettingsService,
-    private cdr: ChangeDetectorRef
+    private cdr: ChangeDetectorRef,
+    private modeService: ModeService
   ) {}
 
   ngOnInit(): void {
@@ -54,13 +56,11 @@ export class UserProfileComponent implements OnInit, OnDestroy, AfterViewChecked
   }
 
   ngAfterViewChecked(): void {
-    const dataMode = localStorage.getItem('rs_userMode');
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-    if (dataMode !== null) this.isDarkMode = JSON.parse(dataMode).name === "dark";
+    this.isDarkMode = this.modeService.getActiveMode().name === "dark";
     this.cdr.detectChanges();
   }
 
-  public getFavs(): void {
+  getFavs(): void {
     if (this.isUserAuthenticated) {
       const favsObservable = this.settingsService.getUserFavourites();
       favsObservable.subscribe((data) => {
@@ -72,7 +72,7 @@ export class UserProfileComponent implements OnInit, OnDestroy, AfterViewChecked
     }
   }
 
-  public getUserInfo(): void {
+  getUserInfo(): void {
     if (this.isUserAuthenticated) {
       const userObservable = this.settingsService.getUserInfoSettings();
       userObservable.subscribe((data) => {
@@ -81,13 +81,13 @@ export class UserProfileComponent implements OnInit, OnDestroy, AfterViewChecked
     }
   }
 
-  public userDataHandler(userData: IUserInfo): void {
+  userDataHandler(userData: IUserInfo): void {
     this.modelUser = userData;
     this.settingsService.SaveUserInfo(this.modelUser);
     this.cdr.detectChanges();
   }
 
-  public favouriteDeleteHandler(projectId: number): void {
+  favouriteDeleteHandler(projectId: number): void {
     this.settingsService.removeUserFavourite(projectId.toString()).subscribe((data) => {
       this.userFavourites = data.favourites;
       this.getFavs();

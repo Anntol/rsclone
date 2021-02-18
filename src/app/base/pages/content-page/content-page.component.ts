@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AuthPageComponent } from '../auth-page/auth-page.component';
-import { UserProfileComponent } from '../../components/user-profile/user-profile.component';
+import { UserProfileComponent } from '../../../settings/pages/user-profile/user-profile.component';
 import { ThemesListComponent } from '../../components/themes-list/themes-list.component';
 
 @Component({

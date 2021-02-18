@@ -15,6 +15,7 @@
   max-width: 1366px;
   height: 100vh;
   margin: 0 auto;
+  background-color: var(--color-white-alt);
   @media screen and (max-width: 540px) {
     grid-template-areas:
       'logo'
@@ -104,6 +105,12 @@
   }
 }
 
+.bottom {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
 .lang {
   position: absolute;
   bottom: 1.5em;
@@ -113,6 +120,27 @@
     bottom: -1em;
   }
 }
+
+.mode{
+  position: absolute;
+  bottom: 1.5em;
+  @media screen and (max-width: 540px) {
+    z-index: 7;
+    bottom: -4.5em;
+    right: 1.5em;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .creation {
+    display: none;
+  }
+  .mode {
+    bottom: -4.5em;
+    right: 1.5em;
+  }
+}
+
 
 /* Search block */
 form {

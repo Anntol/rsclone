@@ -13,6 +13,7 @@
   max-width: 1366px;
   height: 100vh;
   margin: 0 auto;
+  background-color: var(--color-white-alt);
 }
 
 #navLogo {
@@ -125,8 +126,18 @@
   }
 }
 
-.lang {
+.bottom {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.lang,
+.mode  {
   position: absolute;
   bottom: 1.5em;
+}
+
+.lang {
   right: 1em;
 }

@@ -25,9 +25,10 @@ import { ErrorComponent } from './components/error/error.component';
 import { SelectLangComponent } from './components/select-lang/select-lang.component';
 import { SelectCountryComponent } from './components/select-country/select-country.component';
 import { WarningComponent } from './components/warning/warning.component';
+import { SetModeComponent } from './components/set-mode/set-mode.component';
 
 @NgModule({
-  declarations: [SelectLangComponent, SelectCountryComponent, ErrorComponent, WarningComponent],
+  declarations: [SelectLangComponent, SelectCountryComponent, ErrorComponent, WarningComponent, SetModeComponent],
   imports: [
     CommonModule,
     RouterModule,
@@ -69,6 +70,7 @@ import { WarningComponent } from './components/warning/warning.component';
     MatSelectModule,
     MatTabsModule,
     SelectCountryComponent,
+    SetModeComponent,
     NgxMatIntlTelInputModule,
     ShareButtonsPopupModule,
     ShareIconsModule,

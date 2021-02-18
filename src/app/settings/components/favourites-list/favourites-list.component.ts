@@ -1,7 +1,7 @@
 import {
  Component, Input, Output, EventEmitter
 } from '@angular/core';
-import { IFavourite } from '../../../core/models/favourite.model';
+import { IFavourite } from '../../models/favourite.model';
 
 @Component({
   selector: 'app-favourites-list',
