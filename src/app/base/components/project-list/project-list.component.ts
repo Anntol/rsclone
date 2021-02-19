@@ -12,7 +12,7 @@ import {
 import { GlobalGivingApiService } from '../../../core/service/global-giving-api.service';
 import { DataService } from '../../../core/service/data.service';
 import { PreloaderService } from '../../../core/service/preloader.service';
-import { AuthService } from '../../../core/service/auth.service';
+import { AuthService } from '../../../auth/services/auth.service';
 import { SettingsService } from '../../../settings/servise/settings.service';
 import { IFavourite } from '../../../settings/models/favourite.model';
 

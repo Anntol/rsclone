@@ -1,4 +1,9 @@
-import { Component, AfterViewChecked, ViewChild, ChangeDetectorRef } from '@angular/core';
+import {
+  Component,
+  AfterViewChecked,
+  ViewChild,
+  ChangeDetectorRef
+} from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { SelectLangComponent } from '../../../shared/components/select-lang/select-lang.component';
 

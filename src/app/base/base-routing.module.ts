@@ -5,7 +5,7 @@ import { ProjectsPageComponent } from './pages/projects-page/projects-page.compo
 import { ProjectListComponent } from './components/project-list/project-list.component';
 import { ProjectCardComponent } from './components/project-card/project-card.component';
 
-import { AuthPageComponent } from './pages/auth-page/auth-page.component';
+import { AuthPageComponent } from '../auth/pages/auth-page/auth-page.component';
 import { UserProfileComponent } from '../settings/pages/user-profile/user-profile.component';
 import { ThemesListComponent } from './components/themes-list/themes-list.component';
 

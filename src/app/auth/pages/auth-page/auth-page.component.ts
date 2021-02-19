@@ -5,8 +5,8 @@ import { NgForm } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { SubscriptionLike } from 'rxjs';
 
-import { AuthData } from '../../../core/models/authdata.model';
-import { AuthService } from '../../../core/service/auth.service';
+import { AuthData } from '../../models/authdata.model';
+import { AuthService } from '../../services/auth.service';
 import { SelectLangComponent } from '../../../shared/components/select-lang/select-lang.component';
 import { ModeService } from '../../../core/service/mode.service';
 

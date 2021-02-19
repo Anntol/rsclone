@@ -13,7 +13,6 @@ import { ProjectCardComponent } from './components/project-card/project-card.com
 import { VerticalMenuComponent } from './components/vertical-menu/vertical-menu.component';
 import { ProjectsPageComponent } from './pages/projects-page/projects-page.component';
 import { ThemesListComponent } from './components/themes-list/themes-list.component';
-import { AuthPageComponent } from './pages/auth-page/auth-page.component';
 import { SortProjectsPipe } from './pipes/sort-projects.pipe';
 import { PreloaderComponent } from './components/preloader/preloader.component';
 import { ContentPageComponent } from './pages/content-page/content-page.component';
@@ -29,7 +28,6 @@ import { GitMenuComponent } from './components/git-menu/git-menu.component';
     VerticalMenuComponent,
     ProjectsPageComponent,
     ThemesListComponent,
-    AuthPageComponent,
     SortProjectsPipe,
     PreloaderComponent,
     ContentPageComponent,

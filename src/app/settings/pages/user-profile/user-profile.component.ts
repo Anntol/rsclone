@@ -2,7 +2,7 @@ import {
 Component, OnDestroy, OnInit, ChangeDetectorRef, AfterViewChecked
 } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { AuthService } from '../../../core/service/auth.service';
+import { AuthService } from '../../../auth/services/auth.service';
 import { SettingsService } from '../../servise/settings.service';
 import { IFavourite } from '../../models/favourite.model';
 import { IUserInfo } from '../../models/userinfo.model';
