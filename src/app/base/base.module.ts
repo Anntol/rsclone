@@ -16,7 +16,7 @@ import { ThemesListComponent } from './components/themes-list/themes-list.compon
 import { SortProjectsPipe } from './pipes/sort-projects.pipe';
 import { PreloaderComponent } from './components/preloader/preloader.component';
 import { ContentPageComponent } from './pages/content-page/content-page.component';
-import { NotFoundPageComponent } from './components/not-found-page/not-found-page.component';
+import { NotFoundPageComponent } from '../core/components/not-found-page/not-found-page.component';
 import { LoaderInterceptor } from '../core/interceptors/loader.interceptor';
 import { GitMenuComponent } from './components/git-menu/git-menu.component';
 

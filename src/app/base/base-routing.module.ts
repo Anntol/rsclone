@@ -6,7 +6,7 @@ import { ProjectListComponent } from './components/project-list/project-list.com
 import { ProjectCardComponent } from './components/project-card/project-card.component';
 
 import { AuthPageComponent } from '../auth/pages/auth-page/auth-page.component';
-import { UserProfileComponent } from '../settings/pages/user-profile/user-profile.component';
+
 import { ThemesListComponent } from './components/themes-list/themes-list.component';
 
 const routes: Routes = [
@@ -21,10 +21,6 @@ const routes: Routes = [
       {
         path: 'login',
         component: AuthPageComponent,
-      },
-      {
-        path: 'settings',
-        component: UserProfileComponent,
       },
       {
         path: 'projects',
