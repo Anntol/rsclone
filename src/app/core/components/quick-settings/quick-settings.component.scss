@@ -1,0 +1,26 @@
+
+.bottom {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.lang {
+  position: absolute;
+  bottom: 1.5em;
+  right: 1em;
+  @media screen and (max-width: 540px) {
+    z-index: 6;
+    bottom: -1em;
+  }
+}
+
+.mode{
+  position: absolute;
+  bottom: 1.5em;
+  @media screen and (max-width: 540px) {
+    z-index: 7;
+    bottom: -4.5em;
+    right: 1.5em;
+  }
+}
