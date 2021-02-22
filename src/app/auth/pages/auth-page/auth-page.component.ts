@@ -1,13 +1,13 @@
 import {
- Component, OnInit, ViewChild , ChangeDetectorRef, OnDestroy, AfterViewChecked
+ Component, OnInit, ChangeDetectorRef, OnDestroy, AfterViewChecked
 } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 import { SubscriptionLike } from 'rxjs';
+import { filter } from 'rxjs/operators';
 
 import { AuthData } from '../../models/authdata.model';
 import { AuthService } from '../../services/auth.service';
-import { SelectLangComponent } from '../../../shared/components/select-lang/select-lang.component';
 import { ModeService } from '../../../core/service/mode.service';
 
 @Component({
@@ -20,22 +20,26 @@ import { ModeService } from '../../../core/service/mode.service';
   ]
 })
 export class AuthPageComponent implements OnInit, OnDestroy, AfterViewChecked {
-  @ViewChild(SelectLangComponent) selectLang!: SelectLangComponent;
-
   subscription!: SubscriptionLike;
-
   authType = '';
-
   returnUrl = '/';
-
   isDarkMode!: boolean;
 
   constructor(
     public authService: AuthService,
     private route: ActivatedRoute,
+    private router: Router,
     private cdr: ChangeDetectorRef,
     private modeService: ModeService
-) {}
+) {
+  this.subscription = this.router.events.pipe(
+    filter((event) => event instanceof NavigationEnd)
+  )
+    .subscribe((event: any) => {
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+        this.authType = (event.url as string).slice(1);
+    });
+}
 
   ngAfterViewChecked(): void {
     this.isDarkMode = this.modeService.getActiveMode().name === "dark";
@@ -44,10 +48,10 @@ export class AuthPageComponent implements OnInit, OnDestroy, AfterViewChecked {
 
   ngOnInit(): void {
     this.subscription = this.route.url.subscribe((data) => {
-      // Get the last piece of the URL (it's either 'login' or 'signup')
-      this.authType = data[data.length - 1].path;
+    // Get the last piece of the URL (it's either 'login' or 'signup')
+    // this.authType = data[data.length - 1].path;
 
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
       this.returnUrl = this.route.snapshot.queryParams.returnUrl || '/';
     });
   }

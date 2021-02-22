@@ -6,6 +6,7 @@ import { MainPageComponent } from './base/pages/main-page/main-page.component';
 import { VerticalMenuComponent } from './core/components/vertical-menu/vertical-menu.component';
 import { QuickSettingsComponent } from './core/components/quick-settings/quick-settings.component';
 import { NotFoundPageComponent } from './core/components/not-found-page/not-found-page.component';
+import { AuthPageComponent } from './auth/pages/auth-page/auth-page.component';
 
 const routes: Routes = [
   {
@@ -22,6 +23,11 @@ const routes: Routes = [
   },
   {
     path: 'login',
+    // component: AuthPageComponent
+    loadChildren: () => import('src/app/auth/auth.module').then((m) => m.AuthModule)
+  },
+  {
+    path: 'signup',
     loadChildren: () => import('src/app/auth/auth.module').then((m) => m.AuthModule)
   },
   {
