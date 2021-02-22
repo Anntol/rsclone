@@ -1,7 +1,7 @@
 .footer-secondary {
   width: 9em;
   z-index: 4;
-  padding-top: 0.5em;
+  padding-top: 1em;
   @media screen and (max-width: 540px) {
     background-color: lighten(#252042, 15%);
     width: 100%;
@@ -13,7 +13,7 @@
   margin: 1em 1em 1em 0.5em;
   @media screen and (max-width: 540px) {
     transform: rotate(0deg);
-    margin: 1em 1em 0 2em;
+    margin: 1em 0.5em 0 1.5em;
   }
 }
 .rsschool-img:hovet {
@@ -23,7 +23,7 @@
   height: 40px;
   margin: 2em 1em 0.5em 3em;
   @media screen and (max-width: 540px) {
-    margin: 0 0.5em;
+    margin: 0;
   }
 }
 .creation {
@@ -34,6 +34,6 @@
   @media screen and (max-width: 540px) {
     text-align: left;
     display: inline-block;
-    margin: 1em;
+    margin: 1em 0em;
   }
 }
