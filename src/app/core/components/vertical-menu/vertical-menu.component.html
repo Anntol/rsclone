@@ -8,9 +8,15 @@
       <span class="logo-title">{{ 'MAIN.LOGO_TITLE' | translate }}</span>
     </div>
     <div
-      *ngIf="isVisibleVerticalButton"
+      *ngIf="isVisibleProjectsButton"
       class="projects-btn base-vertical noselect"
       [routerLink]="['/projects']">
       {{ 'MAIN.GO_PROJECTS' | translate }}
+    </div>
+    <div
+      *ngIf="isVisibleMapButton"
+      class="projects-btn base-vertical noselect"
+      [routerLink]="['/map']">
+      {{ 'MAIN.GO_MAP' | translate }}
     </div>
   </div>
