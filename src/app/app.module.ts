@@ -14,6 +14,7 @@ import { SettingsModule } from './settings/settings.module';
 import { AuthInterceptor } from './core/interceptors/auth.interceptor';
 import { ErrorComponent } from './shared/components/error/error.component';
 import { WarningComponent } from './shared/components/warning/warning.component';
+import { MapModule } from './map/map.module';
 
 // this function for load any static json file from ./assets/i18n
 export function HttpLoaderFactory(http: HttpClient): TranslateLoader {
@@ -34,6 +35,7 @@ export function initializeApp1(appInitService: AppInitService) {
     HttpClientModule,
     BaseModule,
     SettingsModule,
+    MapModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
