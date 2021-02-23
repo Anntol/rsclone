@@ -14,12 +14,15 @@ export class MapComponent implements AfterViewInit {
 
   ngAfterViewInit(): void {
     this.initMap();
+    // this.markerService.makeCapitalMarkers(this.map);
+    this.markerService.makeCapitalCircleMarkers(this.map);
   }
 
   private initMap(): void {
     this.map = L.map('map', {
-      center: [50.45466, 30.5238],
-      zoom: 2
+      // center: [50.45466, 30.5238], // Kyiv
+      center: [39.8282, -98.5795], // USA
+      zoom: 4
     });
 
     const tiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
