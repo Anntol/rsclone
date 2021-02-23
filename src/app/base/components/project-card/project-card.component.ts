@@ -19,17 +19,11 @@ import { IProject, IProjectById } from '../../../core/models/projects.model';
 })
 export class ProjectCardComponent implements OnInit, OnDestroy {
   private subscriptions: Subscription[] = [];
-
   set subscription(sb: Subscription) { this.subscriptions.push(sb) };
-
   projectId!: number;
-
-  public project!: IProject;
-
+  project!: IProject;
   fundingIndicator = '';
-
   error = false;
-
   errorMessage = '';
 
   constructor (
@@ -63,7 +57,7 @@ export class ProjectCardComponent implements OnInit, OnDestroy {
         this.fundingIndicator = (Math.floor(100 * (result.project.funding / result.project.goal)) > 100) ? '100%'
           : `${Math.floor(100 * (result.project.funding / result.project.goal))}%`;
         const { donationOptions } = result.project;
-         console.log(this.project, donationOptions);
+        console.log(this.project, donationOptions);
         this.error = false;
         this.errorMessage = '';
       } else {
