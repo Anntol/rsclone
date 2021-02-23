@@ -41,7 +41,9 @@ export class AuthPageComponent implements OnInit, OnDestroy, AfterViewChecked {
   )
   .subscribe((event: any) => {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-    this.authType = (event.url as string).slice(1);
+    const url = event.url as string;
+    const paramsIndex = url.lastIndexOf("?");
+    this.authType = paramsIndex > -1 ? url.slice(1, paramsIndex) : url.slice(1);
   });
 }
 
@@ -69,7 +71,7 @@ export class AuthPageComponent implements OnInit, OnDestroy, AfterViewChecked {
     // this.authType = data[data.length - 1].path;
 
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-      this.returnUrl = this.route.snapshot.queryParams.returnUrl || '/';
+    this.returnUrl = this.route.snapshot.queryParams.returnUrl || '/';
     // });
   }
 
