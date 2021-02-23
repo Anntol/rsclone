@@ -3,11 +3,9 @@
 #main {
   display: grid;
   grid-template-areas:
-    'logo globo top'
-    'logo globo content'
-    'footer footer bottom';
-  grid-template-rows: 5em 1fr 7em;
-  grid-template-columns: 9em 15em 1fr;
+    'globo content';
+  grid-template-rows: 1fr;
+  grid-template-columns: 15em 1fr;
   grid-gap: 0;
   width: 100%;
   max-width: 1366px;
@@ -16,78 +14,58 @@
   background-color: var(--color-white-alt);
 }
 
-#navLogo {
-  grid-area: logo;
-}
-#pageTop {
-  grid-area: top;
-}
 #pageContent {
   grid-area: content;
 }
 #pageGlobo {
   grid-area: globo;
 }
-#pageBottom {
-  grid-area: bottom;
-}
-#pagefooter {
-  grid-area: footer;
-}
 
-.logo,
-.top,
-.content,
-.bottom {
+.content {
   position: relative;
-  padding: 10px;
   background-color: var(--color-white-alt);
 }
 
-.nav-vertical {
-  position: relative;
-}
+// .globo {
+//   background-color: var(--primary-color);
+// }
 
-.globo {
-  background-color: var(--primary-color);
-}
+// .footer-secondary {
+//   width: 24em;
+//   z-index: 5;
+//   padding-top: 1.3em;
+//   background-color: var(--primary-color);
+// }
 
-.footer-secondary {
-  width: 24em;
-  z-index: 5;
-  padding-top: 1.3em;
-  background-color: var(--primary-color);
-}
+// .rsschool-img {
+//   height: 37px;
+//   margin: 1em 1em 0 2em;
+// }
 
-.rsschool-img {
-  height: 37px;
-  margin: 1em 1em 0 2em;
-}
+// .github-img {
+//   height: 40px;
+//   margin: 0 0.5em;
+// }
 
-.github-img {
-  height: 40px;
-  margin: 0 0.5em;
-}
+// .rsschool-img:hover,
+// .github-img:hover {
+//   cursor: pointer;
+// }
 
-.rsschool-img:hover,
-.github-img:hover {
-  cursor: pointer;
-}
-
-.creation {
-  display: inline-block;
-  margin: 1em;
-  font-weight: bold;
-  color: #f6f3ec;
-  text-align: left;
-  opacity: 0.7;
-}
+// .creation {
+//   display: inline-block;
+//   margin: 1em;
+//   font-weight: bold;
+//   color: #f6f3ec;
+//   text-align: left;
+//   opacity: 0.7;
+// }
 
 .content {
   position: relative;
   padding-left: 34em;
   overflow: auto;
-  background-color: var(--color-white-alt);
+  // background-color: var(--color-white-alt);
 
   .before {
     display: inline-block;
@@ -126,18 +104,18 @@
   }
 }
 
-.bottom {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
+// .bottom {
+//   display: flex;
+//   flex-direction: row;
+//   justify-content: space-between;
+// }
 
-.lang,
-.mode  {
-  position: absolute;
-  bottom: 1.5em;
-}
+// .lang,
+// .mode  {
+//   position: absolute;
+//   bottom: 1.5em;
+// }
 
-.lang {
-  right: 1em;
-}
+// .lang {
+//   right: 1em;
+// }

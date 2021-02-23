@@ -11,6 +11,8 @@ import { AppComponent } from './app.component';
 import { AppInitService } from './core/service/app-init.service';
 import { BaseModule } from './base/base.module';
 import { SettingsModule } from './settings/settings.module';
+import { AuthModule } from './auth/auth.module';
+import { MapModule } from './map/map.module';
 import { AuthInterceptor } from './core/interceptors/auth.interceptor';
 import { ErrorComponent } from './shared/components/error/error.component';
 import { WarningComponent } from './shared/components/warning/warning.component';
@@ -34,6 +36,8 @@ export function initializeApp1(appInitService: AppInitService) {
     HttpClientModule,
     BaseModule,
     SettingsModule,
+    AuthModule,
+    MapModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

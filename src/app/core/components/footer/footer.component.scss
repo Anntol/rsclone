@@ -1,0 +1,39 @@
+.footer-secondary {
+  width: 9em;
+  z-index: 4;
+  padding-top: 1em;
+  @media screen and (max-width: 540px) {
+    background-color: lighten(#252042, 15%);
+    width: 100%;
+  }
+}
+.rsschool-img {
+  height: 37px;
+  transform: rotate(-90deg);
+  margin: 1em 1em 1em 0.5em;
+  @media screen and (max-width: 540px) {
+    transform: rotate(0deg);
+    margin: 1em 0.5em 0 1.5em;
+  }
+}
+.rsschool-img:hovet {
+  cursor: pointer;
+}
+.github-img {
+  height: 40px;
+  margin: 2em 1em 0.5em 3em;
+  @media screen and (max-width: 540px) {
+    margin: 0;
+  }
+}
+.creation {
+  font-weight: bold;
+  color: #f6f3ec;
+  text-align: center;
+  opacity: 0.7;
+  @media screen and (max-width: 540px) {
+    text-align: left;
+    display: inline-block;
+    margin: 1em 0em;
+  }
+}

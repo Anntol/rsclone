@@ -12,7 +12,7 @@ import {
 import { GlobalGivingApiService } from '../../../core/service/global-giving-api.service';
 import { DataService } from '../../../core/service/data.service';
 import { PreloaderService } from '../../../core/service/preloader.service';
-import { AuthService } from '../../../core/service/auth.service';
+import { AuthService } from '../../../auth/services/auth.service';
 import { SettingsService } from '../../../settings/servise/settings.service';
 import { IFavourite } from '../../../settings/models/favourite.model';
 
@@ -28,9 +28,7 @@ import { IFavourite } from '../../../settings/models/favourite.model';
 })
 export class ProjectListComponent implements OnInit, OnDestroy {
   private subscriptions: Subscription[] = [];
-
   set subscription(sb: Subscription) { this.subscriptions.push(sb) };
-
   queryOptions: IQueryOptions = {
     keyWords: '*',
     startNumber: 0,
@@ -39,26 +37,16 @@ export class ProjectListComponent implements OnInit, OnDestroy {
   };
 
   countShowProjects = 10;
-
   countAllProjects = 0;
-
   error = false;
-
   errorMessage = '';
-
   fundingIndicator = 1;
-
   dataProjects: IProjectWithFavourite[] = [];
-
   userFavourites: IFavourite[] = [];
-
   isUserAuthenticated = false;
-
   IsVisibleMoreButton = false;
-
-  public search!: string;
-
-  public optionsSort: Sort = {
+  search!: string;
+  optionsSort: Sort = {
     active: '',
     direction: ''
   };

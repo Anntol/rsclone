@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { SharedModule } from '../shared/shared.module';
+import { SettingsRoutingModule } from './settings-routing.module';
 import { UserInfoComponent } from './components/user-info/user-info.component';
 import { FavouritesListComponent } from './components/favourites-list/favourites-list.component';
 import { DeleteItemComponent } from './components/delete-item/delete-item.component';
@@ -18,7 +19,8 @@ import { UserProfileComponent } from './pages/user-profile/user-profile.componen
   ],
   imports: [
     CommonModule,
-    SharedModule
+    SharedModule,
+    SettingsRoutingModule
   ],
   exports: [
     UserProfileComponent

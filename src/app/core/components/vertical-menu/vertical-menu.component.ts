@@ -12,8 +12,8 @@ import { SubscriptionLike } from 'rxjs';
   ]
 })
 export class VerticalMenuComponent implements OnInit, OnDestroy {
-  public isVisibleVerticalButton = true;
-
+  isVisibleProjectsButton = true;
+  isVisibleMapButton = false;
   subscription!: SubscriptionLike;
 
   constructor(public router: Router) {}
@@ -21,10 +21,12 @@ export class VerticalMenuComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.subscription = this.router.events.subscribe((e) => {
       if (e instanceof NavigationEnd) {
-        if (e.url.includes('/home')) {
-          this.isVisibleVerticalButton = true;
+        if (!e.url.includes('/projects')) {
+          this.isVisibleProjectsButton = true;
+          this.isVisibleMapButton = false;
         } else {
-          this.isVisibleVerticalButton = false;
+          this.isVisibleProjectsButton = false;
+          this.isVisibleMapButton = true;
         }
       }
     });

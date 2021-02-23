@@ -1,0 +1,39 @@
+<div id="pageTop" class="top noselect">
+  <div class="filter-dropdown" *ngIf="isVisibleFilterButton">
+    <span class="material-icons dropbtn">
+      more_vert
+    </span>
+    <div class="dropdown-content">
+      <span
+        #search
+        [attr.data-filter]="'search'"
+        (click)="changeFilter(search)">
+        {{ 'PROJECTS.FILTER.SEARCH' | translate }}
+      </span>
+      <span #sort
+        [attr.data-filter]="'sort'"
+        (click)="changeFilter(sort)">
+        {{ 'PROJECTS.FILTER.SORT' | translate }}
+      </span>
+    </div>
+  </div>
+  <form *ngIf="isSearch && isVisibleFilterButton">
+    <input type="text" />
+    <input type="text" matInput [formControl]="searchQuery" />
+    <span class="material-icons search stacks-base-block">search</span>
+  </form>
+  <section *ngIf="isSort && isVisibleFilterButton">
+    <div class="filter-label">{{ 'PROJECTS.FILTER.SORTING_BY' | translate }}:</div>
+    <div class="filter-button-row" matSort (matSortChange)="sortData($event)">
+      <span class="mat-button-base"  mat-sort-header="goal" >
+        <span class="underline">{{ 'PROJECTS.GOAL' | translate }}</span>
+      </span>
+      <span class="mat-button-base" mat-sort-header="date" >
+        <span class="underline">{{ 'PROJECTS.DATE' | translate }}</span>
+      </span>
+      <!-- <span class="mat-button-base"  mat-sort-header="count" >
+        <span class="underline">{{ 'PROJECTS.DONATIONS' | translate }}</span>
+      </span> -->
+    </div>
+  </section>
+</div>

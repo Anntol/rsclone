@@ -10,31 +10,23 @@ import { MainPageComponent } from './pages/main-page/main-page.component';
 import { ParamsInterceptor } from '../core/interceptors/params.interceptor';
 import { ProjectListComponent } from './components/project-list/project-list.component';
 import { ProjectCardComponent } from './components/project-card/project-card.component';
-import { VerticalMenuComponent } from './components/vertical-menu/vertical-menu.component';
-import { ProjectsPageComponent } from './pages/projects-page/projects-page.component';
+import { ProjectsFiltersComponent } from './components/projects-filters/projects-filters.component';
 import { ThemesListComponent } from './components/themes-list/themes-list.component';
-import { AuthPageComponent } from './pages/auth-page/auth-page.component';
 import { SortProjectsPipe } from './pipes/sort-projects.pipe';
 import { PreloaderComponent } from './components/preloader/preloader.component';
 import { ContentPageComponent } from './pages/content-page/content-page.component';
-import { NotFoundPageComponent } from './components/not-found-page/not-found-page.component';
 import { LoaderInterceptor } from '../core/interceptors/loader.interceptor';
-import { GitMenuComponent } from './components/git-menu/git-menu.component';
 
 @NgModule({
   declarations: [
     MainPageComponent,
     ProjectListComponent,
     ProjectCardComponent,
-    VerticalMenuComponent,
-    ProjectsPageComponent,
+    ProjectsFiltersComponent,
     ThemesListComponent,
-    AuthPageComponent,
     SortProjectsPipe,
     PreloaderComponent,
-    ContentPageComponent,
-    NotFoundPageComponent,
-    GitMenuComponent
+    ContentPageComponent
   ],
   imports: [
     CommonModule,
@@ -43,13 +35,7 @@ import { GitMenuComponent } from './components/git-menu/git-menu.component';
     HttpClientModule
   ],
   exports: [
-    MainPageComponent,
-    ProjectListComponent,
-    ProjectCardComponent,
-    VerticalMenuComponent,
-    ProjectsPageComponent,
-    NotFoundPageComponent,
-    GitMenuComponent
+    MainPageComponent
   ],
   providers: [
     GlobalGivingApiService,

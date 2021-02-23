@@ -1,0 +1,78 @@
+@import '../theme/colors.scss';
+
+#projects {
+  display: grid;
+  grid-template-areas:
+    'logo top'
+    'logo content'
+    'logo content'
+    'footer content'
+    'footer bottom';
+  grid-template-rows: 6.5em 5em 1fr 9em 5em;
+  grid-template-columns: 9em 1fr;
+  grid-gap: 0;
+  width: 100%;
+  max-width: 1366px;
+  height: 100vh;
+  margin: 0 auto;
+  background-color: var(--color-white-alt);
+  @media screen and (max-width: 540px) {
+    grid-template-areas:
+      'logo'
+      'top'
+      'content'
+      'bottom'
+      'footer';
+    grid-template-rows: 6.5em 5em 1fr 1em 6em;
+    grid-template-columns: 1fr;
+  }
+}
+
+#navLogo {
+  grid-area: logo;
+}
+#pageTop {
+  grid-area: top;
+}
+#pageGlobe {
+  grid-area: globe;
+}
+#pageContent {
+  grid-area: content;
+}
+#pageBottom {
+  grid-area: bottom;
+}
+#pagefooter {
+  grid-area: footer;
+}
+
+.logo,
+.top,
+.content,
+.bottom {
+  position: relative;
+  background-color: var(--color-white-alt);
+  // background-color: rgba(var(--primary-color), 0.8);
+}
+
+.content {
+  position: relative;
+  overflow-y: auto;
+  background-color: var(--color-white-alt);
+  @media screen and (max-width: 540px) {
+    margin-left: 0;
+  }
+}
+
+.bottom {
+  padding: 10px;
+}
+
+.nav-vertical {
+  background-color: var(--primary-color);
+}
+
+.globo {
+  background-color: var(--primary-color);
+}

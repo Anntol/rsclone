@@ -1,2 +1,23 @@
 <app-header></app-header>
-<router-outlet></router-outlet>
+<div id="projects" class="projects">
+  <div id="navLogo" class="nav-vertical">
+    <router-outlet name="nav-vertical"></router-outlet>
+  </div>
+  <!-- <div id="pageGlobe">
+    <router-outlet name="globe"></router-outlet>
+    <app-globe></app-globe> -->
+  <!-- </div> -->
+  <div id="pageTop" class="top noselect">
+    <router-outlet name="filters"></router-outlet>
+  </div>
+  <div id="pageContent" class="content">
+    <router-outlet></router-outlet>
+  </div>
+  <div id="pageBottom" class="bottom">
+    <router-outlet name="quick-settings"></router-outlet>
+  </div>
+  <div id="pageFooter">
+    <app-footer></app-footer>
+  </div>
+</div>
+

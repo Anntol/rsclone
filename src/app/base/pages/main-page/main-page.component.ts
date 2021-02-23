@@ -5,7 +5,6 @@ import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 
 import { IUser } from '../../../core/models/users.models';
-import { SelectLangComponent } from '../../../shared/components/select-lang/select-lang.component';
 import { RECOMMENDED } from '../../../shared/constants/constants';
 
 @Component({
