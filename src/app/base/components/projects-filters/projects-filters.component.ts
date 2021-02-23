@@ -14,41 +14,29 @@ import { MIN_LENGTH_QUERY, WAIT_FOR_INPUT, THEMES } from '../../../shared/consta
 import { IProjectWithFavourite } from '../../../core/models/projects.model';
 
 @Component({
-  selector: 'app-projects-page',
-  templateUrl: './projects-page.component.html',
+  selector: 'app-projects-filters',
+  templateUrl: './projects-filters.component.html',
   styleUrls: [
-    './projects-page.component.scss',
+    './projects-filters.component.scss',
     '../../../../theme/buttons.scss',
     '../../../../theme/stacks.scss',
     '../../../../theme/noselect.scss'
   ]
 })
-export class ProjectsPageComponent implements OnInit {
-  public searchQuery: FormControl = new FormControl();
-
+export class ProjectsFiltersComponent implements OnInit {
   private subscriptions: Subscription[] = [];
-
   set subscription(sb: Subscription) { this.subscriptions.push(sb) };
-
-  public sort!: Sort;
-
-  public search!: string;
-
-  public isVisibleFilterButton = false;
-
-  public isSort = false;
-
-  public isSearch = false;
-
+  searchQuery: FormControl = new FormControl();
+  sort!: Sort;
+  search!: string;
+  isVisibleFilterButton = false;
+  isSort = false;
+  isSearch = false;
   error = false;
-
   errorMessage = '';
-
   fundingIndicator = 1;
-
   dataProjects!: IProjectWithFavourite[];
-
-  public pathId!: string;
+  pathId!: string;
 
   constructor(
     public router: Router,

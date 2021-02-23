@@ -6,6 +6,7 @@ import { MainPageComponent } from './base/pages/main-page/main-page.component';
 import { VerticalMenuComponent } from './core/components/vertical-menu/vertical-menu.component';
 import { QuickSettingsComponent } from './core/components/quick-settings/quick-settings.component';
 import { NotFoundPageComponent } from './core/components/not-found-page/not-found-page.component';
+import { ProjectsFiltersComponent } from './base/components/projects-filters/projects-filters.component';
 
 const routes: Routes = [
   {
@@ -42,8 +43,13 @@ const routes: Routes = [
     component: QuickSettingsComponent,
     outlet: 'quick-settings'
   },
+  {
+    path: '',
+    component: ProjectsFiltersComponent,
+    outlet: 'filters'
+  },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: '**', component: NotFoundPageComponent } // TODO Wildcard route for a 404 page
+  { path: '**', component: NotFoundPageComponent }
 ];
 
 @NgModule({
