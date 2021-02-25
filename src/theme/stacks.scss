@@ -1,0 +1,48 @@
+@import './colors.scss';
+
+.stacks-base-buttons {
+  background: var(--primary-color-btn);
+  border: 1px solid $color-white-op04;
+  box-shadow: 0 8px 16px 0 $shadow-dark;
+}
+
+.staсks-globe {
+  box-shadow: -5px -5px 10px $color-white-op04, 3px 3px 7px $color-black-op04;
+}
+
+.staсks-lang {
+  box-shadow: -5px -5px 10px $shadow-ligth, 3px 3px 5px $color-white-op04;
+}
+
+.staсks-lang:hover {
+  cursor: pointer;
+  box-shadow: -5px -5px 10px $shadow-ligth, 3px 3px 6px $shadow-accent;
+}
+
+.stacks-base-block {
+  box-sizing: border-box;
+  box-shadow: -1px 1px 6px 2px $color-violet-op04;
+
+  background-color: var(--primary-text-color);
+  background-blend-mode: soft-light, normal;
+}
+
+.stacks-base-block:hover {
+  cursor: pointer;
+  -webkit-box-shadow: 1px 2px 16px 2px $color-black-op04;
+  box-shadow: 1px 2px 16px 2px $color-black-op04;
+}
+
+.stacks-base-btn:active {
+  cursor: pointer;
+  box-shadow: 0px 0px 1px $shadow-ligth, 0px 0px 1px $shadow-accent;
+}
+
+.bg-base-block-in {
+  background: linear-gradient(135.37deg, $color-black-op04 4.29%, $color-white-op04 95.6%), var(--color-white-alt);
+  background-blend-mode: soft-light, normal;
+}
+
+.text-accent {
+  text-shadow: -1px -1px 2px #fafbffec, 1px 1px 1px #0f070fb9;
+}

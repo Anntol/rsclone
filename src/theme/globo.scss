@@ -1,0 +1,129 @@
+@import './colors.scss';
+
+.globe-rotate,
+.globe {
+  width: 200px;
+  height: 200px;
+}
+.globe-rotate {
+  position: relative;
+  z-index: 5;
+  display: inline-block;
+  margin: 250px 180px;
+  transform: scale(2);
+  transition: transform 1s ease-out;
+  @media screen and (max-width: 1921px) {
+    margin: 240px 200px;
+    transform: scale(1.9);
+  }
+  @media screen and (max-width: 1367px) {
+    margin: 220px 130px;
+    transform: scale(1.8);
+  }
+  @media screen and (max-width: 1281px) {
+    margin: 200px 100px;
+    transform: scale(1.7);
+  }
+  @media screen and (max-width: 1025px) {
+    margin: 180px 100px;
+    transform: scale(1.6);
+  }
+  @media screen and (max-width: 951px) {
+    margin: 150px 70px;
+    transform: scale(1.5);
+  }
+  @media screen and (max-width: 861px) {
+    margin: 120px 5px;
+    transform: scale(1.4);
+  }
+  @media screen and (max-width: 751px) {
+    margin: 120px 10px;
+    transform: scale(1.3);
+  }
+  @media screen and (max-width: 541px) {
+    margin: 120px 10px;
+    transform: scale(1.2);
+  }
+}
+.globe {
+  position: relative;
+  top: 0px;
+  left: 0px;
+  display: block;
+  margin: 0;
+  padding: 0;
+  border-radius: 50%;
+  background-color: $primary-text-color;
+  @media screen and (max-width: 540px) {
+    display: none;
+  }
+}
+.globe-worldmap,
+.globe-worldmap-front,
+.globe-worldmap-back,
+.globe-sphere,
+.globe-outer-shadow,
+.globe-inner-shadow {
+  position: absolute;
+  display: block;
+  margin: 0;
+}
+.globe-sphere,
+.globe-outer-shadow,
+.globe-inner-shadow {
+  left: 0;
+  top: 0;
+  width: 200px;
+  height: 200px;
+  background-position: 0 0;
+  background-repeat: no-repeat;
+}
+.globe-worldmap {
+  left: 0;
+  top: 0;
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 50%;
+}
+.globe-worldmap-front,
+.globe-worldmap-back {
+  left: 0;
+  top: 0;
+  width: 1000px;
+  height: 200px;
+  overflow: visible;
+  background-image: url(../assets/globe/worldmap.svg);
+  background-repeat: no-repeat;
+}
+.globe-inner-shadow {
+  background-image: url(../assets/globe/inner_shadow.svg);
+}
+.globe-sphere {
+  background-image: url(../assets/globe/sphere.svg);
+}
+.globe-worldmap-front {
+  background-position: 0px 0px;
+  animation: textureSpinreverse 8s linear infinite;
+}
+.globe-worldmap-back {
+  background-position: 0px -220px;
+  animation: textureSpin 8s linear infinite;
+}
+
+@keyframes textureSpin {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-47.5%);
+  }
+}
+@keyframes textureSpinreverse {
+  from {
+    transform: translateX(-47.5%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}

@@ -1,0 +1,59 @@
+@import '../../../../theme/colors.scss';
+
+.delete-outer {
+  padding: 0.3em;
+  width: 2em;
+  margin-top: 0.5em;
+  cursor: pointer;
+}
+
+.delete-inner {
+  width: inherit;
+  text-align: center;
+}
+
+label { 
+  font-size: 1em; 
+  line-height: 2em;
+  color: var(--accent-color);
+  transition: all .3s ease-in;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.delete-inner:before, .delete-inner:after {
+  position: absolute;
+  content: '';
+  height: 0.1em;
+  width: 2.2em;
+  background: var(--primary-color-btn);
+  right: 1em;
+  transition: all .3s ease-in;
+}
+
+.delete-inner:before {
+  top: 50%; 
+  transform: rotate(45deg);  
+}
+
+.delete-inner:after {  
+  bottom: 50%;
+  transform: rotate(-45deg);  
+}
+
+.delete-outer:hover label {
+  opacity: 1;
+}
+
+.delete-outer:hover .delete-inner:before,
+.delete-outer:hover .delete-inner:after {
+  transform: rotate(0);
+}
+
+.delete-outer:hover .delete-inner:before {
+  top: 25%;
+}
+
+.delete-outer:hover .delete-inner:after {
+  bottom: 25%;
+}

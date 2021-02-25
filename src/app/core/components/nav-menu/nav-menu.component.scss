@@ -1,0 +1,151 @@
+@import '../../../../theme/colors.scss';
+
+.menu-list {
+  width: 48px;
+  height: 48px;
+  position: absolute;
+  right: 0px;
+  top: 10px;
+  list-style: none;
+  text-align: center;
+  user-select: none;
+}
+
+.menu-button {
+  display: block;
+  width: 46px;
+  height: 46px;
+  position: absolute;
+  right: 45px;
+  top: -10px;
+  border-radius: 50%;
+  overflow: hidden;
+  color: $color-white;
+  background-color: var(--accent-color);
+  z-index: 10;
+  cursor: pointer;
+  &:after {
+    position: absolute;
+    top: 28px;
+    right: 12px;
+    border-radius: 10px;
+    background: $color-white;
+    content: '';
+    width: 20px;
+    height: 3px;
+    -webkit-transition: all 0.4s ease;
+    transition: all 0.4s ease;
+  }
+  &:before {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    border-radius: 10px;
+    background: $color-white;
+    content: '';
+    width: 20px;
+    height: 3px;
+    -webkit-transition: all 0.4s ease;
+    transition: all 0.4s ease;
+  }
+}
+
+.burger_center {
+  width: 20px;
+  height: 3px;
+  position: absolute;
+  top: 10px;
+  right: 57px;
+  border-radius: 10px;
+  background: $color-white;
+  z-index: 20;
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+}
+
+.menu-item {
+  width: 42px;
+  height: 42px;
+  position: absolute;
+  right: 48px;
+  top: -18%;
+  line-height: 5px;
+  border-radius: 50%;
+  z-index: 2;
+  background-color: var(--primary-color);
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+}
+
+.menu-item:hover {
+  opacity: 0.5;
+}
+
+.menu-item a {
+  color: $color-white;
+  position: relative;
+  top: 14%;
+  right: 7%;
+  text-decoration: none;
+}
+
+.mat-icon {
+  font-size: 30px;
+}
+
+.menu_opener {
+  display: none;
+}
+
+.menu_opener:checked ~ {
+  .link_one {
+    transform: translateX(-220px);
+    transition-delay: 0.2s;
+  }
+  .link_two {
+    transform: translateX(-165px);
+    transition-delay: 0.3s;
+  }
+  .link_four {
+    transform: translateX(-110px);
+    transition-delay: 0.4s;
+  }
+  .link_five {
+    transform: translateX(-55px);
+    transition-delay: 0.5s;
+  }
+  .burger_center {
+    opacity: 0;
+  }
+  .menu-button {
+    &:after {
+      transform: rotate(45deg);
+      top: 20px;
+    }
+    &:before {
+      transform: rotate(-45deg);
+      top: 20px;
+    }
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .menu_opener:checked ~ {
+    .link_one {
+      transform: translateY(55px);
+      transition-delay: 0.1s;
+    }
+    .link_two {
+      transform: translateY(110px);
+      transition-delay: 0.2s;
+    }
+    .link_four {
+      transform: translateY(165px);
+      transition-delay: 0.3s;
+    }
+    .link_five {
+      transform: translateY(220px);
+      transition-delay: 0.4s;
+    }
+  }
+}

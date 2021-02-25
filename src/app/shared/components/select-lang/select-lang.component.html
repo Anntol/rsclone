@@ -1,0 +1,20 @@
+<div>
+  <div class="form_lang_btn" *ngFor="let language of languageArr">
+    <div
+      class="select-language"
+      #tooltip="matTooltip"
+      [matTooltip]="language.toUpperCase()">
+      <input
+        type="radio"
+        [id]="language"
+        [value]="language"
+        [(ngModel)]="myLanguage"
+        (click)="changeLanguage(language)"/>
+      <label
+        [for]="language"
+        class="stacks-lang"
+        [ngStyle]="{ 'background-image': 'url(assets/flags/' + language + '.svg)' }">
+      </label>
+    </div>
+  </div>
+</div>

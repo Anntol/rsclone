@@ -1,0 +1,65 @@
+@import '../../../../theme/colors.scss';
+
+.auth {
+  display: -webkit-flex;
+  display: flex;
+  background-color: var(--color-white-alt);
+}
+
+.navLogo {
+  width: 9em;
+}
+
+.content {
+  display: -webkit-flex;
+  display: flex;
+  width: calc(100% - 9em);
+  margin: 0 auto;
+  padding: 0 10px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+
+  background-color: var(--color-white-alt);
+
+  .lang {
+    position: absolute;
+    bottom: 2em;
+    right: 3em;
+    bottom: 2.5em;
+  }
+}
+
+form {
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: column;
+}
+
+mat-form-field {
+  margin-bottom: 1em;
+}
+
+.btn-auth {
+  height: 40px;
+  margin-bottom: 1em;
+}
+
+.auth-links {
+  text-align: center;
+}
+
+.auth-links a {
+  text-decoration: none;
+  color: var(--secondary-text-color);
+}
+
+mat-card {
+  background-color: var(--primary-text-color);
+}
+
+input.mat-input-element {
+  padding: 10px 0 9px 9px;
+  border-radius: 3px;
+  width: 95%;
+}

@@ -1,0 +1,52 @@
+:host {
+  background-color: var(--color-white-alt);
+}
+
+.page-404 {
+  text-align: center;
+  position: relative;
+  box-sizing: border-box;
+  height: 90%;
+}
+
+.pageInner_b {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+  transition: opacity ease-out 0.3s;
+}
+
+.error-404 {
+  width: 50%;
+  min-width: 280px;
+  padding-top: 30vh;
+  background: url('../../../../assets/img/not-found.png') no-repeat;
+  background-size: 100% auto;
+  margin: 44px auto 0;
+}
+
+.error-404_title {
+  font-size: 20px;
+  font-weight: 250;
+  letter-spacing: 12px;
+  color: var(--accent-color);
+  border-top: 1px solid var(--primary-color-btn);
+  padding-top: 10px;
+}
+
+.error_btn {
+  width: auto;
+  padding: 1em 2em;
+  font-size: 1em;
+}
+
+.lang {
+  position: absolute;
+  bottom: 1.5em;
+  right: 1em;
+  @media screen and (max-width: 540px) {
+    z-index: 6;
+    bottom: -1em;
+  }
+}

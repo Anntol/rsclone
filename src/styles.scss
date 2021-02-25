@@ -1,0 +1,119 @@
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@import '~ngx-sharebuttons/themes/material/material-dark-theme';
+@import '~@angular/material/theming';
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300&display=swap');
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat-core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$rsclone-primary: mat-palette($mat-indigo);
+$rsclone-accent: mat-palette($mat-pink, A200, A100, A400);
+$rsclone-warn: mat-palette($mat-red);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$rsclone-theme: mat-light-theme((
+  color: (
+    primary: $rsclone-primary,
+    accent: $rsclone-accent,
+    warn: $rsclone-warn,
+  )
+));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($rsclone-theme);
+
+// dark material theme
+$rsclone-primary-dark: mat-palette($mat-indigo);
+$rsclone-accent-dark: mat-palette($mat-pink, A200, A100, A400);
+$rsclone-warn-dark: mat-palette($mat-red);
+
+$rsclone-theme-dark: mat-dark-theme((
+  color: (
+    primary: $rsclone-primary-dark,
+    accent: $rsclone-accent-dark,
+    warn: $rsclone-warn-dark,
+  )
+));
+
+.dark-theme-mode {
+  @include angular-material-theme($rsclone-theme-dark)
+}
+
+
+/* You can add global styles to this file, and also import other style files */
+:root {
+
+  --primary-color:        #15a4cb; //left-menu-color
+  --primary-color-btn:    #15a4cb; //btn-color
+  --primary-text-color:   #fefefe; //btn-text-color, logo-color, bg-card-color
+  --accent-color:         #FF4081;
+  --accent-color-dark:    #C2185B;
+  --accent-violet-color:  #783b78; //text-color-accent, footer
+  country-selector: #151515; //text-color-base
+  --color-white-alt:      #EBECF0; //bg-body-color
+
+  --shadow-ligth:        #fafbfff2;
+  --shadow-dark:         #0028780c;
+  --shadow-accent:       #763a76b9;
+}
+
+:host {
+  font-family: -apple-system, BlinkMacSystemFont, 'Fira Sans', sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 16px;
+  color: var(--secondary-text-color);
+  background-color: var(--color-white-alt);
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 8px 0;
+}
+
+p {
+  margin: 0;
+}
+
+html, body { height: 100%; }
+body { margin: 0; }
+
+
+::-webkit-scrollbar {
+  width: 0.5rem;
+  height: 0.5rem;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px var(--shadow-dark);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary-color);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: vat(--color-violet-op04);
+}
+
+.country-selector-code {
+  color: var(--secondary-text-color);
+}

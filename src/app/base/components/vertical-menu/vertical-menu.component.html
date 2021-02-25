@@ -1,0 +1,16 @@
+  <div class="nav-vert-primary">
+    <div class="fontsize">
+      <img
+        class="logo"
+        src="../../../../assets/img/logo-7.png"
+        [routerLink]="['/home']"
+        alt="logo">
+      <span class="logo-title">{{ 'MAIN.LOGO_TITLE' | translate }}</span>
+    </div>
+    <div
+      *ngIf="isVisibleVerticalButton"
+      class="projects-btn base-vertical noselect"
+      [routerLink]="['/projects']">
+      {{ 'MAIN.GO_PROJECTS' | translate }}
+    </div>
+  </div>

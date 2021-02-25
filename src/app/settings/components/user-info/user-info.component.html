@@ -1,0 +1,49 @@
+<form (ngSubmit)="onSubmit(userInfoForm)" #userInfoForm="ngForm">
+  <mat-form-field appearance="outline">
+    <mat-label>{{ "SETTINGS.FIRST_NAME" | translate }}</mat-label>
+    <input matInput [(ngModel)]="modelUser.firstName" name="firstName" />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label> {{ "SETTINGS.LAST_NAME" | translate }} </mat-label>
+    <input matInput [(ngModel)]="modelUser.lastName" name="lastName" />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>{{ 'SETTINGS.EMAIL' | translate }}</mat-label>
+    <input matInput [(ngModel)]="modelUser.email" name="email" readonly />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>{{ "SETTINGS.CITY" | translate }}</mat-label>
+    <input matInput [(ngModel)]="modelUser.city" name="city" />
+  </mat-form-field>
+
+  <app-select-country
+    class="countries-select"
+    [(ngModel)]="modelUser.country"
+    name="selectedCountry"
+    ngDefaultControl>
+  </app-select-country>
+
+  <mat-form-field appearance="outline">
+    <ngx-mat-intl-tel-input
+      [preferredCountries]="['by', 'ua']"
+      [enablePlaceholder]="true"
+      [enableSearch]="true"
+      [(ngModel)]="modelUser.phone"
+      name="phone"
+      #phone
+    >
+    </ngx-mat-intl-tel-input>
+    <mat-label>{{ 'SETTINGS.PHONE' | translate }}</mat-label>
+    <mat-hint>eg : {{phone.selectedCountry.placeHolder}}</mat-hint>
+    <mat-error
+      *ngIf="userInfoForm.form.controls['phone']?.errors?.validatePhoneNumber"
+    >
+      {{ 'SETTINGS.PHONE_ERROR' | translate}}</mat-error
+    >
+  </mat-form-field>
+
+  <button type="submit" class="base-button-blue btn-save"> {{ 'SETTINGS.SAVE' | translate }} </button>
+</form>

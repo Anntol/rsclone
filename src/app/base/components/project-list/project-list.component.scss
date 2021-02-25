@@ -1,0 +1,282 @@
+@import '../../../../theme/colors.scss';
+
+$label-size: 60px;
+$label-margin: 0px;
+$label-before-size: 40px;
+
+$font-size-md: 16px;
+$font-size-ms: 20px;
+$font-size-lg: 24px;
+$font-size-xl: 36px;
+$font-light: 300;
+$font-normal: 500;
+$font-bold: 700;
+
+#cards-block {
+  box-sizing: border-box;
+}
+
+.card-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-left: 1.5rem;
+  margin-top: 1.5rem;
+  @media screen and (max-width: 540px) {
+    margin-left: 0.5rem;
+  }
+}
+
+.card-item {
+  position: relative;
+  float: left;
+  width: 550px;
+  height: 450px;
+  border-radius: 3.5em;
+  margin-bottom: 4em;
+  margin-right: 1.5em;
+
+  @media screen and (max-width: 730px) {
+    width: 100%;
+    margin-right: 0.5em;
+    border-radius: 3em;
+  }
+}
+
+// Reference from: http://maximilianhoffmann.com/posts/better-font-rendering-on-osx
+@mixin font-smoothing($value: on) {
+  @if $value == on {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  } @else {
+    -webkit-font-smoothing: subpixel-antialiased;
+    -moz-osx-font-smoothing: auto;
+  }
+}
+
+.title {
+  font-size: $font-size-xl;
+  font-weight: $font-size-md;
+  margin-bottom: 2em;
+  small {
+    font-size: 16px;
+  }
+}
+
+.checkbox-input {
+  display: none;
+}
+
+.checkbox-label,
+.checkbox-text,
+.checkbox-text--goal,
+.checkbox-text--description {
+  transition: all 0.4s ease;
+}
+
+.checkbox-label {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  vertical-align: top;
+  cursor: pointer;
+  font-size: $font-size-lg;
+  font-weight: $font-normal;
+  border-radius: 2em;
+  @media screen and (max-width: 540px) {
+    font-size: $font-size-ms;
+  }
+}
+
+.checkbox-text {
+  &--title {
+    height: 1.7em;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    margin: 1em 0.5em;
+    font-weight: $font-bold;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
+    color: var(--secondary-text-color);
+    @media screen and (max-width: 675px) {
+      font-size: 22px;
+    }
+  }
+
+  &--donate {
+    display: flex;
+    justify-content: space-between;
+    font-size: 20px;
+    color: var(--secondary-text-color);
+    @media screen and (max-width: 675px) {
+      font-size: 18px;
+    }
+    .summ,
+    .funding {
+      display: inline-block;
+      width: 45%;
+      padding: 0.4em;
+      @media screen and (max-width: 570px) {
+        width: 43%;
+        font-size: 16px;
+      }
+    }
+    .summ {
+      color: var(--primary-color-btn);
+    }
+    .funding {
+      text-align: right;
+      color: var(--secondary-text-color);
+      opacity: 0.7;
+    }
+    .check-btn {
+      bottom: -1em;
+      display: block;
+      width: 80%;
+      max-width: 12em;
+      padding: 0.5em 1.5em;
+      margin: auto;
+      justify-content: center;
+      text-align: center;
+      @media screen and (max-width: 590px) {
+        bottom: -1.2em;
+        width: 80%;
+      }
+    }
+    .check-btn:hover,
+    .check-btn:active,
+    .check-btn:focus,
+    .share:hover {
+      box-shadow: inset 0 0 20px $shadow-accent;
+    }
+  }
+  &--description {
+    font-size: $font-size-ms;
+    margin-top: 1em;
+    padding-top: 1em;
+  }
+
+  &--header,
+  &--bottom {
+    position: absolute;
+    top: 0.5em;
+    right: 1em;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: Fira Sans;
+    font-weight: 700;
+    line-height: 1em;
+    letter-spacing: 0.05em;
+    text-align: right;
+    color: $color-white;
+    .small {
+      font-size: $font-size-md;
+      font-style: italic;
+    }
+
+    .share {
+      width: 2em;
+      border-radius: 0.2em;
+    }
+    .grade {
+      width: 2em;
+    }
+    .group {
+      display: flex;
+      margin-left: auto;
+      margin-right: auto;
+      justify-content: space-between;
+    }
+  }
+  &--bottom {
+    margin-top: 9.5em;
+    @media screen and (max-width: 540px) {
+      margin-top: 11.5em;
+    }
+  }
+}
+
+.checkbox-input:checked + .checkbox-label {
+  & .checkbox-text {
+    &--bottom .grade {
+      color: var(--primary-color-btn);
+    }
+  }
+}
+
+.box-img {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 300px;
+  background: #252042;
+  border-radius: 2em 2em 0 0;
+  line-height: 0;
+}
+.box-img img {
+  transition: filter 0.5s linear;
+  filter: grayscale(1) opacity(0.4);
+}
+.box-img:hover img {
+  filter: none;
+}
+
+.box-text {
+  position: absolute;
+  top: 1em;
+  right: 1em;
+  width: 89%;
+}
+
+img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+// ---More projects...
+button:active,
+button:focus {
+  outline: none;
+}
+button::-moz-focus-inner {
+  border: 0;
+}
+
+.box-line {
+  width: 100%;
+  background-color: #ddd;
+}
+
+.indicator {
+  padding-top: 2px;
+  padding-bottom: 3px;
+  color: $color-white;
+}
+
+.goal {
+  background-color: var(--primary-color-btn);
+}
+
+.more-btn {
+  display: block;
+  position: relative;
+  left: 50%;
+  height: 40px;
+  width: auto;
+  padding: 0 1em 0 1em;
+  box-sizing: border-box;
+  color: var(--accent-violet-color);
+  font-size: $font-size-md;
+  font-weight: $font-bold;
+  border-radius: 2em;
+  text-transform: uppercase;
+  transform: translate(-50%, 0);
+}

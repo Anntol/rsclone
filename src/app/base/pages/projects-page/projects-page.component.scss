@@ -1,0 +1,311 @@
+@import '../../../../theme/colors.scss';
+
+#projects {
+  display: grid;
+  grid-template-areas:
+    'logo top'
+    'logo content'
+    'logo content'
+    'footer content'
+    'footer bottom';
+  grid-template-rows: 6.5em 5em 1fr 9em 5em;
+  grid-template-columns: 9em 1fr;
+  grid-gap: 0;
+  width: 100%;
+  max-width: 1366px;
+  height: 100vh;
+  margin: 0 auto;
+  background-color: var(--color-white-alt);
+  @media screen and (max-width: 540px) {
+    grid-template-areas:
+      'logo'
+      'top'
+      'content'
+      'bottom'
+      'footer';
+    grid-template-rows: 6.5em 5em 1fr 1em 6em;
+    grid-template-columns: 1fr;
+  }
+}
+
+#navLogo {
+  grid-area: logo;
+}
+#pageTop {
+  grid-area: top;
+}
+#pageContent {
+  grid-area: content;
+}
+#pageBottom {
+  grid-area: bottom;
+}
+#pagefooter {
+  grid-area: footer;
+}
+
+.logo,
+.top,
+.content,
+.bottom {
+  position: relative;
+  padding: 10px;
+  background-color: var(--color-white-alt);
+}
+
+.nav-vertical {
+  background-color: var(--primary-color);
+}
+
+.footer-secondary {
+  width: 9em;
+  z-index: 4;
+  padding-top: 0.5em;
+  @media screen and (max-width: 540px) {
+    background-color: lighten(#252042, 15%);
+    width: 100%;
+  }
+}
+.rsschool-img {
+  height: 37px;
+  transform: rotate(-90deg);
+  margin: 1em 1em 1em 0.5em;
+  @media screen and (max-width: 540px) {
+    transform: rotate(0deg);
+    margin: 1em 1em 0 2em;
+  }
+}
+.rsschool-img:hovet {
+  cursor: pointer;
+}
+.github-img {
+  height: 40px;
+  margin: 2em 1em 0.5em 3em;
+  @media screen and (max-width: 540px) {
+    margin: 0 0.5em;
+  }
+}
+.creation {
+  font-weight: bold;
+  color: #f6f3ec;
+  text-align: center;
+  opacity: 0.7;
+  @media screen and (max-width: 540px) {
+    text-align: left;
+    display: inline-block;
+    margin: 1em;
+  }
+}
+.content {
+  position: relative;
+  overflow-y: auto;
+  background-color: var(--color-white-alt);
+  @media screen and (max-width: 540px) {
+    margin-left: 0;
+  }
+}
+
+.bottom {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.lang {
+  position: absolute;
+  bottom: 1.5em;
+  right: 1em;
+  @media screen and (max-width: 540px) {
+    z-index: 6;
+    bottom: -1em;
+  }
+}
+
+.mode{
+  position: absolute;
+  bottom: 1.5em;
+  @media screen and (max-width: 540px) {
+    z-index: 7;
+    bottom: -4.5em;
+    right: 1.5em;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .creation {
+    display: none;
+  }
+  .mode {
+    bottom: -4.5em;
+    right: 1.5em;
+  }
+}
+
+
+/* Search block */
+form {
+  position: relative;
+  top: 1.5em;
+  left: 2.5em;
+  transition: all 1s;
+  width: 42px;
+  height: 42px;
+  border-radius: 20px;
+  @media screen and (max-width: 540px) {
+    top: 1em;
+    left: 7.5em;
+  }
+}
+
+input {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 42px;
+  line-height: 30px;
+  outline: 0;
+  border: 0;
+  display: none;
+  font-size: 1em;
+  color: var(--secondary-text-color);
+  background-color: var(--primary-text-color);
+  border-radius: 20px;
+  padding-left: 20px;
+}
+
+.search {
+  padding: 0.5em;
+  top: 0;
+  right: 0;
+}
+
+.material-icons {
+  box-sizing: border-box;
+  width: 42px;
+  height: 42px;
+  position: absolute;
+  border-radius: 50%;
+  color: var(--accent-violet-color);
+  text-align: center;
+  font-size: 1.5em;
+  font-weight: 600;
+  transition: all 1s;
+}
+
+form:hover {
+  width: 16em;
+  cursor: pointer;
+}
+
+form:hover input {
+  display: block;
+}
+
+form:hover .material-icons {
+  background: var(--accent-violet-color);
+  color: var(--primary-text-color);
+}
+
+/* Sort block */
+section {
+  display: table;
+  margin-top: 2em;
+  margin-left: 2.5em;
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--secondary-text-color);
+  opacity: 0.7;
+  @media screen and (max-width: 540px) {
+    letter-spacing: 0.05em;
+  }
+
+  .filter-label {
+    display: table-cell;
+    padding-right: 0.1em;
+    min-width: 100px;
+  }
+
+  .filter-button-row {
+    display: flex;
+  }
+
+  .filter-button-row .mat-button-base {
+    margin: 0 0.1rem 0 0;
+  }
+
+  .underline {
+    line-height: 13px;
+    letter-spacing: -0.05em;
+    background-image: linear-gradient(currentColor, currentColor);
+    background-position: 0% 100%;
+    background-repeat: no-repeat;
+    background-size: 100% 1px;
+    transition: background-size 0.3s;
+  }
+}
+
+.filter-container {
+  display: flex;
+  justify-content: center;
+}
+
+::ng-deep .mat-sort-header-arrow {
+  color: var(--secondary-text-color);
+}
+
+/* Filter button */
+.filter-dropdown {
+  border: none;
+}
+
+.filter-dropdown {
+  position: absolute;
+  top: 1em;
+  left: 0.5em;
+  @media screen and (max-width: 540px) {
+    right: 3em;
+  }
+}
+
+.dropdown-content {
+  position: absolute;
+  z-index: 1;
+  display: none;
+  min-width: 10em;
+  font-weight: 500;
+  background-color: var(--color-white-alt);
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px 0px $shadow-accent;
+}
+
+.dropdown-content span {
+  color: var(--accent-violet-color);
+  padding: 12px 16px;
+  text-decoration: none;
+  text-transform: uppercase;
+  display: block;
+}
+
+.dropdown-content span:hover {
+  cursor: pointer;
+  color: var(--primary-color-btn);
+  background-color: $color-white-op08;
+}
+
+.filter-dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropbtn {
+  padding: 0.5em 0;
+  top: 0.8em;
+  left: 0;
+  @media screen and (max-width: 540px) {
+    left: 0.5em;
+  }
+}
+
+.filter-dropdown:hover .dropbtn {
+  background-color: $shadow-accent;
+}

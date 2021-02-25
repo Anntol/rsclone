@@ -1,0 +1,30 @@
+@import '../../../../theme/colors.scss';
+
+.form_lang_btn {
+  display: inline-block;
+  margin-right: .8em;
+}
+.select-language input[type=radio] {
+	display: none;
+}
+.select-language label {
+	display: inline-block;
+
+  height: 34px;
+  width: 34px;
+
+  cursor: pointer;
+  filter: grayscale(100%);
+  user-select: none;
+  border: 1px solid $color-white-op08;
+  border-radius: 50%;
+  box-sizing: border-box;
+}
+/* Checked */
+.select-language input[type=radio]:checked + label {
+  filter: grayscale(0%);
+}
+/* Hover */
+.select-language label:hover {
+  filter: grayscale(0%);
+}

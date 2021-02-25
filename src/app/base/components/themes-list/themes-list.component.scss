@@ -1,0 +1,58 @@
+@import '../../../../theme/colors.scss';
+
+ul {
+  list-style: none;
+}
+
+.themes-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding-left: 0;
+}
+
+.theme-container {
+  display: flex;
+  width: 120px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1em 1em 0em 2em;
+}
+
+.theme-img {
+  width: 100px;
+  height: 100px;
+  padding: 1em;
+  cursor: pointer;
+  transition: 1s;
+}
+
+.theme-img:hover {
+  transform: scale(1.2);
+  filter: invert(44%) sepia(85%) saturate(770%) hue-rotate(162deg) brightness(96%) contrast(101%);
+}
+
+.theme-title,
+.theme-name {
+  color: var(--secondary-text-color);
+  line-height: normal;
+  opacity: 0.7;
+}
+
+.theme-title {
+  font-size: 2rem;
+  text-align: center;
+  padding: 1rem 1rem 0;
+  @media screen and (max-width: 540px) {
+    padding: 0;
+  }
+}
+
+.theme-name {
+  font-size: 1.3rem;
+  overflow-wrap: normal;
+  text-align: center;
+}

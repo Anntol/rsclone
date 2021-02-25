@@ -1,0 +1,90 @@
+@import '../../../../theme/colors.scss';
+
+.notice-container {
+  display: flex;
+  width: 100%;
+  height: 400px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.notice {
+  font-size: 20px;
+  color: var(--secondary-text-color);
+  text-align: center;
+}
+
+.notice-btn {
+  width: 130px;
+  height: 40px;
+  color: var(--secondary-text-color);
+  font-size: 20px;
+  border: none;
+  outline: none;
+  background: var(--primary-text-color);
+  cursor: pointer;
+  position: relative;
+  margin-top: 10px;
+  z-index: 0;
+  border-radius: 10px;
+  border-style: outset;
+}
+
+.notice-btn a {
+  text-decoration: none;
+  color: var(--secondary-text-color);
+}
+
+.notice-btn:before {
+  content: '';
+  background: linear-gradient(45deg, red, orangered, yellow, green, blue, blueviolet, purple, violet, red);
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing 20s linear infinite;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 10px;
+}
+
+.notice-btn:active {
+  color: var(--primary-text-color);
+}
+
+.notice-btn:active:after {
+  background: transparent;
+}
+
+.notice-btn:hover:before {
+  opacity: 1;
+}
+
+.notice-btn:after {
+  z-index: -1;
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: var(--primary-text-color);
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+
+@keyframes glowing {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}

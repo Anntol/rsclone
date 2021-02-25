@@ -1,0 +1,65 @@
+@import '../../../../theme/colors.scss';
+
+.github-img {
+  height: 40px;
+  margin: 2em 1em 0.5em 3em;
+  cursor: pointer;
+  @media screen and (max-width: 540px) {
+    margin: 0 0.5em;
+  }
+}
+
+.dropbtn {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  user-select: none;
+}
+
+.github-img,
+.dropbtn,
+.dropup,
+.dropup-content,
+.dropup-content a {
+  transition: all 1s ease;
+}
+
+.dropup {
+  position: relative;
+  display: inline-block;
+}
+
+.dropup-content {
+  display: none;
+  position: absolute;
+  background-color: var(--color-white-alt);
+  min-width: 200px;
+  bottom: 46px;
+  right: -106px;
+  border-radius: 5px;
+  @media screen and (max-width: 541px) {
+    right: 1px;
+  }
+}
+
+.dropup-content a {
+  color: var(--secondary-text-color);
+  padding: 12px 12px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropup-content a:hover {
+  background-color: var(--primary-color-btn);
+  opacity: 0.75;
+  border-radius: 5px;
+}
+
+.dropup:hover .dropup-content {
+  display: block;
+}
+
+.gh-link::first-letter {
+  font-size: 200%;
+  color: var(--accent-color);
+}

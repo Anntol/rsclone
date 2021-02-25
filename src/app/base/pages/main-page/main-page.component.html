@@ -1,0 +1,46 @@
+<section id="main" class="main">
+  <div id="navLogo" class="nav-vertcal">
+    <app-vertical-menu></app-vertical-menu>
+  </div>
+  <div id="pageGlobo" class="globo noselect">
+    <span class="before"></span>
+    <div class="globe-rotate">
+      <div class="globe stacks-globe">
+        <div class="globe-sphere"></div>
+        <div class="globe-outer-shadow"></div>
+        <div class="globe-worldmap">
+          <div class="globe-worldmap-back"></div>
+          <div class="globe-worldmap-front"></div>
+        </div>
+        <div class="globe-inner-shadow"></div>
+      </div>
+    </div>
+  </div>
+  <div id="pageTop" class="top noselect">
+  </div>
+  <div id="pageContent" class="content">
+    <span class="before"></span>
+    <span class="promo">
+      <h3 class="text-accent noselect">{{ 'MAIN.PROMO_TITLE' | translate }}</h3>
+      <p>{{ 'MAIN.PROMO_TEXT' | translate }}</p>
+      <button
+        (click) = "getStarted()"
+        class="start-btn base-button-blue">
+        {{ 'MAIN.BTN_START' | uppercase | translate }}
+      </button>
+    </span>
+  </div>
+
+  <div id="pageBottom" class="bottom noselect">
+    <app-set-mode class="mode"></app-set-mode>
+    <app-select-lang class="lang"></app-select-lang>
+  </div>
+
+  <div id="pageFooter" class="footer-secondary">
+    <a href="https://rs.school/js/">
+      <img class="rsschool-img" src="../../../../assets/RSSchool_logo.svg" alt="RSSchool" />
+    </a>
+    <app-git-menu></app-git-menu>
+    <p class="creation noselect">@ 2021</p>
+  </div>
+</section>
