@@ -7,7 +7,7 @@ import { MatDialog } from '@angular/material/dialog';
 
 import { WarningComponent } from '../../../shared/components/warning/warning.component';
 import {
- IProjectWithFavourite, IQueryOptions, ISearchResults
+ IProjectWithFavourite, IQueryOptions, ISearchResults, IProject
 } from '../../../core/models/projects.model';
 import { GlobalGivingApiService } from '../../../core/service/global-giving-api.service';
 import { DataService } from '../../../core/service/data.service';
@@ -15,6 +15,29 @@ import { PreloaderService } from '../../../core/service/preloader.service';
 import { AuthService } from '../../../core/service/auth.service';
 import { SettingsService } from '../../../settings/servise/settings.service';
 import { IFavourite } from '../../../settings/models/favourite.model';
+
+interface IGeometry {
+  type: string;
+  coordinates: number[];
+}
+
+interface PropertiesGeoJSON {
+  projectId: number;
+  title: string;
+  contactCity: string;
+  contactCountry: string;
+}
+
+interface IGeoJson {
+  type: string;
+  geometry: IGeometry;
+  properties: PropertiesGeoJSON;
+}
+
+interface ICollectionsGeoJSON {
+  type: string;
+  features: IGeoJson[];
+}
 
 @Component({
   selector: 'app-project-list',
@@ -62,6 +85,8 @@ export class ProjectListComponent implements OnInit, OnDestroy {
     active: '',
     direction: ''
   };
+
+  dataForMap!: ICollectionsGeoJSON;
 
   constructor(
     private globalGivingApiService: GlobalGivingApiService,
@@ -125,6 +150,9 @@ export class ProjectListComponent implements OnInit, OnDestroy {
           fundingIndicator: (Math.floor(100 * (obj.funding / obj.goal)) > 100) ? '100%'
           : `${Math.floor(100 * (obj.funding / obj.goal))}%`
         }));
+        this.dataForMap = this.createGeoJson(this.dataProjects);
+        localStorage.setItem('rs_geoJson', JSON.stringify(this.dataForMap));
+        console.log(this.dataForMap);
         this.error = false;
         this.errorMessage = '';
         this.preloader.hide();
@@ -185,6 +213,28 @@ export class ProjectListComponent implements OnInit, OnDestroy {
         });
       });
     }
+  }
+
+  createGeoJson(data: IProject[]): ICollectionsGeoJSON {
+    const geoJson: ICollectionsGeoJSON = { type: 'FeatureCollection', features: [] };
+    // eslint-disable-next-line array-callback-return
+    data.map((dataItem): void => {
+      const newFeature = {
+        type: "Feature",
+        geometry: {
+          type: "Point",
+          coordinates: [dataItem.longitude, dataItem.latitude]
+        },
+        properties: {
+          projectId: dataItem.id,
+          title: dataItem.title,
+          contactCountry: dataItem.contactCountry,
+          contactCity: dataItem.contactCity
+        }
+      }
+      geoJson.features.push(newFeature);
+    });
+    return geoJson;
   }
 
   ngOnDestroy(): void {
